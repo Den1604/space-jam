@@ -1,0 +1,60 @@
+% automatically dumped from map omo_08
+
+#new:Npc $omo_08_80247B3C_1F0 {
+.NpcID:TrainStationToad_01 $NpcSettings_80247650_omo_08 00000000 00000000 00000000 
+00400D05 $Script_Init_802478FC_omo_08 00000000 00000000 0000005A 
+~NoDrops
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+~AnimationTable:NPC_TrainStationToad_01 % .Sprite:TrainStationToad
+00000000 00000000 00000000 001A00B8 % He's an employee of the Toy Box station. The emplo ...
+}
+
+#new:Script $Script_80247640_omo_08 {
+    0:  Return
+    8:  End
+}
+
+#new:NpcSettings $NpcSettings_80247650_omo_08 {
+00000000 00200018 $Script_80247640_omo_08 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00630000 
+}
+
+#new:Script $Script_Interact_80247758_omo_08 {
+    0:  Switch  *GB_StoryProgress 
+    C:  	Case  <  .Story:Ch4_SolvedColorPuzzle % 0
+   18:  		Call  FindKeyItem   ( .Item:MysteryNote *Var0 )
+   2C:  		If  *Var0  ==  FFFFFFFF 
+   3C:  			If  *GF_OMO09_SpawnedPeachChoice3  ==  .False 
+   4C:  				Call  SpeakToPlayer ( .Npc:Self 008C0304 008C0301 00000000 000F002B ) % This is Green Station. I'm certainly feeling green ...
+   6C:  			Else
+   74:  				If  *GF_OMO09_Chest_Dictionary  ==  .False 
+   84:  					Call  SpeakToPlayer ( .Npc:Self 008C0304 008C0301 00000000 000F002C ) % I witnessed a Shy Guy with a book running to the r ...
+   A4:  				Else
+   AC:  					Call  SpeakToPlayer ( .Npc:Self 008C0304 008C0301 00000000 000F002F ) % It looks like the Shy Guys are really robbing Toad ...
+   CC:  				EndIf
+   D4:  			EndIf
+   DC:  		Else
+   E4:  			Call  SpeakToPlayer ( .Npc:Self 008C0304 008C0301 00000000 000F002D ) % That Memo you have is written in Shy Guy language. ...
+  104:  		EndIf
+  10C:  	Case  <  .Story:Ch4_WattJoinedParty % 2
+  118:  		Call  SpeakToPlayer ( .Npc:Self 008C0304 008C0301 00000000 000F002E ) % We can go to Red Station now! Great! Feel free to  ...
+  138:  	Case  <  .Story:Ch4_DefeatedGeneralGuy % 4
+  144:  		Call  SpeakToPlayer ( .Npc:Self 008C0304 008C0301 00000000 000F002F ) % It looks like the Shy Guys are really robbing Toad ...
+  164:  	Default
+  16C:  		Call  SpeakToPlayer ( .Npc:Self 008C0304 008C0301 00000000 000F0030 ) % I'm sure the Shy Guys are going to knock it off fo ...
+  18C:  EndSwitch
+  194:  Return
+  19C:  End
+}
+
+#new:Script $Script_Init_802478FC_omo_08 {
+    0:  Call  BindNpcInteract   ( .Npc:Self $Script_Interact_80247758_omo_08 )
+   14:  Return
+   1C:  End
+}
+

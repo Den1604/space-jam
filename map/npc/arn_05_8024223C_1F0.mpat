@@ -1,0 +1,50 @@
+% automatically dumped from map arn_05
+
+#new:Npc $arn_05_8024223C_1F0 {
+.NpcID:Boo_01 $NpcSettings_80241758_arn_05 00000000 00000000 00000000 
+00000D01 $Script_Init_80242008_arn_05 00000000 00000000 0000010E 
+~NoDrops
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+~AnimationTable:NPC_Boo_01 % .Sprite:Boo
+00000000 00000000 00000000 001A00AF % That's a Boo who lives here in Gusty Gulch. Boos l ...
+}
+
+#new:NpcSettings $NpcSettings_80241758_arn_05 {
+00000000 00180018 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00630000 
+}
+
+#new:Script $Script_Interact_80241924_arn_05 {
+    0:  Switch  *GB_StoryProgress 
+    C:  	Case  <  .Story:Ch3_TubbaChasedMarioInFoyer % FFFFFFE6
+   18:  		If  *AreaFlag[007]  ==  .False 
+   28:  			Call  SpeakToPlayer ( .Npc:Self 00950104 00950101 00000000 000E0099 ) % My friend escaped from Tubba Blubba's Castle. He c ...
+   48:  			Set   *AreaFlag[007]  .True 
+   58:  		Else
+   60:  			Call  SpeakToPlayer ( .Npc:Self 00950104 00950101 00000000 000E009A ) % Tubba Blubba sometimes travels down to the foot of ...
+   80:  			Set   *AreaFlag[007]  .False 
+   90:  		EndIf
+   98:  	Case  <  .Story:Ch3_DefeatedTubbaBlubba % FFFFFFF0
+   A4:  		Call  SpeakToPlayer ( .Npc:Self 00950104 00950101 00000000 000E009C ) % Buh? Whuh? What? Tubba Blubba's coming?
+   C4:  	Case  <  .Story:Ch3_BeganPeachMission % FFFFFFF2
+   D0:  		Call  SpeakToPlayer ( .Npc:Self 00950104 00950101 00000000 000E009D ) % I swear, when I first saw my friends who had been  ...
+   F0:  	Case  <  .Story:Ch5_StarSpritDeparted % 27
+   FC:  		Call  SpeakToPlayer ( .Npc:Self 00950104 00950101 00000000 000E009E ) % Boos are saying that Tubba Blubba took off. Phew!  ...
+  11C:  	Case  >=  .Story:Ch5_StarSpritDeparted % 27
+  128:  		Call  SpeakToPlayer ( .Npc:Self 00950104 00950101 00000000 000E009F ) % Everyone is so crazy about the lovely Victoria. Bu ...
+  148:  EndSwitch
+  150:  Return
+  158:  End
+}
+
+#new:Script $Script_Init_80242008_arn_05 {
+    0:  Call  BindNpcInteract   ( .Npc:Self $Script_Interact_80241924_arn_05 )
+   14:  Return
+   1C:  End
+}
+

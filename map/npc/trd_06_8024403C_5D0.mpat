@@ -1,0 +1,44 @@
+% automatically dumped from map trd_06
+
+#new:Npc $trd_06_8024403C_5D0 {
+.NpcID:WorldBombomb_05 $NpcSettings_80242620_trd_06 00000000 00000000 00000000 
+00000801 $Script_Init_80243858_trd_06 00000000 00000000 0000005A 
+~Items:5:HoneySyrup:5:FireFlower:5
+~HP:Standard:2 ~FP:Standard:2 ~CoinBonus:0:1
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+~AnimationTable:NPC_WorldBombomb_05 % .Sprite:WorldBombomb
+00000000 00000000 00000000 001A0081 % That Bob-omb's been jailed. I wonder if they get h ...
+}
+
+#new:NpcSettings $NpcSettings_80242620_trd_06 {
+00000000 00170014 00000000 00000000 00000000 80077F70 00000000 8007809C 
+00000000 00000000 00060000 
+}
+
+#new:Script $Script_Interact_8024371C_trd_06 {
+    0:  If  *GF_TRD06_BombedWall  ==  .False 
+   10:  	If  *AreaFlag[009]  ==  .False 
+   20:  		Call  SpeakToPlayer ( .Npc:Self 00910004 00910001 00000000 000C00ED ) % Those stinking Koopa Bros. worked us way too hard. ...
+   40:  		Set   *AreaFlag[009]  .True 
+   50:  	Else
+   58:  		Call  SpeakToPlayer ( .Npc:Self 00910004 00910001 00000000 000C00EE ) % Those stinking Koopa Bros. worked us way too hard. ...
+   78:  		Set   *AreaFlag[009]  .False 
+   88:  	EndIf
+   90:  Else
+   98:  	Call  SpeakToPlayer ( .Npc:Self 00910004 00910001 00000000 000C00EF ) % Let's get out of here!
+   B8:  EndIf
+   C0:  Return
+   C8:  End
+}
+
+#new:Script $Script_Init_80243858_trd_06 {
+    0:  Call  BindNpcInteract   ( .Npc:Self $Script_Interact_8024371C_trd_06 )
+   14:  Return
+   1C:  End
+}
+

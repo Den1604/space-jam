@@ -1,0 +1,64 @@
+% automatically dumped from map sam_01
+
+#new:Npc $sam_01_802495D8_3E0 {
+.NpcID:Penguin_11 $NpcSettings_802436D0_sam_01 00000000 00000000 00000000 
+00600D09 $Script_Init_80248308_sam_01 00000000 00000000 000000B4 
+~NoDrops
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+~AnimationTable:NPC_Penguin_11 % .Sprite:Penguin
+00000000 00000000 00000000 001A00EA % There aren't many non-penguins, so we stand out in ...
+}
+
+#new:NpcSettings $NpcSettings_802436D0_sam_01 {
+00000000 00180018 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00630000 
+}
+
+#new:Script $Script_Interact_80247BF4_sam_01 {
+    0:  Switch  *GB_StoryProgress 
+    C:  	Case  <  .Story:Ch7_MayorMurderSolved % 43
+   18:  		Call  SpeakToPlayer ( 00000009 009A0004 009A0001 00000005 00120061 ) % Mayor Penguin was murdered! In his back room! And  ...
+   38:  		Wait  10`
+   44:  		Call  SpeakToPlayer ( 0000000A 009A0004 009A0001 00000005 00120062 ) % Oh! It can't be! It's like we're in one of Herring ...
+   64:  		Wait  10`
+   70:  		Call  SpeakToPlayer ( 0000000B 009A0004 009A0001 00000005 00120063 ) % The Mayor's wife said the man with the mustache di ...
+   90:  		Wait  10`
+   9C:  		Call  SpeakToPlayer ( 0000000C 009A0004 009A0001 00000005 00120064 ) % Brrr! How terrifying! It just goes to show you tha ...
+   BC:  	Case  ==  .Story:Ch7_MayorMurderSolved % 43
+   C8:  		Call  SpeakToPlayer ( 00000009 009A0004 009A0001 00000005 00120065 ) % The Mayor wasn't murdered! He just whacked his own ...
+   E8:  		Wait  10`
+   F4:  		Call  SpeakToPlayer ( 0000000A 009A0004 009A0001 00000005 00120066 ) % But that means... ...the man with the mustache was ...
+  114:  		Wait  10`
+  120:  		Call  SpeakToPlayer ( 0000000B 009A0004 009A0001 00000005 00120067 ) % Yeah, you're right! Hey, I solved the case! The cr ...
+  140:  		Wait  10`
+  14C:  		Call  SpeakToPlayer ( 0000000C 009A0004 009A0001 00000005 00120068 ) % Waaaa ha ha ha ha! Who would've believed we'd have ...
+  16C:  		Exec  $Script_80247900_sam_01 
+  178:  		Wait  1`
+  184:  EndSwitch
+  18C:  Return
+  194:  End
+}
+
+#new:Script $Script_Interact_80247DAC_sam_01 {
+    0:  ExecWait  $Script_Interact_80247BF4_sam_01 
+    C:  Return
+   14:  End
+}
+
+#new:Script $Script_Init_80248308_sam_01 {
+    0:  Call  BindNpcInteract   ( .Npc:Self $Script_Interact_80247DAC_sam_01 )
+   14:  Switch  *GB_StoryProgress 
+   20:  	Case  <  .Story:Ch7_MayorMurderMystery % 3F
+   2C:  	Case  <  .Story:Ch7_MayorMurderSolved % 43
+   38:  		Call  SetNpcPos ( .Npc:Self  -120`  0`  -30` )
+   54:  	Case  >=  .Story:Ch7_MayorMurderSolved % 43
+   60:  EndSwitch
+   68:  Return
+   70:  End
+}
+

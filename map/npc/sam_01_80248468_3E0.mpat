@@ -1,0 +1,59 @@
+% automatically dumped from map sam_01
+
+#new:Npc $sam_01_80248468_3E0 {
+.NpcID:MayorPenguinWife_02 $NpcSettings_802436D0_sam_01 00000000 00000000 00000000 
+00400C09 $Script_Init_80247F04_sam_01 00000000 00000000 0000010E 
+~NoDrops
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+~AnimationTable:NPC_MayorPenguinWife_02 % .Sprite:MayorPenguinWife
+00000000 00000000 00000000 001A00E5 % She's the wife of Mayor Penguin, who's the mayor o ...
+}
+
+#new:NpcSettings $NpcSettings_802436D0_sam_01 {
+00000000 00180018 00000000 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00630000 
+}
+
+#new:Script $Script_Interact_80246D90_sam_01 {
+    0:  Switch  *GB_StoryProgress 
+    C:  	Case  <  .Story:Ch7_MayorMurderMystery % 3F
+   18:  		If  *GF_SAM01_Met_MayorsWife  ==  .False 
+   28:  			Call  SpeakToPlayer ( .Npc:Self 00CF0004 00CF0001 00000000 00120000 ) % Oh, we have a guest! Welcome! You poor man, you mu ...
+   48:  			Set   *GF_SAM01_Met_MayorsWife  .True 
+   58:  		Else
+   60:  			Call  SpeakToPlayer ( .Npc:Self 00CF0004 00CF0001 00000000 00120001 ) % If you'd like to see my husband, he's in the other ...
+   80:  		EndIf
+   88:  	Case  <  .Story:Ch7_MayorMurderSolved % 43
+   94:  		Call  SpeakToPlayer ( .Npc:Self 00CF0008 00CF0001 00000000 0012001C ) % You killed him, didn't you? I knew my instincts we ...
+   B4:  	Case  <  .Story:Ch7_GotSnowmanScarf % 48
+   C0:  		Call  SpeakToPlayer ( .Npc:Self 00CF0005 00CF0001 00000000 00120035 ) % Uh...I knew you were innocent the whole time! A ba ...
+   E0:  	Case  <  .Story:Ch7_GotSnowmanBucket % 49
+   EC:  		Call  SpeakToPlayer ( .Npc:Self 00CF0005 00CF0001 00000000 00120036 ) % Hi there! How are you? Herringway's mystery novels ...
+  10C:  	Case  <  .Story:Ch7_StarSpiritRescued % 57
+  118:  		Call  SpeakToPlayer ( .Npc:Self 00CF0005 00CF0001 00000000 00120037 ) % Oh, hello there, Mario! My husband tells me you're ...
+  138:  	Case  >=  .Story:Ch7_StarSpiritRescued % 57
+  144:  		Call  SpeakToPlayer ( .Npc:Self 00CF0005 00CF0001 00000000 00120038 ) % My husband says that you're preparing to fight Bow ...
+  164:  EndSwitch
+  16C:  Return
+  174:  End
+}
+
+#new:Script $Script_Init_80247F04_sam_01 {
+    0:  Call  BindNpcInteract   ( .Npc:Self $Script_Interact_80246D90_sam_01 )
+   14:  Switch  *GB_StoryProgress 
+   20:  	Case  <  .Story:Ch7_MayorMurderMystery % 3F
+   2C:  		Call  SetNpcPos ( .Npc:Self  -310`  0`  94` )
+   48:  	Case  <  .Story:Ch7_MayorMurderSolved % 43
+   54:  		Call  SetNpcPos ( .Npc:Self  -297`  0`  -69` )
+   70:  	Case  >=  .Story:Ch7_MayorMurderSolved % 43
+   7C:  		Call  SetNpcPos ( .Npc:Self  -297`  0`  -69` )
+   98:  EndSwitch
+   A0:  Return
+   A8:  End
+}
+
