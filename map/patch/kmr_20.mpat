@@ -1,15 +1,9 @@
 @ $Script_8024FD70 {
-    Set *Var1 0 %for CK debug map, set to 1
     Call  DisablePlayerInput    ( .True )
     Thread
         Wait  5`
         Call  SetMusicTrack ( 00000000 .Song:MailCall 00000000 00000008 )
     EndThread
-    %temporary
-    If *Var1 == 1
-        Call GotoMap ("tst_tmp" 0)
-    EndIf
-    %
     Call  InterpPlayerYaw   (  90`  0` )
     Call  SetPlayerPos  ( 220`  30`  -80` )
     Call  SetNpcPos     ( 00000000  720`  220`  -150` )
@@ -89,37 +83,13 @@
     Kill  *VarA
     Wait  20`
     Call  SpeakToPlayer ( 00000000 00040006 00040001 00000000 0000001F ) % Parakarry asks Mario for help
-    Call  ShowChoice    ( 001E0005 ) % Yes No
-    If *Var0 == 1
-        Call  CloseMessage()
-        Call  GetNpcPos   ( 00000000 *Var0 *Var1 *Var2 )
-        Add *Var0 -4`
-        Add *Var1 15`
-        %Call  PlayEffect    ( ~FX:EmoteIcon:Ellipsis 00000000 *Var0 *Var1 *Var2 0000001E 0000013B 0000001E 00000000 00000000 00000000 00000000 00000000 )
-        Call  GetNpcPos   ( 00000000 *Var0 *Var1 *Var2 )
-        Add   *Var1  0000001E 
-        Call  ShowEmote     ( 00000000 .Emote:Ellipsis  -45`  40` 00000002 *Var0 *Var1 *Var2  5` )
-        Wait 60`
-        Call  SpeakToPlayer ( 00000000 00040006 00040001 00000000 00000021 ) % Parakarry will try to get the presents alone
-        Wait 10`
-        Call  NpcFlyTo      ( 00000000  360`  260`  60`  60`  -10` .Easing:Linear )
-        Wait 30`
-        Call  ClearAmbientSounds    ( 000000FA ) %birds pls stop
-        Call GotoMap ("sam_13" 0) %enter parakarry cutscene
-        Wait 12`
-        %Call $removePlayerSpriteVisibilty()
-        Call $SetParakarryAsActivePartner ( )
-        %Call $partnerPositionBoolOn
-        Return
-    Else
-        Call  SetNpcAnimation   ( 00000000 00040007 ) %happy animation
-        Call  CloseMessage()
-        Wait 15`
-        Call  SetNpcAnimation   ( 00000000 00040001 ) %idle animation
-        Wait 20`
-        Call  SpeakToPlayer ( 00000000 00040006 00040001 00000000 00000025 ) % Parakarry thanks you
-        Wait 10`
-    EndIf
+    Call  SetNpcAnimation   ( 00000000 00040007 ) %happy animation
+    Call  CloseMessage()
+    Wait 15`
+    Call  SetNpcAnimation   ( 00000000 00040001 ) %idle animation
+    Wait 20`
+    Call  SpeakToPlayer ( 00000000 00040006 00040001 00000000 00000025 ) % Parakarry thanks you
+    Wait 10`
     Call  $Function_80241030    ( 00000000 00000004 )
     Call  $LoadParakarryImage ( )
     Call  SetMusicTrack ( 00000000 .Song:NewPartner 00000000 00000008 )
@@ -129,7 +99,6 @@
     Wait 10`
     Call  SetMusicTrack ( 0 .Song:MarioBrosHouse 0 8 )
     Call SpeakToPlayer ( .Npc:Partner 00050006 00050002 00000000 00000026 )
-    Call SetNpcPos ( 00000001 0` -1000` 0` )
     Exec  $Script_80243B64
     Call  EnablePartnerAI ()
     Call  DisablePlayerInput ( .False )
@@ -348,6 +317,7 @@
     Else
         Call  MakeNpcs  ( .False $NpcGroupList_8024DEDC )
     EndIf
+    Call SetNpcPos ( 00000001 0` -1000` 0` )
     ExecWait  $Script_MakeEntities
     Call  EnableGroup   ( ~Model:g100 .False )
     Exec  $Script_80246794
