@@ -570,6 +570,7 @@
 	</Area>
 	<Area name="btf" nickname="Better Than Fish">
 		<Map name="btf_00"/>
+		<Map name="btf_01" nickname="Yeet Cutscene Map"/>
 	</Area>
 	<Resource name="mac_tex" compressed="false"/>
 	<Resource name="tik_tex" compressed="false"/>
