@@ -17,8 +17,8 @@
 {
     Call DisablePlayerInput ( .True )
     Call DisablePartnerAI ( .True )
-    Call SetNpcPos ( .Npc:Partner 0` -1000` 0` )
     Loop 
+        Call SetNpcPos ( .Npc:Partner 0` -1000` 0` )
         Add *Var5 20`
         Call RotateModel ( ~Model:Mario *Var5 1` 0` 0` )
         Call RotateModel ( ~Model:Parakarry *Var5 1` 0` 0` )
