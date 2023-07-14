@@ -274,7 +274,7 @@
 	Call  SetCamEnabled      ( .Cam:Default .True
 	Call  SetCamLeadPlayer   ( .Cam:Default .False )
 	
-	Bind $Script_BlackHoleTestCutscene .Trigger:FloorPressA ~Collider:TEST_col 00000001 00000000
+	%Bind $Script_BlackHoleTestCutscene .Trigger:FloorPressA ~Collider:TEST_col 00000001 00000000
 	
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
@@ -285,17 +285,12 @@
 
 #new:Script $Script_BlackHoleTestCutscene
 {
-
-Call  DisablePlayerInput    ( .True )
-%Call DisablePlayerPhysics ( .True )
-
-    Call GetModelCenter ( ~Model:Black_Hole_Inner )
-Loop
-    %Sub *Var2 1`
-    %Call InterpPlayerYaw ( 180` 20` )
-    Call SetPlayerPos ( *Var0 *Var1 *Var2 )
-    Wait 1
-EndLoop
+    %Call GetModelCenter ( ~Model:Black_Hole_Inner )
+%Loop
+    %Call DisablePartnerAI ( .True )
+    %Call SetNpcAnimation ( .NpcID:Partner 00040005 )
+   % Wait 1
+%EndLoop
 
 Return
 End
