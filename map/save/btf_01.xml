@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_01" author="unnamed" background="hos_bg" textures="hos_tex">
 	<Editor>
-		<Camera pos="900.000000,-183.531433,1934.666626" pitch="9.000000" yaw="0.000000"/>
+		<Camera pos="171.348633,289.157623,912.456360" pitch="28.720011" yaw="358.079926"/>
 		<Camera pos="47.311665,65536.000000,176.010895"/>
 		<Camera pos="65536.000000,-50.000000,0.000000"/>
 		<Camera pos="4.736463,-293.164001,65536.000000"/>
@@ -315,7 +315,7 @@
 			<HitObject type="ROOT"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="CamZone2" id="1"/>
+			<MapObject name="CamZone2" id="1" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -352,7 +352,7 @@
 			<Camera type="TYPE_4" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="900,-300,1600" posB="900,-300,1500" posC="100,0,100"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="CamZone1" id="0"/>
+			<MapObject name="CamZone1" id="0" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -394,11 +394,11 @@
 			<MapObject name="Root" id="4"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="600,-300,1200" yaw="0.000000">
-			<MapObject name="CamPan" id="3"/>
+			<MapObject name="CamPan" id="3" hidden="true"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="0.500000" samplePos="700,0,400" overrideLength="450.000000" overrideAngles="15.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="Path" pos="290,0,256" yaw="0.000000">
-			<MapObject name="ParakarryYeetPathMarker" id="2"/>
+			<MapObject name="ParakarryYeetPathMarker" id="2" hidden="true"/>
 			<Path>
 				<Waypoint pos="290,0,256"/>
 				<Waypoint pos="274,45,191"/>
@@ -410,7 +410,7 @@
 			</Path>
 		</Marker>
 		<Marker ver="4" type="Path" pos="248,0,256" yaw="0.000000">
-			<MapObject name="MarioYeetPathMarker" id="1"/>
+			<MapObject name="MarioYeetPathMarker" id="1" hidden="true"/>
 			<Path>
 				<Waypoint pos="248,0,256"/>
 				<Waypoint pos="232,45,191"/>
@@ -425,7 +425,7 @@
 			<MapObject name="Entrances" id="0"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="-484,0,202" yaw="180.000000">
-			<MapObject name="entry_n" id="FFFFFFFF"/>
+			<MapObject name="entry_n" id="FFFFFFFF" hidden="true"/>
 		</Marker>
 	</Markers>
 	<ScriptData>

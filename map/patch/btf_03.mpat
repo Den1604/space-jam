@@ -1,0 +1,56 @@
+@ $Script_EnterMap {
+    Call  GetEntryID    ( *Var[0] )
+    Switch  *Var[0]
+        Case  ==  ~Entry:Entry0
+            Exec  $Script_CreateExitTriggers
+            Exec  $Script_Mario_And_Parakarry_Crash
+        Case  ==  ~Entry:Entry1
+            Set   *Var[0] $Script_CreateExitTriggers
+            Exec  EnterWalk
+        Default
+            Exec  $Script_CreateExitTriggers
+    EndSwitch
+    Return
+    End
+}
+
+
+#new:Script $Script_Mario_And_Parakarry_Crash
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePlayerPhysics ( .True )
+    Call DisablePartnerAI ( .True )
+    Call SetPlayerPos ( ~Vec3D:SpawnPos1 )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:SpawnPos2 )
+    Call SetPlayerAnimation ( 0001000E )
+    Call SetNpcAnimation ( .Npc:Partner 00040004 )
+    ExecWait $Script_PanCamera_CamPan
+    Exec $Script_ParakarryAnim
+    Call SetPlayerJumpscale ( *Fixed[2.0] )
+    %Call SetNpcJumpscale ( .Npc:Partner *Fixed[2.0] )
+    Call PlayerJump2 ( ~Vec3D:MarioLand 60` )
+    Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryLand 60` 15` .Easing:Linear )
+    Call ResetCam ( .Cam:Default *Fixed[4.0] )
+    Set *MapFlag[1] .True
+    Call EnablePartnerAI ()
+    Call DisablePlayerPhysics ( .False )
+    Call DisablePlayerInput ( .False )
+    Return 
+    End
+}
+
+#new:Script $Script_ParakarryAnim
+{
+    Set *Var1 0`
+    Loop
+        Add *Var1 36`
+        Call SetNpcRotation ( .Npc:Partner 0` *Var1 0` )
+        Wait 1`
+        If *MapFlag[1] == .True
+            BreakLoop
+        EndIf
+    EndLoop
+    Call SetNpcRotation ( .Npc:Partner 0` 0` 0` )
+    Return
+    End
+}

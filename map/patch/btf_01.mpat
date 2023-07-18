@@ -56,7 +56,7 @@
         EndLoop
     EndThread
     Wait 120`
-    Call GotoMap ( "btf_01" 00000000 )
+    Call GotoMap ( "btf_03" 00000000 )
     Return
     End
 }
