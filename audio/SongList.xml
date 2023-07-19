@@ -144,7 +144,7 @@
 	<Song id="8C" BGM="bgm/72_182.bgm"/> <!-- PopDivaSong -->
 	<Song id="8D" BGM="bgm/73_199.bgm"/> <!-- BooMinigame -->
 	<Song id="8E" BGM="bgm/0C_328.bgm"/> <!-- LevelUp -->
-	<Song id="8F" BGM="bgm/2F_104.bgm"/>
+	<Song id="8F" BGM="bgm/8F_SpaceJunk.bgm"/>
 	<Song id="90" BGM="bgm/88_324.bgm"/> <!-- ParadeDay -->
 	<Song id="91" BGM="bgm/89_325.bgm"/> <!-- ParadeNight -->
 	<Song id="92" BGM="bgm/2F_104.bgm"/>

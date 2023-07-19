@@ -291,7 +291,7 @@
 
 #new:Script $Script_PanCamera_CamPan
 {
-	Call  UseSettingsFrom   ( .Cam:Default -172` 0` 0` )
+	Call  UseSettingsFrom   ( .Cam:Default -138` 0` 0` )
 	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
 	Call  SetCamDistance    ( .Cam:Default 450` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan )
@@ -304,7 +304,7 @@
 
 #new:Script $Script_SetupMusic
 {
-	Call  FadeOutMusic  ( 00000000 500` ) % usually between 500-1000
+	Call  SetMusicTrack ( 00000000 .Song:PleasantPath 00000000 00000008 )
 	Call  ClearAmbientSounds ( 250` )
 	Return
 	End

@@ -2,7 +2,12 @@
     Call  GetEntryID    ( *Var[0] )
     Switch  *Var[0]
         Case  ==  ~Entry:Entry0
+            Thread
+                Wait 45`
+                Call PlaySound ( 00000161 )
+            EndThread
             Exec  $Script_CreateExitTriggers
+            ExecWait $Script_PanCamera_CamPan
             Exec  $Script_Mario_And_Parakarry_Crash
         Case  ==  ~Entry:Entry1
             Set   *Var[0] $Script_CreateExitTriggers
@@ -18,22 +23,32 @@
 #new:Script $Script_Mario_And_Parakarry_Crash
 {
     Call DisablePlayerInput ( .True )
-    Call DisablePlayerPhysics ( .True )
-    Call DisablePartnerAI ( .True )
+    Call DisablePartnerAI ( 00000000 )
     Call SetPlayerPos ( ~Vec3D:SpawnPos1 )
     Call SetNpcPos ( .Npc:Partner ~Vec3D:SpawnPos2 )
     Call SetPlayerAnimation ( 0001000E )
-    Call SetNpcAnimation ( .Npc:Partner 00040004 )
-    ExecWait $Script_PanCamera_CamPan
-    Exec $Script_ParakarryAnim
-    Call SetPlayerJumpscale ( *Fixed[2.0] )
-    %Call SetNpcJumpscale ( .Npc:Partner *Fixed[2.0] )
-    Call PlayerJump2 ( ~Vec3D:MarioLand 60` )
-    Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryLand 60` 15` .Easing:Linear )
+    Exec $Script_Mario_Falling_In
+    ExecWait $Script_Parakarry_Falling_In
     Call ResetCam ( .Cam:Default *Fixed[4.0] )
-    Set *MapFlag[1] .True
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0000 )
+    Call InterpNpcYaw ( .Npc:Partner 143`  3` )
+    Wait  15`
+    Call InterpNpcYaw ( .Npc:Partner 323`  3` )
+    Wait  25`
+    Call InterpNpcYaw ( .Npc:Partner 143`  3` )
+    Wait  15`
+    Call InterpNpcYaw ( .Npc:Partner 323`  3` )
+    Wait  25`
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0001 )
+    Call SetPlayerAnimation ( 00010029 )
+    Wait 15`
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0002 )
+    Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryMoveTo1 10` 0` .Easing:Linear )
+    Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryMoveTo2 10` 0` .Easing:Linear )
+    Call InterpNpcYaw ( .Npc:Partner 143`  3` )
     Call EnablePartnerAI ()
-    Call DisablePlayerPhysics ( .False )
+    Call SetPlayerAnimation ( 00010002 )
+    Call  SetMusicTrack ( 00000000 .Song:SpaceJunk 00000000 00000008 )
     Call DisablePlayerInput ( .False )
     Return 
     End
@@ -50,7 +65,60 @@
             BreakLoop
         EndIf
     EndLoop
+    Set *Var1 0`
+    Loop 36`
+        Add *Var1 10`
+        Call SetNpcRotation ( .Npc:Partner 0` *Var1 0` )
+        Wait 1`
+    EndLoop
+    Set *Var1 0`
     Call SetNpcRotation ( .Npc:Partner 0` 0` 0` )
+    Return
+    End
+}
+
+#new:Script $Script_Mario_Falling_In
+{
+    Call SetPlayerJumpscale ( *Fixed[2.0] )
+    Call PlayerJump1 ( ~Vec3D:MarioLand 45` )
+    Call SetPlayerAnimation ( 0001000F )
+    Call PlaySoundAtPlayer ( 000003E3 00000000 )
+    Call InterpPlayerYaw ( 245`  3` )
+    Call ShakeCam ( .Cam:Default 1 5` 1` )
+    Wait 15`
+    Call SetPlayerAnimation ( 00010030 )
+    Wait 10`
+    Call SetPlayerAnimation ( 00010003 )
+    Wait 15`
+    Thread
+        Call  PlaySoundAtPlayer ( 00000172 00000000 )
+        Wait 10`
+        Call  PlaySoundAtPlayer ( 00000172 00000000 )
+    EndThread
+    Call SetPlayerAnimation ( 00010031 )
+    Wait 15`
+    Return
+    End
+}
+
+#new:Script $Script_Parakarry_Falling_In
+{
+    Exec $Script_ParakarryAnim
+    Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryLand 60` 45` .Easing:Linear )
+    Set *MapFlag[1] .True
+    Wait 70`
+    Return
+    End
+}
+
+@ $Script_SetupMusic {
+    Call GetEntryID ( *VarB )
+    If *VarB == ~Entry:Entry0
+        Return
+    Else
+        Call  SetMusicTrack ( 00000000 .Song:SpaceJunk 00000000 00000008 )
+        Call  ClearAmbientSounds ( 250` )
+    EndIf
     Return
     End
 }

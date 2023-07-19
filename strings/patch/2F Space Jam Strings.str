@@ -1,0 +1,21 @@
+#string:2F:000
+{
+	[Style Right]
+	Ouchie.[BR]
+	[Wait][End]
+}
+
+#string:2F:001
+{
+	[Style Right]
+	Weird place, huh?[BR]
+	[Wait][End]
+}
+
+#string:2F:002
+{
+	[Style Right]
+	Guess we should follow the[BR]
+	path forwards, Mario.[BR]
+	[Wait][End]
+}
