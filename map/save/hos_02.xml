@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="hos_02" background="hos_bg" textures="hos_tex">
 	<Editor>
-		<Camera pos="393.000000,209.729797,274.000000" pitch="8.000000" yaw="0.000000"/>
+		<Camera pos="592.235779,587.408691,661.531677" pitch="21.679998" yaw="356.000031"/>
 		<Camera pos="393.000000,65536.000000,34.000000"/>
 		<Camera pos="65536.000000,176.000000,34.000000"/>
 		<Camera pos="393.000000,176.000000,65536.000000"/>

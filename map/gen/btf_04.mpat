@@ -266,7 +266,7 @@
 
 #new:Script_Main $Script_Main
 {
-	Set   *GB_WorldLocation  .Location:GoombaRoad
+	Set   *GB_WorldLocation  .Location:StarWay
 	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
 	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
 	Call  SetCamEnabled      ( .Cam:Default .True
@@ -299,10 +299,10 @@
 
 #new:Script $Script_SetupTexturePan
 {
+	Call     802C9000 	( ~Model:Starway 0 )
 	Call     802C9000 	( ~Model:k5 2 )
 	Call     802C9000 	( ~Model:k12 1 )
 	Call     802C9000 	( ~Model:k5 1 )
-	Call     802C9000 	( ~Model:Starway 0 )
 	Call     802C9000 	( ~Model:StarTorus 3 )
 	Thread
 		Set  *Var[0] 0

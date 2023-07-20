@@ -574,6 +574,7 @@
 		<Map name="btf_02" nickname="MuskularHome: Dock Room"/>
 		<Map name="btf_03" nickname="Pathway to Star Temple"/>
 		<Map name="btf_04" nickname="Star Temple Entrance"/>
+		<Map name="btf_05" nickname="Star Temple Inside"/>
 	</Area>
 	<Resource name="mac_tex" compressed="false"/>
 	<Resource name="tik_tex" compressed="false"/>

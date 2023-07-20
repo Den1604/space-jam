@@ -1,0 +1,21 @@
+% @Function 000892FC
+% {
+%     20:  LI        T0, 1C
+% }
+
+% @Function 0008930C
+% {
+%     30:  XORI      V0, V0, 3
+% }
+
+@Hook 00089314 %000892DC
+{
+    LI A0, 0
+    LI A1, *MF_SetStarParticles
+    JAL ~func:get_variable
+    NOP
+    LB V1, B4 (S0)
+    ADD A1, R0, V0
+    J 800EFE68
+    NOP
+}

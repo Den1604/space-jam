@@ -6,7 +6,7 @@
 }
 
 @ $Script_Main {
-    Set   *GB_WorldLocation  .Location:GoombaRoad
+    Set   *GB_WorldLocation  .Location:StarWay
     Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
     Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
     Call  SetCamEnabled      ( .Cam:Default .True
@@ -15,6 +15,9 @@
     Exec  $Script_SetupTexturePan
     Exec  $Script_EnterMap
     Exec  $Script_StarSpin
+    Exec  $Script_PostsMove
+    Bind  $Script_EnableSparkles .Trigger:FloorAbove ~Collider:StarwayPath 1 0
+    Bind  $Script_DisableSparkles .Trigger:FloorAbove ~Collider:NormalFloor 1 0
     Return
     End
 }
@@ -34,6 +37,205 @@
             Set *VarE 0`
         EndIf
     EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_PostsMove
+{
+    Exec $Script_Clouds1Move
+    Wait 1`
+    Exec $Script_Post1Move
+    Wait 10`
+    Exec $Script_Clouds2Move
+    Wait 1`
+    Exec $Script_Post2Move
+    Wait 10`
+    Exec $Script_Clouds3Move
+    Wait 1`
+    Exec $Script_Post3Move
+    Wait 10`
+    Exec $Script_Clouds4Move
+    Wait 1`
+    Exec $Script_Post4Move
+    Return
+    End
+}
+
+#new:Script $Script_Clouds1Move
+{
+    Set *Var1 0`
+    Loop
+        Loop 10`
+            Add *Var1 1`
+            Call TranslateGroup ( ~Model:Clouds1 0` *Var1 0` )
+            Wait 5`
+        EndLoop
+        Loop 10`
+            Sub *Var1 1`
+            Call TranslateGroup ( ~Model:Clouds1 0` *Var1 0` )
+            Wait 5`
+        EndLoop
+        Wait 5`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_Post1Move
+{
+    Set *Var2 0`
+    Loop
+        Loop 10`
+            Add *Var2 1`
+            Call TranslateGroup ( ~Model:PostGroup1 0` *Var2 0` )
+            Wait 5`
+        EndLoop
+        Loop 10`
+            Sub *Var2 1`
+            Call TranslateGroup ( ~Model:PostGroup1 0` *Var2 0` )
+            Wait 5`
+        EndLoop
+        Wait 5`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_Clouds2Move
+{
+    Set *Var3 0`
+    Loop
+        Loop 10`
+            Add *Var3 1`
+            Call TranslateGroup ( ~Model:Clouds2 0` *Var3 0` )
+            Wait 5`
+        EndLoop
+        Loop 10`
+            Sub *Var3 1`
+            Call TranslateGroup ( ~Model:Clouds2 0` *Var3 0` )
+            Wait 5`
+        EndLoop
+        Wait 5`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_Post2Move
+{
+    Set *Var4 0`
+    Loop
+        Loop 10`
+            Add *Var4 1`
+            Call TranslateGroup ( ~Model:PostGroup2 0` *Var4 0` )
+            Wait 5`
+        EndLoop
+        Loop 10`
+            Sub *Var4 1`
+            Call TranslateGroup ( ~Model:PostGroup2 0` *Var4 0` )
+            Wait 5`
+        EndLoop
+        Wait 5`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_Clouds3Move
+{
+    Set *Var5 0`
+    Loop
+        Loop 10`
+            Add *Var5 1`
+            Call TranslateGroup ( ~Model:Clouds3 0` *Var5 0` )
+            Wait 5`
+        EndLoop
+        Loop 10`
+            Sub *Var5 1`
+            Call TranslateGroup ( ~Model:Clouds3 0` *Var5 0` )
+            Wait 5`
+        EndLoop
+        Wait 5`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_Post3Move
+{
+    Set *Var6 0`
+    Loop
+        Loop 10`
+            Add *Var6 1`
+            Call TranslateGroup ( ~Model:PostGroup3 0` *Var6 0` )
+            Wait 5`
+        EndLoop
+        Loop 10`
+            Sub *Var6 1`
+            Call TranslateGroup ( ~Model:PostGroup3 0` *Var6 0` )
+            Wait 5`
+        EndLoop
+        Wait 5`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_Clouds4Move
+{
+    Set *Var7 0`
+    Loop
+        Loop 10`
+            Add *Var7 1`
+            Call TranslateGroup ( ~Model:Clouds4 0` *Var7 0` )
+            Wait 5`
+        EndLoop
+        Loop 10`
+            Sub *Var7 1`
+            Call TranslateGroup ( ~Model:Clouds4 0` *Var7 0` )
+            Wait 5`
+        EndLoop
+        Wait 5`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_Post4Move
+{
+    Set *Var8 0`
+    Loop
+        Loop 10`
+            Add *Var8 1`
+            Call TranslateGroup ( ~Model:PostGroup4 0` *Var8 0` )
+            Wait 5`
+        EndLoop
+        Loop 10`
+            Sub *Var8 1`
+            Call TranslateGroup ( ~Model:PostGroup4 0` *Var8 0` )
+            Wait 5`
+        EndLoop
+        Wait 5`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_EnableSparkles
+{
+    If *MF_SetStarParticles == .False
+        Set *MF_SetStarParticles .True
+    EndIf
+    Return
+    End
+}
+
+#new:Script $Script_DisableSparkles
+{
+    If *MF_SetStarParticles == .True
+        Set *MF_SetStarParticles .False
+    EndIf
     Return
     End
 }
