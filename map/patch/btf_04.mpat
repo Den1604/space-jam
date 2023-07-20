@@ -1,0 +1,39 @@
+@ $Script_SetupMusic {
+    Call  SetMusicTrack ( 00000000 .Song:SpaceJunk 00000000 00000008 )
+    Call  ClearAmbientSounds ( 250` )
+    Return
+    End
+}
+
+@ $Script_Main {
+    Set   *GB_WorldLocation  .Location:GoombaRoad
+    Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+    Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+    Call  SetCamEnabled      ( .Cam:Default .True
+    Call  SetCamLeadPlayer   ( .Cam:Default .False )
+    Exec  $Script_SetupMusic
+    Exec  $Script_SetupTexturePan
+    Exec  $Script_EnterMap
+    Exec  $Script_StarSpin
+    Return
+    End
+}
+
+#new:Script $Script_StarSpin
+{
+    Set *VarD 0`
+    Set *VarE 0`
+    Loop
+        Sub *VarD 1`
+        Add *VarE 1`
+        Call RotateModel ( ~Model:Star2Model *VarD 00000000 00000001 00000000 )
+        Call RotateModel ( ~Model:Star1Model *VarE 00000000 00000001 00000000 )
+        Wait 1`
+        If *VarE == 360`
+            Set *VarD 0`
+            Set *VarE 0`
+        EndIf
+    EndLoop
+    Return
+    End
+}

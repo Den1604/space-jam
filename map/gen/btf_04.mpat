@@ -1,17 +1,16 @@
-% Auto-generated script for btf_03
+% Auto-generated script for btf_04
 
 #new:Header $Header
 {
 	[MainScript] $Script_Main
 	[Background] 80200000
 	[EntryList] $EntryList
-	[EntryCount] 2
+	[EntryCount] 1
 }
 
 #new:EntryList $EntryList
 {
 	~Vec4f:Entry0
-	~Vec4f:Entry1
 }
 
 #new:Script $Script_TexturePan_Update
@@ -289,19 +288,6 @@
 	JPOP   RA
 }
 
-#new:Script $Script_PanCamera_CamPan
-{
-	Call  UseSettingsFrom   ( .Cam:Default -138` 0` 0` )
-	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
-	Call  SetCamDistance    ( .Cam:Default 450` )
-	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan )
-	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
-	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
-	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
-	Return
-	End
-}
-
 #new:Script $Script_SetupMusic
 {
 	Call  SetMusicTrack ( 00000000 .Song:PleasantPath 00000000 00000008 )
@@ -312,14 +298,65 @@
 
 #new:Script $Script_SetupTexturePan
 {
-	Call     802C9000 	( ~Model:StarPath 0 )
-	Call     802C9000 	( ~Model:StarPath2 0 )
+	Call     802C9000 	( ~Model:k5 2 )
+	Call     802C9000 	( ~Model:k12 1 )
+	Call     802C9000 	( ~Model:k5 1 )
+	Call     802C9000 	( ~Model:Starway 0 )
+	Call     802C9000 	( ~Model:StarTorus 3 )
 	Thread
 		Set  *Var[0] 0
 		Set  *Var[1] 50
 		Set  *Var[2] FFFFFF38
 		Set  *Var[3] FFFFFFCE
 		Set  *Var[4] 64
+		Set  *Var[5] 0
+		Set  *Var[6] 0
+		Set  *Var[7] 0
+		Set  *Var[8] 0
+		Set  *Var[9] 0
+		Set  *Var[A] 0
+		Set  *Var[B] 0
+		Set  *Var[C] 0
+		Exec $Script_TexturePan_Update
+	EndThread
+	Thread
+		Set  *Var[0] 1
+		Set  *Var[1] 190
+		Set  *Var[2] 0
+		Set  *Var[3] 0
+		Set  *Var[4] 0
+		Set  *Var[5] 0
+		Set  *Var[6] 0
+		Set  *Var[7] 0
+		Set  *Var[8] 0
+		Set  *Var[9] 0
+		Set  *Var[A] 0
+		Set  *Var[B] 0
+		Set  *Var[C] 0
+		Exec $Script_TexturePan_Update
+	EndThread
+	Thread
+		Set  *Var[0] 2
+		Set  *Var[1] FFFFFE70
+		Set  *Var[2] 0
+		Set  *Var[3] 0
+		Set  *Var[4] 0
+		Set  *Var[5] 0
+		Set  *Var[6] 0
+		Set  *Var[7] 0
+		Set  *Var[8] 0
+		Set  *Var[9] 0
+		Set  *Var[A] 0
+		Set  *Var[B] 0
+		Set  *Var[C] 0
+		Exec $Script_TexturePan_Update
+	EndThread
+	Thread
+		Set  *Var[0] 3
+		Set  *Var[1] C8
+		Set  *Var[2] 0
+		Set  *Var[3] 0
+		Set  *Var[4] 0
 		Set  *Var[5] 0
 		Set  *Var[6] 0
 		Set  *Var[7] 0
@@ -338,7 +375,7 @@
 {
 	Call  GetEntryID    ( *Var[0] )
 	Switch  *Var[0]
-		Case  ==  ~Entry:Entry1
+		Case  ==  ~Entry:Entry0
 			Set   *Var[0] $Script_CreateExitTriggers
 			Exec  EnterWalk
 		Default
@@ -348,12 +385,12 @@
 	End
 }
 
-#new:Script $Script_Exit_Entry1
+#new:Script $Script_Exit_Entry0
 {
 	SetGroup 0000001B
-	Call     UseExitHeading ( 60` ~Entry:Entry1 )
+	Call     UseExitHeading ( 60` ~Entry:Entry0 )
 	Exec     ExitWalk
-	Call  GotoMap   ( "btf_04" ~Entry:btf_04:Entry0 )
+	Call  GotoMap   ( "btf_03" ~Entry:btf_03:Entry1 )
 	Wait  100`
 	Return
 	End
@@ -361,7 +398,7 @@
 
 #new:Script $Script_CreateExitTriggers
 {
-	Bind  $Script_Exit_Entry1 .Trigger:FloorAbove ~Collider:EntryCollider 00000001 00000000
+	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:WesternLZCollider 00000001 00000000
 	Return
 	End
 }

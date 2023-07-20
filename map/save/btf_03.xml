@@ -5490,7 +5490,7 @@
 		<Generators>
 			<Entrance type="Teleport" hasCallback="false" entry="Entry0"/>
 			<Entrance type="Walk" hasCallback="false" entry="Entry1"/>
-			<Exit type="Walk" hasCallback="false" entry="Entry1" destMap="btf_03" destEntry="Entry1" trigger="EntryCollider"/>
+			<Exit type="Walk" hasCallback="false" entry="Entry1" destMap="btf_04" destEntry="Entry0" trigger="EntryCollider"/>
 		</Generators>
 		<Camera vfov="25" near="16" far="4096" bgcolor="0,0,0" leadsPlayer="false"/>
 		<Fog world="0,10,10,10,255,950,1000" entity="0,10,10,10,255,950,1000"/>
