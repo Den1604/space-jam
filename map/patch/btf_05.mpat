@@ -1,0 +1,64 @@
+
+
+@ $Script_Main {
+    Set   *GB_WorldLocation  .Location:GoombaRoad
+    Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+    Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+    Call  SetCamEnabled      ( .Cam:Default .True
+    Call  SetCamLeadPlayer   ( .Cam:Default .False )
+    Exec  $Script_SetupMusic
+    Exec  $Script_SetupTexturePan
+    Exec  $Script_EnterMap
+    Bind  $Script_DisableLeftSide .Trigger:FloorAbove ~Collider:RightCollider 1 0
+    Bind  $Script_DisableRightSide .Trigger:FloorAbove ~Collider:LeftCollider 1 0
+    Bind  $Script_EnableBothSides .Trigger:FloorAbove ~Collider:MainFloor 1 0
+    Exec  $Script_DisableStars
+    Return
+    End
+}
+
+@ $Script_SetupMusic {
+    Call  SetMusicTrack ( 00000000 .Song:SpaceJunk 00000000 00000008 )
+    Call  ClearAmbientSounds ( 250` )
+    Return
+    End
+}
+
+#new:Script $Script_DisableLeftSide
+{
+    Call EnableModel ( ~Model:ArchY .False )
+    Call EnableModel ( ~Model:ArchR .False )
+    Return
+    End
+}
+
+#new:Script $Script_DisableRightSide
+{
+    Call EnableModel ( ~Model:ArchG .False )
+    Call EnableModel ( ~Model:ArchB .False )
+    Return
+    End
+}
+
+
+#new:Script $Script_EnableBothSides
+{
+    Call EnableModel ( ~Model:ArchY .True )
+    Call EnableModel ( ~Model:ArchR .True )
+    Call EnableModel ( ~Model:ArchG .True )
+    Call EnableModel ( ~Model:ArchB .True )
+    Return
+    End
+}
+
+#new:Script $Script_DisableStars
+{
+    Call EnableModel ( ~Model:YellowStar .False )
+    Call EnableModel ( ~Model:RedStar .False )
+    Call EnableModel ( ~Model:GreenStar .False )
+    Call EnableModel ( ~Model:BlueStar .False )
+    Call EnableModel ( ~Model:StarBeam .False )
+    Call EnableModel ( ~Model:BeamParticles .False )
+    Return
+    End
+}
