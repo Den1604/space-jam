@@ -5,12 +5,13 @@
 	[MainScript] $Script_Main
 	[Background] 80200000
 	[EntryList] $EntryList
-	[EntryCount] 1
+	[EntryCount] 2
 }
 
 #new:EntryList $EntryList
 {
 	~Vec4f:Entry0
+	~Vec4f:Entry1
 }
 
 #new:Script $Script_TexturePan_Update
@@ -353,7 +354,7 @@
 	EndThread
 	Thread
 		Set  *Var[0] 3
-		Set  *Var[1] C8
+		Set  *Var[1] 12C
 		Set  *Var[2] 0
 		Set  *Var[3] 0
 		Set  *Var[4] 0
@@ -375,12 +376,25 @@
 {
 	Call  GetEntryID    ( *Var[0] )
 	Switch  *Var[0]
-		Case  ==  ~Entry:Entry0
+		CaseOR  ==  ~Entry:Entry0
+		CaseOR  ==  ~Entry:Entry1
 			Set   *Var[0] $Script_CreateExitTriggers
 			Exec  EnterWalk
+		EndCaseGroup
 		Default
 			Exec  $Script_CreateExitTriggers
 	EndSwitch
+	Return
+	End
+}
+
+#new:Script $Script_Exit_Entry1
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Entry1 )
+	Exec     ExitWalk
+	Call  GotoMap   ( "btf_04" ~Entry:btf_04:Entry1 )
+	Wait  100`
 	Return
 	End
 }
@@ -398,6 +412,7 @@
 
 #new:Script $Script_CreateExitTriggers
 {
+	Bind  $Script_Exit_Entry1 .Trigger:FloorAbove ~Collider:NorthernLZCollider 00000001 00000000
 	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:WesternLZCollider 00000001 00000000
 	Return
 	End
