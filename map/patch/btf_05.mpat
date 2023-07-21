@@ -9,9 +9,9 @@
     Exec  $Script_SetupMusic
     Exec  $Script_SetupTexturePan
     Exec  $Script_EnterMap
-    Bind  $Script_DisableLeftSide .Trigger:FloorAbove ~Collider:RightCollider 1 0
-    Bind  $Script_DisableRightSide .Trigger:FloorAbove ~Collider:LeftCollider 1 0
-    Bind  $Script_EnableBothSides .Trigger:FloorAbove ~Collider:MainFloor 1 0
+    % Bind  $Script_DisableLeftSide .Trigger:FloorAbove ~Collider:RightCollider 1 0
+    % Bind  $Script_DisableRightSide .Trigger:FloorAbove ~Collider:LeftCollider 1 0
+    % Bind  $Script_EnableBothSides .Trigger:FloorAbove ~Collider:MainFloor 1 0
     Exec  $Script_DisableStars
     Return
     End
@@ -24,32 +24,32 @@
     End
 }
 
-#new:Script $Script_DisableLeftSide
-{
-    Call EnableModel ( ~Model:ArchY .False )
-    Call EnableModel ( ~Model:ArchR .False )
-    Return
-    End
-}
+% #new:Script $Script_DisableLeftSide
+% {
+%     Call EnableModel ( ~Model:ArchY .False )
+%     Call EnableModel ( ~Model:ArchR .False )
+%     Return
+%     End
+% }
 
-#new:Script $Script_DisableRightSide
-{
-    Call EnableModel ( ~Model:ArchG .False )
-    Call EnableModel ( ~Model:ArchB .False )
-    Return
-    End
-}
+% #new:Script $Script_DisableRightSide
+% {
+%     Call EnableModel ( ~Model:ArchG .False )
+%     Call EnableModel ( ~Model:ArchB .False )
+%     Return
+%     End
+% }
 
 
-#new:Script $Script_EnableBothSides
-{
-    Call EnableModel ( ~Model:ArchY .True )
-    Call EnableModel ( ~Model:ArchR .True )
-    Call EnableModel ( ~Model:ArchG .True )
-    Call EnableModel ( ~Model:ArchB .True )
-    Return
-    End
-}
+% #new:Script $Script_EnableBothSides
+% {
+%     Call EnableModel ( ~Model:ArchY .True )
+%     Call EnableModel ( ~Model:ArchR .True )
+%     Call EnableModel ( ~Model:ArchG .True )
+%     Call EnableModel ( ~Model:ArchB .True )
+%     Return
+%     End
+% }
 
 #new:Script $Script_DisableStars
 {

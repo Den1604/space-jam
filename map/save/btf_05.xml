@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_05" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="-6.669108,124.036812,999.355652" pitch="10.000000" yaw="0.000000"/>
+		<Camera pos="78.606979,504.037506,1041.791992" pitch="38.480011" yaw="358.720032"/>
 		<Camera pos="-170.733566,65536.000000,724.900085"/>
 		<Camera pos="65536.000000,52.168716,700.640808"/>
 		<Camera pos="-28.455885,14.239449,65536.000000"/>
@@ -7321,7 +7321,7 @@
 			<HitObject type="ROOT"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="Planar GridZone" id="3" hidden="true"/>
+			<MapObject name="Planar GridZone" id="3"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7534,7 +7534,7 @@
 			<Camera type="TYPE_6" flag="false" boomLength="650.000000" boomPitch="20.000000" viewPitch="-3.000000" posA="-50,10,155" posB="50,10,155" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="Planar GridZone" id="2" hidden="true"/>
+			<MapObject name="Planar GridZone" id="2"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7552,10 +7552,10 @@
 					</TriangleList>
 				</TriangleBatch>
 			</HitMesh>
-			<Camera type="TYPE_6" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="79,10,82" posB="79,10,627" posC="10,0,10"/>
+			<Camera type="TYPE_6" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="-56,10,118" posB="215,10,590" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="Planar GridZone" id="1" hidden="true"/>
+			<MapObject name="Planar GridZone" id="1"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7573,10 +7573,10 @@
 					</TriangleList>
 				</TriangleBatch>
 			</HitMesh>
-			<Camera type="TYPE_6" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="-265,10,627" posB="-265,10,82" posC="10,0,10"/>
+			<Camera type="TYPE_6" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="-401,10,590" posB="-129,10,118" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="Planar GridZone" id="0" hidden="true"/>
+			<MapObject name="Planar GridZone" id="0"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
