@@ -576,6 +576,7 @@
 		<Map name="btf_04" nickname="Star Temple Entrance"/>
 		<Map name="btf_05" nickname="Star Temple Inside"/>
 		<Map name="btf_06" nickname="Challenge Room 1"/>
+		<Map name="btf_07" nickname="Challenge Room 2"/>
 	</Area>
 	<Resource name="mac_tex" compressed="false"/>
 	<Resource name="tik_tex" compressed="false"/>

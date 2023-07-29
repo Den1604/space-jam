@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_05" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="28.560698,475.056580,940.399536" pitch="23.679939" yaw="357.253113"/>
+		<Camera pos="-15.722387,76.515068,380.082825" pitch="6.799997" yaw="285.713379"/>
 		<Camera pos="219.976746,65536.000000,493.275726"/>
 		<Camera pos="65536.000000,52.168716,700.640808"/>
 		<Camera pos="-267.689331,186.003510,65536.000000"/>
@@ -2697,7 +2697,7 @@
 				</DisplayList>
 			</ShapeMesh>
 			<PropertyList>
-				<Property v="5C,0,1A"/>
+				<Property v="5C,0,11"/>
 				<Property v="5F,0,0"/>
 			</PropertyList>
 		</Model>
@@ -2725,7 +2725,7 @@
 				</DisplayList>
 			</ShapeMesh>
 			<PropertyList>
-				<Property v="5C,0,1A"/>
+				<Property v="5C,0,11"/>
 				<Property v="5F,0,0"/>
 			</PropertyList>
 		</Model>
@@ -2753,7 +2753,7 @@
 				</DisplayList>
 			</ShapeMesh>
 			<PropertyList>
-				<Property v="5C,0,1A"/>
+				<Property v="5C,0,11"/>
 				<Property v="5F,0,0"/>
 			</PropertyList>
 		</Model>
@@ -2781,7 +2781,7 @@
 				</DisplayList>
 			</ShapeMesh>
 			<PropertyList>
-				<Property v="5C,0,1A"/>
+				<Property v="5C,0,11"/>
 				<Property v="5F,0,0"/>
 			</PropertyList>
 		</Model>
@@ -2809,7 +2809,7 @@
 				</DisplayList>
 			</ShapeMesh>
 			<PropertyList>
-				<Property v="5C,0,1A"/>
+				<Property v="5C,0,11"/>
 				<Property v="5F,0,0"/>
 			</PropertyList>
 		</Model>
@@ -2837,7 +2837,7 @@
 				</DisplayList>
 			</ShapeMesh>
 			<PropertyList>
-				<Property v="5C,0,1A"/>
+				<Property v="5C,0,11"/>
 				<Property v="5F,0,0"/>
 			</PropertyList>
 		</Model>
@@ -2865,7 +2865,7 @@
 				</DisplayList>
 			</ShapeMesh>
 			<PropertyList>
-				<Property v="5C,0,1A"/>
+				<Property v="5C,0,11"/>
 				<Property v="5F,0,0"/>
 			</PropertyList>
 		</Model>
@@ -2891,7 +2891,7 @@
 				</DisplayList>
 			</ShapeMesh>
 			<PropertyList>
-				<Property v="5C,0,1A"/>
+				<Property v="5C,0,11"/>
 				<Property v="5F,0,0"/>
 			</PropertyList>
 		</Model>
@@ -5074,7 +5074,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MiddleCollider" id="1B" hidden="true"/>
+			<MapObject name="MiddleCollider" id="1B"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -5150,7 +5150,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="ProjectionCollider" id="1A" hidden="true"/>
+			<MapObject name="ProjectionCollider" id="1A"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -5226,7 +5226,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="19" hidden="true"/>
+			<MapObject name="MeshCollider" id="19"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -5626,7 +5626,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="17" hidden="true"/>
+			<MapObject name="MeshCollider" id="17"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -5686,7 +5686,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="LeftCollider" id="16" hidden="true"/>
+			<MapObject name="LeftCollider" id="16"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -5706,7 +5706,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="RightCollider" id="15" hidden="true"/>
+			<MapObject name="RightCollider" id="15"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -5726,7 +5726,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MainFloor" id="14" hidden="true"/>
+			<MapObject name="MainFloor" id="14"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -5773,7 +5773,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="13" hidden="true"/>
+			<MapObject name="MeshCollider" id="13"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -5965,7 +5965,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Entry4LZ" id="11" hidden="true"/>
+			<MapObject name="Entry4LZ" id="11"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -5983,7 +5983,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="10" hidden="true"/>
+			<MapObject name="MeshCollider" id="10"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -6099,7 +6099,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="CubeCollider" id="F" hidden="true"/>
+			<MapObject name="CubeCollider" id="F"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -6179,7 +6179,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Entry3LZ" id="D" hidden="true"/>
+			<MapObject name="Entry3LZ" id="D"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -6199,7 +6199,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="C" hidden="true"/>
+			<MapObject name="MeshCollider" id="C"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -6315,7 +6315,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="CubeCollider" id="B" hidden="true"/>
+			<MapObject name="CubeCollider" id="B"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -6395,7 +6395,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Entry2LZ" id="9" hidden="true"/>
+			<MapObject name="Entry2LZ" id="9"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -6415,7 +6415,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="8" hidden="true"/>
+			<MapObject name="MeshCollider" id="8"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -6531,7 +6531,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="CubeCollider" id="7" hidden="true"/>
+			<MapObject name="CubeCollider" id="7"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -6611,7 +6611,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Entry1LZ" id="5" hidden="true"/>
+			<MapObject name="Entry1LZ" id="5"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -6631,7 +6631,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="4" hidden="true"/>
+			<MapObject name="MeshCollider" id="4"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -6747,7 +6747,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="CubeCollider" id="3" hidden="true"/>
+			<MapObject name="CubeCollider" id="3"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -6813,7 +6813,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="HullCollider" id="1" hidden="true"/>
+			<MapObject name="HullCollider" id="1"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -6839,7 +6839,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="exit_trigger_s" id="0" hidden="true"/>
+			<MapObject name="exit_trigger_s" id="0"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7191,7 +7191,7 @@
 			<Entrance type="Walk" hasCallback="false" entry="Entry5"/>
 			<Exit type="Walk" hasCallback="false" entry="Entry0" destMap="btf_04" destEntry="Entry1" trigger="exit_trigger_s"/>
 			<Exit type="Walk" hasCallback="false" entry="Entry1" destMap="btf_05" destEntry="Entry3" trigger="Entry1LZ"/>
-			<Exit type="Walk" hasCallback="false" entry="Entry2" destMap="btf_05" destEntry="Entry4" trigger="Entry2LZ"/>
+			<Exit type="Walk" hasCallback="false" entry="Entry2" destMap="btf_07" destEntry="Entry0" trigger="Entry2LZ"/>
 			<Exit type="Walk" hasCallback="false" entry="Entry3" destMap="btf_05" destEntry="Entry1" trigger="Entry3LZ"/>
 			<Exit type="Walk" hasCallback="false" entry="Entry4" destMap="btf_05" destEntry="Entry2" trigger="Entry4LZ"/>
 		</Generators>
