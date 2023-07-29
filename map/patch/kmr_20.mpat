@@ -1,4 +1,14 @@
 @ $Script_8024FD70 {
+    If *Intro == .False
+        Call $GivePlayerStartingEquipment
+        Call $Function_SetStartingStats
+        Set *GB_StoryProgress 90
+        Set *GF_Tutorial_SaveBlock 1
+        Set *GF_Tutorial_HeartBlock 1
+        Set *GF_Tutorial_GotItem 1
+        Call GotoMap ( "btf_08" 0 )
+        Wait 300`
+    EndIf
     Call  DisablePlayerInput    ( .True )
     Thread
         Wait  5`
@@ -380,4 +390,54 @@
     ~Movement:Luigi_01
     ~AnimationTable:Luigi_01 % .Sprite:Luigi
     00000000 00000000 00000000 00000000 % no tattle string
+}
+
+#new:Function $GivePlayerStartingEquipment {
+	LIO t0, 8010F290
+	ORI t1, r0, 1
+	SB r0, 0001 (t0) % sets the Hammer COMMENT THIS OUT LATER!!!
+	SB t1, 000A (t0) % sets the AC
+	JR RA
+	ORI v0, r0, 2
+}
+
+#new:Function $Function_SetStartingStats
+{
+	LI t0, 8010F290
+	LI t1, 0A
+	LI t2, 09
+	LI t3, 03
+	SB t1, 05(t0)
+	SB t1, 06(t0)
+	SB t1, 07(t0)
+	SB t2, 08(t0)
+	SB t3, 09(t0)
+	JR rA
+	ORI v0, r0, 02
+}
+
+@ $Script_80242C40 {
+    Switch  *GB_StoryProgress
+        Case  ==  .Story:Intro % FFFFFF80
+            Call  FadeOutMusic  ( 00000000 000001F4 )
+        EndCaseGroup
+        Case  >=  .Story:Epilogue % 60
+            Call  FadeOutMusic  ( 00000000 000001F4 )
+        EndCaseGroup
+        Default
+            Case  ==  .Story:Intro % FFFFFF80
+            Call  FadeOutMusic  ( 00000000 000001F4 )
+    EndSwitch
+    Thread
+        Call  GetEntryID    ( *Var0 )
+        Switch  *Var0
+            Case  ==  ~Entry:Entry0
+                Wait  300`
+                Call  PlayAmbientSounds ( .AmbientSounds:Birds )
+            Default
+                Call  PlayAmbientSounds ( .AmbientSounds:Birds )
+        EndSwitch
+    EndThread
+    Return
+    End
 }

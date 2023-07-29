@@ -1,4 +1,4 @@
-% Auto-generated script for btf_07
+% Auto-generated script for btf_08
 
 #new:Header $Header
 {
@@ -10,10 +10,8 @@
 
 #new:EntryList $EntryList
 {
-	~Vec4f:Entry0
+	~Vec4f:entry_n
 }
-
-#define .AreaFlag_Entity_Switch 0
 
 #new:Script_Main $Script_Main
 {
@@ -22,7 +20,6 @@
 	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
 	Call  SetCamEnabled      ( .Cam:Default .True
 	Call  SetCamLeadPlayer   ( .Cam:Default .False )
-	Exec  $Script_MakeEntities
 	Exec  $Script_SetupMusic
 	Exec  $Script_EnterMap
 	Return
@@ -33,19 +30,11 @@
 {
 	PUSH    RA
 	LIA     A0, 800B0CF0
-	LIA     A1, "hos_tex"
+	LIA     A1, "kmr_tex"
 	JAL     800654F0 % sprintf
 	RESERVED
 	CLEAR  V0
 	JPOP   RA
-}
-
-#new:Script $Script_MakeEntities
-{
-	Call  MakeEntity    ( .Entity:BlueSwitch ~Vec4d:Switch 80000000 )
-	Call  AssignAreaFlag      ( *AreaFlag[.AreaFlag_Entity_Switch] )
-	Return
-	End
 }
 
 #new:Script $Script_SetupMusic
@@ -60,9 +49,6 @@
 {
 	Call  GetEntryID    ( *Var[0] )
 	Switch  *Var[0]
-		Case  ==  ~Entry:Entry0
-			Set   *Var[0] $Script_CreateExitTriggers
-			Exec  EnterWalk
 		Default
 			Exec  $Script_CreateExitTriggers
 	EndSwitch
@@ -70,20 +56,8 @@
 	End
 }
 
-#new:Script $Script_Exit_Entry0
-{
-	SetGroup 0000001B
-	Call     UseExitHeading ( 60` ~Entry:Entry0 )
-	Exec     ExitWalk
-	Call  GotoMap   ( "btf_05" ~Entry:btf_05:Entry2 )
-	Wait  100`
-	Return
-	End
-}
-
 #new:Script $Script_CreateExitTriggers
 {
-	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:exit_trigger_e 00000001 00000000
 	Return
 	End
 }

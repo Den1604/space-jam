@@ -1,0 +1,425 @@
+#define .NpcID:NPC1       00
+#define .NpcID:NPC2       01
+#define .NpcID:NPC3       02
+
+@ $Script_Main {
+    Set   *GB_WorldLocation  .Location:GoombaRoad
+    Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+    Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+    Call  SetCamEnabled      ( .Cam:Default .True
+    Call  SetCamLeadPlayer   ( .Cam:Default .False )
+    Exec  $Script_SetupMusic
+    Exec  $Script_EnterMap
+    Exec  $Script_MakeEntities
+    Exec $Script_SpinStars_Init
+    Call MakeNpcs ( .False $NpcGroupList_Enemies )
+    Return
+    End
+}
+
+#new:Script $Script_SpinStars_Init
+{
+    Exec $Script_SpinStars1n3
+    Exec $Script_SpinStars2n4
+    If *btf_07_RedStarFlag == .False
+        Exec $Script_RedStarsTopSpin
+        Exec $Script_RedStarsBottomSpin
+    Else
+        Call EnableModel ( ~Model:RedStarTop .False )
+        Call EnableModel ( ~Model:RedStarBottom .False )
+    EndIf
+    Return
+    End
+}
+
+#new:Script $Script_SpinStars1n3
+{
+    Set *MapVar[0] 0`
+    Loop
+        Loop 20`
+            Add *MapVar[0] 1`
+            Call RotateModel ( ~Model:Star1Model *MapVar[0] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star1ModelBG *MapVar[0] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star3Model *MapVar[0] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star3ModelBG *MapVar[0] 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Loop 20`
+            Sub *MapVar[0] 1`
+            Call RotateModel ( ~Model:Star1Model *MapVar[0] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star1ModelBG *MapVar[0] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star3Model *MapVar[0] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star3ModelBG *MapVar[0] 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Loop 20`
+            Sub *MapVar[0] 1`
+            Call RotateModel ( ~Model:Star1Model *MapVar[0] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star1ModelBG *MapVar[0] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star3Model *MapVar[0] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star3ModelBG *MapVar[0] 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Loop 20`
+            Add *MapVar[0] 1`
+            Call RotateModel ( ~Model:Star1Model *MapVar[0] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star1ModelBG *MapVar[0] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star3Model *MapVar[0] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star3ModelBG *MapVar[0] 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Wait 1`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_SpinStars2n4
+{
+    Set *MapVar[1] 0`
+    Loop
+        Loop 20`
+            Sub *MapVar[1] 1`
+            Call RotateModel ( ~Model:Star2Model *MapVar[1] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star2ModelBG *MapVar[1] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star4Model *MapVar[1] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star4ModelBG *MapVar[1] 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Loop 20`
+            Add *MapVar[1] 1`
+            Call RotateModel ( ~Model:Star2Model *MapVar[1] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star2ModelBG *MapVar[1] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star4Model *MapVar[1] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star4ModelBG *MapVar[1] 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Loop 20`
+            Add *MapVar[1] 1`
+            Call RotateModel ( ~Model:Star2Model *MapVar[1] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star2ModelBG *MapVar[1] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star4Model *MapVar[1] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star4ModelBG *MapVar[1] 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Loop 20`
+            Sub *MapVar[1] 1`
+            Call RotateModel ( ~Model:Star2Model *MapVar[1] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star2ModelBG *MapVar[1] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star4Model *MapVar[1] 0` 0` 1` )
+            Call RotateModel ( ~Model:Star4ModelBG *MapVar[1] 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Wait 1`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_RedStarsTopSpin
+{
+    Set *MapVar[2] 0` 
+    Loop
+        Loop 360`
+            If *MapFlag[0] == .True
+                BreakLoop
+            EndIf
+            Add *MapVar[2] 1`
+            Call RotateModel ( ~Model:RedStarTop *MapVar[2] 0` 1` 0` )
+            Wait 1`
+        EndLoop
+        Wait 1`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_RedStarsBottomSpin
+{
+    Set *MapVar[3] 0` 
+    Loop
+        Loop 360`
+            If *MapFlag[1] == .True
+                BreakLoop
+            EndIf
+            Sub *MapVar[3] 1`
+            Call RotateModel ( ~Model:RedStarBottom *MapVar[3] 0` 1` 0` )
+            Wait 1`
+        EndLoop
+        Wait 1`
+    EndLoop
+    Return
+    End
+}
+
+@ $Script_MakeEntities
+{
+    If *btf_07_RedStarFlag == .False
+        Call  MakeEntity    ( .Entity:BlueSwitch ~Vec4d:Switch 80000000 )
+        Call AssignScript ( $Script_BlueSwitchHit )
+    EndIf
+	Return
+	End
+}
+
+#new:Script $Script_BlueSwitchHit
+{
+    Call DisablePlayerInput ( .True )
+    Call  PlayEffect    ( ~FX:Sparkles:Star -429` 22` 0` 25` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    Set *btf_07_RedStarFlag .True
+    Exec $Script_TopStarFlyAway
+    Wait 15`
+    ExecWait $Script_BottomStarFlyAway
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
+
+#new:Script $Script_TopStarFlyAway
+{
+    Set *MapVar[4] 0`
+    Thread
+        Wait 30`
+        Call PlaySound ( 00000063 )
+        Call  PlayEffect    ( ~FX:ShimmerBurst:White ~Vec3D:EffectMarker 1` 15` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    EndThread
+    Loop 10`
+        Add *MapVar[4] 2`
+        Call TranslateModel ( ~Model:RedStarTop 0` *MapVar[4] 0` )
+        Wait 1`
+    EndLoop
+    Loop 50`
+        Add *MapVar[4] 5`
+        Call TranslateModel ( ~Model:RedStarTop 0` *MapVar[4] 0` )
+        Wait 1`
+    EndLoop
+    Set *MapFlag[0] .True
+    Call EnableModel ( ~Model:RedStarTop .False )
+    Return
+    End
+}
+
+#new:Script $Script_BottomStarFlyAway
+{
+    Set *MapVar[5] 0`
+    Thread
+        Wait 30`
+        Call PlaySound ( 00000063 )
+        Call  PlayEffect    ( ~FX:ShimmerBurst:White ~Vec3D:EffectMarker 1` 15` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    EndThread
+    Loop 10`
+        Add *MapVar[5] 2`
+        Call TranslateModel ( ~Model:RedStarBottom 0` *MapVar[5] 0` )
+        Wait 1`
+    EndLoop
+    Loop 50`
+        Add *MapVar[5] 5`
+        Call TranslateModel ( ~Model:RedStarBottom 0` *MapVar[5] 0` )
+        Wait 1`
+    EndLoop
+    Set *MapFlag[1] .True
+    Call EnableModel ( ~Model:RedStarBottom .False )
+    Return
+    End
+}
+
+#new:NpcGroupList $NpcGroupList_Enemies
+{
+	00000001 $NpcGroup_Magikoopa 00000000
+	00000001 $NpcGroup_Clubba 00000000
+	00000001 $NpcGroup_HurtPlant 00000000
+	00000000 00000000 00000000
+}
+
+#new:NpcGroup $NpcGroup_Magikoopa
+{
+	.NpcID:NPC1 $NpcSettings_80241940 ~Vec3f:NPC1 % 268 0 70
+	00002D01 $Script_Init_Magikoopa 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:NPC1
+	~AnimationTable:NPC1 % .Sprite:WorldClubba
+	00000000 00000000 00000000 00000000 % no tattle string
+}
+
+#new:Script $Script_Init_Magikoopa
+{
+    Call  BindNpcIdle       ( .Npc:Self $Script_Idle_Magikoopa )
+    Call BindNpcDefeat ( .Npc:Self $Script_Defeat_Magikoopa )
+    Return
+    End
+}
+
+#new:Script $Script_Idle_Magikoopa
+{
+    If *btf_07_FoughtMagikoopa == .True
+        Call SetNpcPos ( .Npc:Self 0` -1000` 0` )
+        Return
+    Else
+        Call AwaitPlayerApproach ( ~Vec2D:NPC1 90` )
+        Call DisablePlayerInput ( .True )
+        Thread
+            Call PlaySound ( 00000262 )
+        EndThread
+        Call ShowEmote ( .NpcID:NPC1 .Emote:Exclamation -45` 30` .True 0` 0` 0` 0` )
+        Call SetNpcAnimation ( .NpcID:NPC1 00560302 )
+        Wait 15`
+        Call SetNpcAnimation ( .NpcID:NPC1 00560301 )
+        Wait 10`
+        Call SpeakToPlayer ( .NpcID:NPC1 00560302 00560301 00000000 002F0003 )
+        Call SetNpcAnimation ( .NpcID:NPC1 00560309 )
+        Wait 3`
+        Call StartBattle (  )
+    EndIf
+    Return
+    End
+}
+
+#new:Script $Script_Defeat_Magikoopa
+{
+    Call SetNpcPos ( .NpcID:NPC1 0` -1000` 0` )
+    Call PlaySound ( 0000013D )
+    Call  PlayEffect    ( ~FX:EnergyWaveOut:White ~Vec3D:NPC1 2` 15` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    Call  PlayEffect    ( ~FX:Firework:White ~Vec3D:NPC1 2` 15` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    Wait 60`
+    Call PlaySound ( 0000013E )
+    Call DisablePlayerInput ( .False )
+    Set *btf_07_FoughtMagikoopa .True
+    Return
+    End
+}
+
+#new:NpcGroup $NpcGroup_Clubba
+{
+	.NpcID:NPC2 $NpcSettings_80241940 ~Vec3f:NPC2 % 268 0 70
+	00002D01 $Script_Init_Clubba 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:NPC2
+	~AnimationTable:NPC2 % .Sprite:WorldClubba
+	00000000 00000000 00000000 00000000 % no tattle string
+}
+
+#new:Script $Script_Init_Clubba
+{
+    Call  BindNpcIdle       ( .Npc:Self $Script_Idle_Clubba )
+    Call BindNpcDefeat ( .Npc:Self $Script_Defeat_Clubba )
+    Return
+    End
+}
+
+#new:Script $Script_Idle_Clubba
+{
+    If *btf_07_FoughtClubba == .True
+        Call SetNpcPos ( .Npc:Self 0` -1000` 0` )
+        Return
+    Else
+        Call AwaitPlayerApproach ( ~Vec2D:NPC2 90` )
+        Call DisablePlayerInput ( .True )
+        Thread
+            Call PlaySound ( 000002E1 )
+        EndThread
+        Call SetNpcAnimation ( .NpcID:NPC2 00390108 )
+        Wait 10`
+        Thread
+            Call PlaySound ( 00000262 )
+        EndThread
+        Call ShowEmote ( .NpcID:NPC2 .Emote:Exclamation -45` 30` .True 0` 0` 0` 0` )
+        Call SetNpcAnimation ( .NpcID:NPC2 00390102 )
+        Wait 20`
+        Call SetNpcAnimation ( .NpcID:NPC2 00390102 )
+        Call SpeakToPlayer ( .NpcID:NPC2 00390105 00390102 00000000 002F0004 )
+        Call SetNpcAnimation ( .NpcID:NPC2 00390110 )
+        Wait 3`
+        Call StartBattle (  )
+    EndIf
+    Return
+    End
+}
+
+#new:Script $Script_Defeat_Clubba
+{
+    Call SetNpcPos ( .NpcID:NPC2 0` -1000` 0` )
+    Call PlaySound ( 0000013D )
+    Call  PlayEffect    ( ~FX:EnergyWaveOut:White ~Vec3D:NPC2 2` 15` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    Call  PlayEffect    ( ~FX:Firework:White ~Vec3D:NPC2 2` 15` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    Wait 60`
+    Call PlaySound ( 0000013E )
+    Set *btf_07_FoughtClubba .True
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
+
+#new:NpcGroup $NpcGroup_HurtPlant
+{
+	.NpcID:NPC3 $NpcSettings_80241940 ~Vec3f:NPC3 % 268 0 70
+	00002D01 $Script_Init_HurtPlant 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:NPC3
+	~AnimationTable:NPC3 % .Sprite:WorldClubba
+	00000000 00000000 00000000 00000000 % no tattle string
+}
+
+#new:Script $Script_Init_HurtPlant
+{
+    Call  BindNpcIdle       ( .Npc:Self $Script_Idle_HurtPlant )
+    Call BindNpcDefeat ( .Npc:Self $Script_Defeat_HurtPlant )
+    Return
+    End
+}
+
+#new:Script $Script_Idle_HurtPlant
+{
+    If *btf_07_FoughtHurtPlant == .True
+        Call SetNpcPos ( .Npc:Self 0` -1000` 0` )
+        Return
+    Else
+        Call AwaitPlayerApproach ( ~Vec2D:NPC3 90` )
+        Call DisablePlayerInput ( .True )
+        Thread
+            Call PlaySound ( 000002E1 )
+        EndThread
+        Call SetNpcAnimation ( .NpcID:NPC3 0044000D )
+        Wait 10`
+        Thread
+            Call PlaySound ( 00000262 )
+        EndThread
+        Call ShowEmote ( .NpcID:NPC3 .Emote:Exclamation -45` 30` .True 0` 0` 0` 0` )
+        Call SetNpcAnimation ( .NpcID:NPC3 0044000B )
+        Wait 20`
+        Call SetNpcAnimation ( .NpcID:NPC3 00440002 )
+        Call SpeakToPlayer ( .NpcID:NPC3 0044000A 00440002 00000000 002F0005 )
+        Call SetNpcAnimation ( .NpcID:NPC3 00440006 )
+        Wait 3`
+        Call StartBattle (  )
+    EndIf
+    Return
+    End
+}
+
+#new:Script $Script_Defeat_HurtPlant
+{
+    Call SetNpcPos ( .NpcID:NPC3 0` -1000` 0` )
+    Call PlaySound ( 0000013D )
+    Call  PlayEffect    ( ~FX:EnergyWaveOut:White ~Vec3D:NPC3 2` 15` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    Call  PlayEffect    ( ~FX:Firework:White ~Vec3D:NPC3 2` 15` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    Wait 60`
+    Call PlaySound ( 0000013E )
+    Set *btf_07_FoughtHurtPlant .True
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
+
+#new:NpcSettings $NpcSettings_80241940
+{
+	00000000 00280018 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
+}
+
+@ $Script_SetupMusic
+{
+    Call  SetMusicTrack ( 00000000 .Song:SpaceJunk 00000000 00000008 )
+    Call  ClearAmbientSounds ( 250` )
+    Return
+    End
+}

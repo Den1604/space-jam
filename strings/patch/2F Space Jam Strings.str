@@ -1,21 +1,62 @@
-#string:2F:000
+#message:2F:000
 {
 	[Style Right]
 	Ouchie.[BR]
 	[Wait][End]
 }
 
-#string:2F:001
+#message:2F:001
 {
 	[Style Right]
 	Weird place, huh?[BR]
 	[Wait][End]
 }
 
-#string:2F:002
+#message:2F:002
 {
 	[Style Right]
 	Guess we should follow the[BR]
 	path forwards, Mario.[BR]
+	[Wait][End]
+}
+
+#message:2F:003
+{
+	[Style Right]
+	[PrintRising][Shake]Who are you?![/fx][Pause:30][br]
+	Ugh![/fx][Pause:5] It matters not.[Pause:10][br]
+	I'm here to stop any intruders![Pause:5][br]
+	Get ready to quarrel,[Pause:5] intruder![br]
+	[Wait][End]
+}
+
+#message:2F:004
+{
+	[Style Right]
+	[PrintRising][Shake]Whuh?![Pause:30][br]
+	Where did you come from!?[/fx][/fx][Pause:15][br]
+	Get ready to get clobbered![br]
+	[Wait][End]
+}
+
+#message:2F:005
+{
+	[Style Right]
+	[PrintRising][Shake][Size 48]Aaaaaah!![SizeReset][/fx][/fx][Pause:30][br]
+	[BR]
+	[BR]
+	[BR]
+	[Wait][Next]
+	I had a terrible nightmare![Pause:10][BR]
+	Thank you for waking me from it.[Pause:15][BR]
+	But unfortunately for you.[Pause:5].[Pause:5].[Pause:15][BR]
+	I have to fulfill my duty![BR]
+	[Wait][End]
+}
+
+#message:2F:006
+{
+	[Style Right]
+	Credits![br]
 	[Wait][End]
 }

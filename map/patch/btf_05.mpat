@@ -54,7 +54,11 @@
 #new:Script $Script_DisableStars
 {
     Call EnableModel ( ~Model:YellowStar .False )
-    Call EnableModel ( ~Model:RedStar .False )
+    If *btf_07_RedStarFlag == .False
+        Call EnableModel ( ~Model:RedStar .False )
+    Else
+        Call EnableModel ( ~Model:BlankRedStar .False )
+    EndIf
     Call EnableModel ( ~Model:GreenStar .False )
     Call EnableModel ( ~Model:BlueStar .False )
     Call EnableModel ( ~Model:StarBeam .False )

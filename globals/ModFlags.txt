@@ -1,1 +1,6 @@
 00A = Flag_EVT_0A = MF_SetStarParticles
+00B = btf_07_RedStarFlag
+00C = btf_07_FoughtMagikoopa
+00D = btf_07_FoughtClubba
+00E = btf_07_FoughtHurtPlant
+00F = btf_08_CreditsIntro = Intro

@@ -1,0 +1,19 @@
+@ $Script_EnterMap {
+    Call  GetEntryID    ( *Var[0] )
+    Switch  *Var[0]
+        Default
+            Exec $Script_Intro_Text
+    EndSwitch
+    Return
+    End
+}
+
+#new:Script $Script_Intro_Text
+{
+    Call DisablePlayerInput ( .True )
+    Call ShowMessageAtScreenPos ( 002F0006 000000A0 00000028 )
+    Set *Intro .True
+    Call GotoMap ( "kmr_20" 0 )
+    Return
+    End
+}
