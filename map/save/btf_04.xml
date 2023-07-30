@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_04" author="unnamed" background="hos_bg" textures="hos_tex">
 	<Editor>
-		<Camera pos="1145.731201,207.548035,-337.535797" pitch="8.000010" yaw="359.999969"/>
+		<Camera pos="1145.644287,206.710587,-342.619415" pitch="14.880009" yaw="358.079956"/>
 		<Camera pos="1147.624390,65536.000000,-540.577942"/>
 		<Camera pos="65536.000000,145.770935,-550.060547"/>
 		<Camera pos="1137.039551,180.782623,65536.000000"/>
@@ -203,7 +203,7 @@
 				</Node>
 				<Node name="Star Temple" id="E">
 					<Node name="NorthernLZCollider" id="5"/>
-					<Node name="MeshCollider" id="6"/>
+					<Node name="CutsceneCollider" id="6"/>
 					<Node name="Split Collider" id="7"/>
 					<Node name="MeshCollider" id="8"/>
 					<Node name="Split Collider" id="9"/>
@@ -276,7 +276,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="RightDoor" id="A7"/>
+			<MapObject name="RightDoor" id="A7" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_hutontif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -343,7 +343,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="LeftDoor" id="A5"/>
+			<MapObject name="LeftDoor" id="A5" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_hutontif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -394,7 +394,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="A4"/>
+			<MapObject name="Split Model" id="A4" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_hutikusatif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -470,7 +470,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o160" id="A3"/>
+			<MapObject name="o160" id="A3" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_madotif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -506,7 +506,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o160" id="A2"/>
+			<MapObject name="o160" id="A2" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_madotif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -542,7 +542,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o160" id="A1"/>
+			<MapObject name="o160" id="A1" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_madotif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -578,7 +578,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o160" id="A0"/>
+			<MapObject name="o160" id="A0" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_madotif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -614,7 +614,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o160" id="9F"/>
+			<MapObject name="o160" id="9F" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_madotif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -650,7 +650,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o160" id="9E"/>
+			<MapObject name="o160" id="9E" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_madotif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -686,7 +686,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o160" id="9D"/>
+			<MapObject name="o160" id="9D" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_madotif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -722,7 +722,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ArchY" id="9C"/>
+			<MapObject name="ArchY" id="9C" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_yellow_blocktif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -892,7 +892,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="DrawnModel" id="9B"/>
+			<MapObject name="DrawnModel" id="9B" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_t_mac_house7tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1044,7 +1044,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="9A"/>
+			<MapObject name="Split Model" id="9A" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_t_mac_house7tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1223,7 +1223,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o458" id="98"/>
+			<MapObject name="o458" id="98" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_hos_kumotif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1267,7 +1267,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o348" id="96"/>
+			<MapObject name="o348" id="96" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_akaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1295,7 +1295,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o347" id="95"/>
+			<MapObject name="o347" id="95" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_akaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1323,7 +1323,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o457" id="94"/>
+			<MapObject name="o457" id="94" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_rengatif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1351,7 +1351,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o456" id="93"/>
+			<MapObject name="o456" id="93" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_hasiratif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1387,7 +1387,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o465" id="92"/>
+			<MapObject name="o465" id="92" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1590,7 +1590,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o464" id="91"/>
+			<MapObject name="o464" id="91" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1650,7 +1650,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o463" id="90"/>
+			<MapObject name="o463" id="90" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1718,7 +1718,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o462" id="8F"/>
+			<MapObject name="o462" id="8F" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1778,7 +1778,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o461" id="8E"/>
+			<MapObject name="o461" id="8E" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1846,7 +1846,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o460" id="8D"/>
+			<MapObject name="o460" id="8D" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_tukitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1882,7 +1882,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o459" id="8C"/>
+			<MapObject name="o459" id="8C" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kazaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2133,7 +2133,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o458" id="8A"/>
+			<MapObject name="o458" id="8A" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_hos_kumotif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2177,7 +2177,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o347" id="88"/>
+			<MapObject name="o347" id="88" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_akaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2205,7 +2205,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o348" id="87"/>
+			<MapObject name="o348" id="87" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_akaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2233,7 +2233,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o457" id="86"/>
+			<MapObject name="o457" id="86" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_rengatif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2261,7 +2261,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o456" id="85"/>
+			<MapObject name="o456" id="85" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_hasiratif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2297,7 +2297,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o465" id="84"/>
+			<MapObject name="o465" id="84" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2500,7 +2500,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o464" id="83"/>
+			<MapObject name="o464" id="83" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2560,7 +2560,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o463" id="82"/>
+			<MapObject name="o463" id="82" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2628,7 +2628,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o462" id="81"/>
+			<MapObject name="o462" id="81" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2688,7 +2688,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o461" id="80"/>
+			<MapObject name="o461" id="80" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2756,7 +2756,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o460" id="7F"/>
+			<MapObject name="o460" id="7F" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_tukitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2792,7 +2792,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o459" id="7E"/>
+			<MapObject name="o459" id="7E" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kazaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3043,7 +3043,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o458" id="7C"/>
+			<MapObject name="o458" id="7C" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_hos_kumotif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3087,7 +3087,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o347" id="7A"/>
+			<MapObject name="o347" id="7A" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_akaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3115,7 +3115,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o348" id="79"/>
+			<MapObject name="o348" id="79" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_akaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3143,7 +3143,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o457" id="78"/>
+			<MapObject name="o457" id="78" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_rengatif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3171,7 +3171,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o456" id="77"/>
+			<MapObject name="o456" id="77" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_hasiratif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3207,7 +3207,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o465" id="76"/>
+			<MapObject name="o465" id="76" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3410,7 +3410,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o464" id="75"/>
+			<MapObject name="o464" id="75" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3470,7 +3470,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o463" id="74"/>
+			<MapObject name="o463" id="74" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3538,7 +3538,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o462" id="73"/>
+			<MapObject name="o462" id="73" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3598,7 +3598,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o461" id="72"/>
+			<MapObject name="o461" id="72" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3666,7 +3666,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o460" id="71"/>
+			<MapObject name="o460" id="71" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_tukitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3702,7 +3702,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o459" id="70"/>
+			<MapObject name="o459" id="70" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kazaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3953,7 +3953,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o458" id="6E"/>
+			<MapObject name="o458" id="6E" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_hos_kumotif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3997,7 +3997,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o347" id="6C"/>
+			<MapObject name="o347" id="6C" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_akaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4025,7 +4025,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o348" id="6B"/>
+			<MapObject name="o348" id="6B" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_akaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4053,7 +4053,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o457" id="6A"/>
+			<MapObject name="o457" id="6A" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_rengatif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4081,7 +4081,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o456" id="69"/>
+			<MapObject name="o456" id="69" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_hasiratif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4117,7 +4117,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o465" id="68"/>
+			<MapObject name="o465" id="68" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4320,7 +4320,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o464" id="67"/>
+			<MapObject name="o464" id="67" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4380,7 +4380,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o463" id="66"/>
+			<MapObject name="o463" id="66" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4448,7 +4448,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o462" id="65"/>
+			<MapObject name="o462" id="65" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4508,7 +4508,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o461" id="64"/>
+			<MapObject name="o461" id="64" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4576,7 +4576,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o460" id="63"/>
+			<MapObject name="o460" id="63" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_tukitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4612,7 +4612,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o459" id="62"/>
+			<MapObject name="o459" id="62" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kazaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4855,7 +4855,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o348" id="61"/>
+			<MapObject name="o348" id="61" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_akaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4883,7 +4883,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o347" id="60"/>
+			<MapObject name="o347" id="60" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_akaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4911,7 +4911,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o457" id="5F"/>
+			<MapObject name="o457" id="5F" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_rengatif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4939,7 +4939,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o456" id="5E"/>
+			<MapObject name="o456" id="5E" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_hasiratif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4975,7 +4975,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o465" id="5D"/>
+			<MapObject name="o465" id="5D" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5178,7 +5178,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o464" id="5C"/>
+			<MapObject name="o464" id="5C" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5238,7 +5238,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o463" id="5B"/>
+			<MapObject name="o463" id="5B" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5306,7 +5306,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o462" id="5A"/>
+			<MapObject name="o462" id="5A" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5366,7 +5366,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o461" id="59"/>
+			<MapObject name="o461" id="59" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5434,7 +5434,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o460" id="58"/>
+			<MapObject name="o460" id="58" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_tukitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5470,7 +5470,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o459" id="57"/>
+			<MapObject name="o459" id="57" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kazaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5713,7 +5713,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o348" id="56"/>
+			<MapObject name="o348" id="56" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_akaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5741,7 +5741,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o347" id="55"/>
+			<MapObject name="o347" id="55" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_akaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5769,7 +5769,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o457" id="54"/>
+			<MapObject name="o457" id="54" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_rengatif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5797,7 +5797,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o456" id="53"/>
+			<MapObject name="o456" id="53" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_hasiratif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5833,7 +5833,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o465" id="52"/>
+			<MapObject name="o465" id="52" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6036,7 +6036,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o464" id="51"/>
+			<MapObject name="o464" id="51" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6096,7 +6096,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o463" id="50"/>
+			<MapObject name="o463" id="50" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6164,7 +6164,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o462" id="4F"/>
+			<MapObject name="o462" id="4F" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6224,7 +6224,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o461" id="4E"/>
+			<MapObject name="o461" id="4E" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6292,7 +6292,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o460" id="4D"/>
+			<MapObject name="o460" id="4D" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_tukitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6328,7 +6328,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o459" id="4C"/>
+			<MapObject name="o459" id="4C" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kazaritif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6571,7 +6571,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="4B"/>
+			<MapObject name="Split Model" id="4B" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6597,7 +6597,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="4A"/>
+			<MapObject name="Split Model" id="4A" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6623,7 +6623,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="CylinderModel" id="49"/>
+			<MapObject name="CylinderModel" id="49" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6643,7 +6643,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="k11" id="48"/>
+			<MapObject name="k11" id="48" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6663,7 +6663,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="k10" id="47"/>
+			<MapObject name="k10" id="47" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6683,7 +6683,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="k4" id="46"/>
+			<MapObject name="k4" id="46" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6703,7 +6703,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="45"/>
+			<MapObject name="Split Model" id="45" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6729,7 +6729,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="44"/>
+			<MapObject name="Split Model" id="44" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6755,7 +6755,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="CylinderModel" id="43"/>
+			<MapObject name="CylinderModel" id="43" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6775,7 +6775,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="k11" id="42"/>
+			<MapObject name="k11" id="42" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6795,7 +6795,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="k10" id="41"/>
+			<MapObject name="k10" id="41" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6815,7 +6815,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="k4" id="40"/>
+			<MapObject name="k4" id="40" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6835,7 +6835,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="3F"/>
+			<MapObject name="Split Model" id="3F" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6861,7 +6861,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="3E"/>
+			<MapObject name="Split Model" id="3E" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6887,7 +6887,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="CylinderModel" id="3D"/>
+			<MapObject name="CylinderModel" id="3D" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6907,7 +6907,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="k11" id="3C"/>
+			<MapObject name="k11" id="3C" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6927,7 +6927,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="k10" id="3B"/>
+			<MapObject name="k10" id="3B" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6947,7 +6947,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="k4" id="3A"/>
+			<MapObject name="k4" id="3A" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6967,7 +6967,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="39"/>
+			<MapObject name="Split Model" id="39" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6993,7 +6993,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="38"/>
+			<MapObject name="Split Model" id="38" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7019,7 +7019,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="CylinderModel" id="37"/>
+			<MapObject name="CylinderModel" id="37" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7039,7 +7039,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="k11" id="36"/>
+			<MapObject name="k11" id="36" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7059,7 +7059,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="k10" id="35"/>
+			<MapObject name="k10" id="35" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7079,7 +7079,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="k4" id="34"/>
+			<MapObject name="k4" id="34" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7099,7 +7099,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="33"/>
+			<MapObject name="Split Model" id="33" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7346,7 +7346,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o162" id="32"/>
+			<MapObject name="o162" id="32" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7406,7 +7406,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o251" id="31"/>
+			<MapObject name="o251" id="31" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7482,7 +7482,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o250" id="30"/>
+			<MapObject name="o250" id="30" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_ha2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7582,7 +7582,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o252" id="2F"/>
+			<MapObject name="o252" id="2F" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_hana_02tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7626,7 +7626,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o162" id="2E"/>
+			<MapObject name="o162" id="2E" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7686,7 +7686,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o250" id="2D"/>
+			<MapObject name="o250" id="2D" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_ha2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7786,7 +7786,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o251" id="2C"/>
+			<MapObject name="o251" id="2C" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7846,7 +7846,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o252" id="2B"/>
+			<MapObject name="o252" id="2B" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_hana_02tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7882,7 +7882,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o250" id="2A"/>
+			<MapObject name="o250" id="2A" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_ha2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7982,7 +7982,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o251" id="29"/>
+			<MapObject name="o251" id="29" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8042,7 +8042,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o252" id="28"/>
+			<MapObject name="o252" id="28" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_hana_02tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8078,7 +8078,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o162" id="27"/>
+			<MapObject name="o162" id="27" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8138,7 +8138,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o45" id="26"/>
+			<MapObject name="o45" id="26" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8970,7 +8970,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o42" id="25"/>
+			<MapObject name="o42" id="25" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -9530,7 +9530,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o41" id="24"/>
+			<MapObject name="o41" id="24" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -10090,7 +10090,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o43" id="23"/>
+			<MapObject name="o43" id="23" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -10922,7 +10922,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o45" id="22"/>
+			<MapObject name="o45" id="22" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -11754,7 +11754,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o42" id="21"/>
+			<MapObject name="o42" id="21" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -12314,7 +12314,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o45" id="20"/>
+			<MapObject name="o45" id="20" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -13146,7 +13146,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o41" id="1F"/>
+			<MapObject name="o41" id="1F" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -13706,7 +13706,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o252" id="1E"/>
+			<MapObject name="o252" id="1E" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_hana_02tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -13742,7 +13742,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o251" id="1D"/>
+			<MapObject name="o251" id="1D" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -13802,7 +13802,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o250" id="1C"/>
+			<MapObject name="o250" id="1C" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_ha2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -13902,7 +13902,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o162" id="1B"/>
+			<MapObject name="o162" id="1B" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -13977,7 +13977,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Star2Model" id="18"/>
+			<MapObject name="Star2Model" id="18" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_linestartif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -14080,7 +14080,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Star1Model" id="16"/>
+			<MapObject name="Star1Model" id="16" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_linestartif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -14174,7 +14174,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="15"/>
+			<MapObject name="Split Model" id="15" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe5tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -14384,7 +14384,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="14"/>
+			<MapObject name="Split Model" id="14" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_t_mac_house7tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -14437,7 +14437,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Planar GridModel" id="13"/>
+			<MapObject name="Planar GridModel" id="13" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -14463,7 +14463,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="DrawnModel" id="12"/>
+			<MapObject name="DrawnModel" id="12" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_renga4tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -14637,7 +14637,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="DrawnModel" id="11"/>
+			<MapObject name="DrawnModel" id="11" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_t_mac_house7tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -14936,7 +14936,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="CubeModel" id="10"/>
+			<MapObject name="CubeModel" id="10" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kabe_blocktif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -15040,7 +15040,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="F"/>
+			<MapObject name="Split Model" id="F" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -15186,7 +15186,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="E"/>
+			<MapObject name="Split Model" id="E" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -15212,7 +15212,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="D"/>
+			<MapObject name="Split Model" id="D" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -15238,7 +15238,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="CylinderModel" id="C"/>
+			<MapObject name="CylinderModel" id="C" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -15258,7 +15258,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="HullModel" id="B"/>
+			<MapObject name="HullModel" id="B" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_hutikusatif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -15409,7 +15409,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="HullModel" id="A"/>
+			<MapObject name="HullModel" id="A" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_hos_jimentif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -15573,7 +15573,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0" panUnit="1">
-			<MapObject name="k5" id="9"/>
+			<MapObject name="k5" id="9" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo4tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -15633,7 +15633,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="k12" id="8"/>
+			<MapObject name="k12" id="8" hidden="true"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -15701,7 +15701,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0" panUnit="1">
-			<MapObject name="k12" id="7"/>
+			<MapObject name="k12" id="7" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -15769,7 +15769,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0" panUnit="2">
-			<MapObject name="k5" id="6"/>
+			<MapObject name="k5" id="6" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo4tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -15829,7 +15829,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="k11" id="5"/>
+			<MapObject name="k11" id="5" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -15849,7 +15849,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="k10" id="4"/>
+			<MapObject name="k10" id="4" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -15869,7 +15869,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="k4" id="3"/>
+			<MapObject name="k4" id="3" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kumo2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -15889,7 +15889,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="DrawnModel" id="2"/>
+			<MapObject name="DrawnModel" id="2" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_kusa5tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -15926,7 +15926,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o482" id="1"/>
+			<MapObject name="o482" id="1" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_berosaidetif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -15954,7 +15954,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0" panUnit="0">
-			<MapObject name="Starway" id="0"/>
+			<MapObject name="Starway" id="0" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_h_star_02tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -16178,7 +16178,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="1B" hidden="true"/>
+			<MapObject name="Split Collider" id="1B"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -16232,7 +16232,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="1A" hidden="true"/>
+			<MapObject name="Split Collider" id="1A"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -16262,7 +16262,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="18" hidden="true"/>
+			<MapObject name="Split Collider" id="18"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -16314,7 +16314,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Planar GridCollider" id="17" hidden="true"/>
+			<MapObject name="Planar GridCollider" id="17"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -16356,7 +16356,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="16" hidden="true"/>
+			<MapObject name="Split Collider" id="16"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -16388,7 +16388,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="NormalFloor" id="14" hidden="true"/>
+			<MapObject name="NormalFloor" id="14"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -16436,7 +16436,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="13" hidden="true"/>
+			<MapObject name="MeshCollider" id="13"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -16472,7 +16472,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="CubeCollider" id="12" hidden="true"/>
+			<MapObject name="CubeCollider" id="12"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -16524,7 +16524,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="CubeCollider" id="11" hidden="true"/>
+			<MapObject name="CubeCollider" id="11"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -16566,7 +16566,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="HullCollider" id="10" hidden="true"/>
+			<MapObject name="HullCollider" id="10"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -16610,7 +16610,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="HullCollider" id="F" hidden="true"/>
+			<MapObject name="HullCollider" id="F"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -16644,7 +16644,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="DoorCollider" id="D" hidden="true"/>
+			<MapObject name="DoorCollider" id="D"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -16664,7 +16664,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="C" hidden="true"/>
+			<MapObject name="Split Collider" id="C"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -16682,7 +16682,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="DoorLZ" id="B" hidden="true"/>
+			<MapObject name="DoorLZ" id="B"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -16790,7 +16790,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="A" hidden="true"/>
+			<MapObject name="Split Collider" id="A"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -16940,7 +16940,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="9" hidden="true"/>
+			<MapObject name="Split Collider" id="9"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -16990,7 +16990,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="8" hidden="true"/>
+			<MapObject name="MeshCollider" id="8"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -17098,7 +17098,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="7" hidden="true"/>
+			<MapObject name="Split Collider" id="7"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -17136,7 +17136,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="6" hidden="true"/>
+			<MapObject name="CutsceneCollider" id="6"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -17300,7 +17300,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="NorthernLZCollider" id="5" hidden="true"/>
+			<MapObject name="NorthernLZCollider" id="5"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -17336,7 +17336,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="HullCollider" id="3" hidden="true"/>
+			<MapObject name="HullCollider" id="3"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -17400,7 +17400,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="StarwayPath" id="2" hidden="true"/>
+			<MapObject name="StarwayPath" id="2"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -17442,7 +17442,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="HullCollider" id="1" hidden="true"/>
+			<MapObject name="HullCollider" id="1"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -17470,7 +17470,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="WesternLZCollider" id="0" hidden="true"/>
+			<MapObject name="WesternLZCollider" id="0"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">

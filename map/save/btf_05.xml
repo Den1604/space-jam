@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_05" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="5.052608,77.582176,684.453918" pitch="9.520005" yaw="358.879700"/>
+		<Camera pos="-207.351639,124.036812,765.321045" pitch="9.999999" yaw="60.137604"/>
 		<Camera pos="10.484087,65536.000000,638.576172"/>
 		<Camera pos="65536.000000,96.972115,507.276123"/>
 		<Camera pos="5.656030,56.223778,65536.000000"/>
@@ -7393,7 +7393,7 @@
 			<Exit type="Walk" hasCallback="false" entry="Entry1" destMap="btf_05" destEntry="Entry3" trigger="Entry1LZ"/>
 			<Exit type="Walk" hasCallback="false" entry="Entry2" destMap="btf_07" destEntry="Entry0" trigger="Entry2LZ"/>
 			<Exit type="Walk" hasCallback="false" entry="Entry3" destMap="btf_05" destEntry="Entry1" trigger="Entry3LZ"/>
-			<Exit type="Walk" hasCallback="false" entry="Entry4" destMap="btf_05" destEntry="Entry2" trigger="Entry4LZ"/>
+			<Exit type="Walk" hasCallback="false" entry="Entry4" destMap="btf_09" destEntry="Entry0" trigger="Entry4LZ"/>
 		</Generators>
 		<Camera vfov="25" near="16" far="4096" bgcolor="0,0,0" leadsPlayer="false"/>
 		<Fog world="0,10,10,10,255,950,1000" entity="0,10,10,10,255,950,1000"/>

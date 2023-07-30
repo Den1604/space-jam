@@ -6,3 +6,4 @@
 00F = MF_btf_08_CreditsIntro = Intro
 010 = MF_btf_04_YellowBlock
 011 = MF_btf_04_RedBlock
+012 = MF_btf_04_HeardShipCrash

@@ -42,7 +42,7 @@
 #message:2F:005
 {
 	[Style Right]
-	[PrintRising][Shake][Size 48]Aaaaaah!![SizeReset][/fx][/fx][Pause:30][br]
+	[PrintRising][Shake][Size 48]Aaaaaah!![SizeReset][/fx][/fx][br]
 	[BR]
 	[BR]
 	[BR]
@@ -58,5 +58,17 @@
 {
 	[Style Right]
 	Credits![br]
+	[Wait][End]
+}
+
+#message:2F:007
+{
+	[Style Right]
+	[PrintRising][Shake]Whoa![/fx][/fx][Pause:10] Are you okay,[Pause:5] Mario?![Pause:15][br]
+	That sounded like something[br]
+	Crashed very close to us![br]
+	[Wait][Next]
+	Do you think it hit that[br]
+	shrine looking building?[br]
 	[Wait][End]
 }
