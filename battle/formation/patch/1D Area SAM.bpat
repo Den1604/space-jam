@@ -146,7 +146,7 @@
 @ $WhiteClubba {
     % stats
     [Index]        38b
-    [Level]        23`b
+    [Level]        44`b
     [MaxHP]        25`b
     [Coins]         2`b
     [Flags]       00000000
@@ -318,7 +318,7 @@
 {
 	% stats
 	[Index]        55b
-	[Level]        23`b
+	[Level]        44`b
 	[MaxHP]        18`b
 	[Coins]         2`b
 	[Flags]       00000000
@@ -448,8 +448,8 @@
 %   1C8:  	ExecWait  $Script_YMagikoopa_RunAway
 %   1D4:  	Return
 %   1DC:  EndIf
-Call RandInt ( 1` *Var0 )
-  1F8:  If  *Var0  == 0`
+Call RandInt ( 2` *Var0 )
+  1F8:  If  *Var0  == 2`
   208:  	ExecWait  $Script_YMagikoopa_ShapeSpell
   214:  Else
   21C:  	ExecWait  $Script_YMagikoopa_WandStrike
@@ -604,6 +604,7 @@ Call RandInt ( 1` *Var0 )
    84:  	Call  UseBattleCamPreset    ( 00000002 )
    94:  	Call  MoveBattleCamOver     (  10` )
    A4:  EndIf
+   Loop 2`
    AC:  Call  PlaySoundAtActor  ( .Actor:Self .Sound:SpellCast1 )
    C0:  Call  GetActorPos       ( .Actor:Self *Var0 *Var1 *Var2 )
    DC:  Call  GetStatusFlags    ( .Actor:Self *VarA )
@@ -617,7 +618,7 @@ Call RandInt ( 1` *Var0 )
   150:  Call  PlayEffect        ( ~FX:GatherMagic:Pink *Var0 *Var1 *Var2 *Fixed[0.5] 0000001E 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
   194:  Call  SetAnimation      ( .Actor:Self 00000002 00570202 )
   1AC:  Wait  30`
-  1B8:  Call  EnemyTestTarget   ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 00000001 00000010 )
+  1B8:  Call  EnemyTestTarget   ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 00000001 00000040 )
   1DC:  Switch  *Var0
   1E8:  	CaseOR  ==  .HitResult:Miss % 6
   1F4:  	CaseOR  ==  .HitResult:Lucky % 5
@@ -655,7 +656,7 @@ Call RandInt ( 1` *Var0 )
   424:  EndSwitch
   42C:  Call  PlaySoundAtActor  ( .Actor:Self .Sound:SpellCast2 )
   440:  Call  SetAnimation      ( .Actor:Self 00000002 00570203 )
-  458:  Wait  5`
+%   458:  Wait  5`
   464:  Call  GetActorPos       ( .Actor:Self *Var0 *Var1 *Var2 )
   480:  Call  GetStatusFlags    ( .Actor:Self *VarA )
   494:  If  *VarA  &  ~Flags:StatusFlags:Shrink % 80000
@@ -671,14 +672,16 @@ Call RandInt ( 1` *Var0 )
   530:  Call  $Function_802189E0    ( *Var0 *Var1 *Var5 *Var3 *Var4 *Var5 00000014 )
   558:  Wait  18`
   564:  Wait  2`
-  570:  Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:NoContact|Magic 00000000 00000000 00000003 00000020 )
+        Call  SetGoalToTarget   ( .Actor:Self )
+  570:  Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:NoContact|Magic 00000000 00000000 00000002 00000040 )
   598:  Switch  *Var0
   5A4:  	CaseOR  ==  .HitResult:Hit % 0
   5B0:  	CaseOR  ==  .HitResult:QuakeImmune % 2
-  5BC:  		Wait  19`
+  5BC:  		Wait  10`
   5C8:  		Call  YieldTurn ( )
   5D4:  	EndCaseGroup
   5DC:  EndSwitch
+EndLoop
   5E4:  Call  EnableIdleScript  ( .Actor:Self 00000001 )
   5F8:  Call  UseIdleAnimation  ( .Actor:Self .True )
   60C:  Return
@@ -810,6 +813,7 @@ Call RandInt ( 1` *Var0 )
   220:  	Wait  1`
   22C:  EndLoop
   234:  Call  SetPartAlpha      ( .Actor:Self 00000001 000000FF )
+  Loop 2`
   24C:  Call  SetAnimation      ( .Actor:Self 00000001 00560203 )
   264:  Wait  11`
   270:  Call  PlaySoundAtActor  ( .Actor:Self 000002DC )
@@ -848,6 +852,9 @@ Call RandInt ( 1` *Var0 )
   48C:  Call  SetGoalToTarget   ( .Actor:Self )
   49C:  Wait  2`
   4A8:  Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:NoContact 00000000 00000000 00000001 00000020 )
+  24C:  Call  SetAnimation      ( .Actor:Self 00000001 00560201 )
+  Wait 30`
+  EndLoop
   4D0:  Switch  *Var0
   4DC:  	CaseOR  ==  .HitResult:Hit % 0
   4E8:  	CaseOR  ==  .HitResult:QuakeImmune % 2
@@ -1010,7 +1017,7 @@ Call RandInt ( 1` *Var0 )
 {
 	% stats
 	[Index]        26b
-	[Level]        23`b
+	[Level]        44`b
 	[MaxHP]         15`b
 	[Coins]         1`b
 	[Flags]       00000000
@@ -1145,6 +1152,7 @@ Call RandInt ( 1` *Var0 )
   374:  Call  SetAnimation      ( .Actor:Self 00000001 00440003 )
   38C:  Wait  10`
   398:  Call  SetAnimation      ( .Actor:Self 00000001 00440005 )
+  Loop 3`
   3B0:  Wait  10`
   3BC:  Call  PlaySoundAtActor  ( .Actor:Self 000002C4 )
   3D0:  Call  SetAnimation      ( .Actor:Self 00000001 00440006 )
@@ -1172,10 +1180,14 @@ Call RandInt ( 1` *Var0 )
   538:  Wait  2`
   544:  Call  GetStatusFlags    ( .Actor:Player *Var0 )
   558:  If  *Var0  &  ~Flags:StatusFlags:Dizzy
-  568:  	Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 00000000 00000002 00000020 )
+  568:  	Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 00000000 00000001 00000020 )
   590:  Else
-  598:  	Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 ~DebuffType:Dizzy:2:100` 00000002 00000020 )
+  598:  	Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 ~DebuffType:Dizzy:2:100` 00000001 00000020 )
   5C0:  EndIf
+    Call  SetAnimation  ( .Actor:Self 00000001 00440007 )
+    Wait 8`
+    Call  SetAnimation  ( .Actor:Self 00000001 00440002 )
+  EndLoop
   5C8:  Switch  *Var0
   5D4:  	CaseOR  ==  .HitResult:Hit % 0
   5E0:  	CaseOR  ==  .HitResult:QuakeImmune % 2
