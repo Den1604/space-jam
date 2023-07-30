@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_07" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="-337.000000,124.036812,519.567749" pitch="10.000000" yaw="0.000000"/>
+		<Camera pos="-286.080902,124.036812,519.567749" pitch="10.000000" yaw="0.000000"/>
 		<Camera pos="-481.087189,65536.000000,-5.418351"/>
 		<Camera pos="65536.000000,37.397324,-95.014809"/>
 		<Camera pos="231.409836,34.531849,65536.000000"/>
@@ -4595,7 +4595,7 @@
 			<MapObject name="Switch" id="4"/>
 			<Entity type="802E9BD4" hasSpawnFlag="false" spawnFlag="" callback="false" areaFlag="0"/>
 		</Marker>
-		<Marker ver="4" type="NPC" pos="-330,0,0" yaw="90.000000">
+		<Marker ver="4" type="NPC" pos="-329,0,0" yaw="90.000000">
 			<MapObject name="NPC3" id="3"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="44" palette="0" animations="C,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
