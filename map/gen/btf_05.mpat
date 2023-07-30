@@ -296,6 +296,7 @@
 
 #new:Script $Script_MakeEntities
 {
+	Bind  $Script_Exit_Entry0 .Trigger:WallPressA ~Collider:DoorCollider 00000001 00000000
 	Call  MakeEntity    ( .Entity:SavePoint ~Vec4d:SaveBlock 80000000 )
 	Return
 	End
@@ -395,7 +396,12 @@
 	EndIf
 	Call  GetEntryID    ( *Var[0] )
 	Switch  *Var[0]
-		CaseOR  ==  ~Entry:Entry0
+		Case  ==  ~Entry:Entry0
+			Call  UseDoorSounds ( .DoorSounds:Large )
+			Set   *Var[2]  ~Model:RightDoor
+			Set   *Var[3]  ~Model:LeftDoor
+			Exec  EnterDoubleDoor
+			Exec  $Script_CreateExitTriggers
 		CaseOR  ==  ~Entry:Entry1
 		CaseOR  ==  ~Entry:Entry2
 		CaseOR  ==  ~Entry:Entry3
@@ -414,8 +420,14 @@
 #new:Script $Script_Exit_Entry0
 {
 	SetGroup 0000001B
-	Call     UseExitHeading ( 60` ~Entry:Entry0 )
-	Exec     ExitWalk
+	Call  DisablePlayerInput ( .True )
+	Call  UseDoorSounds ( .DoorSounds:Large )
+	Set   *Var[0]  ~Entry:Entry0
+	Set   *Var[1]  ~Collider:DoorCollider
+	Set   *Var[2]  ~Model:RightDoor
+	Set   *Var[3]  ~Model:LeftDoor
+	Exec  ExitDoubleDoor
+	Wait  17`
 	Call  GotoMap   ( "btf_04" ~Entry:btf_04:Entry1 )
 	Wait  100`
 	Return
@@ -468,7 +480,6 @@
 
 #new:Script $Script_CreateExitTriggers
 {
-	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:exit_trigger_s 00000001 00000000
 	Bind  $Script_Exit_Entry1 .Trigger:FloorAbove ~Collider:Entry1LZ 00000001 00000000
 	Bind  $Script_Exit_Entry2 .Trigger:FloorAbove ~Collider:Entry2LZ 00000001 00000000
 	Bind  $Script_Exit_Entry3 .Trigger:FloorAbove ~Collider:Entry3LZ 00000001 00000000

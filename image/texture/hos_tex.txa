@@ -186,7 +186,7 @@ tex: hos_h_hutontif
 		hwrap: mirror
 		vwrap: clamp
 	}
-	filter: yes
+	filter: no
 	combine: 8
 }
 
@@ -1174,7 +1174,7 @@ tex: hos_yellow_blocktif
 		hwrap: repeat
 		vwrap: mirror
 	}
-	filter: yes
+	filter: no
 	combine: 8
 }
 

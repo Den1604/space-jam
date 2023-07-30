@@ -72,6 +72,7 @@
 {
     Call  MakeEntity    ( .Entity:SavePoint ~Vec4d:SaveBlock 80000000 )
 	Call  MakeEntity    ( .Entity:HealingBlock ~Vec4d:HeartBlock 80000000 )
+	Bind  $Script_Exit_Entry0 .Trigger:WallPressA ~Collider:DoorCollider 00000001 00000000
     Return
     End
 }

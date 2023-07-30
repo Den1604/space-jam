@@ -271,6 +271,7 @@
 	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
 	Call  SetCamEnabled      ( .Cam:Default .True
 	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+	Exec  $Script_MakeEntities
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
 	Exec  $Script_EnterMap
@@ -289,6 +290,13 @@
 	JPOP   RA
 }
 
+#new:Script $Script_MakeEntities
+{
+	Bind  $Script_Exit_Entry1 .Trigger:WallPressA ~Collider:DoorCollider 00000001 00000000
+	Return
+	End
+}
+
 #new:Script $Script_SetupMusic
 {
 	Call  SetMusicTrack ( 00000000 .Song:PleasantPath 00000000 00000008 )
@@ -303,7 +311,6 @@
 	Call     802C9000 	( ~Model:k5 2 )
 	Call     802C9000 	( ~Model:k12 1 )
 	Call     802C9000 	( ~Model:k5 1 )
-	Call     802C9000 	( ~Model:StarTorus 3 )
 	Thread
 		Set  *Var[0] 0
 		Set  *Var[1] 50
@@ -376,11 +383,15 @@
 {
 	Call  GetEntryID    ( *Var[0] )
 	Switch  *Var[0]
-		CaseOR  ==  ~Entry:Entry0
-		CaseOR  ==  ~Entry:Entry1
+		Case  ==  ~Entry:Entry1
+			Call  UseDoorSounds ( .DoorSounds:Large )
+			Set   *Var[2]  ~Model:LeftDoor
+			Set   *Var[3]  ~Model:RightDoor
+			Exec  EnterDoubleDoor
+			Exec  $Script_CreateExitTriggers
+		Case  ==  ~Entry:Entry0
 			Set   *Var[0] $Script_CreateExitTriggers
 			Exec  EnterWalk
-		EndCaseGroup
 		Default
 			Exec  $Script_CreateExitTriggers
 	EndSwitch
@@ -391,8 +402,14 @@
 #new:Script $Script_Exit_Entry1
 {
 	SetGroup 0000001B
-	Call     UseExitHeading ( 60` ~Entry:Entry1 )
-	Exec     ExitWalk
+	Call  DisablePlayerInput ( .True )
+	Call  UseDoorSounds ( .DoorSounds:Large )
+	Set   *Var[0]  ~Entry:Entry1
+	Set   *Var[1]  ~Collider:DoorCollider
+	Set   *Var[2]  ~Model:LeftDoor
+	Set   *Var[3]  ~Model:RightDoor
+	Exec  ExitDoubleDoor
+	Wait  17`
 	Call  GotoMap   ( "btf_05" ~Entry:btf_05:Entry0 )
 	Wait  100`
 	Return
@@ -412,7 +429,6 @@
 
 #new:Script $Script_CreateExitTriggers
 {
-	Bind  $Script_Exit_Entry1 .Trigger:FloorAbove ~Collider:NorthernLZCollider 00000001 00000000
 	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:WesternLZCollider 00000001 00000000
 	Return
 	End

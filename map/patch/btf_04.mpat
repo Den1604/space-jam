@@ -241,11 +241,12 @@
     End
 }
 
-#new:Script $Script_MakeEntities {
+@ $Script_MakeEntities {
     Call  MakeEntity    ( .Entity:YellowBlock ~Vec4d:YellowBlock .Item:ShroomCake 80000000 )
     Call  AssignBlockFlag   ( *MF_btf_04_YellowBlock )
     Call  MakeEntity    ( .Entity:RedBlock ~Vec4d:RedBlock .Item:SpinSmash 80000000 )
     Call  AssignBlockFlag   ( *MF_btf_04_RedBlock )
+	Bind  $Script_Exit_Entry1 .Trigger:WallPressA ~Collider:DoorCollider 00000001 00000000
     Return
     End
 }
