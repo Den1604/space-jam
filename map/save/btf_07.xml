@@ -4595,7 +4595,7 @@
 			<MapObject name="Switch" id="4"/>
 			<Entity type="802E9BD4" hasSpawnFlag="false" spawnFlag="" callback="false" areaFlag="0"/>
 		</Marker>
-		<Marker ver="4" type="NPC" pos="-330,0,0" yaw="90.000000">
+		<Marker ver="4" type="NPC" pos="-329,0,0" yaw="90.000000">
 			<MapObject name="NPC3" id="3"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="44" palette="0" animations="C,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
