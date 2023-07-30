@@ -1,0 +1,375 @@
+#new:Script $Script_802A3168 {
+    Set *Var5 0` %Check for first attack or not
+    Loop 2
+    Call  GetMenuSelection  ( *Var0 *Var1 *Var2 )
+    Switch  *Var1
+        Case  ==  .Item:Nothing % 0
+            ExecWait  $Script_802A1B40
+    EndSwitch
+    Call  GetActionSuccessCopy  ( *Var0 )
+    Switch  *Var0
+        Case  >  00000000
+            Call  GetMenuSelection  ( *Var0 *Var1 *Var2 )
+            Switch  *Var1
+                Case  ==  .Item:Nothing % 0
+                    Call  StartRumble   ( 00000007 )
+                    Thread
+                        Call  ShakeCam  ( .Cam:Battle 00000000  10` *Fixed[1.3] )
+                    EndThread
+                Case  ==  .Item:Jump % 1
+                    Call  StartRumble   ( 00000008 )
+                    Thread
+                        Call  ShakeCam  ( .Cam:Battle 00000000  10` *Fixed[1.6] )
+                    EndThread
+                Case  ==  .Item:SpinJump % 2
+                    Call  StartRumble   ( 00000009 )
+                    Thread
+                        Call  ShakeCam  ( .Cam:Battle 00000000  10` *Fixed[1.9] )
+                    EndThread
+            EndSwitch
+        Default
+            Call  GetMenuSelection  ( *Var0 *Var1 *Var2 )
+            Switch  *Var1
+                Case  ==  .Item:Nothing % 0
+                    Call  StartRumble   ( 00000007 )
+                    Thread
+                        Call  ShakeCam  ( .Cam:Battle 00000000  2` *Fixed[1.3] )
+                    EndThread
+                Case  ==  .Item:Jump % 1
+                    Call  StartRumble   ( 00000008 )
+                    Thread
+                        Call  ShakeCam  ( .Cam:Battle 00000000  2` *Fixed[1.6] )
+                    EndThread
+                Case  ==  .Item:SpinJump % 2
+                    Call  StartRumble   ( 00000009 )
+                    Thread
+                        Call  ShakeCam  ( .Cam:Battle 00000000  2` *Fixed[1.9] )
+                    EndThread
+            EndSwitch
+    EndSwitch
+    Call  UseBattleCamPreset    ( 0000002C )
+    Wait  1`
+    Call  PlayerTestEnemy       ( *Var0 ~Flags:DamageType:Smash 00000019 00000000 00000000 00000010 )
+    If  *Var0  ==  .HitResult:Miss % 6
+        ExecWait  $Script_802A1A64
+        Return
+    EndIf
+    Call  DidActionSucceed  ( *Var0 )
+    Switch  *Var0
+        Case  >  .False
+            Call  GetMenuSelection  ( *Var0 *Var1 *Var2 )
+            Switch  *Var1
+                Case  ==  .Item:Nothing % 0
+                    Call  PlaySoundAtActor  ( .Actor:Player 000000E9 )
+                Case  ==  .Item:Jump % 1
+                    Call  PlaySoundAtActor  ( .Actor:Player 0000010E )
+                Case  ==  .Item:SpinJump % 2
+                    Call  PlaySoundAtActor  ( .Actor:Player 0000010E )
+            EndSwitch
+            If *Var5 == 0` %First Time & Hit Success
+                Call  PlayerDamageEnemy ( *Var0 ~Flags:DamageType:Smash 00000019 00000000 00000003 00000050 )
+            Else %Seconds Time & Hit Success
+                Call  PlayerDamageEnemy ( *Var0 ~Flags:DamageType:Smash 00000019 00000000 00000002 00000070 )
+            EndIf
+        Default
+            Call  GetMenuSelection  ( *Var0 *Var1 *Var2 )
+            Switch  *Var1
+            Case  ==  .Item:Nothing % 0
+                Call  PlaySoundAtActor  ( .Actor:Player 000000E9 )
+            Case  ==  .Item:Jump % 1
+                Call  PlaySoundAtActor  ( .Actor:Player 0000010E )
+            Case  ==  .Item:SpinJump % 2
+                Call  PlaySoundAtActor  ( .Actor:Player 0000010E )
+            EndSwitch
+            If *Var5 == 0` %First Time & Hit Failure
+                Call  PlayerDamageEnemy ( *Var0 ~Flags:DamageType:Smash 00000019 00000000 00000002 00000010 )
+            Else %Second Time & Hit Failure
+                Call  PlayerDamageEnemy ( *Var0 ~Flags:DamageType:Smash 00000019 00000000 00000001 00000030 )    
+            EndIf
+            Call  PlayerTestEnemy       ( *Var0 ~Flags:DamageType:Smash 00000019 00000000 00000000 00000010 )
+        EndSwitch
+    If  *Var0  ==  .HitResult:Miss % 6
+        ExecWait  $Script_802A1A64
+        Return
+    EndIf
+    % Call  DidActionSucceed  ( *Var0 )
+    % Switch  *Var0
+    %     Case  >  .False
+    %         Call  GetMenuSelection  ( *Var0 *Var1 *Var2 )
+    %         Switch  *Var1
+    %             Case  ==  .Item:Nothing % 0
+    %                 Call  PlaySoundAtActor  ( .Actor:Player 000000E9 )
+    %             Case  ==  .Item:Jump % 1
+    %                 Call  PlaySoundAtActor  ( .Actor:Player 0000010E )
+    %             Case  ==  .Item:SpinJump % 2
+    %                 Call  PlaySoundAtActor  ( .Actor:Player 0000010E )
+    %         EndSwitch
+    %         Call  PlayerDamageEnemy ( *Var0 ~Flags:DamageType:Smash 00000019 00000000 *VarF 00000070 )
+    %     Default
+    %         Call  GetMenuSelection  ( *Var0 *Var1 *Var2 )
+    %         Switch  *Var1
+    %             Case  ==  .Item:Nothing % 0
+    %                 Call  PlaySoundAtActor  ( .Actor:Player 000000E9 )
+    %             Case  ==  .Item:Jump % 1
+    %                 Call  PlaySoundAtActor  ( .Actor:Player 0000010E )
+    %             Case  ==  .Item:SpinJump % 2
+    %                 Call  PlaySoundAtActor  ( .Actor:Player 0000010E )
+    %         EndSwitch
+    %         Call  PlayerDamageEnemy ( *Var0 ~Flags:DamageType:Smash 00000019 00000000 *VarE 00000030 )
+    % EndSwitch
+    Wait 15`
+    Add *Var5 1`
+    EndLoop
+    Set *Var5 0` %Reset for First attack or not
+    Switch  *Var0
+        CaseOR  ==  00000001 % 1
+        CaseOR  ==  00000003 % 3
+            ExecWait  $Script_802A18AC
+        EndCaseGroup
+        CaseOR  ==  .HitResult:Hit % 0
+        CaseOR  ==  .HitResult:QuakeImmune % 2
+            ExecWait  $Script_802A1A64
+        EndCaseGroup
+    EndSwitch
+    Return
+    End
+}
+
+@ $Script_UseMove0 {
+    0:  Call  802694A4  ( 00000001 )
+   10:  Call  GetMenuSelection  ( *Var0 *Var1 *Var2 )
+   28:  Switch  *Var1
+   34:  	Case  ==  .Item:Nothing % 0
+   40:  		Set   *VarD  0000002D
+   50:  		Set   *VarE  00000001
+   60:  		Set   *VarF  00000002
+   70:  		ExecWait  $Script_802A3168
+  10C:  EndSwitch
+  114:  Return
+  11C:  End
+}
+
+#new:Script $Script_802A1A64
+{
+    0:  Call  80276EFC ( )
+    C:  Call  UseBattleCamPreset    ( 0000001D )
+   1C:  Call  802693F0 ( )
+   28:  Wait  20`
+   34:  Call  EnablePlayerBlur      ( FFFFFFFF )
+   44:  Call  SetAnimation  ( .Actor:Player 00000000 00010002 )
+   5C:  Wait  5`
+   68:  Call  SetGoalToHome ( .Actor:Player )
+   78:  Call  SetActorSpeed ( .Actor:Player *Fixed[8.0] )
+   8C:  Call  SetAnimation  ( .Actor:Player 00000000 00010005 )
+   A4:  Call  PlayerRunToGoal       ( 00000000 )
+   B4:  Call  SetAnimation  ( .Actor:Player 00000000 00010002 )
+   CC:  Return
+   D4:  End
+}
+
+#new:Script $Script_802A18AC
+{
+    0:  Call  80276EFC ( )
+    C:  Call  UseBattleCamPreset    ( 00000004 )
+   1C:  Call  MoveBattleCamOver (  5` )
+   2C:  Call  802693F0 ( )
+   38:  Wait  20`
+   44:  Call  EnablePlayerBlur  ( FFFFFFFF )
+   54:  Call  SetAnimation      ( .Actor:Player 00000000 00010002 )
+   6C:  Wait  5`
+   78:  Call  SetGoalToHome     ( .Actor:Player )
+   88:  Call  SetActorSpeed     ( .Actor:Player *Fixed[8.0] )
+   9C:  Call  SetAnimation      ( .Actor:Player 00000000 00010005 )
+   B4:  Call  PlayerRunToGoal   ( 00000000 )
+   C4:  Call  SetAnimation      ( .Actor:Player 00000000 00010002 )
+   DC:  Return
+   E4:  End
+}
+
+#new:Script $Script_802A10B0
+{
+    0:  Call  InitTargetIterator ( )
+    C:  Call  SetGoalToTarget       ( .Actor:Player )
+   1C:  Call  AddGoalPos    ( .Actor:Player  0`  0`  0` )
+   38:  Call  GetGoalPos    ( .Actor:Self *Var0 *Var1 *Var2 )
+   54:  Sub   *Var0  00000020
+   64:  Call  SetGoalPos    ( .Actor:Self *Var0 *Var1 *Var2 )
+   80:  Call  UseBattleCamPreset    ( 0000001A )
+   90:  Call  SetActorSpeed ( .Actor:Player *Fixed[5.0] )
+   A4:  Call  SetAnimation  ( .Actor:Player 00000000 00010005 )
+   BC:  Call  PlayerRunToGoal       ( 00000000 )
+   CC:  Return
+   D4:  End
+}
+
+
+#new:Script $Script_802A1B40
+{
+    0:  Call  LoadActionCommand ( .ActionCommand:Smash )
+    Call EnableActorBlur ( .Actor:Player .True )
+   10:  Call  802A9000 ( )
+   1C:  ExecWait  $Script_802A10B0
+   28:  Call  SetGoalToTarget   ( .Actor:Player )
+   38:  Call  AddGoalPos        ( .Actor:Player  0`  0`  0` )
+   54:  ExecWait  $Script_802A1204
+   60:  Call  PlayerTestEnemy   ( *Var0 ~Flags:DamageType:Smash 00000000 00000000 00000000 00000010 )
+   84:  Call  UseBattleCamPreset    ( 0000002B )
+   94:  Call  SetBattleCamOffsetZ   (  8` )
+   A4:  Call  InitTargetIterator ( )
+   B0:  Call  PlaySoundAtActor  ( .Actor:Player 0000010B )
+   C4:  Call  SetAnimation      ( .Actor:Player 00000000 0003000E )
+   DC:  Wait  4`
+   E8:  Call  $Function_802A1000 ( )
+   F4:  If  *Var0  !=  .HitResult:Hit % 0
+  104:  	Call  SetAnimation  ( .Actor:Player 00000000 0003000F )
+  11C:  	Call  GetActionCommandMode  ( *Var0 )
+  12C:  	If  *Var0  <  00000002
+  13C:  		Call  $Function_802A1050 ( )
+  148:  		If  *Var0  ==  00000000
+  158:  			Loop  0000002D
+  164:  				Wait  1`
+  170:  				Call  CheckButtonDown   ( ~Flags:Buttons:40000 *Var0 )
+  184:  				If  *Var0  !=  .False
+  194:  					BreakLoop
+  19C:  				EndIf
+  1A4:  			EndLoop
+  1AC:  		EndIf
+  1B4:  	EndIf
+  1BC:  	Add   *VarD  00000006
+  1CC:  	Call  802A9258  ( 00000000 *VarD 00000003 )
+  1E4:  	Call  SetActionResult   ( 00000000 )
+  1F4:  	Set   *Var1  00000000
+  204:  	Loop  0000001E
+  210:  		Wait  1`
+  21C:  		Call  GetActionResult   ( *Var0 )
+  22C:  		If  *Var0  !=  00000000
+  23C:  			If  *Var1  !=  00000001
+  24C:  				Call  SetAnimation  ( .Actor:Player 00000000 00030010 )
+  264:  				Set   *Var1  00000001
+  274:  			EndIf
+  27C:  		EndIf
+  284:  		Call  CheckButtonDown   ( ~Flags:Buttons:40000 *Var0 )
+  298:  		If  *Var0  ==  .False
+  2A8:  			BreakLoop
+  2B0:  		EndIf
+  2B8:  	EndLoop
+  2C0:  	Label  0
+  2CC:  	Call  GetActionCommandMode  ( *Var0 )
+  2DC:  	If  *Var0  <  00000002
+  2EC:  		Wait  1`
+  2F8:  		Call  GetActionSuccess  ( *Var0 )
+  308:  		If  *Var0  ==  00000000
+  318:  			Goto  0
+  324:  		EndIf
+  32C:  	EndIf
+  334:  Else
+  33C:  	Call  802A9258      ( 00000000 *Var1 00000003 )
+  354:  	Call  SetActionResult   ( 00000000 )
+  364:  	Call  SetAnimation  ( .Actor:Player 00000000 0003000F )
+  37C:  	Sub   *Var1  0000000A
+  38C:  	Wait  *Var1
+  398:  	Call  SetAnimation  ( .Actor:Player 00000000 00030010 )
+  3B0:  	Wait  5`
+  3BC:  EndIf
+  3C4:  Call  GetActionCommandMode  ( *Var0 )
+  3D4:  If  *Var0  ==  00000002
+  3E4:  	Call  SetActionCommandMode  ( 00000003 )
+  3F4:  	Loop
+  400:  		Call  GetActionCommandMode  ( *Var0 )
+  410:  		If  *Var0  <  00000002
+  420:  			BreakLoop
+  428:  		EndIf
+  430:  		Wait  1`
+  43C:  	EndLoop
+  444:  EndIf
+  44C:  Call  SetAnimation      ( .Actor:Player 00000000 00030011 )
+  464:  Call  PlaySoundAtActor  ( .Actor:Player 00002115 )
+  478:  Wait  3`
+  484:  Call  SetAnimation      ( .Actor:Player 00000000 00030012 )
+  49C:  Call  PlaySoundAtActor  ( .Actor:Player 00002118 )
+        Call EnableActorBlur ( .Actor:Player .False )
+  4B0:  Return
+  4B8:  End
+}
+
+#new:Script $Script_802A1204
+{
+    0:  Call  SetGoalToTarget   ( .Actor:Player )
+   10:  Call  AddGoalPos        ( .Actor:Player  0`  0`  0` )
+   2C:  Set   *Var1  00000000
+   3C:  Loop  0000000A
+   48:  	Call  CheckButtonDown   ( ~Flags:Buttons:40000 *Var0 )
+   5C:  	If  *Var0  ==  .True
+   6C:  		Call  SetAnimation  ( .Actor:Player 00000000 00010002 )
+   84:  		BreakLoop
+   8C:  	EndIf
+   94:  	Wait  1`
+   A0:  	Add   *Var1  00000001
+   B0:  	Call  SetAnimation  ( .Actor:Player 00000000 0003000D )
+   C8:  EndLoop
+   D0:  Call  SetAnimation  ( .Actor:Player 00000000 0003000D )
+   E8:  Switch  *Var1
+   F4:  	Case  <  00000003
+  100:  		Wait  4`
+  10C:  	Case  <  00000005
+  118:  		Wait  3`
+  124:  	Case  <  00000007
+  130:  		Wait  2`
+  13C:  	Case  <  00000009
+  148:  		Wait  1`
+  154:  	Case  <  0000000B
+  160:  		Wait  00000000
+  16C:  EndSwitch
+  174:  Return
+  17C:  End
+}
+
+@ $Function_802A1000
+{
+    0:  ADDIU     SP, SP, FFE8
+    4:  SW        S0, 10 (SP)
+    8:  COPY      S0, A0
+    C:  LI        V0, F
+   10:  LAB       V1, 800DC0F3
+   18:  LI        A0, 15
+   1C:  SW        RA, 14 (SP)
+   20:  SW        V0, 88 (S0)
+   24:  JAL       ~Func:is_ability_active
+   28:  SW        V1, 84 (S0)
+   2C:  BEQ       V0, R0, .o3C
+   30:  LI        V0, 28
+   34:  SW        R0, 84 (S0)
+   38:  SW        V0, 88 (S0)
+        .o3C
+   3C:  LW        RA, 14 (SP)
+   40:  LW        S0, 10 (SP)
+   44:  LI        V0, 2
+   48:  JR        RA
+   4C:  ADDIU     SP, SP, 18
+}
+
+#new:Function $Function_802A1050
+{
+    0:  ADDIU     SP, SP, FFE8
+    4:  SW        S0, 10 (SP)
+    8:  COPY      S0, A0
+    C:  LI        A0, 16
+   10:  SW        RA, 14 (SP)
+   14:  JAL       ~Func:is_ability_active
+   18:  SW        R0, 84 (S0)
+   1C:  BEQ       V0, R0, .o28
+   20:  LI        V0, 1
+   24:  SW        V0, 84 (S0)
+        .o28
+   28:  LAW       V0, 800DC070
+   30:  ANDI      V0, V0, 1000
+   34:  BEQ       V0, R0, .o40
+   38:  LI        V0, 1
+   3C:  SW        V0, 84 (S0)
+        .o40
+   40:  LW        RA, 14 (SP)
+   44:  LW        S0, 10 (SP)
+   48:  LI        V0, 2
+   4C:  JR        RA
+   50:  ADDIU     SP, SP, 18
+}

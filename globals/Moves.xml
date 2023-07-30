@@ -8,7 +8,7 @@
 	<Move index="005" nameMsg="1D-038" desc1Msg="23-0A5" desc2Msg="23-0A5" flags="00013005" category="01" inputPopup="01" fp="00" bp="00" name="Hammer3"/>
 	<Move index="006" nameMsg="1D-038" desc1Msg="00-000" desc2Msg="00-000" flags="00013005" category="01" inputPopup="01" fp="00" bp="00" name="Unused_Hammer4"/>
 	<Move index="007" nameMsg="00-000" desc1Msg="00-000" desc2Msg="00-000" flags="00013005" category="01" inputPopup="01" fp="00" bp="00" name="Unused_Hammer5"/>
-	<Move index="008" nameMsg="2A-010" desc1Msg="23-068" desc2Msg="25-068" flags="00013005" category="01" inputPopup="01" fp="02" bp="01" name="SpinSmash"/>
+	<Move index="008" nameMsg="2A-010" desc1Msg="23-068" desc2Msg="25-068" flags="00013005" category="01" inputPopup="01" fp="03" bp="03" name="SpinSmash"/>
 	<Move index="009" nameMsg="2A-012" desc1Msg="23-06A" desc2Msg="25-06A" flags="00008020" category="01" inputPopup="01" fp="02" bp="01" name="QuakeHammer"/>
 	<Move index="00A" nameMsg="2A-011" desc1Msg="23-069" desc2Msg="25-069" flags="00013005" category="01" inputPopup="01" fp="02" bp="02" name="DDownPound"/>
 	<Move index="00B" nameMsg="00-000" desc1Msg="00-000" desc2Msg="00-000" flags="00000008" category="01" inputPopup="FF" fp="01" bp="01" name="SmashCharge0"/>

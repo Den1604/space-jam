@@ -275,6 +275,7 @@
 	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
 	Call  SetCamEnabled      ( .Cam:Default .True
 	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+	Exec  $Script_MakeEntities
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
 	Exec  $Script_EnterMap
@@ -291,6 +292,13 @@
 	RESERVED
 	CLEAR  V0
 	JPOP   RA
+}
+
+#new:Script $Script_MakeEntities
+{
+	Call  MakeEntity    ( .Entity:SavePoint ~Vec4d:SaveBlock 80000000 )
+	Return
+	End
 }
 
 #new:Script $Script_SetupMusic
@@ -379,6 +387,12 @@
 
 #new:Script $Script_EnterMap
 {
+	Call  GetLoadType   ( *Var[0] )
+	If  *Var[0]  ==  1
+		Exec  EnterSavePoint
+		Exec $Script_CreateExitTriggers
+		Return
+	EndIf
 	Call  GetEntryID    ( *Var[0] )
 	Switch  *Var[0]
 		CaseOR  ==  ~Entry:Entry0

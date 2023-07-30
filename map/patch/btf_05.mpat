@@ -13,6 +13,7 @@
     % Bind  $Script_DisableRightSide .Trigger:FloorAbove ~Collider:LeftCollider 1 0
     % Bind  $Script_EnableBothSides .Trigger:FloorAbove ~Collider:MainFloor 1 0
     Exec  $Script_DisableStars
+    Exec $Script_MakeEntities
     Return
     End
 }
@@ -54,7 +55,7 @@
 #new:Script $Script_DisableStars
 {
     Call EnableModel ( ~Model:YellowStar .False )
-    If *btf_07_RedStarFlag == .False
+    If *MF_btf_07_RedStarFlag == .False
         Call EnableModel ( ~Model:RedStar .False )
     Else
         Call EnableModel ( ~Model:BlankRedStar .False )
@@ -63,6 +64,14 @@
     Call EnableModel ( ~Model:BlueStar .False )
     Call EnableModel ( ~Model:StarBeam .False )
     Call EnableModel ( ~Model:BeamParticles .False )
+    Return
+    End
+}
+
+@ $Script_MakeEntities
+{
+    Call  MakeEntity    ( .Entity:SavePoint ~Vec4d:SaveBlock 80000000 )
+	Call  MakeEntity    ( .Entity:HealingBlock ~Vec4d:HeartBlock 80000000 )
     Return
     End
 }

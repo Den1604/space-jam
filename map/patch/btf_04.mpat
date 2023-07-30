@@ -16,6 +16,7 @@
     Exec  $Script_EnterMap
     Exec  $Script_StarSpin
     Exec  $Script_PostsMove
+    Exec  $Script_MakeEntities
     Bind  $Script_EnableSparkles .Trigger:FloorAbove ~Collider:StarwayPath 1 0
     Bind  $Script_DisableSparkles .Trigger:FloorAbove ~Collider:NormalFloor 1 0
     Return
@@ -236,6 +237,15 @@
     If *MF_SetStarParticles == .True
         Set *MF_SetStarParticles .False
     EndIf
+    Return
+    End
+}
+
+#new:Script $Script_MakeEntities {
+    Call  MakeEntity    ( .Entity:YellowBlock ~Vec4d:YellowBlock .Item:ShroomCake 80000000 )
+    Call  AssignBlockFlag   ( *MF_btf_04_YellowBlock )
+    Call  MakeEntity    ( .Entity:RedBlock ~Vec4d:RedBlock .Item:SpinSmash 80000000 )
+    Call  AssignBlockFlag   ( *MF_btf_04_RedBlock )
     Return
     End
 }

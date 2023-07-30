@@ -21,7 +21,7 @@
 {
     Exec $Script_SpinStars1n3
     Exec $Script_SpinStars2n4
-    If *btf_07_RedStarFlag == .False
+    If *MF_btf_07_RedStarFlag == .False
         Exec $Script_RedStarsTopSpin
         Exec $Script_RedStarsBottomSpin
     Else
@@ -154,7 +154,7 @@
 
 @ $Script_MakeEntities
 {
-    If *btf_07_RedStarFlag == .False
+    If *MF_btf_07_RedStarFlag == .False
         Call  MakeEntity    ( .Entity:BlueSwitch ~Vec4d:Switch 80000000 )
         Call AssignScript ( $Script_BlueSwitchHit )
     EndIf
@@ -166,7 +166,7 @@
 {
     Call DisablePlayerInput ( .True )
     Call  PlayEffect    ( ~FX:Sparkles:Star -429` 22` 0` 25` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
-    Set *btf_07_RedStarFlag .True
+    Set *MF_btf_07_RedStarFlag .True
     Exec $Script_TopStarFlyAway
     Wait 15`
     ExecWait $Script_BottomStarFlyAway
@@ -225,9 +225,9 @@
 
 #new:NpcGroupList $NpcGroupList_Enemies
 {
-	00000001 $NpcGroup_Magikoopa 00000000
-	00000001 $NpcGroup_Clubba 00000000
-	00000001 $NpcGroup_HurtPlant 00000000
+	00000001 $NpcGroup_Magikoopa 1D0A0000
+	00000001 $NpcGroup_Clubba 1D0B0000
+	00000001 $NpcGroup_HurtPlant 1D0C0000
 	00000000 00000000 00000000
 }
 
@@ -251,7 +251,7 @@
 
 #new:Script $Script_Idle_Magikoopa
 {
-    If *btf_07_FoughtMagikoopa == .True
+    If *MF_btf_07_FoughtMagikoopa == .True
         Call SetNpcPos ( .Npc:Self 0` -1000` 0` )
         Return
     Else
@@ -262,7 +262,7 @@
         EndThread
         Call ShowEmote ( .NpcID:NPC1 .Emote:Exclamation -45` 30` .True 0` 0` 0` 0` )
         Call SetNpcAnimation ( .NpcID:NPC1 00560302 )
-        Wait 15`
+        Wait 30`
         Call SetNpcAnimation ( .NpcID:NPC1 00560301 )
         Wait 10`
         Call SpeakToPlayer ( .NpcID:NPC1 00560302 00560301 00000000 002F0003 )
@@ -283,7 +283,7 @@
     Wait 60`
     Call PlaySound ( 0000013E )
     Call DisablePlayerInput ( .False )
-    Set *btf_07_FoughtMagikoopa .True
+    Set *MF_btf_07_FoughtMagikoopa .True
     Return
     End
 }
@@ -308,7 +308,7 @@
 
 #new:Script $Script_Idle_Clubba
 {
-    If *btf_07_FoughtClubba == .True
+    If *MF_btf_07_FoughtClubba == .True
         Call SetNpcPos ( .Npc:Self 0` -1000` 0` )
         Return
     Else
@@ -318,7 +318,7 @@
             Call PlaySound ( 000002E1 )
         EndThread
         Call SetNpcAnimation ( .NpcID:NPC2 00390108 )
-        Wait 10`
+        Wait 30`
         Thread
             Call PlaySound ( 00000262 )
         EndThread
@@ -343,7 +343,7 @@
     Call  PlayEffect    ( ~FX:Firework:White ~Vec3D:NPC2 2` 15` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
     Wait 60`
     Call PlaySound ( 0000013E )
-    Set *btf_07_FoughtClubba .True
+    Set *MF_btf_07_FoughtClubba .True
     Call DisablePlayerInput ( .False )
     Return
     End
@@ -369,7 +369,7 @@
 
 #new:Script $Script_Idle_HurtPlant
 {
-    If *btf_07_FoughtHurtPlant == .True
+    If *MF_btf_07_FoughtHurtPlant == .True
         Call SetNpcPos ( .Npc:Self 0` -1000` 0` )
         Return
     Else
@@ -404,7 +404,7 @@
     Call  PlayEffect    ( ~FX:Firework:White ~Vec3D:NPC3 2` 15` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
     Wait 60`
     Call PlaySound ( 0000013E )
-    Set *btf_07_FoughtHurtPlant .True
+    Set *MF_btf_07_FoughtHurtPlant .True
     Call DisablePlayerInput ( .False )
     Return
     End

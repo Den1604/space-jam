@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_05" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="66.222977,115.125862,482.828918" pitch="0.720000" yaw="301.233643"/>
-		<Camera pos="219.976746,65536.000000,493.275726"/>
-		<Camera pos="65536.000000,52.168716,700.640808"/>
-		<Camera pos="-267.689331,186.003510,65536.000000"/>
+		<Camera pos="-55.300678,195.834946,607.408325" pitch="35.760006" yaw="353.713684"/>
+		<Camera pos="216.936111,65536.000000,432.429413"/>
+		<Camera pos="65536.000000,34.571701,373.198090"/>
+		<Camera pos="201.078827,32.077240,65536.000000"/>
 	</Editor>
 	<ModelTree>
 		<Node name="Root" id="3C">
@@ -121,7 +121,7 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="6">
+		<Node name="Root" id="8">
 			<Node name="Entrances" id="5">
 				<Node name="Entry0" id="FFFFFFFF"/>
 				<Node name="Entry1" id="0"/>
@@ -130,6 +130,8 @@
 				<Node name="Entry4" id="3"/>
 				<Node name="Entry5" id="4"/>
 			</Node>
+			<Node name="SaveBlock" id="6"/>
+			<Node name="HeartBlock" id="7"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -7139,7 +7141,14 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="6"/>
+			<MapObject name="Root" id="8"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="201,61,432" yaw="270.000000">
+			<MapObject name="HeartBlock" id="7"/>
+		</Marker>
+		<Marker ver="4" type="Entity" pos="-201,61,432" yaw="90.000000">
+			<MapObject name="SaveBlock" id="6"/>
+			<Entity type="802E9A18"/>
 		</Marker>
 		<Marker ver="4" type="Group">
 			<MapObject name="Entrances" id="5"/>
