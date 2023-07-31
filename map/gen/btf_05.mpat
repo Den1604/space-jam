@@ -302,6 +302,45 @@
 	End
 }
 
+#new:Script $Script_PanCamera_CamPan1
+{
+	Call  UseSettingsFrom   ( .Cam:Default 697` 8` 462` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan1 )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+#new:Script $Script_PanCamera_CamPan2
+{
+	Call  UseSettingsFrom   ( .Cam:Default 718` 0` 464` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan2 )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+#new:Script $Script_PanCamera_CamPanM
+{
+	Call  UseSettingsFrom   ( .Cam:Default 702` 0` 495` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPanM )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
 #new:Script $Script_SetupMusic
 {
 	Call  FadeOutMusic  ( 00000000 500` ) % usually between 500-1000
@@ -318,6 +357,10 @@
 	Call     802C9000 	( ~Model:DecoStars2 1 )
 	Call     802C9000 	( ~Model:DecoStars3 1 )
 	Call     802C9000 	( ~Model:DecoStars4 0 )
+	Call     802C9000 	( ~Model:DoorBBlocker1 0 )
+	Call     802C9000 	( ~Model:DoorBBlocker2 1 )
+	Call     802C9000 	( ~Model:DoorGBlocker1 0 )
+	Call     802C9000 	( ~Model:DoorGBlocker2 1 )
 	Thread
 		Set  *Var[0] 0
 		Set  *Var[1] 96

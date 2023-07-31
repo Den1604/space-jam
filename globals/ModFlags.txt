@@ -7,3 +7,5 @@
 010 = MF_btf_04_YellowBlock
 011 = MF_btf_04_RedBlock
 012 = MF_btf_04_HeardShipCrash
+013 = MF_btf_06_YellowStarFlag
+014 = MF_btf_05_BothStarsFlag

@@ -54,7 +54,11 @@
 
 #new:Script $Script_DisableStars
 {
-    Call EnableModel ( ~Model:YellowStar .False )
+    If *MF_btf_06_YellowStarFlag == .False
+        Call EnableModel ( ~Model:YellowStar .False )
+    Else
+        Call EnableModel ( ~Model:BlankYellowStar .False )
+    EndIf
     If *MF_btf_07_RedStarFlag == .False
         Call EnableModel ( ~Model:RedStar .False )
     Else
@@ -64,6 +68,25 @@
     Call EnableModel ( ~Model:BlueStar .False )
     Call EnableModel ( ~Model:StarBeam .False )
     Call EnableModel ( ~Model:BeamParticles .False )
+    If *MF_btf_05_BothStarsFlag == .True
+        Call EnableModel ( ~Model:DoorGBlocker1 .False )
+        Call EnableModel ( ~Model:DoorGBlocker2 .False )
+        Call EnableModel ( ~Model:DoorBBlocker1 .False )
+        Call EnableModel ( ~Model:DoorBBlocker2 .False )
+        Call  ModifyColliderFlags     ( 00000000 ~Collider:BDoorBlocker 7FFFFE00 )
+        Call  ModifyColliderFlags     ( 00000000 ~Collider:GDoorBlocker 7FFFFE00 )
+        Return
+    Else
+        If *MF_btf_07_RedStarFlag == .True
+            If *MF_btf_06_YellowStarFlag == .True
+                Exec $Script_DoorsOpeningCutscene
+            Else
+                Return
+            EndIf
+        Else
+            Return
+        EndIf
+    EndIf
     Return
     End
 }
@@ -73,6 +96,75 @@
     Call  MakeEntity    ( .Entity:SavePoint ~Vec4d:SaveBlock 80000000 )
 	Call  MakeEntity    ( .Entity:HealingBlock ~Vec4d:HeartBlock 80000000 )
 	Bind  $Script_Exit_Entry0 .Trigger:WallPressA ~Collider:DoorCollider 00000001 00000000
+    Return
+    End
+}
+
+#new:Script $Script_DoorsOpeningCutscene
+{
+    Call DisablePlayerInput ( .True )
+    Wait 20`
+    Call GetPlayerPos ( *VarA *VarB *VarC )
+    Thread
+          Call PlaySound ( 00000262 )
+    EndThread
+    Call ShowEmote ( 00000000 .Emote:Exclamation -45` 15` .False *VarA *VarB *VarC 0` )
+    Call SetPlayerAnimation ( 00080016 )
+    Wait 15`
+    Call EnableModel ( ~Model:DisabledSquare .False )
+    ExecWait $Script_PanCamera_CamPanM
+    Thread
+        Call  PlayEffect    ( ~FX:GatherEnergyPink ~Vec3D:SFXMarker2 5` 60` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    EndThread
+    Call PlaySound ( 0000024A )
+    Call  PlayEffect    ( ~FX:GatherEnergyPink ~Vec3D:SFXMarker1 5` 60` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    Wait 40` 
+    ExecWait $Script_PanCamera_CamPan1
+    Call PlaySound ( 000000B2 )
+    Call  PlayEffect    ( ~FX:LensFlare:Rotating ~Vec3D:SFXMarker1 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    Wait 5`
+    Call EnableModel ( ~Model:DoorGBlocker1 .False )
+    Call EnableModel ( ~Model:DoorGBlocker2 .False )
+    Call  ModifyColliderFlags     ( 00000000 ~Collider:GDoorBlocker 7FFFFE00 )
+    Wait 15`
+    ExecWait $Script_PanCamera_CamPan2
+    Call PlaySound ( 000000B2 )
+    Call  PlayEffect    ( ~FX:LensFlare:Rotating ~Vec3D:SFXMarker2 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 ) 
+    Wait 5`
+    Call EnableModel ( ~Model:DoorBBlocker1 .False )
+    Call EnableModel ( ~Model:DoorBBlocker2 .False )
+    Call  ModifyColliderFlags     ( 00000000 ~Collider:BDoorBlocker 7FFFFE00 )
+    Wait 15`
+    Call SetPlayerAnimation ( 00010002 )
+    Set *MF_btf_05_BothStarsFlag .True
+    Call ResetCam ( .Cam:Default *Fixed[4.0] )
+    Call EnableModel ( ~Model:DisabledSquare .True )
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
+
+@ $Script_PanCamera_CamPan1 {
+    Call  UseSettingsFrom   ( .Cam:Default 697` 8` 462` )
+    Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+    Call  SetCamDistance    ( .Cam:Default 450` )
+    Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan1 )
+    Call  SetCamSpeed       ( .Cam:Default *Fixed[3.000000] )
+    Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+    Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+    Return
+    End
+}
+
+
+@ $Script_PanCamera_CamPan2 {
+    Call  UseSettingsFrom   ( .Cam:Default 697` 8` 462` )
+    Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+    Call  SetCamDistance    ( .Cam:Default 450` )
+    Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan2 )
+    Call  SetCamSpeed       ( .Cam:Default *Fixed[3.000000] )
+    Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+    Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
     Return
     End
 }
