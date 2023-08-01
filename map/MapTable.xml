@@ -578,8 +578,8 @@
 		<Map name="btf_06" nickname="Challenge Room 1"/>
 		<Map name="btf_07" nickname="Challenge Room 2"/>
 		<Map name="btf_08" nickname="Intro Credits"/>
-		<Map name="btf_09" nickname="''Challenge'' Room 3"/>
-		<Map name="btf_10" nickname="''Challenge'' Room 4"/>
+		<Map name="btf_09" nickname="''Challenge'' Room 4"/>
+		<Map name="btf_10" nickname="''Challenge'' Room 3"/>
 		<Stage name="btf_bt01" nickname="CR 2 Battle Map"/>
 	</Area>
 	<Resource name="mac_tex" compressed="false"/>
