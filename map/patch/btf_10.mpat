@@ -13,18 +13,25 @@
 
 #new:Script $Script_ResetMario1
 {
-    Call DisablePartnerAI ( .True )
-    Call DisablePlayerInput ( .True )
-    ExecWait $Script_PanCamera_CamPan1
-    Call InterpPlayerYaw ( -207` 5` )
-    ExecWait $Script_PanCamera_CamPan2
-    Call  PlayEffect    ( ~FX:Sparkles:Star ~Vec3D:SFXMarker1 25` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
-    Call PlaySound ( 00000064 )
-    Call SetPlayerPos ( ~Vec3D:ResetPos1 )
-    Call ResetCam ( .Cam:Default *Fixed[2.0] )
-    Wait 10`
-    Call EnablePartnerAI ()
-    Call DisablePlayerInput ( .False )
+    Call RandInt ( 99` *Var0 )
+        If *Var0 == 99`
+            Call DisablePlayerInput ( .True )
+            Call GotoMapSpecial ( "btf_10" ~Entry:Entry0 00000008 )
+            Wait 300`
+        Else
+            Call DisablePartnerAI ( .True )
+            Call DisablePlayerInput ( .True )
+            ExecWait $Script_PanCamera_CamPan1
+            Call InterpPlayerYaw ( -207` 5` )
+            ExecWait $Script_PanCamera_CamPan2
+            Call  PlayEffect    ( ~FX:Sparkles:Star ~Vec3D:SFXMarker1 25` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+            Call PlaySound ( 00000064 )
+            Call SetPlayerPos ( ~Vec3D:ResetPos1 )
+            Call ResetCam ( .Cam:Default *Fixed[2.0] )
+            Wait 10`
+            Call EnablePartnerAI ()
+            Call DisablePlayerInput ( .False )
+        EndIf
     Return
     End
 }

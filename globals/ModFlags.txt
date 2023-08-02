@@ -13,3 +13,5 @@
 016 = MF_btf_06_CollectedItem1
 017 = MF_btf_06_PlatformMessageShown
 018 = MF_btf_06_PlatformsActivated
+019 = MF_btf_09_SeenCutscene
+01A = MF_btf_10_DeliveredLetter

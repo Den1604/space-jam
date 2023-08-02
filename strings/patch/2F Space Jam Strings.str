@@ -72,3 +72,67 @@
 	shrine looking building?[br]
 	[Wait][End]
 }
+
+#message:2F:008
+{
+	[Style Right]
+	Mario,[Pause:5] look![Pause:15][br]
+	It's our (INSERT NAME HERE)![Pause:10][br]
+	I guess it crashed here,[Pause:5] we can[br]
+	turn it around together![br]
+	[Wait][End]
+}
+
+#message:2F:009
+{
+	[Style Right]
+	There we go![Pause:15][br]
+	We can now finally leave[br]
+	this place.[br]
+	[Wait][End]
+}
+
+#message:2F:00A
+{
+	[Style Right]
+	I have the feeling that[br]
+	there is still something left[br]
+	for us to do here.[br]
+	[Wait][Next]
+	Mario![Pause:10][br]
+	Let's investigate some[br]
+	more until we are sure we have[br]
+	done all we can here.[br]
+	[Wait][End]
+}
+
+#message:2F:00B
+{
+	[Style Right]
+	Do you think we should[br]
+	leave?[br]
+	[Wait][Yield]
+}
+
+#message:2F:00C
+{
+	[Next]
+	Alright![Pause:15][br]
+	Let's get going then.[br]
+	[Wait][End]
+}
+
+#message:2F:00D
+{
+	[Next]
+	Alright.[Pause:10][br]
+	Let's explore a little more then.[br]
+	[Wait][End]
+}
+
+#message:2F:00E
+{
+	[Style Right]
+	Off we go,[Pause:5] Mario![br]
+	[Wait][End]
+}

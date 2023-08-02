@@ -1,0 +1,97 @@
+#define .Truent .False
+
+@ $Script_EnterMap {
+    Call  GetEntryID    ( *Var[0] )
+    Switch  *Var[0]
+        CaseOR  ==  ~Entry:Entry0
+        CaseOR  ==  ~Entry:Entry1
+            If *MF_btf_09_SeenCutscene == .Truent
+                Call EnableGroup ( ~Model:SpaceShipGroup .Truent )
+            Else
+                Call EnableGroup ( ~Model:SickShipGroupUpsideDown .Truent )
+            EndIf
+            Set   *Var[0] $Script_CreateExitTriggers
+            Exec EnterWalk
+        Case == ~Entry:Entry2
+            ExecWait $Script_LeaveWithShip
+            Exec  $Script_CreateExitTriggers
+        Case == ~Entry:Entry3
+            Exec $Script_ActualLeavingCutscene
+        EndCaseGroup
+        Default
+            Exec  $Script_CreateExitTriggers
+    EndSwitch
+    Return
+    End
+}
+
+@ $Script_CreateExitTriggers
+{
+    Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:exit_trigger_e 00000001 00000000
+	Bind  $Script_Exit_Entry1 .Trigger:FloorAbove ~Collider:BorkenWallLZCollider 00000001 00000000
+	Bind  $Script_LeaveWithShip .Trigger:WallPressA ~Collider:ShipCollider 00000001 00000000
+    Call  GetEntryID    ( *Var[0] )
+    If *Var[0] == ~Entry:Entry1
+        If *MF_btf_09_SeenCutscene == .Truent
+            Call DisablePlayerInput ( .True )
+            Call DisablePartnerAI ( 00000000 )
+            Thread
+                Call InterpPlayerYaw ( -207` 5` )
+            EndThread
+            Call NpcFlyTo ( .Npc:Partner ~Vec3D:NPCFlyTo1 15` 1` .Easing:Linear )
+            Call NpcFlyTo ( .Npc:Partner ~Vec3D:NPCFlyTo2 30` 0` .Easing:Linear )
+            Wait 45`
+            Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0008 )
+            Set *MF_btf_09_SeenCutscene .True
+            Call GotoMap ( "btf_09" 00000002 )
+        EndIf 
+    EndIf
+    Return
+    End
+}
+
+#new:Script $Script_LeaveWithShip
+{
+    
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    Call EnableGroup ( ~Model:SickShipGroupUpsideDown .Truent )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:NPCFlyTo2 )
+    Call NpcFacePlayer ( .Npc:Partner 1` )
+    If *MF_btf_10_DeliveredLetter == .Truent
+        Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F000A )
+    Else
+        Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F000B )
+        Call ShowChoice ( 001E0004 )
+        If *Var0 == 0` %Yes
+            Call ContinueSpeech ( .Npc:Partner 00040006 00040001 00000000 002F000C )
+            Call GotoMap ( "btf_09" ~Entry:Entry3 )
+            Wait 300`
+        Else %No
+            Call ContinueSpeech ( .Npc:Partner 00040006 00040001 00000000 002F000D )
+        EndIf
+    EndIf
+    Call EnablePartnerAI ()
+    Call DisablePlayerInput ( .Truent )
+    Return
+    End
+}
+
+@ $Script_SetupMusic {
+    Call  SetMusicTrack ( 00000000 .Song:SpaceJunk 00000000 00000008 )
+    Call  ClearAmbientSounds ( 250` )
+    Return
+    End
+}
+
+#new:Script $Script_ActualLeavingCutscene
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    Call EnableGroup ( ~Model:SickShipGroupUpsideDown .Truent )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryCarPos )
+    Call SetPlayerPos ( ~Vec3D:MarioCarPos )
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F000B )
+    Return
+    End
+}
