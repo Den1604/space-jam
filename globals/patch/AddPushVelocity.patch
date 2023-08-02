@@ -1,0 +1,70 @@
+#export:Function $Function_AddPushZVelocity
+{
+    0:  ADDIU     SP, SP, FFE0
+    4:  SW        S1, 14 (SP)
+    8:  COPY      S1, A0
+    C:  SW        RA, 1C (SP)
+   10:  SW        S2, 18 (SP)
+   14:  SW        S0, 10 (SP)
+   18:  LW        S0, C (S1)
+   1C:  LW        A1, 0 (S0)
+   20:  JAL       ~Func:get_variable
+   24:  ADDIU     S0, S0, 4
+   28:  LW        A1, 0 (S0)
+   2C:  ADDIU     S0, S0, 4
+   30:  COPY      A0, S1
+   34:  JAL       ~Func:get_variable
+   38:  COPY      S2, V0
+   3C:  COPY      A0, S1
+   40:  LW        A1, 0 (S0)
+   44:  JAL       ~Func:get_variable
+   48:  COPY      S1, V0
+   4C:  COPY      S0, V0
+   50:  LA        V0, 8015A550
+   58:  LH        V1, 2 (V0)
+   5C:  BEQ       V1, S1, .o80
+   60:  NOP
+   64:  LH        V0, 4 (V0)
+   68:  BEQ       V0, S1, .o80
+   6C:  NOP
+   70:  BEQ       V1, S0, .o80
+   74:  NOP
+   78:  BNE       V0, S0, .o98
+   7C:  NOP
+        .o80
+   80:  MTC1      S2, F0
+   84:  NOP
+   88:  CVT.S.W   F0, F0
+   8C:  LA        V0, 8010EFC8
+   % playerStatus->pushVel.x (offset 1C) = F0
+   % modified, originally 1C for .x, now 24 for .z
+   94:  SWC1      F0, 24 (V0)
+        .o98
+   98:  LAB       V0, 8010F2A2
+   A0:  BEQ       V0, R0, .oDC % if 
+   A4:  NOP
+   A8:  JAL       ~Func:get_npc_unsafe
+   AC:  LI        A0, FFFC
+   B0:  LH        V1, 84 (V0)
+   B4:  BEQ       V1, S1, .oC4
+   B8:  NOP
+   BC:  BNE       V1, S0, .oDC
+   C0:  NOP
+        .oC4
+   C4:  LWC1      F0, 38 (V0)
+   C8:  MTC1      S2, F2
+   CC:  NOP
+   D0:  CVT.S.W   F2, F2
+   D4:  ADD.S     F0, F0, F2
+   % partner->pos.z = partner->pos.x (offset 38) + velX
+   % modified, originally 38 for .x, now 40 for .z
+   D8:  SWC1      F0, 40 (V0)
+        .oDC
+   DC:  LW        RA, 1C (SP)
+   E0:  LW        S2, 18 (SP)
+   E4:  LW        S1, 14 (SP)
+   E8:  LW        S0, 10 (SP)
+   EC:  LI        V0, 2
+   F0:  JR        RA
+   F4:  ADDIU     SP, SP, 20
+}
