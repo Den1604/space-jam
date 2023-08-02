@@ -1,0 +1,96 @@
+#define .NpcID:NpcGuard 1`
+
+@ $Script_Main {
+	Set   *GB_WorldLocation  .Location:GoombaRoad
+	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+	Call  SetCamEnabled      ( .Cam:Default .True
+	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+	
+	% Generated
+	Exec  $Script_MakeEntities
+	Exec  $Script_SetupMusic
+	Exec  $Script_EnterMap
+	% Custom
+	Exec  $Script_MakeItems
+	Exec  $Script_MovePlatform
+	
+	Call MakeNpcs ( .False $NpcGroupList )
+	Call SetNpcYaw ( .NpcID:NpcGuard -127` ) % Makes Clubba face left
+	Bind $Script_Platform_Fall .Trigger:FloorTouch ~Collider:platform1 1 00000000
+	Return
+	End
+}
+
+#new:Script $Script_MakeItems {
+	Call MakeItemEntity ( .Item:TastyTonic ~Vec3d:Item1 .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedItem1 )
+	Return
+	End
+}
+
+% Platform movement
+#new:Script $Script_MovePlatform {
+	Call MakeLerp ( 00000000 -300` 200` .Easing:Linear )
+	Loop
+		Call UpdateLerp ( )
+		Call TranslateGroup ( ~Model:platform1 00000000 00000000 *Var0 )
+		Wait 1`
+		If *Var1 == 00000000
+			BreakLoop
+		EndIf
+	EndLoop
+	Return
+	End
+}
+
+% Custom NPC
+#new:NpcGroup $NpcGroup_NpcGuard
+{
+	.NpcID:NpcGuard $NpcSettings_NpcGuard ~Vec3f:NpcGuard
+	00402D09 $Script_Init_NpcGuard 0 0 0
+	~NoDrops
+	~Movement:NpcGuard
+	~AnimationTable:NpcGuard
+	00000000 00000000 00000000 00000000 % no tattle string
+}
+
+#new:NpcSettings $NpcSettings_NpcGuard
+{
+	00000000 001E0018 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
+}
+
+#new:Script $Script_Init_NpcGuard
+{
+	Call BindNpcInteract ( .Npc:Self $Script_Interact_NpcGuard )
+    Return
+    End
+}
+
+#new:Script $Script_Interact_NpcGuard
+{
+	% talkAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 05
+	% idleAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 02
+	Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 00030029 )
+	Return
+	End
+}
+
+#new:Script $Script_Platform_Fall
+{
+	% Wait 60`
+	
+	If *MF_btf_06_PlatformMessageShown == .False
+		Call DisablePlayerInput ( .True )
+		Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 00030029 )
+		Call DisablePlayerInput ( .False )
+		Set *MF_btf_06_PlatformMessageShown .True
+	EndIf
+	Return
+	End
+}
+
+#new:NpcGroupList $NpcGroupList {
+	00000001 $NpcGroup_NpcGuard 00000000
+	00000000 00000000 00000000
+}

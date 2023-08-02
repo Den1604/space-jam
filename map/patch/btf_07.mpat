@@ -256,7 +256,6 @@
 {
     If *MF_btf_07_FoughtMagikoopa == .True
         Call SetNpcPos ( .Npc:Self 0` -1000` 0` )
-        Return
     Else
         Call AwaitPlayerApproach ( ~Vec2D:NPC1 90` )
         Call DisablePlayerInput ( .True )

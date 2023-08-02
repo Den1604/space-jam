@@ -10,3 +10,6 @@
 013 = MF_btf_06_YellowStarFlag
 014 = MF_btf_05_BothStarsFlag
 015 = MF_btf_02_BlooksLittleSecret
+016 = MF_btf_06_CollectedItem1
+017 = MF_btf_06_PlatformMessageShown
+018 = MF_btf_06_PlatformsActivated
