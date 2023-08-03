@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_09" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="294.968658,128.989075,263.675323" pitch="13.799992" yaw="19.061569"/>
+		<Camera pos="171.088013,147.113388,308.693542" pitch="9.200006" yaw="356.160065"/>
 		<Camera pos="422.123169,65536.000000,26.293858"/>
 		<Camera pos="65536.000000,58.704941,43.791428"/>
 		<Camera pos="449.268036,44.823498,65536.000000"/>
@@ -7769,31 +7769,31 @@
 			<MapObject name="Root" id="8"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="447,51,49" yaw="315.000000">
-			<MapObject name="ParakarryCarPos" id="7" hidden="true"/>
+			<MapObject name="ParakarryCarPos" id="7"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="447,51,9" yaw="225.000000">
-			<MapObject name="MarioCarPos" id="6" hidden="true"/>
+			<MapObject name="MarioCarPos" id="6"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="330,10,26" yaw="90.000000">
-			<MapObject name="NPCFlyTo2" id="5" hidden="true"/>
+			<MapObject name="NPCFlyTo2" id="5"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="284,87,-42" yaw="90.000000">
-			<MapObject name="NPCFlyTo1" id="4" hidden="true"/>
+			<MapObject name="NPCFlyTo1" id="4"/>
 		</Marker>
 		<Marker ver="4" type="Group">
 			<MapObject name="Entrances" id="3"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="503,0,29" yaw="270.000000">
-			<MapObject name="Entry3" id="2" hidden="true"/>
+			<MapObject name="Entry3" id="2"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="271,0,8" yaw="135.000000">
-			<MapObject name="Entry2" id="1" hidden="true"/>
+			<MapObject name="Entry2" id="1"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="251,20,-75" yaw="180.000000">
-			<MapObject name="Entry1" id="0" hidden="true"/>
+			<MapObject name="Entry1" id="0"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="-375,0,0" yaw="450.000000">
-			<MapObject name="Entry0" id="FFFFFFFF" hidden="true"/>
+			<MapObject name="Entry0" id="FFFFFFFF"/>
 		</Marker>
 	</Markers>
 	<ScriptData>
@@ -7821,7 +7821,7 @@
 			<Entrance type="Teleport" hasCallback="false" entry="Entry2"/>
 			<Entrance type="Teleport" hasCallback="false" entry="Entry3"/>
 			<Exit type="Walk" hasCallback="false" entry="Entry0" destMap="btf_05" destEntry="Entry4" trigger="exit_trigger_e"/>
-			<Exit type="Walk" hasCallback="false" entry="Entry1" destMap="btf_09" destEntry="Entry1" trigger="BorkenWallLZCollider"/>
+			<Exit type="Walk" hasCallback="false" entry="Entry1" destMap="btf_10" destEntry="Entry1" trigger="BorkenWallLZCollider"/>
 		</Generators>
 		<Camera vfov="25" near="16" far="4096" bgcolor="0,0,0" leadsPlayer="false"/>
 		<Fog world="0,10,10,10,255,950,1000" entity="0,10,10,10,255,950,1000"/>

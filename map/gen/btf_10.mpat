@@ -64,6 +64,32 @@
 	End
 }
 
+#new:Script $Script_SetCamera_CamPan3
+{
+	Call  SetCamType        ( .Cam:Default 00000000 .False )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[16.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetCamPosA        ( .Cam:Default 552` 562` )
+	Call  SetCamPosB        ( .Cam:Default 50` 552` )
+	Call  SetCamPosC        ( .Cam:Default 10` -50` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan3 )
+	Return
+	End
+}
+
+#new:Script $Script_SetCamera_CamPan4
+{
+	Call  SetCamType        ( .Cam:Default 00000000 .False )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[16.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetCamPosA        ( .Cam:Default 503` 513` )
+	Call  SetCamPosB        ( .Cam:Default 50` 503` )
+	Call  SetCamPosC        ( .Cam:Default 10` -50` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan4 )
+	Return
+	End
+}
+
 #new:Script $Script_SetupMusic
 {
 	Call  SetMusicTrack ( 00000000 .Song:PleasantPath 00000000 00000008 )
@@ -99,9 +125,21 @@
 	End
 }
 
+#new:Script $Script_Exit_Entry1
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Entry1 )
+	Exec     ExitWalk
+	Call  GotoMap   ( "btf_09" ~Entry:btf_09:Entry1 )
+	Wait  100`
+	Return
+	End
+}
+
 #new:Script $Script_CreateExitTriggers
 {
 	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:exit_trigger_e 00000001 00000000
+	Bind  $Script_Exit_Entry1 .Trigger:FloorAbove ~Collider:BorkenWallLZCollider 00000001 00000000
 	Return
 	End
 }

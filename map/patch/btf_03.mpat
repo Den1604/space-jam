@@ -32,13 +32,13 @@
     Call ResetCam ( .Cam:Default *Fixed[4.0] )
     Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0000 )
     Call InterpNpcYaw ( .Npc:Partner 143`  3` )
-    Wait  15`
+    Wait  18`
     Call InterpNpcYaw ( .Npc:Partner 323`  3` )
-    Wait  25`
+    Wait  13`
     Call InterpNpcYaw ( .Npc:Partner 143`  3` )
-    Wait  15`
+    Wait  12`
     Call InterpNpcYaw ( .Npc:Partner 323`  3` )
-    Wait  25`
+    Wait  17`
     Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0001 )
     Call SetPlayerAnimation ( 00010029 )
     Wait 15`

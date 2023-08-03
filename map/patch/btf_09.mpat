@@ -38,6 +38,12 @@
             Thread
                 Call InterpPlayerYaw ( -207` 5` )
             EndThread
+            Call GetPlayerPos ( *VarA *VarB *VarC )
+            Thread
+                Call PlaySound ( 00000262 )
+            EndThread
+            Call ShowEmote ( 00000000 .Emote:Exclamation -45` 15` .False *VarA *VarB *VarC 0` )
+            Wait 15`
             Call NpcFlyTo ( .Npc:Partner ~Vec3D:NPCFlyTo1 15` 1` .Easing:Linear )
             Call NpcFlyTo ( .Npc:Partner ~Vec3D:NPCFlyTo2 30` 0` .Easing:Linear )
             Wait 45`
@@ -56,7 +62,7 @@
     Call DisablePlayerInput ( .True )
     Call DisablePartnerAI ( 00000000 )
     Call EnableGroup ( ~Model:SickShipGroupUpsideDown .Truent )
-    Call SetNpcPos ( .Npc:Partner ~Vec3D:NPCFlyTo2 )
+    Call NpcFlyTo ( .Npc:Partner ~Vec3D:NPCFlyTo2 30` 0` .Easing:Linear )
     Call NpcFacePlayer ( .Npc:Partner 1` )
     If *MF_btf_10_DeliveredLetter == .Truent
         Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F000A )
@@ -91,7 +97,12 @@
     Call EnableGroup ( ~Model:SickShipGroupUpsideDown .Truent )
     Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryCarPos )
     Call SetPlayerPos ( ~Vec3D:MarioCarPos )
-    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F000B )
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F000E )
+    %
+    % PUT CODE OF THEM FLYING UP HERE
+    %
+    Call GotoMap ( "btf_09" ~Entry:Entry1 )
+    Wait 300`
     Return
     End
 }
