@@ -106,18 +106,22 @@
     Call RandInt ( 9` *Var0 )
         If *Var0 == 9`
             Call DisablePlayerInput ( .True )
+            Set *AreaFlag[0] .True
+            Call SetPlayerAnimation ( 00080012 )
             Call PlaySound ( 00000161 )
-            Call GotoMapSpecial ( "btf_10" ~Entry:Entry0 00000008 )
+            Call GotoMapSpecial ( "btf_11" ~Entry:Entry0 00000008 )
             Wait 300`
         Else
             Call DisablePartnerAI ( .True )
             Call DisablePlayerInput ( .True )
+            Call SetPlayerAnimation ( 00080012 )
             ExecWait $Script_PanCamera_CamPan1
             Call InterpPlayerYaw ( -207` 5` )
             ExecWait $Script_PanCamera_CamPan2
             Call  PlayEffect    ( ~FX:Sparkles:Star ~Vec3D:SFXMarker1 25` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
             Call PlaySound ( 00000064 )
             Wait 3`
+            Call SetPlayerAnimation ( 00010002 )
             Call SetPlayerPos ( ~Vec3D:ResetPos1 )
             Call ResetCam ( .Cam:Default *Fixed[2.0] )
             Wait 10`
@@ -133,18 +137,21 @@
     Call RandInt ( 9` *Var0 )
         If *Var0 == 9`
             Call DisablePlayerInput ( .True )
+            Call SetPlayerAnimation ( 00080012 )
             Call PlaySound ( 00000161 )
-            Call GotoMapSpecial ( "btf_10" ~Entry:Entry0 00000008 )
+            Call GotoMapSpecial ( "btf_11" ~Entry:Entry0 00000008 )
             Wait 300`
         Else
             Call DisablePartnerAI ( .True )
             Call DisablePlayerInput ( .True )
+            Call SetPlayerAnimation ( 00080012 )
             ExecWait $Script_PanCamera_CamPan3
             Call InterpPlayerYaw ( -207` 5` )
             ExecWait $Script_PanCamera_CamPan4
             Call  PlayEffect    ( ~FX:Sparkles:Star ~Vec3D:SFXMarker2 25` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
             Call PlaySound ( 00000064 )
             Wait 3`
+            Call SetPlayerAnimation ( 00010002 )
             Call SetPlayerPos ( ~Vec3D:ResetPos2 )
             Call ResetCam ( .Cam:Default *Fixed[2.0] )
             Wait 10`
@@ -244,6 +251,64 @@
     EndIf
     Call EnablePartnerAI ()
     Call DisablePlayerInput ( .False )
+    Return
+    End
+}
+
+@ $Script_EnterMap {
+    Call  GetEntryID    ( *Var[0] )
+    Switch  *Var[0]
+        CaseOR  ==  ~Entry:Entry0
+        CaseOR  ==  ~Entry:Entry1
+            Set   *Var[0] $Script_CreateExitTriggers
+            Exec  EnterWalk
+        Case  ==  ~Entry:Entry2
+            Exec  $Script_CreateExitTriggers
+            Exec $Script_TeleportMarioBack
+        EndCaseGroup
+        Default
+            Exec  $Script_CreateExitTriggers
+    EndSwitch
+    Return
+    End
+}
+
+#new:Script $Script_TeleportMarioBack
+{
+    If *AreaFlag[0] == .True
+        Call DisablePartnerAI ( .True )
+        Call DisablePlayerInput ( .True )
+        Call SetPlayerAnimation ( 00080012 )
+        ExecWait $Script_PanCamera_CamPan1
+        Call InterpPlayerYaw ( -207` 5` )
+        ExecWait $Script_PanCamera_CamPan2
+        Call  PlayEffect    ( ~FX:Sparkles:Star ~Vec3D:SFXMarker1 25` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+        Call PlaySound ( 00000064 )
+        Wait 3`
+        Call SetPlayerAnimation ( 00010002 )
+        Call SetPlayerPos ( ~Vec3D:ResetPos1 )
+        Call ResetCam ( .Cam:Default *Fixed[2.0] )
+        Wait 10`
+        Call EnablePartnerAI ()
+        Call DisablePlayerInput ( .False )
+        Set *AreaFlag[0] .False
+    Else
+        Call DisablePartnerAI ( .True )
+        Call DisablePlayerInput ( .True )
+        Call SetPlayerAnimation ( 00080012 )
+        ExecWait $Script_PanCamera_CamPan3
+        Call InterpPlayerYaw ( -207` 5` )
+        ExecWait $Script_PanCamera_CamPan4
+        Call  PlayEffect    ( ~FX:Sparkles:Star ~Vec3D:SFXMarker2 25` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+        Call PlaySound ( 00000064 )
+        Wait 3`
+        Call SetPlayerAnimation ( 00010002 )
+        Call SetPlayerPos ( ~Vec3D:ResetPos2 )
+        Call ResetCam ( .Cam:Default *Fixed[2.0] )
+        Wait 10`
+        Call EnablePartnerAI ()
+        Call DisablePlayerInput ( .False )
+    EndIf
     Return
     End
 }

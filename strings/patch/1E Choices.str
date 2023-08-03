@@ -1,0 +1,8 @@
+#string:1E:005
+{
+	[Style Choice pos=120,90 size=75,46]
+	[StartChoice]
+	[Option 0]Do[BR]
+	[Option 1]Don't[BR]
+	[EndChoice cancel=1][End]
+}

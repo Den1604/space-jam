@@ -1,0 +1,94 @@
+@ $Script_Main {
+    Set   *GB_WorldLocation  .Location:GoombaRoad
+    Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+    Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+    Call  SetCamEnabled      ( .Cam:Default .True
+    Call  SetCamLeadPlayer   ( .Cam:Default .False )
+    Exec  $Script_SetupMusic
+    Exec  $Script_EnterMap
+	Bind  $Script_DoOrDont .Trigger:WallPressA ~Collider:FishCollider 00000001 00000000
+	Bind  $Script_WhaleAppear .Trigger:WallHammer ~Collider:FishCollider 00000001 00000000
+    Return
+    End
+}
+
+@ $Script_EnterMap {
+    Call  GetEntryID    ( *Var[0] )
+    Switch  *Var[0]
+        Default
+            Exec  $Script_CreateExitTriggers
+    EndSwitch
+    Call DisablePlayerInput ( .True )
+    Call SetPlayerAnimation ( 00080012 )
+    Wait 60`
+    Call SetPlayerJumpscale ( *Fixed[1.0] )
+    Call PlayerJump1 ( ~Vec3D:JumpTo 15` )
+    Call SetPlayerAnimation ( 0001000F )
+    Call PlaySoundAtPlayer ( 000003E3 00000000 )
+    Call InterpPlayerYaw ( 245`  3` )
+    Call ShakeCam ( .Cam:Default 1 5` 1` )
+    Wait 5`
+    Call ResetCam ( .Cam:Default *Fixed[2.0] )
+    Call SetPlayerAnimation ( 00010030 )
+    Wait 10`
+    Call SetPlayerAnimation ( 00010002 )
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
+
+#new:Script $Script_WhaleAppear
+{
+    Call DisablePlayerInput ( .True )
+    Set *VarF 0` 
+    Loop 65` %332
+        Sub *VarF 5`
+        Call TranslateGroup ( ~Model:Whale 0` *VarF 0` )
+        Wait 1`
+    EndLoop
+    Call  SetMusicTrack ( 00000000 .Song:WhaleTheme 00000000 00000008 )
+    Set *VarF 0` 
+    Loop 45`
+        Sub *VarF 1`
+        Call RotateModel ( ~Model:WhaleMouth *VarF 1` 0` 1` )
+        Wait 1`
+    EndLoop
+    Set *VarE 0` 
+    Set *VarF 0` 
+    Thread
+        Wait 10`
+        Call InterpPlayerYaw ( -107` 5` )
+        Call SetPlayerAnimation ( 0001002B )
+        Wait 40`
+        Call GotoMap ( "gv_01" 00000000 )
+    EndThread
+    Loop 60` %600
+        Add *VarE 4`
+        Add *VarF 10`
+        Call TranslateModel ( ~Model:o170 *VarE -325` *VarF )
+        Wait 1`
+    EndLoop
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
+
+#new:Script $Script_DoOrDont
+{
+    Call DisablePlayerInput ( .True )
+    Call ShowMessageAtScreenPos ( 002F0014 000000A0 00000028 )
+    Call ShowChoice ( 001E0005 )
+    Call  CloseMessage ( )
+    If *Var0 == 0` %Do
+        Call SetPlayerAnimation ( 00010024 )
+        Wait 15`
+        Call PlaySound ( 00000064 )
+        Call SetPlayerAnimation ( 0001002C )
+        Wait 75`
+        Call GotoMap ( "btf_10" 00000002 )
+        Wait 300`
+    EndIf
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}

@@ -199,3 +199,18 @@
 	Regardless, thank you so much!![Pause:10][br]
 	[Wait][End]
 }
+
+#message:2F:013
+{
+	[Style Right]
+	Whale is here.[br]
+	[Wait][End]
+}
+
+#message:2F:014
+{
+	[Style Narrate]
+	Do you want to pray to the[br]
+	almighty Whale?[br]
+	[Yield][End]
+}

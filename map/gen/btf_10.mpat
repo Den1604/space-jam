@@ -5,13 +5,14 @@
 	[MainScript] $Script_Main
 	[Background] 00000000
 	[EntryList] $EntryList
-	[EntryCount] 2
+	[EntryCount] 3
 }
 
 #new:EntryList $EntryList
 {
 	~Vec4f:Entry0
 	~Vec4f:Entry1
+	~Vec4f:Entry2
 }
 
 #new:Script_Main $Script_Main

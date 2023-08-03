@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_10" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="435.800415,341.741364,639.094360" pitch="21.120022" yaw="351.039642"/>
-		<Camera pos="228.824921,65536.000000,-66.545235"/>
+		<Camera pos="-127.139351,176.793213,131.160172" pitch="19.680048" yaw="357.759674"/>
+		<Camera pos="-159.603760,65536.000000,-281.505310"/>
 		<Camera pos="65536.000000,-41.218796,131.606781"/>
-		<Camera pos="339.492432,-421.097809,65536.000000"/>
+		<Camera pos="-98.363968,-332.509491,65536.000000"/>
 	</Editor>
 	<ModelTree>
 		<Node name="Root" id="32">
@@ -65,7 +65,7 @@
 		</Node>
 	</ModelTree>
 	<ColliderTree>
-		<Node name="Root" id="1B">
+		<Node name="Root" id="1C">
 			<Node name="Stage" id="0"/>
 			<Node name="exit_trigger_e" id="1"/>
 			<Node name="MeshCollider" id="2"/>
@@ -93,6 +93,7 @@
 			<Node name="ResetCollider1" id="18"/>
 			<Node name="ResetCollider2" id="19"/>
 			<Node name="MeshCollider" id="1A"/>
+			<Node name="Planar GridCollider" id="1B"/>
 		</Node>
 	</ColliderTree>
 	<ZoneTree>
@@ -101,20 +102,21 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="B">
-			<Node name="Entrances" id="1">
+		<Node name="Root" id="C">
+			<Node name="Entrances" id="2">
 				<Node name="Entry0" id="FFFFFFFF"/>
 				<Node name="Entry1" id="0"/>
+				<Node name="Entry2" id="1"/>
 			</Node>
-			<Node name="ResetPos1" id="2"/>
-			<Node name="SFXMarker1" id="3"/>
-			<Node name="CamPan1" id="4"/>
-			<Node name="CamPan2" id="5"/>
-			<Node name="CamPan3" id="6"/>
-			<Node name="CamPan4" id="7"/>
-			<Node name="SFXMarker2" id="8"/>
-			<Node name="ResetPos2" id="9"/>
-			<Node name="NPC" id="A"/>
+			<Node name="ResetPos1" id="3"/>
+			<Node name="SFXMarker1" id="4"/>
+			<Node name="CamPan1" id="5"/>
+			<Node name="CamPan2" id="6"/>
+			<Node name="CamPan3" id="7"/>
+			<Node name="CamPan4" id="8"/>
+			<Node name="SFXMarker2" id="9"/>
+			<Node name="ResetPos2" id="A"/>
+			<Node name="NPC" id="B"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -4004,8 +4006,26 @@
 	</Models>
 	<Colliders>
 		<Collider ver="0" flags="0">
-			<MapObject name="Root" id="1B"/>
+			<MapObject name="Root" id="1C"/>
 			<HitObject type="ROOT"/>
+		</Collider>
+		<Collider ver="0" flags="0">
+			<MapObject name="Planar GridCollider" id="1B"/>
+			<HitObject type="HIT"/>
+			<HitMesh ver="0">
+				<TriangleBatch ver="0">
+					<VertexTable>
+						<Vertex xyz="-250,0,-250" uv="-512,512"/>
+						<Vertex xyz="-150,0,-350" uv="512,-512"/>
+						<Vertex xyz="-250,0,-350" uv="-512,-512"/>
+						<Vertex xyz="-150,0,-250" uv="512,512"/>
+					</VertexTable>
+					<TriangleList>
+						<Triangle ijk="0,1,2"/>
+						<Triangle ijk="1,0,3"/>
+					</TriangleList>
+				</TriangleBatch>
+			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
 			<MapObject name="MeshCollider" id="1A" hidden="true"/>
@@ -4734,43 +4754,46 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="B"/>
+			<MapObject name="Root" id="C"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="508,13,-50" yaw="135.000000">
-			<MapObject name="NPC" id="A"/>
+			<MapObject name="NPC" id="B"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="20" palette="B" animations="1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="412,0,0" yaw="450.000000">
-			<MapObject name="ResetPos2" id="9"/>
+			<MapObject name="ResetPos2" id="A"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="412,19,10" yaw="540.000000">
-			<MapObject name="SFXMarker2" id="8"/>
+			<MapObject name="SFXMarker2" id="9"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="412,0,0" yaw="0.000000">
-			<MapObject name="CamPan4" id="7"/>
+			<MapObject name="CamPan4" id="8"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" samplePos="0,0,0" overrideLength="450.000000" overrideAngles="15.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="602,0,65" yaw="0.000000">
-			<MapObject name="CamPan3" id="6"/>
+			<MapObject name="CamPan3" id="7"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" samplePos="0,0,0" overrideLength="450.000000" overrideAngles="15.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="-193,0,0" yaw="0.000000">
-			<MapObject name="CamPan2" id="5"/>
+			<MapObject name="CamPan2" id="6"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" samplePos="0,0,0" overrideLength="450.000000" overrideAngles="16.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="-52,0,65" yaw="0.000000">
-			<MapObject name="CamPan1" id="4"/>
+			<MapObject name="CamPan1" id="5"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" samplePos="-52,0,0" overrideLength="450.000000" overrideAngles="16.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="-193,19,10" yaw="540.000000">
-			<MapObject name="SFXMarker1" id="3"/>
+			<MapObject name="SFXMarker1" id="4"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="-193,0,0" yaw="450.000000">
-			<MapObject name="ResetPos1" id="2"/>
+			<MapObject name="ResetPos1" id="3"/>
 		</Marker>
 		<Marker ver="4" type="Group">
-			<MapObject name="Entrances" id="1"/>
+			<MapObject name="Entrances" id="2"/>
+		</Marker>
+		<Marker ver="4" type="Entry" pos="-200,0,-300" yaw="450.000000">
+			<MapObject name="Entry2" id="1"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="326,20,75" yaw="0.000000">
 			<MapObject name="Entry1" id="0"/>
@@ -4801,6 +4824,7 @@
 		<Generators>
 			<Entrance type="Walk" hasCallback="false" entry="Entry0"/>
 			<Entrance type="Walk" hasCallback="false" entry="Entry1"/>
+			<Entrance type="Teleport" hasCallback="false" entry="Entry2"/>
 			<Exit type="Walk" hasCallback="false" entry="Entry0" destMap="btf_05" destEntry="Entry3" trigger="exit_trigger_e"/>
 			<Exit type="Walk" hasCallback="false" entry="Entry1" destMap="btf_09" destEntry="Entry1" trigger="BorkenWallLZCollider"/>
 		</Generators>
