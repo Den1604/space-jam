@@ -64,28 +64,28 @@
 	End
 }
 
-#new:Script $Script_SetCamera_CamPan3
+#new:Script $Script_PanCamera_CamPan3
 {
-	Call  SetCamType        ( .Cam:Default 00000000 .False )
-	Call  SetCamPitch       ( .Cam:Default *Fixed[16.000000] *Fixed[-6.000000] )
+	Call  UseSettingsFrom   ( .Cam:Default 0` 0` 0` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
 	Call  SetCamDistance    ( .Cam:Default 450` )
-	Call  SetCamPosA        ( .Cam:Default 552` 562` )
-	Call  SetCamPosB        ( .Cam:Default 50` 552` )
-	Call  SetCamPosC        ( .Cam:Default 10` -50` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan3 )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
 	Return
 	End
 }
 
-#new:Script $Script_SetCamera_CamPan4
+#new:Script $Script_PanCamera_CamPan4
 {
-	Call  SetCamType        ( .Cam:Default 00000000 .False )
-	Call  SetCamPitch       ( .Cam:Default *Fixed[16.000000] *Fixed[-6.000000] )
+	Call  UseSettingsFrom   ( .Cam:Default 0` 0` 0` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
 	Call  SetCamDistance    ( .Cam:Default 450` )
-	Call  SetCamPosA        ( .Cam:Default 503` 513` )
-	Call  SetCamPosB        ( .Cam:Default 50` 503` )
-	Call  SetCamPosC        ( .Cam:Default 10` -50` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan4 )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
 	Return
 	End
 }

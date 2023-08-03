@@ -148,3 +148,54 @@
 	Off we go,[Pause:5] Mario![br]
 	[Wait][End]
 }
+
+#message:2F:00F
+{
+	[Style Right]
+	Thank you two again for the[br]
+	letter![Pause:10] Feel free to come by[br]
+	here anytime.[br]
+	[Wait][End]
+}
+
+#message:2F:010
+{
+	[Style Right]
+	Oh, hello you two![Pause:10][br]
+	I did not expect any visitors[br]
+	anytime...[Pause:10] ever![br]
+	[Wait][Next]
+	I'm here to repair some kind[br]
+	of mechanism...[Pause:10][br]
+	[Wait][Next]
+	I assume it's for some kind of[br]
+	puzzle, but I was given barely[br]
+	any instructions![br]
+	[Wait][Next]
+	They said they would deliver[br]
+	them through mail...[Pause:10][br]
+	But I guess it did not arrive[br]
+	in time.[br]
+	[Wait][End]
+}
+
+#message:2F:011
+{
+	[Style Right]
+	Oh!![Pause:10][br]
+	Could you be talking about[br]
+	this letter, sir?[br]
+	[Wait][End]
+}
+
+#message:2F:012
+{
+	[Style Right]
+	Yes!![Pause:10] Thank you so much![Pause:10][br]
+	This will help me, but I[br]
+	sadly will not be done anytime[br]
+	soon.[br]
+	[Wait][Next]
+	Regardless, thank you so much!![Pause:10][br]
+	[Wait][End]
+}

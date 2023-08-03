@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_05" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="-2.830534,123.754562,719.365295" pitch="14.159994" yaw="15.461383"/>
+		<Camera pos="-68.833969,138.198090,788.030884" pitch="11.439997" yaw="358.981384"/>
 		<Camera pos="112.442749,65536.000000,465.881775"/>
 		<Camera pos="65536.000000,34.099560,346.323669"/>
 		<Camera pos="-47.150024,71.092133,65536.000000"/>
@@ -7678,7 +7678,7 @@
 			<Entrance type="Walk" hasCallback="false" entry="Entry4"/>
 			<Entrance type="Walk" hasCallback="false" entry="Entry5"/>
 			<Exit type="DoubleDoor" hasCallback="false" entry="Entry0" destMap="btf_04" destEntry="Entry1" trigger="DoorCollider" door1="RightDoor" door2="LeftDoor" doorSFX="2"/>
-			<Exit type="Walk" hasCallback="false" entry="Entry1" destMap="btf_06" destEntry="Entry0" trigger="Entry1LZ"/>
+			<Exit type="Walk" hasCallback="false" entry="Entry1" destMap="btf_06" destEntry="entry_s" trigger="Entry1LZ"/>
 			<Exit type="Walk" hasCallback="false" entry="Entry2" destMap="btf_07" destEntry="Entry0" trigger="Entry2LZ"/>
 			<Exit type="Walk" hasCallback="false" entry="Entry3" destMap="btf_10" destEntry="Entry0" trigger="Entry3LZ"/>
 			<Exit type="Walk" hasCallback="false" entry="Entry4" destMap="btf_09" destEntry="Entry0" trigger="Entry4LZ"/>
