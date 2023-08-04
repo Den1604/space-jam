@@ -1,7 +1,7 @@
 #message:2F:000
 {
 	[Style Right]
-	That hurt![Pause:10][BR]
+	That crash hurt![Pause:10][BR]
 	I couldn't tell what, but...[Pause:15][br]
 	something hit us while we were[br]
 	flying![br]
@@ -45,9 +45,10 @@
 #message:2F:004
 {
 	[Style Right]
-	[PrintRising][Shake]Whuh?![Pause:30][br]
+	[PrintRising][Shake]Whuh?!   [Pause:30][br]
 	Where did you come from!?[/fx][/fx][Pause:15][br]
-	Get ready to get clobbered![br]
+	Get ready to get clobbered[br]
+	for scaring me like that![BR]
 	[Wait][End]
 }
 
@@ -68,8 +69,26 @@
 
 #message:2F:006
 {
-	[Style Right]
-	Credits![br]
+	[Style Narrate]
+	[BR]
+	[Size 27]  -    Credits    -[SizeReset][br]
+	[BR]
+	[Wait][Next]
+	Mod made by [Color:06]Darxoon[Color:00], [Color:08]Den[Color:00] and[BR]
+	[Color:01]Shyblookster[Color:00] for the 2nd[BR]
+	Paper Mario Modding Jam.[BR]
+	[Wait][Next]
+	[BR]
+	[Size 27]-  Special Thanks  -[SizeReset][br]
+	[BR]
+	[Wait][Next]
+	[Color:01]Wrymouth[Color:00][BR]
+	[BR]
+	- ASM tutoring for [Color:08]Den[Color:00][BR]
+	[Wait][Next]
+	[Color:16]DarkSB24[Color:00][BR]
+	[BR]
+	- Midi used from vgmusic.com[BR]
 	[Wait][End]
 }
 
@@ -152,16 +171,25 @@
 #message:2F:00F
 {
 	[Style Right]
-	Thank you two again for the[br]
+	[Voice Star]Thank you two again for the[br]
 	letter![Pause:10] Feel free to come by[br]
 	here anytime.[br]
+	[Wait][Next]
+	Also I'd watch your step,[br]
+	that wall over there gave in[br]
+	while I was here.[br]
+	[Wait][Next]
+	It sounded like something crashed[br]
+	into the roof of this building.[Pause:10][br]
+	I'm not sure if it's safe to go in[br]
+	there but if you do, good luck![br]
 	[Wait][End]
 }
 
 #message:2F:010
 {
 	[Style Right]
-	Oh, hello you two![Pause:10][br]
+	[Voice Star]Oh, hello you two![Pause:10][br]
 	I did not expect any visitors[br]
 	anytime...[Pause:10] ever![br]
 	[Wait][Next]
@@ -191,7 +219,7 @@
 #message:2F:012
 {
 	[Style Right]
-	Yes!![Pause:10] Thank you so much![Pause:10][br]
+	[Voice Star]Yes!![Pause:10] Thank you so much![Pause:10][br]
 	This will help me, but I[br]
 	sadly will not be done anytime[br]
 	soon.[br]
