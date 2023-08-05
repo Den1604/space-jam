@@ -29,7 +29,7 @@
 	ORI v0, r0, 2
 }
 
-@ $Script_8024FD70 { %Stolen Directly from X-Mas Special cause i am lazy like that B)   - Den
+@ $Script_8024FD70 { %Stolen Directly from X-Mas Special cause i am lazy like that :3   - Den
     Call  DisablePlayerInput    ( .True )
     If *Intro == .False
         Call $GivePlayerStartingEquipment
@@ -47,7 +47,7 @@
     EndThread
     Call  InterpPlayerYaw   (  90`  0` )
     Call  SetPlayerPos  ( 220`  30`  -80` )
-    Call  SetNpcPos     ( 00000000  720`  220`  -150` )
+    Call  SetNpcPos     ( 00000000  720`  20`  -150` )
     Call  SetNpcYaw     ( 00000000  270` )
     Call  EnableGroup   ( ~Model:g94 .False )
     Call  EnableGroup   ( ~Model:g100 .True )
@@ -136,6 +136,10 @@
         Wait 60`
         Call  SpeakToPlayer ( 00000000 00040006 00040001 00000000 002F001B ) %Parakarry goes to deliver Letters on his own
         Wait 10`
+        Thread
+            Wait 20`
+            Call SetPlayerAnimation ( 0001002A )
+        EndThread
         Call  NpcFlyTo      ( 00000000  720`  220`  -150`  60`  -10` .Easing:Linear )
         Wait 30`
         Call  ClearAmbientSounds    ( 000000FA ) %birds pls stop
@@ -158,8 +162,10 @@
     Call  EnableGroup   ( ~Model:g100 .False )
     Call  ResetCam  ( .Cam:Default *Fixed[4.0] )
     Wait 10`
-    Call  SetMusicTrack ( 0 .Song:MarioBrosHouse 0 8 )
+    Call  FadeOutMusic ( 00000000 30` )
     Call SpeakToPlayer ( .Npc:Partner 00050006 00050002 00000000 00000026 )
+    Call GotoMap ("btf_13" 00000000 )
+    Wait 300`
     Call  EnablePartnerAI ()
     Call  DisablePlayerInput ( .False )
     Return
