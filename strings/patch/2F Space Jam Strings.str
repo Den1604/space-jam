@@ -305,6 +305,13 @@
 	Muskular's home![Pause:10][br]
 	His home is near an area [br]
 	called the Star Haven Islands.[br]
+	[Wait][Next]
+	The islands are even higher[br]
+	than Star Haven![Pause:10][br]
+	Makes sense that one of the[br]
+	Star Spirits would live there.[br]
+	[Wait][Next]
+	Sounds like a very safe place.[br]
 	[Wait][End]
 }
 

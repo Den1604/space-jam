@@ -569,6 +569,7 @@ Artist:[Pause:25] Green Toad
         Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
         Wait 1`
     EndLoop
+    Wait 10`
     Call DisablePartnerAI ( 00000000 )
     Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0021 )
     Call ResetCam ( .Cam:Default *Fixed[2.5] )
