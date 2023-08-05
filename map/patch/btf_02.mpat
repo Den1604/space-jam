@@ -276,6 +276,9 @@
 	Exec  $Script_SetupTexturePan
 	Exec  $Script_EnterMap
 	Exec  $Script_AnimateLanterns
+    If *MF_btf_XX_TalkedToMuskular == .True
+        Bind $Script_MarioAndParakarryLeave .Trigger:WallPressA ~Collider:LeaveCollider 00000001 00000000
+    EndIf
 	Return
 	End
 }
@@ -573,6 +576,56 @@ Artist:[Pause:25] Green Toad
     Call DisablePartnerAI ( 00000000 )
     Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0021 )
     Call ResetCam ( .Cam:Default *Fixed[2.5] )
+    Call EnablePartnerAI ()
+    Call DisablePlayerInput ( .False )
+    Set *MF_btf_XX_TalkedToMuskular .True %DEBUG!
+    Return
+    End
+}
+
+#new:Script $Script_MarioAndParakarryLeave
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0022 )
+    Call ShowChoice ( 001E0004 )
+    Call CloseMessage ()
+    If *Var0 == 0` %Yes
+        Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0023 )
+        Set *Var0 0`
+        Loop 9`
+            Sub *Var0 15`
+            Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Call EnablePartnerAI ()
+        Call SetPlayerJumpscale ( *Fixed[2.0] )
+        Call PlayerJump ( ~Vec3D:MarioPos2 20` )
+        Call EnablePartnerAI ()
+        Wait 10`
+        Call DisablePartnerAI ( 00000000 )
+        Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryPos2 5` 5` .Easing:Linear )
+        ExecWait $Script_PanCamera_CamPan
+        Call SetPlayerPos ( ~Vec3D:MarioPos1 )
+        Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryPos1 )
+        Loop 9`
+            Add *Var0 15`
+            Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Call PlaySound ( 0000032A )
+        Loop 20`
+            Add *Var0 30`
+            Call TranslateGroup ( ~Model:SpaceTruckGroup *Var0 0` 0` )
+            Wait 1`
+        EndLoop
+        Wait 10`
+        Call GotoMap ( "btf_13" 00000001 )
+        Call StopSound ( 0000032A )
+        Wait 300`
+    Else %No
+        Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0024 )
+    EndIf
     Call EnablePartnerAI ()
     Call DisablePlayerInput ( .False )
     Return

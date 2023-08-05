@@ -380,3 +380,32 @@
 	looking![br]
 	[Wait][End]
 }
+
+#message:2F:022
+{
+	[Style Right]
+	We have to deliver these[br]
+	five more letters from[br]
+	Muskular immedeatly![br]
+	[Wait][Next]
+	Should we get going, Mario?[br]
+	[Wait][Yield][End]
+}
+
+#message:2F:023
+{
+	[Style Right]
+	Off we go to our first[br]
+	very special delivery![br]
+	[Wait][End]
+}
+
+#message:2F:024
+{
+	[Style Right]
+	Alright, we can stay a little[br]
+	longer and look for something[br]
+	we potentially missed.[br]
+	[Wait][End]
+}
+

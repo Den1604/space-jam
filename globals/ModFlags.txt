@@ -15,3 +15,4 @@
 018 = MF_btf_06_PlatformsActivated
 019 = MF_btf_09_SeenCutscene
 01A = MF_btf_10_DeliveredLetter
+01B = MF_btf_XX_TalkedToMuskular

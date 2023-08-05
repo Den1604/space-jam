@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_02" author="unnamed" background="hos_bg" textures="hos_tex">
 	<Editor>
-		<Camera pos="517.880920,187.625656,479.852173" pitch="20.239990" yaw="2.879893"/>
-		<Camera pos="508.947296,65536.000000,274.038544"/>
+		<Camera pos="500.000000,156.468567,834.530151" pitch="10.000000" yaw="0.000000"/>
+		<Camera pos="601.199158,65536.000000,314.592834"/>
 		<Camera pos="65536.000000,-21.085659,-353.107666"/>
 		<Camera pos="380.274414,-60.151882,65536.000000"/>
 	</Editor>
@@ -58,7 +58,7 @@
 		</Node>
 	</ModelTree>
 	<ColliderTree>
-		<Node name="Root" id="20">
+		<Node name="Root" id="21">
 			<Node name="Stage" id="0"/>
 			<Node name="ExitGuards" id="1"/>
 			<Node name="RiverPath_Col" id="2"/>
@@ -91,6 +91,7 @@
 			<Node name="Lanterns_C_Col" id="1D"/>
 			<Node name="Lanterns_N_Col" id="1E"/>
 			<Node name="MeshCollider" id="1F"/>
+			<Node name="LeaveCollider" id="20"/>
 		</Node>
 	</ColliderTree>
 	<ZoneTree>
@@ -6925,8 +6926,26 @@
 	</Models>
 	<Colliders>
 		<Collider ver="0" flags="0">
-			<MapObject name="Root" id="20"/>
+			<MapObject name="Root" id="21"/>
 			<HitObject type="ROOT"/>
+		</Collider>
+		<Collider ver="0" flags="0">
+			<MapObject name="LeaveCollider" id="20" hidden="true"/>
+			<HitObject type="HIT"/>
+			<HitMesh ver="0">
+				<TriangleBatch ver="0">
+					<VertexTable>
+						<Vertex xyz="455,140,321" uv="11520,1600"/>
+						<Vertex xyz="655,40,321" uv="8320,0"/>
+						<Vertex xyz="655,140,321" uv="8320,1600"/>
+						<Vertex xyz="455,40,321" uv="11520,0"/>
+					</VertexTable>
+					<TriangleList>
+						<Triangle ijk="0,1,2"/>
+						<Triangle ijk="1,0,3"/>
+					</TriangleList>
+				</TriangleBatch>
+			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
 			<MapObject name="MeshCollider" id="1F" hidden="true"/>
@@ -7511,8 +7530,6 @@
 						<Vertex xyz="655,40,481" uv="5760,0"/>
 						<Vertex xyz="655,140,321" uv="8320,1600"/>
 						<Vertex xyz="655,40,321" uv="8320,0"/>
-						<Vertex xyz="455,140,321" uv="11520,1600"/>
-						<Vertex xyz="455,40,321" uv="11520,0"/>
 					</VertexTable>
 					<TriangleList>
 						<Triangle ijk="0,1,2"/>
@@ -7521,8 +7538,6 @@
 						<Triangle ijk="3,4,5"/>
 						<Triangle ijk="6,5,4"/>
 						<Triangle ijk="5,6,7"/>
-						<Triangle ijk="8,7,6"/>
-						<Triangle ijk="7,8,9"/>
 					</TriangleList>
 				</TriangleBatch>
 			</HitMesh>
@@ -8398,7 +8413,7 @@
 			<HitObject type="ROOT"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="boundary_s" id="7" hidden="true"/>
+			<MapObject name="boundary_s" id="7"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8417,7 +8432,7 @@
 			<Camera type="TYPE_2" flag="false" boomLength="450.000000" boomPitch="15.000000" viewPitch="-5.000000" posA="500,325,550" posB="500,402,583" posC="500,0,623"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="boundary_e_cam" id="6" hidden="true"/>
+			<MapObject name="boundary_e_cam" id="6"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8434,7 +8449,7 @@
 			<Camera type="TYPE_2" flag="false" boomLength="450.000000" boomPitch="15.000000" viewPitch="-5.000000" posA="430,430,210" posB="430,283,243" posC="430,0,283"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="boundary_w_cam" id="5" hidden="true"/>
+			<MapObject name="boundary_w_cam" id="5"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8453,7 +8468,7 @@
 			<Camera type="TYPE_2" flag="false" boomLength="450.000000" boomPitch="15.000000" viewPitch="-5.000000" posA="-330,-325,580" posB="-330,402,446" posC="-330,0,353"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="Camera_Main" id="4" hidden="true"/>
+			<MapObject name="Camera_Main" id="4"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8492,7 +8507,7 @@
 			<Camera type="TYPE_0" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="0,10,50" posB="0,10,-50" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="CameraShift_4" id="3" hidden="true"/>
+			<MapObject name="CameraShift_4" id="3"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8513,7 +8528,7 @@
 			<Camera type="TYPE_5" flag="false" boomLength="380.000000" boomPitch="8.000000" viewPitch="-10.000000" posA="932,-900,-425" posB="1229,-800,-440" posC="-377,0,-419"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="CameraShift_3" id="2" hidden="true"/>
+			<MapObject name="CameraShift_3" id="2"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8534,7 +8549,7 @@
 			<Camera type="TYPE_5" flag="false" boomLength="400.000000" boomPitch="12.000000" viewPitch="-10.000000" posA="885,-412,-401" posB="-272,-500,-420" posC="-377,0,-419"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="CameraShift_2" id="1" hidden="true"/>
+			<MapObject name="CameraShift_2" id="1"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8555,7 +8570,7 @@
 			<Camera type="TYPE_5" flag="false" boomLength="550.000000" boomPitch="22.000000" viewPitch="-6.000000" posA="371,-412,-423" posB="110,-500,-424" posC="-412,0,-420"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="CameraShift_1" id="0" hidden="true"/>
+			<MapObject name="CameraShift_1" id="0"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8610,7 +8625,7 @@
 		<Marker ver="4" type="Group">
 			<MapObject name="Entrances" id="1"/>
 		</Marker>
-		<Marker ver="4" type="Entry" pos="590,40,350" yaw="270.000000">
+		<Marker ver="4" type="Entry" pos="590,40,350" yaw="180.000000">
 			<MapObject name="Entry_1" id="0"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="453,21,-427" yaw="270.000000">
