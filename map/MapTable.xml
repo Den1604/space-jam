@@ -582,6 +582,7 @@
 		<Map name="btf_10" nickname="''Challenge'' Room 3"/>
 		<Map name="btf_11" nickname="R.I.P. Fish"/>
 		<Map name="btf_12" nickname="Star Temple Roof"/>
+		<Map name="btf_13" nickname="Ship Travel Map"/>
 		<Stage name="btf_bt01" nickname="CR 2 Battle Map"/>
 	</Area>
 	<Resource name="mac_tex" compressed="false"/>

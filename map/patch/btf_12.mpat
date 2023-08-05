@@ -1,0 +1,86 @@
+@ $Script_EnterMap {
+    Call  GetEntryID    ( *Var[0] )
+    Switch  *Var[0]
+        Default
+            Exec  $Script_CreateExitTriggers
+    EndSwitch
+    Exec $Script_FlyAwayToVictory
+    Return
+    End
+}
+
+#new:Script $Script_FlyAwayToVictory
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryPos1 ) 
+    Call PlaySound ( 0000030F )
+    Wait 60`
+    Call PlaySound ( 00000310 )
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0015 )
+    Call SetCamSpeed ( .Cam:Default *Fixed[2.0] )
+    Thread
+        Call ShakeCam ( .Cam:Default 00000000 45` *Fixed[5] )
+    EndThread
+    Call SetPlayerPos ( ~Vec3D:PlayerPos1 )
+    Wait 40`
+    Exec $Script_ShipMoveUp
+    Call PlaySound ( 0000030F )
+    Wait 20`
+    Call PlaySound ( 0000032A )
+    Thread
+        Call ShakeCam ( .Cam:Default 00000000 15` *Fixed[10] )
+    EndThread
+    Thread
+        Call PlaySound ( 00000328 )
+    EndThread
+    Thread
+        Call  PlayEffect    ( ~FX:Explosion2 ~Vec3D:FXMarker2 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+    EndThread
+    Thread
+        Call  PlayEffect    ( ~FX:Explosion2 ~Vec3D:FXMarker3 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+    EndThread
+    Call  PlayEffect    ( ~FX:Explosion2 ~Vec3D:FXMarker1 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+    Call EnableModel ( ~Model:BlowUp .False )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:Entry0 ) 
+    ExecWait $Script_PanCamera_CamPan
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0016 )
+    Exec $Script_ShipMoveRight
+    Wait 15`
+    Call GotoMap ( "btf_13" 00000000 )
+    %Call StopSound ( 0000032A )
+    Return
+    End
+}
+
+#new:Script $Script_ShipMoveUp
+{
+    Wait 10`
+    Call MakeLerp ( 00000000 300` 30` .Easing:QuadraticOut )
+    Loop
+        Call UpdateLerp()
+        Call TranslateGroup ( ~Model:SpaceShipGroup 00000000 *Var0 00000000 )
+        If *Var1 == 0
+            BreakLoop
+        EndIf
+        Wait 1`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_ShipMoveRight
+{
+    Wait 10`
+    Call MakeLerp ( 00000000 300` 30` .Easing:QuadraticOut )
+    Loop
+        Call UpdateLerp()
+        Call TranslateGroup ( ~Model:SpaceShipGroup *Var0 300` 00000000 )
+        If *Var1 == 0
+            BreakLoop
+        EndIf
+        Wait 1`
+    EndLoop
+    Return
+    End
+}

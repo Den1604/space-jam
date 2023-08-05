@@ -62,7 +62,6 @@
     Call DisablePlayerInput ( .True )
     Call DisablePartnerAI ( 00000000 )
     Call EnableGroup ( ~Model:SickShipGroupUpsideDown .Truent )
-    Call NpcFlyTo ( .Npc:Partner ~Vec3D:NPCFlyTo2 30` 0` .Easing:Linear )
     Call NpcFacePlayer ( .Npc:Partner 1` )
     If *MF_btf_10_DeliveredLetter == .Truent
         Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F000A )
@@ -98,10 +97,7 @@
     Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryCarPos )
     Call SetPlayerPos ( ~Vec3D:MarioCarPos )
     Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F000E )
-    %
-    % PUT CODE OF THEM FLYING UP HERE
-    %
-    Call GotoMap ( "btf_09" ~Entry:Entry1 )
+    Call GotoMap ( "btf_12" ~Entry:Entry0 )
     Wait 300`
     Return
     End

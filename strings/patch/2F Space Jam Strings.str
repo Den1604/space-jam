@@ -231,7 +231,7 @@
 #message:2F:013
 {
 	[Style Right]
-	Whale is here.[br]
+	Whale is here.[br] %Unused but leaving it here for people who look at the source code :P	- Den
 	[Wait][End]
 }
 
@@ -241,4 +241,24 @@
 	Do you want to pray to the[br]
 	almighty Whale?[br]
 	[Yield][End]
+}
+
+
+#message:2F:015
+{
+	[Style Right]
+	Let's try and aim for that[br]
+	hole the ship came through,[br]
+	Mario![br]
+	[Wait][End]
+}
+
+#message:2F:016
+{
+	[Style Right]
+	Well, we tried...[Pause:15][br]
+	I bet it's fine![Pause:10][br]
+	Let's just leave, Mario.[Pause:15][br]
+	Quickly.[br]
+	[Wait][End]
 }
