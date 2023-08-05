@@ -5,7 +5,7 @@
 	[MainScript] $Script_Main
 	[Background] 80200000
 	[EntryList] $EntryList
-	[EntryCount] 4
+	[EntryCount] 2
 }
 
 #new:EntryList $EntryList
@@ -274,7 +274,6 @@
 	Exec  $Script_MakeEntities
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
-    Exec  $Script_CreateExitTriggers
 	Exec  $Script_EnterMap
 	Exec  $Script_AnimateLanterns
 	Return
@@ -425,9 +424,20 @@ EndLoop
 
 #new:Script $Script_EnterMap
 {
-    %Exec  EnterWalk
-	Return
-	End
+    Call  GetEntryID    ( *Var[0] )
+    Switch  *Var[0]
+        Case  ==  ~Entry:Entry_0
+            Set   *Var[0] $Script_CreateExitTriggers
+            Exec  EnterWalk
+        Case  ==  ~Entry:Entry_1
+            Exec  $Script_CreateExitTriggers
+            Exec $Script_MarioAndParakarryArrive
+        EndCaseGroup
+        Default
+            Exec  $Script_CreateExitTriggers
+    EndSwitch
+    Return
+    End
 }
 
 
@@ -512,3 +522,58 @@ Artist:[Pause:25] Green Toad
 % Unsigned instructions fill with 00
 % Not unsigned with FF
 % DADDU T0, R0, R0 wipes all *8* bytes of the register!
+
+#new:Script $Script_PanCamera_CamPan
+{
+	Call  UseSettingsFrom   ( .Cam:Default ~Vec3D:HiddenBlock_2 )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-12.000000] )
+	Call  SetCamDistance    ( .Cam:Default 600` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+#new:Script $Script_MarioAndParakarryArrive
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    Call PlaySound ( 0000032A )
+    Call SetPlayerPos ( ~Vec3D:MarioPos1 )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryPos1 )
+    Call TranslateGroup ( ~Model:SpaceTruckGroup 600` -1000` 0` )
+    ExecWait $Script_PanCamera_CamPan
+    Set *Var0 600`
+    Loop 20`
+        Sub *Var0 30`
+        Call TranslateGroup ( ~Model:SpaceTruckGroup *Var0 0` 0` )
+        Wait 1`
+    EndLoop
+    Call SetPlayerPos ( ~Vec3D:MarioPos2 )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryPos2 )
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0020 )
+    Call StopSound ( 0000032A )
+    Set *Var0 0`
+    Loop 9`
+        Sub *Var0 15`
+        Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
+        Wait 1`
+    EndLoop
+    Call EnablePartnerAI ()
+    Call SetPlayerJumpscale ( *Fixed[2.0] )
+    Call PlayerJump ( ~Vec3D:CamPan 20` )
+    Loop 9`
+        Add *Var0 15`
+        Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
+        Wait 1`
+    EndLoop
+    Call DisablePartnerAI ( 00000000 )
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0021 )
+    Call ResetCam ( .Cam:Default *Fixed[2.5] )
+    Call EnablePartnerAI ()
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}

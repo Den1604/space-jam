@@ -48,7 +48,7 @@
     Exec $Script_ShipMoveRight
     Wait 15`
     Call GotoMap ( "btf_13" 00000000 )
-    %Call StopSound ( 0000032A )
+    Call StopSound ( 0000032A )
     Return
     End
 }

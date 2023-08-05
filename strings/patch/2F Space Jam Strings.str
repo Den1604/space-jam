@@ -302,7 +302,7 @@
 {
 	[Style Right]
 	Alright, we're on our way to[br]
-	Muskular's home![br]
+	Muskular's home![Pause:10][br]
 	His home is near an area [br]
 	called the Star Haven Islands.[br]
 	[Wait][End]
@@ -355,4 +355,21 @@
 	Could you please help me[br]
 	deliver the letter to Muskular?[br]
 	[Wait][Yield][End]
+}
+
+#message:2F:020
+{
+	[Style Right]
+	And here we are![br]
+	Let's get out, Mario.[br]
+	[Wait][End]
+}
+
+#message:2F:021
+{
+	[Style Right]
+	Muskular's House should be[br]
+	around here, let's get[br]
+	looking![br]
+	[Wait][End]
 }

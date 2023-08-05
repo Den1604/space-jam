@@ -9,7 +9,7 @@
     Call  GetEntryID    ( *Var[0] )
     Switch  *Var[0]
         Case == ~Entry:Entry0
-            %Exec $Script_MarioAndParakarryToMuskular
+            Exec $Script_MarioAndParakarryToMuskular
         Case == ~Entry:Entry1
             %Exec $Script_MarioAndParakarryToGourmetGuy
         Case == ~Entry:Entry2
@@ -25,10 +25,26 @@
     End
 }
 
+#new:Script $Script_MarioAndParakarryToMuskular
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    Call PlaySound ( 0000032A )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryPos )
+    Call SetNpcYaw ( .Npc:Partner -107` )
+    Exec $Script_ShipBop
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F001A )
+    Call StopSound ( 0000032A )
+    Call GotoMap ( "btf_02" 00000001 )
+    Return
+    End
+}
+
 #new:Script $Script_MarioAndParakarryToPieface
 {
     Call DisablePlayerInput ( .True )
     Call DisablePartnerAI ( 00000000 )
+    Call PlaySound ( 0000032A )
     Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryPos )
     Call SetNpcYaw ( .Npc:Partner -107` )
     Exec $Script_ShipBop
@@ -37,6 +53,7 @@
     Wait 15`
     Call SetPlayerAnimation ( 00010002 )
     Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0019 )
+    Call StopSound ( 0000032A )
     Call GotoMap ( "btf_13" ~Entry:Entry3 )
     Return
     End
