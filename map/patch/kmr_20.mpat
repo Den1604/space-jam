@@ -1,4 +1,36 @@
-@ $Script_8024FD70 {
+#new:Function $SetParakarryAsActivePartner { %only for use with parakarry battle
+    ORI t0, r0, 4
+    SAB t0, 8010F2A2
+    JR RA
+    ORI v0, r0, 2
+}
+
+#new:Function $Function_SetStartingStats
+{
+	LI t0, 8010F290
+	LI t1, 0A
+	LI t2, 09
+	LI t3, 03
+	SB t1, 05(t0)
+	SB t1, 06(t0)
+	SB t1, 07(t0)
+	SB t2, 08(t0)
+	SB t3, 09(t0)
+	JR rA
+	ORI v0, r0, 02
+}
+
+#new:Function $GivePlayerStartingEquipment {
+	LIO t0, 8010F290
+	ORI t1, r0, 1
+	SB r0, 0001 (t0) % sets the Hammer COMMENT THIS OUT LATER!!!
+	SB t1, 000A (t0) % sets the AC
+	JR RA
+	ORI v0, r0, 2
+}
+
+@ $Script_8024FD70 { %Stolen Directly from X-Mas Special cause i am lazy like that B)   - Den
+    Call  DisablePlayerInput    ( .True )
     If *Intro == .False
         Call $GivePlayerStartingEquipment
         Call $Function_SetStartingStats
@@ -9,7 +41,6 @@
         Call GotoMap ( "btf_08" 0 )
         Wait 300`
     EndIf
-    Call  DisablePlayerInput    ( .True )
     Thread
         Wait  5`
         Call  SetMusicTrack ( 00000000 .Song:MailCall 00000000 00000008 )
@@ -92,14 +123,34 @@
     Call  SetPlayerAnimation ( 00010000 )
     Kill  *VarA
     Wait  20`
-    Call  SpeakToPlayer ( 00000000 00040006 00040001 00000000 0000001F ) % Parakarry asks Mario for help
-    Call  SetNpcAnimation   ( 00000000 00040007 ) %happy animation
+    Call  SpeakToPlayer ( 00000000 00040006 00040001 00000000 002F001D ) % Parakarry asks Mario for help
+    Call  ShowChoice    ( 001E0004 ) % Yes No
     Call  CloseMessage()
-    Wait 15`
-    Call  SetNpcAnimation   ( 00000000 00040001 ) %idle animation
-    Wait 20`
-    Call  SpeakToPlayer ( 00000000 00040006 00040001 00000000 00000025 ) % Parakarry thanks you
-    Wait 10`
+    If *Var0 == 1
+        Call  GetNpcPos   ( 00000000 *Var0 *Var1 *Var2 )
+        Add *Var0 -4`
+        Add *Var1 15`
+        Call  GetNpcPos   ( 00000000 *Var0 *Var1 *Var2 )
+        Add   *Var1  0000001E 
+        Call  ShowEmote     ( 00000000 .Emote:Ellipsis  -45`  40` 00000002 *Var0 *Var1 *Var2  5` )
+        Wait 60`
+        Call  SpeakToPlayer ( 00000000 00040006 00040001 00000000 002F001B ) %Parakarry goes to deliver Letters on his own
+        Wait 10`
+        Call  NpcFlyTo      ( 00000000  720`  220`  -150`  60`  -10` .Easing:Linear )
+        Wait 30`
+        Call  ClearAmbientSounds    ( 000000FA ) %birds pls stop
+        Call GotoMap ("btf_01" 00000001 ) %enter parakarry cutscene
+        Wait 12`
+        Call $SetParakarryAsActivePartner ( )
+        Return
+    Else
+        Call  SetNpcAnimation   ( 00000000 00040007 ) %happy animation
+        Wait 15`
+        Call  SetNpcAnimation   ( 00000000 00040001 ) %idle animation
+        Wait 20`
+        Call  SpeakToPlayer ( 00000000 00040006 00040001 00000000 00000025 ) % Parakarry thanks you
+        Wait 10`
+    EndIf
     Call  $Function_80241030    ( 00000000 00000004 )
     Call  $LoadParakarryImage ( )
     Call  SetMusicTrack ( 00000000 .Song:NewPartner 00000000 00000008 )
@@ -109,7 +160,6 @@
     Wait 10`
     Call  SetMusicTrack ( 0 .Song:MarioBrosHouse 0 8 )
     Call SpeakToPlayer ( .Npc:Partner 00050006 00050002 00000000 00000026 )
-    Exec  $Script_80243B64
     Call  EnablePartnerAI ()
     Call  DisablePlayerInput ( .False )
     Return
@@ -285,159 +335,7 @@
    90:  ADDIU     SP, SP, 28
 }
 
-% Origin: HINT
 #new:ASCII $ASCII_80248470
 {
 	"party_pareta"
-}
-
-#new:Function $SetParakarryAsActivePartner { %only for use with parakarry battle
-    ORI t0, r0, 4
-    SAB t0, 8010F2A2
-    JR RA
-    ORI v0, r0, 2
-}
-
-@ $Script_Main {
-    Set   *GB_WorldLocation  .Location:MariosHouse
-    Call  GetEntryID    ( *Var0 )
-    If  *Var0  ==  ~Entry:Entry2
-        Set   *GB_StoryProgress  .Story:Epilogue
-    EndIf
-    Call  GetEntryID    ( *Var0 )
-    If  *Var0  ==  ~Entry:Entry4
-        Set   *MapFlag[0A]  .False
-        If  *GF_KMR20_ReunitedWithLuigi  ==  .False
-            Set   *GF_KMR20_ReunitedWithLuigi  .True
-            If  *GB_StoryProgress  <  .Story:Ch3_InvitedToBoosMansion % FFFFFFCE
-                Set   *MapFlag[0A]  .True
-            EndIf
-        EndIf
-    EndIf
-    Set   *MapFlag[0C]  .False
-    Call  SetSpriteShading  ( .Shading:None )
-    Call  SetCamPerspective ( .Cam:Default 00000003  25`  16`  4096` )
-    Call  SetCamBGColor     ( .Cam:Default  0`  0`  0` )
-    Call  SetCamEnabled     ( .Cam:Default .True )
-    Call  SetCamLeadPlayer  ( .Cam:Default .False )
-    Exec  $Script_80242C40
-    Call  GetEntryID        ( *Var0 )
-    If  *Var0  <  ~Entry:Entry4
-        Call  MakeNpcs  ( .False $NpcGroupList_8024A88C )
-    Else
-        Call  MakeNpcs  ( .False $NpcGroupList_8024DEDC )
-    EndIf
-    Call SetNpcPos ( 00000001 0` -1000` 0` )
-    ExecWait  $Script_MakeEntities
-    Call  EnableGroup   ( ~Model:g100 .False )
-    Exec  $Script_80246794
-    Exec  $Script_8024721C
-    Exec  $Script_80244228
-    Exec  $Script_80245638
-    If  *GB_StoryProgress  <  .Story:Epilogue % 60
-        Exec  $Script_8024A3A0
-    EndIf
-    Call  GetEntryID    ( *Var0 )
-    Switch  *Var0
-        Case  ==  ~Entry:Entry0
-            Call  $Function_80240310 ( )
-            Exec  $Script_8024FD70
-            Wait  5`
-        Case  ==  ~Entry:Entry1
-            Exec  $Script_80250C5C
-        Case  ==  ~Entry:Entry2
-            Wait  60`
-            Exec  $Script_8025232C
-        Case  ==  ~Entry:Entry3
-            Exec  $Script_80243B64
-            Exec  $Script_80252490
-        Case  ==  ~Entry:Entry4
-            Set   *GF_Map_MariosHouse  .True
-            If  *MapFlag[0A]  ==  .True
-                Exec  $Script_8024AC34
-                Thread
-                    Call  DisablePlayerPhysics  ( .True )
-                    Call  SetPlayerPos  (  0`  -1000`  0` )
-                    Label  0
-                    If  *MapFlag[0B]  ==  .False
-                        Wait  1`
-                        Goto  0
-                    EndIf
-                    Set   *VarA  $Script_80243B64
-                    Exec  $Script_80242DA0
-                EndThread
-            Else
-                Set   *VarA  $Script_80243B64
-                Exec  $Script_80242DA0
-            EndIf
-    EndSwitch
-    Return
-    End
-}
-
-@ $NpcGroup_8024A4AC {
-    00000000 $NpcSettings_8024A3D0 ~Vec3f:WorldParakarry_00 % 0 -1000 0
-    00600D0D 00000000 00000000 00000000 0000005A
-    ~NoDrops
-    ~Movement:WorldParakarry_00
-    ~AnimationTable:WorldParakarry_00 % .Sprite:WorldParakarry
-    00000000 00000000 00000000 00000000 % no tattle string
-    %
-    % $NpcGroup_8024A4AC[1F0]
-    00000001 $NpcSettings_8024A3D0 ~Vec3f:Luigi_01 % 0 -1000 0
-    00001F0D $Script_Init_8024A3FC 00000000 00000000 0000005A
-    ~NoDrops
-    ~Movement:Luigi_01
-    ~AnimationTable:Luigi_01 % .Sprite:Luigi
-    00000000 00000000 00000000 00000000 % no tattle string
-}
-
-#new:Function $GivePlayerStartingEquipment {
-	LIO t0, 8010F290
-	ORI t1, r0, 1
-	SB r0, 0001 (t0) % sets the Hammer COMMENT THIS OUT LATER!!!
-	SB t1, 000A (t0) % sets the AC
-	JR RA
-	ORI v0, r0, 2
-}
-
-#new:Function $Function_SetStartingStats
-{
-	LI t0, 8010F290
-	LI t1, 0A
-	LI t2, 09
-	LI t3, 03
-	SB t1, 05(t0)
-	SB t1, 06(t0)
-	SB t1, 07(t0)
-	SB t2, 08(t0)
-	SB t3, 09(t0)
-	JR rA
-	ORI v0, r0, 02
-}
-
-@ $Script_80242C40 {
-    Switch  *GB_StoryProgress
-        Case  ==  .Story:Intro % FFFFFF80
-            Call  FadeOutMusic  ( 00000000 000001F4 )
-        EndCaseGroup
-        Case  >=  .Story:Epilogue % 60
-            Call  FadeOutMusic  ( 00000000 000001F4 )
-        EndCaseGroup
-        Default
-            Case  ==  .Story:Intro % FFFFFF80
-            Call  FadeOutMusic  ( 00000000 000001F4 )
-    EndSwitch
-    Thread
-        Call  GetEntryID    ( *Var0 )
-        Switch  *Var0
-            Case  ==  ~Entry:Entry0
-                Wait  300`
-                Call  PlayAmbientSounds ( .AmbientSounds:Birds )
-            Default
-                Call  PlayAmbientSounds ( .AmbientSounds:Birds )
-        EndSwitch
-    EndThread
-    Return
-    End
 }

@@ -6,9 +6,6 @@
     Call  SetCamLeadPlayer   ( .Cam:Default .False )
     Exec  $Script_SetupMusic
     Exec  $Script_EnterMap
-    Exec $Script_MarioSpin
-    %Exec $Script_MarioAndParakarryGetYeeted
-    Exec $Script_CameraForSpin
     Return
     End
 }
@@ -60,3 +57,166 @@
     Return
     End
 }
+
+@ $Script_EnterMap {
+    Call  GetEntryID    ( *Var[0] )
+    Switch  *Var[0]
+    Case == ~Entry:entry_n
+        Exec $Script_MarioSpin
+        Exec $Script_CameraForSpin
+    Case == ~Entry:Entry1
+        Exec $Script_ParakarryDIES
+        Default
+            Exec  $Script_CreateExitTriggers
+    EndSwitch
+    Return
+    End
+}
+
+#new:Script $Script_ParakarryDIES
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    Call SetMusicTrack ( 00000000 .Song:MerlarTheme 00000000 00000008 )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryBadEndingPos )
+    Call SetNpcAnimation ( .Npc:Partner 00040005 )
+    Thread
+        Set *Var0 0`
+        Loop
+            Add *Var0 18`
+            Call SetNpcRotation ( .Npc:Partner 0` *Var0 0` )
+            Wait 1`
+        EndLoop
+    EndThread
+    Wait 15`
+    Call ShowMessageAtScreenPos ( 002F001E 000000A0 00000028 )
+    Wait 15`
+    Call  $Function_802405EC ( ) % Make game go to title screen
+    Call  $Function_80240688 ( )
+    Return
+    End
+}
+
+#new:Function $Function_80240688
+ {
+     0:  ADDIU     SP, SP, FFE8
+     4:  LA        V1, 8007419C
+     C:  SW        RA, 10 (SP)
+    10:  LW        V0, 0 (V1)
+    14:  SB        R0, 70 (V0)
+    18:  LW        V0, 0 (V1)
+    1C:  SB        R0, 76 (V0)
+    20:  LW        V0, 0 (V1)
+    24:  SB        R0, 78 (V0)
+    28:  LW        V0, 0 (V1)
+    2C:  LA        A0, 8009A650
+    34:  SB        R0, 7D (V0)
+    38:  LW        V0, 0 (A0)
+    3C:  LI        V1, FFF7
+    40:  AND       V0, V0, V1
+    44:  JAL       ~Func:general_heap_create
+    48:  SW        V0, 0 (A0)
+    4C:  JAL       ~Func:clear_render_tasks
+    50:  NOP
+    54:  JAL       ~Func:clear_generic_entity_list
+    58:  NOP
+    5C:  JAL       ~Func:clear_script_list
+    60:  NOP
+    64:  JAL       ~Func:create_cameras_a
+    68:  NOP
+    6C:  JAL       ~Func:spr_init_sprites
+    70:  CLEAR     A0
+    74:  JAL       ~Func:clear_entity_models
+    78:  NOP
+    7C:  JAL       ~Func:clear_animator_list
+    80:  NOP
+    84:  JAL       ~Func:clear_model_data
+    88:  NOP
+    8C:  JAL       ~Func:clear_sprite_shading_data
+    90:  NOP
+    94:  JAL       ~Func:reset_background_settings
+    98:  NOP
+    9C:  JAL       ~Func:clear_hud_element_cache
+    A0:  NOP
+    A4:  JAL       ~Func:clear_trigger_data
+    A8:  NOP
+    AC:  JAL       ~Func:clear_printers
+    B0:  NOP
+    B4:  JAL       ~Func:clear_entity_data
+    B8:  CLEAR     A0
+    BC:  JAL       ~Func:clear_screen_overlays
+    C0:  NOP
+    C4:  JAL       ~Func:clear_player_status
+    C8:  NOP
+    CC:  JAL       ~Func:clear_npcs
+    D0:  NOP
+    D4:  JAL       ~Func:clear_player_data
+    D8:  NOP
+    DC:  JAL       ~Func:reset_battle_status
+    E0:  NOP
+    E4:  JAL       ~Func:init_encounter_status
+    E8:  NOP
+    EC:  JAL       ~Func:clear_effect_data
+    F0:  NOP
+    F4:  JAL       ~Func:clear_item_entity_data
+    F8:  NOP
+    FC:  JAL       ~Func:clear_saved_variables
+   100:  NOP
+   104:  JAL       ~Func:initialize_collision
+   108:  NOP
+   10C:  JAL       ~Func:intro_logos_set_fade_alpha
+   110:  LI        A0, FF
+   114:  JAL       ~Func:intro_logos_set_fade_color
+   118:  LI        A0, D0
+   11C:  JAL       ~Func:set_game_mode
+   120:  LI        A0, 2
+   124:  LW        RA, 10 (SP)
+   128:  LI        V0, FF
+   12C:  JR        RA
+   130:  ADDIU     SP, SP, 18
+ }
+
+ #new:Function $Function_802405EC
+ {
+     0:  ADDIU     SP, SP, FFE8
+     4:  SW        S0, 10 (SP)
+     8:  COPY      S0, A0
+     C:  BEQ       A1, R0, .o30
+    10:  SW        RA, 14 (SP)
+    14:  LIF       F12, 1.0
+    1C:  JAL       ~Func:set_curtain_scale_goal
+    20:  SW        R0, 70 (S0)
+    24:  MTC1      R0, F12
+    28:  JAL       ~Func:set_curtain_fade
+    2C:  NOP
+         .o30
+    30:  LW        V0, 70 (S0)
+    34:  ADDIU     V0, V0, 5
+    38:  SW        V0, 70 (S0)
+    3C:  SLTI      V0, V0, 100
+    40:  BNE       V0, R0, .o50
+    44:  LI        A0, 1
+    48:  LI        V0, FF
+    4C:  SW        V0, 70 (S0)
+         .o50
+    50:  LI        A1, D0
+    54:  COPY      A2, A1
+    58:  JAL       ~Func:set_screen_overlay_color
+    5C:  COPY      A3, A1
+    60:  LWC1      F0, 70 (S0)
+    64:  CVT.S.W   F0, F0
+    68:  MFC1      A1, F0
+    6C:  JAL       ~Func:set_screen_overlay_params_back
+    70:  CLEAR     A0
+    74:  LI        A0, 1
+    78:  JAL       ~Func:set_screen_overlay_alpha
+    7C:  CLEAR     A1
+    80:  LW        V0, 70 (S0)
+    84:  LW        RA, 14 (SP)
+    88:  LW        S0, 10 (SP)
+    8C:  XORI      V0, V0, FF
+    90:  SLTIU     V0, V0, 1
+    94:  JR        RA
+    98:  ADDIU     SP, SP, 18
+
+ }

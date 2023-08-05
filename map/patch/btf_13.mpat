@@ -1,0 +1,70 @@
+@ $Script_SetupMusic {
+    Call  SetMusicTrack ( 00000000 .Song:StarshipTheme 00000001 00000008 )
+    Call  ClearAmbientSounds ( 250` )
+    Return
+    End
+}
+@ $Script_EnterMap {
+    Call  GetEntryID    ( *Var[0] )
+    Switch  *Var[0]
+        Case == ~Entry:Entry0
+            %Exec $Script_MarioAndParakarryToMuskular
+        Case == ~Entry:Entry1
+            %Exec $Script_MarioAndParakarryToGourmetGuy
+        Case == ~Entry:Entry2
+            %Exec $Script_MarioAndParakarryToTemple
+        Case == ~Entry:Entry3
+            Exec $Script_MarioAndParakarryToPieface
+        Case == ~Entry:Entry4
+            %Exec $Script_MarioAndParakarryToMerlee
+        Default
+            Exec  $Script_CreateExitTriggers
+    EndSwitch
+    Return
+    End
+}
+
+#new:Script $Script_MarioAndParakarryToPieface
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryPos )
+    Call SetNpcYaw ( .Npc:Partner -107` )
+    Exec $Script_ShipBop
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0018 )
+    Call SetPlayerAnimation ( 00010029 )
+    Wait 15`
+    Call SetPlayerAnimation ( 00010002 )
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0019 )
+    Call GotoMap ( "btf_13" ~Entry:Entry3 )
+    Return
+    End
+}
+
+#new:Script $Script_ShipBop
+{
+    Call ParentColliderToModel ( ~Collider:CarCollider ~Model:SpaceTruck_Seats )
+    Set *Var0 0`
+    Loop
+        Loop 2`
+            Add *Var0 1`
+            Call TranslateGroup ( ~Model:SpaceShipGroup 0` *Var0 0` )
+            Call UpdateColliderTransform ( ~Collider:CarCollider )
+            Wait 5`
+        EndLoop
+        Loop 4`
+            Sub *Var0 1`
+            Call TranslateGroup ( ~Model:SpaceShipGroup 0` *Var0 0` )
+            Call UpdateColliderTransform ( ~Collider:CarCollider )
+            Wait 5`
+        EndLoop
+        Loop 2`
+            Add *Var0 1`
+            Call TranslateGroup ( ~Model:SpaceShipGroup 0` *Var0 0` )
+            Call UpdateColliderTransform ( ~Collider:CarCollider )
+            Wait 5`
+        EndLoop
+    EndLoop
+    Return
+    End
+}

@@ -1,8 +1,19 @@
-#string:1E:005
+#message:1E:005
 {
 	[Style Choice pos=120,90 size=75,46]
 	[StartChoice]
 	[Option 0]Do[BR]
 	[Option 1]Don't[BR]
 	[EndChoice cancel=1][End]
+}
+
+#message:1E:01B %Unused but leaving it here for people who look at the source code :P	- Den
+{
+	[Style Choice pos=85,60 size=150,80]
+	[StartChoice]
+	[Option 0]Emepror Thmaz[BR]
+	[Option 1]Pieface[BR]
+	[Option 2]Gourmet Guy[BR]
+	[Option 3]Merlee[BR]
+	[EndChoice][End]
 }

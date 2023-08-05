@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_01" author="unnamed" background="hos_bg" textures="hos_tex">
 	<Editor>
-		<Camera pos="171.348633,289.157623,912.456360" pitch="28.720011" yaw="358.079926"/>
-		<Camera pos="47.311665,65536.000000,176.010895"/>
-		<Camera pos="65536.000000,-50.000000,0.000000"/>
+		<Camera pos="-23.108397,342.046448,697.278503" pitch="23.279995" yaw="356.319977"/>
+		<Camera pos="41.355759,65536.000000,122.539421"/>
+		<Camera pos="65536.000000,80.359283,-24.395836"/>
 		<Camera pos="4.736463,-293.164001,65536.000000"/>
 	</Editor>
 	<ModelTree>
@@ -36,13 +36,15 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="4">
-			<Node name="Entrances" id="0">
+		<Node name="Root" id="6">
+			<Node name="Entrances" id="1">
 				<Node name="entry_n" id="FFFFFFFF"/>
+				<Node name="Entry1" id="0"/>
 			</Node>
-			<Node name="MarioYeetPathMarker" id="1"/>
-			<Node name="ParakarryYeetPathMarker" id="2"/>
-			<Node name="CamPan" id="3"/>
+			<Node name="MarioYeetPathMarker" id="2"/>
+			<Node name="ParakarryYeetPathMarker" id="3"/>
+			<Node name="CamPan" id="4"/>
+			<Node name="ParakarryBadEndingPos" id="5"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -391,14 +393,17 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="4"/>
+			<MapObject name="Root" id="6"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="0,139,0" yaw="0.000000">
+			<MapObject name="ParakarryBadEndingPos" id="5"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="600,-300,1200" yaw="0.000000">
-			<MapObject name="CamPan" id="3" hidden="true"/>
+			<MapObject name="CamPan" id="4"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="0.500000" samplePos="700,0,400" overrideLength="450.000000" overrideAngles="15.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="Path" pos="290,0,256" yaw="0.000000">
-			<MapObject name="ParakarryYeetPathMarker" id="2" hidden="true"/>
+			<MapObject name="ParakarryYeetPathMarker" id="3"/>
 			<Path>
 				<Waypoint pos="290,0,256"/>
 				<Waypoint pos="274,45,191"/>
@@ -410,7 +415,7 @@
 			</Path>
 		</Marker>
 		<Marker ver="4" type="Path" pos="248,0,256" yaw="0.000000">
-			<MapObject name="MarioYeetPathMarker" id="1" hidden="true"/>
+			<MapObject name="MarioYeetPathMarker" id="2"/>
 			<Path>
 				<Waypoint pos="248,0,256"/>
 				<Waypoint pos="232,45,191"/>
@@ -422,10 +427,13 @@
 			</Path>
 		</Marker>
 		<Marker ver="4" type="Group">
-			<MapObject name="Entrances" id="0"/>
+			<MapObject name="Entrances" id="1"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="-484,0,202" yaw="180.000000">
-			<MapObject name="entry_n" id="FFFFFFFF" hidden="true"/>
+			<MapObject name="Entry1" id="0"/>
+		</Marker>
+		<Marker ver="4" type="Entry" pos="-484,0,202" yaw="180.000000">
+			<MapObject name="entry_n" id="FFFFFFFF"/>
 		</Marker>
 	</Markers>
 	<ScriptData>
@@ -449,6 +457,7 @@
 		</TexPanners>
 		<Generators>
 			<Entrance type="Teleport" hasCallback="false" entry="entry_n"/>
+			<Entrance type="Teleport" hasCallback="false" entry="Entry1"/>
 		</Generators>
 		<Camera vfov="25" near="16" far="4096" bgcolor="0,0,0" leadsPlayer="false"/>
 		<Fog world="0,10,10,10,255,950,1000" entity="0,10,10,10,255,950,1000"/>

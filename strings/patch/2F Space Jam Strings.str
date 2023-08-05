@@ -142,7 +142,7 @@
 	[Style Right]
 	Do you think we should[br]
 	leave?[br]
-	[Wait][Yield]
+	[Yield][End]
 }
 
 #message:2F:00C
@@ -231,7 +231,7 @@
 #message:2F:013
 {
 	[Style Right]
-	Whale is here.[br] %Unused but leaving it here for people who look at the source code :P	- Den
+	Whale is here.[br] 
 	[Wait][End]
 }
 
@@ -261,4 +261,86 @@
 	Let's just leave, Mario.[Pause:15][br]
 	Quickly.[br]
 	[Wait][End]
+}
+
+#message:2F:017
+{
+	[Style Right]
+	Whose area should we go to?[br] 
+	[Yield][End]
+}
+
+#message:2F:018
+{
+	[Style Right]
+	Alright Mario, we have three more[br]
+	letters left to deliver.[br]
+	[Wait][Next]
+	I think the smartest idea would[br]
+	be to deliver the one to the gas[br]
+	station first since we need to[br]
+	refuel anyways.[br]
+	[Wait][Next]
+	What do you say?[br]
+	[Wait][End]
+}
+
+#message:2F:019
+{
+	[Style Right]
+	In that case, let's waste no[br]
+	time![br]
+	[Wait][Next]
+	This letter is addressed to[br]
+	someone by the name of...[Pause:15][br]
+	"Pieface".[Pause:10][br]
+	Let's find em![br]
+	[Wait][End]
+}
+
+#message:2F:01A
+{
+	[Style Right]
+	Alright, we're on our way to[br]
+	Muskular's home![br]
+	His home is near an area [br]
+	called the Star Haven Islands.[br]
+	[Wait][End]
+}
+
+#message:2F:01B
+{
+	[Style Right]
+	Oh, okay.[Pause:10][br]
+	Guess I will try and do it[br]
+	on my own then![br]
+	[Wait][End]
+}
+
+#message:2F:01C
+{
+	[Style Right]
+	Hey Mario![br]
+	[Wait][End]
+}
+
+#message:2F:01D
+{
+	[Style Right]
+	I have an important letter[br]
+	to deliver![Pause:10] It's a letter[br]
+	addressed to Muskular![br]
+	[Wait][Next]
+	Could you help me deliver[br]
+	it to him?[br]
+	[Wait][Yield][End]
+}
+
+#message:2F:01E
+{
+	[Style Narrate]
+	He ended up crashing his ship[br]
+	and flew far off into space,[br]
+	never to be seen again.[Pause:20].[Pause:30].[Pause:40][br]
+	[End]
 }
