@@ -126,28 +126,40 @@
     Call  SpeakToPlayer ( 00000000 00040006 00040001 00000000 002F001D ) % Parakarry asks Mario for help
     Call  ShowChoice    ( 001E0004 ) % Yes No
     Call  CloseMessage()
-    If *Var0 == 1
-        Call  GetNpcPos   ( 00000000 *Var0 *Var1 *Var2 )
-        Add *Var0 -4`
-        Add *Var1 15`
-        Call  GetNpcPos   ( 00000000 *Var0 *Var1 *Var2 )
-        Add   *Var1  0000001E 
-        Call  ShowEmote     ( 00000000 .Emote:Ellipsis  -45`  40` 00000002 *Var0 *Var1 *Var2  5` )
-        Wait 60`
-        Call  SpeakToPlayer ( 00000000 00040006 00040001 00000000 002F001B ) %Parakarry goes to deliver Letters on his own
-        Wait 10`
-        Thread
-            Wait 20`
-            Call SetPlayerAnimation ( 0001002A )
-        EndThread
-        Call  NpcFlyTo      ( 00000000  720`  220`  -150`  60`  -10` .Easing:Linear )
-        Wait 30`
-        Call  ClearAmbientSounds    ( 000000FA ) %birds pls stop
-        Call GotoMap ("btf_01" 00000001 ) %enter parakarry cutscene
-        Wait 12`
-        Call $SetParakarryAsActivePartner ( )
-        Return
-    Else
+    If *Var0 == 1 %No
+        Call  SpeakToPlayer ( 00000000 00040006 00040001 00000000 002F001F ) % Parakarry asks Mario for help again
+        Call  ShowChoice    ( 001E0004 ) % Yes No
+        Call  CloseMessage()
+            If *Var0 == 1 %No
+                Call  GetNpcPos   ( 00000000 *Var0 *Var1 *Var2 )
+                Add *Var0 -4`
+                Add *Var1 15`
+                Call  GetNpcPos   ( 00000000 *Var0 *Var1 *Var2 )
+                Add   *Var1  0000001E 
+                Call  ShowEmote     ( 00000000 .Emote:Ellipsis  -45`  40` 00000002 *Var0 *Var1 *Var2  5` )
+                Wait 60`
+                Call  SpeakToPlayer ( 00000000 00040006 00040001 00000000 002F001B ) %Parakarry goes to deliver Letters on his own
+                Wait 10`
+                Thread
+                    Wait 20`
+                    Call SetPlayerAnimation ( 0001002A )
+                EndThread
+                Call  NpcFlyTo      ( 00000000  720`  220`  -150`  60`  -10` .Easing:Linear )
+                Wait 30`
+                Call  ClearAmbientSounds    ( 000000FA ) %birds pls stop
+                Call GotoMap ("btf_01" 00000001 ) %enter parakarry cutscene
+                Wait 12`
+                Call $SetParakarryAsActivePartner ( )
+                Return
+            Else %Yes
+                Call  SetNpcAnimation   ( 00000000 00040007 ) %happy animation
+                Wait 15`
+                Call  SetNpcAnimation   ( 00000000 00040001 ) %idle animation
+                Wait 20`
+                Call  SpeakToPlayer ( 00000000 00040006 00040001 00000000 00000025 ) % Parakarry thanks you
+                Wait 10`
+            EndIf
+    Else %Yes
         Call  SetNpcAnimation   ( 00000000 00040007 ) %happy animation
         Wait 15`
         Call  SetNpcAnimation   ( 00000000 00040001 ) %idle animation

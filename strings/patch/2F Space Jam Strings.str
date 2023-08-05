@@ -344,3 +344,15 @@
 	never to be seen again.[Pause:20].[Pause:30].[Pause:40][br]
 	[End]
 }
+
+#message:2F:01F
+{
+	[Style Right]
+	...I'm really only asking[br]
+	because I lost my license.[br]
+	[Wait][Next]
+	So, I'll ask again...[Pause:10][br]
+	Could you please help me[br]
+	deliver the letter to Muskular?[br]
+	[Wait][Yield][End]
+}
