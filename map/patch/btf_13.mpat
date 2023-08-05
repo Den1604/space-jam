@@ -4,6 +4,7 @@
     Return
     End
 }
+
 @ $Script_EnterMap {
     Call  GetEntryID    ( *Var[0] )
     Switch  *Var[0]

@@ -339,3 +339,8 @@
 {
 	"party_pareta"
 }
+
+@ $Script_80242C40 {
+    Return
+    End
+}
