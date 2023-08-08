@@ -63,7 +63,7 @@
 	End
 }
 
-@ $String_ReadSign_Signpost1
+@Message $String_ReadSign_Signpost1
 {
 	[DelayOff][STYLE:SIGN]
 	[CenterX:FF]
