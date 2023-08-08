@@ -68,6 +68,8 @@
 #new:Script $Script_MakeEntities
 {
 	Call  MakeEntity    ( .Entity:SavePoint ~Vec4d:SaveBlock 80000000 )
+	Call  MakeEntity    ( .Entity:Signpost ~Vec4d:Signpost1 80000000 )
+	Call  AssignScript    ( $Script_ReadSign_Signpost1 )
 	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring 80000000 )
 	Call  AssignScript    ( $Script_ScriptedSpring_Spring )
 	Return
@@ -98,5 +100,22 @@
 {
 	Return
 	End
+}
+
+#new:Script $Script_ReadSign_Signpost1
+{
+	Call  DisablePlayerInput        ( .True )
+	Call  ShowMessageAtScreenPos    ( $String_ReadSign_Signpost1 000000A0 00000028 )
+	Call  DisablePlayerInput        ( .False )
+	Return
+	End
+}
+
+#new:String $String_ReadSign_Signpost1
+{
+	[DelayOff][STYLE:SIGN]
+	[CenterX:FF]
+	[Down:03]Write message here.
+	[DelayOn][WAIT][END]
 }
 

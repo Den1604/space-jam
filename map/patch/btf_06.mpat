@@ -1,5 +1,38 @@
 #define .NpcID:NpcGuard 1`
 
+#new:Script $Script_OpenChestAnimation
+{
+    0:  SetGroup  00000000
+    C:  Call  SetTimeFreezeMode ( 00000002 )
+   1C:  Wait  40`
+   28:  Call  ShowGotItem       ( *Var0 .False 00000000 )
+   40:  Call  SetTimeFreezeMode ( 00000000 )
+   50:  Return
+   58:  Return
+   60:  End
+}
+
+#new:Script $Script_OpenChest
+{
+    0:  Call  DisablePlayerInput    ( .True )
+   10:  Set   *Var0  *VarA
+   20:  If  *VarA  !=  00000000
+   30:  	ExecWait  $Script_OpenChestAnimation
+   3C:  EndIf
+   44:  Switch  *VarB
+   50:  	Case  ==  00000000
+   5C:  		Call  AddItem   ( *VarA *Var0 )
+   70:  	Case  ==  00000001
+   7C:  		Call  AddKeyItem    ( *VarA )
+   8C:  	Case  ==  00000002
+   98:  		Call  AddBadge  ( *VarA *Var0 )
+   AC:  EndSwitch
+   B4:  Wait  15`
+   C0:  Call  DisablePlayerInput    ( .False )
+   D0:  Return
+   D8:  End
+}
+
 @ $Script_Main {
 	Set   *GB_WorldLocation  .Location:GoombaRoad
 	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
@@ -13,7 +46,8 @@
 	Exec  $Script_EnterMap
 	% Custom
 	Exec  $Script_MakeItems
-	Exec  $Script_MovePlatform
+	Exec  $Script_SetupPlatforms
+	Exec  $Script_MakeCustomEntities
 	
 	Call MakeNpcs ( .False $NpcGroupList )
 	Call SetNpcYaw ( .NpcID:NpcGuard -127` ) % Makes Clubba face left
@@ -24,53 +58,115 @@
 
 #new:Script $Script_MakeItems {
 	Call MakeItemEntity ( .Item:TastyTonic ~Vec3d:Item1 .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedItem1 )
+	Call MakeItemEntity ( .Item:DiamondStone ~Vec3d:ItemDiamondStone .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedItemDiamondStone )
 	Return
 	End
 }
 
+@ $String_ReadSign_Signpost1
+{
+	[DelayOff][STYLE:SIGN]
+	[CenterX:FF]
+	[Down:03]Only the quickest heroes may[BR]dare to ride the platforms.
+	[DelayOn][WAIT][END]
+}
+
+% Custom entities
+#new:Script $Script_MakeCustomEntities {
+	Call  MakeEntity    ( .Entity:Chest ~Vec4d:Chest1 00000000 80000000 )
+	Call  AssignFlag    ( *MF_btf_06_OpenedChest1 )
+	Call  AssignScript  ( $Script_UseChest1 )
+	Return
+	End
+}
+
+#new:Script $Script_UseChest1
+{
+	Set *VarA .Item:JumpCharge
+	Set *VarB 00000002 % 2 for badge
+	Set *MF_btf_06_OpenedChest1 .True
+	ExecWait $Script_OpenChest
+	Return
+	End
+}
+
+
 % Platform movement
-#new:Script $Script_MovePlatform {
-	% Constants
+#new:Script $Script_SetupPlatforms {
 	Set *Var2 0`
 	Set *Var3 -300`
-	% Variables
+	Set *Var6 140`
+	Set *Var7 135`
+	Set *Var8 ~Model:platform1_floor
+	Set *Var9 ~Model:platform1
+	Set *VarA ~Collider:platform1
+	Exec $Script_MovePlatform
+	
+	Set *Var2 0`
+	Set *Var3 215`
+	Set *Var6 100`
+	Set *Var7 95`
+	Set *Var8 ~Model:platform3_floor
+	Set *Var9 ~Model:platform3
+	Set *VarA ~Collider:platform3
+	Exec $Script_MovePlatform
+	
+	Wait 195`
+	
+	Set *Var2 0`
+	Set *Var3 145`
+	Set *Var6 100`
+	Set *Var7 95`
+	Set *Var8 ~Model:platform5_floor
+	Set *Var9 ~Model:platform5
+	Set *VarA ~Collider:platform5
+	Exec $Script_MovePlatform
+	Return
+	End
+}
+
+% Script Arguments:
+% Var2, Var3 - Start and End Z position
+% Var6, Var7 - Time movement in one direction takes, resting time (in frames)
+% Var8, Var9, VarA - Platform floor model, Platform group, Platform collider
+#new:Script $Script_MovePlatform {
 	Set *Var4 0`
 	
-	Call ParentColliderToModel ( ~Collider:platform1 ~Model:platform1_floor )
+	Call ParentColliderToModel ( *VarA *Var8 )
 	Loop
 		% 4.5 seconds at 30 fps = 135 frames
-		Wait 135`
-		Call MakeLerp ( *Var2 *Var3 140` .Easing:Linear )
+		Call MakeLerp ( *Var2 *Var3 *Var6 .Easing:Linear )
 		Loop
 			Call UpdateLerp ( )
-			Call TranslateGroup ( ~Model:platform1 00000000 00000000 *Var0 )
-			Call UpdateColliderTransform ( ~Collider:platform1 )
+			Call TranslateGroup ( *Var9 00000000 00000000 *Var0 )
+			Call UpdateColliderTransform ( *VarA )
 			% *Var5 -- delta Z
 			Set *Var5 *Var0
 			Sub *Var5 *Var4
 			Set *Var4 *Var0
-			Call $Function_AddPushZVelocity ( *Var5 ~Collider:platform1 ~Collider:unreachable )
+			Call $Function_AddPushZVelocity ( *Var5 *VarA ~Collider:unreachable )
 			Wait 1`
 			If *Var1 == 00000000
 				BreakLoop
 			EndIf
 		EndLoop
-		Wait 135`
-		Call MakeLerp ( *Var3 *Var2 140` .Easing:Linear )
+		Wait *Var7
+		Call MakeLerp ( *Var3 *Var2 *Var6 .Easing:Linear )
 		Loop
 			Call UpdateLerp ( )
-			Call TranslateGroup ( ~Model:platform1 00000000 00000000 *Var0 )
-			Call UpdateColliderTransform ( ~Collider:platform1 )
+			Call TranslateGroup ( *Var9 00000000 00000000 *Var0 )
+			Call UpdateColliderTransform ( *VarA )
 			% *Var5 -- delta Z
 			Set *Var5 *Var0
 			Sub *Var5 *Var4
 			Set *Var4 *Var0
-			Call $Function_AddPushZVelocity ( *Var5 ~Collider:platform1 ~Collider:unreachable )
+			Call $Function_AddPushZVelocity ( *Var5 *VarA ~Collider:unreachable )
 			Wait 1`
 			If *Var1 == 00000000
 				BreakLoop
 			EndIf
 		EndLoop
+		Wait *Var7
 	EndLoop
 	Return
 	End
