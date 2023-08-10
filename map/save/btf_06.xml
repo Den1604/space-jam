@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_06" author="unnamed" background="hos_bg" textures="hos_tex">
 	<Editor>
-		<Camera pos="-152.404282,381.376495,-80.154037" pitch="51.199982" yaw="63.546478"/>
+		<Camera pos="837.994751,311.509460,-362.144928" pitch="18.879982" yaw="4.506550"/>
 		<Camera pos="1264.625366,65536.000000,-349.862946"/>
 		<Camera pos="65536.000000,-19.388412,-0.326112"/>
 		<Camera pos="55.199051,-8.221129,65536.000000"/>
@@ -6499,80 +6499,80 @@
 			<MapObject name="Root" id="15"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="37,0,80" yaw="0.000000">
-			<MapObject name="AAAAAAAAAAAAAD" id="14" hidden="true"/>
+			<MapObject name="AAAAAAAAAAAAAD" id="14"/>
 			<CamTarget sampleZone="false" generatePan="true" panSpeed="2.500000">
 				<Camera type="TYPE_1" flag="false" boomLength="650.000000" boomPitch="20.000000" viewPitch="-7.000000" posA="23,0,22" posB="0,10,60" posC="10,0,10"/>
 			</CamTarget>
 		</Marker>
 		<Marker ver="4" type="Position" pos="1056,265,-568" yaw="0.000000">
-			<MapObject name="Spring2_Destination" id="13" hidden="true"/>
+			<MapObject name="Spring2_Destination" id="13"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="1190,40,-360" yaw="0.000000">
-			<MapObject name="DenCan'tChangeHisNameBackToDen" id="12" hidden="true"/>
+			<MapObject name="DenCan'tChangeHisNameBackToDen" id="12"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="705,190,-500" yaw="0.000000">
-			<MapObject name="Spring_Destination" id="11" hidden="true"/>
+			<MapObject name="Spring_Destination" id="11"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="80,0,80" yaw="0.000000">
-			<MapObject name="ShyBlookster137" id="10" hidden="true"/>
+			<MapObject name="ShyBlookster137" id="10"/>
 		</Marker>
 		<Marker ver="4" type="Group">
 			<MapObject name="Entities" id="F"/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="1055,265,-745" yaw="0.000000">
-			<MapObject name="BrickBlock1" id="E" hidden="true"/>
+			<MapObject name="BrickBlock1" id="E"/>
 			<Entity type="802EA0E8" hasFlag="false" flag=""/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="975,180,-585" yaw="0.000000">
-			<MapObject name="Spring2" id="D" hidden="true"/>
+			<MapObject name="Spring2" id="D"/>
 			<Entity type="802EAA30" destMarker="Spring2_Destination" launchT="1E"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="1597,55,-369" yaw="0.000000">
-			<MapObject name="ItemDiamondStone" id="C" hidden="true"/>
+			<MapObject name="ItemDiamondStone" id="C"/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="915,40,-409" yaw="0.000000">
-			<MapObject name="Signpost1" id="B" hidden="true"/>
+			<MapObject name="Signpost1" id="B"/>
 			<Entity type="802EAFDC"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="1562,40,-20" yaw="0.000000">
-			<MapObject name="Chest1" id="A" hidden="true"/>
+			<MapObject name="Chest1" id="A"/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="638,240,-399" yaw="0.000000">
-			<MapObject name="Spring" id="9" hidden="true"/>
+			<MapObject name="Spring" id="9"/>
 			<Entity type="802EAA30" destMarker="Spring_Destination" launchT="1E"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="-191,0,-385" yaw="0.000000">
-			<MapObject name="Item1" id="8" hidden="true"/>
+			<MapObject name="Item1" id="8"/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="-122,60,370" yaw="0.000000">
-			<MapObject name="SaveBlock" id="7" hidden="true"/>
+			<MapObject name="SaveBlock" id="7"/>
 			<Entity type="802E9A18"/>
 		</Marker>
 		<Marker ver="4" type="Group">
 			<MapObject name="NPCs" id="6"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="865,180,-635" yaw="0.000000">
-			<MapObject name="NpcBobOmb1" id="5" hidden="true"/>
+			<MapObject name="NpcBobOmb1" id="5"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="2C" palette="0" animations="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="1510,39,-370" yaw="0.000000">
-			<MapObject name="NpcFuzzy3" id="4" hidden="true"/>
+			<MapObject name="NpcFuzzy3" id="4"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="2B" palette="1" animations="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="475,40,-365" yaw="0.000000">
-			<MapObject name="NpcFuzzy2" id="3" hidden="true"/>
+			<MapObject name="NpcFuzzy2" id="3"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="2B" palette="0" animations="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="311,40,-393" yaw="0.000000">
-			<MapObject name="NpcFuzzy1" id="2" hidden="true"/>
+			<MapObject name="NpcFuzzy1" id="2"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="2B" palette="0" animations="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="290,0,381" yaw="-90.000000">
-			<MapObject name="NpcGuard" id="1" hidden="true"/>
+			<MapObject name="NpcGuard" id="1"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="39" palette="1" animations="2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
@@ -6580,7 +6580,7 @@
 			<MapObject name="Entrances" id="0"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="0,0,475" yaw="0.000000">
-			<MapObject name="entry_s" id="FFFFFFFF" hidden="true"/>
+			<MapObject name="entry_s" id="FFFFFFFF"/>
 		</Marker>
 	</Markers>
 	<ScriptData>
