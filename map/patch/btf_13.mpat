@@ -11,7 +11,7 @@
         Case == ~Entry:Entry0
             Exec $Script_MarioAndParakarryToMuskular
         Case == ~Entry:Entry1
-            %Exec $Script_MarioAndParakarryToGourmetGuy
+            Exec $Script_MarioAndParakarryToGourmetGuy
         Case == ~Entry:Entry2
             %Exec $Script_MarioAndParakarryToTemple
         Case == ~Entry:Entry3
@@ -34,8 +34,58 @@
     Call SetNpcYaw ( .Npc:Partner -107` )
     Exec $Script_ShipBop
     Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F001A )
+    Set *MapVar[0] 00000001
+    Call ParentColliderToModel ( ~Collider:CarCollider ~Model:SpaceTruck_Seats )
+    Call GetPlayerPos ( *VarA *VarB *VarC )
+    Call GetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
+    Set *Var0 0`
+    Loop 40`
+        Add *Var0 20`
+        Add *VarA 20`
+        Add *VarD 20`
+        Call TranslateGroup ( ~Model:SpaceShipGroup *Var0 0` 0` )
+        Call UpdateColliderTransform ( ~Collider:CarCollider )
+        Call SetPlayerPos ( *VarA *VarB *VarC )
+        Call SetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
+        Wait 1`
+    EndLoop
     Call StopSound ( 0000032A )
     Call GotoMap ( "btf_02" 00000001 )
+    Return
+    End
+}
+
+#new:Script $Script_MarioAndParakarryToGourmetGuy
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    Call PlaySound ( 0000032A )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryPos )
+    Call SetNpcYaw ( .Npc:Partner -107` )
+    Exec $Script_ShipBop
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F002B )
+    Call SetPlayerAnimation ( 00010029 )
+    Wait 15`
+    Call SetPlayerAnimation ( 00010002 )
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F002C )
+    Set *MapVar[0] 00000001
+    Call ParentColliderToModel ( ~Collider:CarCollider ~Model:SpaceTruck_Seats )
+    Call GetPlayerPos ( *VarA *VarB *VarC )
+    Call GetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
+    Set *Var0 0`
+    Loop 40`
+        Add *Var0 20`
+        Add *VarA 20`
+        Add *VarD 20`
+        Call TranslateGroup ( ~Model:SpaceShipGroup *Var0 0` 0` )
+        Call UpdateColliderTransform ( ~Collider:CarCollider )
+        Call SetPlayerPos ( *VarA *VarB *VarC )
+        Call SetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
+        Wait 1`
+    EndLoop
+    Call GotoMap ( "btf_14" 00000001 )
+    Call StopSound ( 0000032A )
+    Wait 300`
     Return
     End
 }
@@ -53,6 +103,21 @@
     Wait 15`
     Call SetPlayerAnimation ( 00010002 )
     Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0019 )
+    Set *MapVar[0] 00000001
+    Call ParentColliderToModel ( ~Collider:CarCollider ~Model:SpaceTruck_Seats )
+    Call GetPlayerPos ( *VarA *VarB *VarC )
+    Call GetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
+    Set *Var0 0`
+    Loop 40`
+        Add *Var0 20`
+        Add *VarA 20`
+        Add *VarD 20`
+        Call TranslateGroup ( ~Model:SpaceShipGroup *Var0 0` 0` )
+        Call UpdateColliderTransform ( ~Collider:CarCollider )
+        Call SetPlayerPos ( *VarA *VarB *VarC )
+        Call SetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
+        Wait 1`
+    EndLoop
     Call StopSound ( 0000032A )
     Call GotoMap ( "btf_13" ~Entry:Entry3 )
     Return
@@ -82,6 +147,9 @@
             Call UpdateColliderTransform ( ~Collider:CarCollider )
             Wait 5`
         EndLoop
+        If *MapVar[0] == 00000001
+            BreakLoop
+        EndIf
     EndLoop
     Return
     End

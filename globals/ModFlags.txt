@@ -21,3 +21,4 @@
 01E = MF_btf_14_YellowBlock
 01F = MF_btf_14_HiddenRedBlock
 020 = MF_btf_14_AttackFXE
+021 = MF_btf_16_GourmetGuyLetterDelivered

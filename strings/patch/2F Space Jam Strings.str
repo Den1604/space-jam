@@ -293,7 +293,7 @@
 	[Wait][Next]
 	This letter is addressed to[br]
 	someone by the name of...[Pause:15][br]
-	"Pieface".[Pause:10][br]
+	"[Color:07]Pieface[Color:0A]".[Pause:10][br]
 	Let's find em![br]
 	[Wait][End]
 }
@@ -459,3 +459,61 @@
 	[Wait][End]
 }
 
+#message:2F:029
+{
+	[Style Right]
+	Thank you, Mario![Pause:10][br]
+	[Wait][End]
+}
+
+#message:2F:02A
+{
+	[Style Right]
+	I parked the (INSERT NAME HERE)[br]
+	over there, so let's get[br]
+	into it and rush off![br]
+	[Wait][Next]
+	I think I squished something[br]
+	when I parked it...[br]
+	[Wait][End]
+}
+
+#message:2F:02B
+{
+	[Style Right]
+	The first letter is addressed[BR]
+	to...[Pause:15][br]
+	[Color:07]Gourmet Guy[Color:0A]![br]
+	[Wait][Next]
+	The letter is written to be[BR]
+	delivered to "[Color:07]Chocolate Island[Color:0A]".[Pause:10][BR]
+	Does that sound familiar to[BR]
+	you, Mario?[BR]
+	[Wait][End]
+}
+
+#message:2F:02C
+{
+	[Style Right]
+	Alright![BR]
+	Let's waste no time then[BR]
+	and get going immediately![BR]
+	[Wait][End]
+}
+
+#message:2F:02D
+{
+	[Style Right]
+	Gourmet Guy should be located[br]
+	around here somewhere, let's[br]
+	get searching![br]
+	[Wait][End]
+}
+
+#message:2F:02E
+{
+	[Style Right]
+	We still have to deliver the[br]
+	letter, Mario![br]
+	[Wait][End]
+}
