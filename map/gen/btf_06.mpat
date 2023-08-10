@@ -31,7 +31,24 @@
 	Wait  1`
 	Exec  $Script_ScriptedSpring_FollowCam *Var[A]
 	Call  SetPlayerJumpscale    ( *Fixed[0.7] )
-	Call  PlayerJump            ( ~Vec3d:SpringDestination 30` )
+	Call  PlayerJump            ( ~Vec3d:Spring_Destination 30` )
+	Kill  *Var[A]
+	Call  SetPlayerActionState  ( .ActionState:Idle )
+	Call  DisablePlayerPhysics  ( .False )
+	Call  DisablePlayerInput    ( .False )
+	Return
+	End
+}
+
+#new:Script $Script_ScriptedSpring_Spring2
+{
+	Call  DisablePlayerInput    ( .True )
+	Call  DisablePlayerPhysics  ( .True )
+	Call  SetPlayerActionState  ( .ActionState:Launch )
+	Wait  1`
+	Exec  $Script_ScriptedSpring_FollowCam *Var[A]
+	Call  SetPlayerJumpscale    ( *Fixed[0.7] )
+	Call  PlayerJump            ( ~Vec3d:Spring2_Destination 30` )
 	Kill  *Var[A]
 	Call  SetPlayerActionState  ( .ActionState:Idle )
 	Call  DisablePlayerPhysics  ( .False )
@@ -68,10 +85,29 @@
 #new:Script $Script_MakeEntities
 {
 	Call  MakeEntity    ( .Entity:SavePoint ~Vec4d:SaveBlock 80000000 )
+	Call  MakeEntity    ( .Entity:MultiCoinBrick ~Vec4d:BrickBlock1 80000000 )
 	Call  MakeEntity    ( .Entity:Signpost ~Vec4d:Signpost1 80000000 )
 	Call  AssignScript    ( $Script_ReadSign_Signpost1 )
 	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring 80000000 )
 	Call  AssignScript    ( $Script_ScriptedSpring_Spring )
+	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring2 80000000 )
+	Call  AssignScript    ( $Script_ScriptedSpring_Spring2 )
+	Return
+	End
+}
+
+#new:Script $Script_PanCamera_AAAAAAAAAAAAAD
+{
+	Call  SetCamType        ( .Cam:Default 00000001 .False )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[20.000000] *Fixed[-7.000000] )
+	Call  SetCamDistance    ( .Cam:Default 650` )
+	Call  SetCamPosA        ( .Cam:Default 23` 10` )
+	Call  SetCamPosB        ( .Cam:Default 22` 0` )
+	Call  SetCamPosC        ( .Cam:Default 10` 60` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:AAAAAAAAAAAAAD )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[2.500000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
 	Return
 	End
 }

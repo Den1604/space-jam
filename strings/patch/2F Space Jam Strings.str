@@ -412,12 +412,18 @@
 #message:2F:025
 {
 	[Style Right]
-	I won't let you in here.[br]
-	However, I can activate[br]
-	the moving platforms for you.[Pause:40][br]
+	You want to know what's behind[br]
+	this door? [PrintRising]TOO BAD![/fx][Wait][br]
+	I can [PrintRising][DropShadow]NOT[/fx][/fx] tell you.[br]
 	[Wait][Next]
-	Here you go,[br]
-	have fun over there.
+	If you still want something to[br]
+	do though, I can unlock these[br]
+	platforms, go fetch me a letter[br]
+	or so, I guess.[br]
+	[Wait][Next]
+	[Size 8][br]
+	That's going to keep him busy for a while.[br][br]
+	Why would anyone hide a letter in here, hahaha.[br]
 	[Wait][End]
 }
 
@@ -425,7 +431,7 @@
 {
 	[Style Right]
 	[CenterX:FF][Size 24][PrintRising]Hey, what do you think[br]
-	you are doing?![Size 16][/fx]
+	you are doing?![Size 16][/fx][br][br][br]
 	[Wait][Next]
 	[CenterX:00]Who even are you?[br]
 	Go come to me first.
@@ -437,8 +443,8 @@
 	[Style Right]
 	You desparately want to go[br]
 	over there?[Wait][br]
-	If you want it to badly, I can[br]
-	unlock the platforms for you.[Pause:40][br]
+	If you want it so badly, I can[br]
+	unlock the platforms for you.[InputOff][Yield][Pause:20][InputOn][br]
 	[Wait][Next]
 	By the way..[br]
 	in case you were wondering,[br]
@@ -517,3 +523,24 @@
 	letter, Mario![br]
 	[Wait][End]
 }
+
+#message:2F:02F
+{
+	[Style Right]
+	Here you go, have fun.[br]
+	[Wait][END]
+}
+
+#message:2F:030
+{
+[Style Right]
+Wait, you actually have a letter?[Wait][br]
+[InputOff].[Pause:4].[Pause:4].[Pause:4][InputOn][Wait][br]
+I have no idea who that is[br]
+addressed to. How boring.[br]
+[Wait][Next]
+Fetch me something more[br]
+interesting instead, man.[br]
+[Wait][END]
+}
+

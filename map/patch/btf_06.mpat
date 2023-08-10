@@ -33,6 +33,24 @@
    D8:  End
 }
 
+% pasted in here because SR generates 20,000000 instead of 20.000000
+% causing a compilation error :)
+@ $Script_PanCamera_AAAAAAAAAAAAAD
+{
+	Call  SetCamType        ( .Cam:Default 00000001 .False )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[20.000000] *Fixed[-7.000000] )
+	Call  SetCamDistance    ( .Cam:Default 650` )
+	Call  SetCamPosA        ( .Cam:Default 23` 10` )
+	Call  SetCamPosB        ( .Cam:Default 22` 0` )
+	Call  SetCamPosC        ( .Cam:Default 10` 60` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:AAAAAAAAAAAAAD )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[2.500000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
 @ $Script_Main {
 	Set   *GB_WorldLocation  .Location:GoombaRoad
 	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
@@ -46,12 +64,16 @@
 	Exec  $Script_EnterMap
 	% Custom
 	Exec  $Script_MakeItems
-	Exec  $Script_SetupPlatforms
 	Exec  $Script_MakeCustomEntities
+	
+	If *MF_btf_06_PlatformsActivated == .True
+		Exec  $Script_SetupPlatforms
+	EndIf
 	
 	Call MakeNpcs ( .False $NpcGroupList )
 	Call SetNpcYaw ( .NpcID:NpcGuard -127` ) % Makes Clubba face left
 	Bind $Script_Platform_Fall .Trigger:FloorTouch ~Collider:platform1 1 00000000
+	
 	Return
 	End
 }
@@ -93,6 +115,8 @@
 
 % Platform movement
 #new:Script $Script_SetupPlatforms {
+	Set *MF_btf_06_PlatformsActivated .True
+	
 	Set *Var2 0`
 	Set *Var3 -300`
 	Set *Var6 140`
@@ -200,7 +224,50 @@
 {
 	% talkAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 05
 	% idleAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 02
-	Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 00030029 )
+	% stringID - AAAABBBB - space jam strings resource (0x2F), string 0x28
+	If *MF_btf_06_PlatformsActivated == .True
+		If *MF_btf_06_PlatformMessageShown == .True
+			% Now go play in the ball pit or whatever there is to see there.
+			Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 002F0028 )
+		Else
+			% Wait, you actually have a letter? ...
+			Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 002F0030 )
+		EndIf
+		% TODO: remove, this is temporary
+		Set *MF_btf_06_PlatformsActivated .False
+		Set *MF_btf_06_PlatformMessageShown .False
+		Return
+	EndIf
+	
+	If *MF_btf_06_PlatformMessageShown == .True
+		% You desparately want to go over there? ...
+		Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 002F0027 )
+		Call DisablePlayerInput ( .True )
+		ExecWait $Script_PanCamera_AAAAAAAAAAAAAD
+		Exec $Script_SetupPlatforms
+		Wait 60`
+		Call ResetCam ( .Cam:Default *Fixed[4.0] )
+		Call DisablePlayerInput ( .False )
+		Call EndSpeech ( .NpcID:NpcGuard 00390105 00390102 00000000 )
+		Return
+	EndIf
+	
+    Call GetPlayerPos ( *VarA *VarB *VarC )
+    Call ShowEmote ( 00000000 .Emote:Question -45` 30` .False *VarA *VarB *VarC 0` )
+	Wait 60`
+	% TODO: some text is too small to be readable with N64 or LLE grapics, test a better font size with ares
+	% You want to know what's behind this door? TOO BAD! ...
+	Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 002F0025 )
+	Call DisablePlayerInput ( .True )
+	ExecWait $Script_PanCamera_AAAAAAAAAAAAAD
+	Exec $Script_SetupPlatforms
+	Wait 60`
+	Call ResetCam ( .Cam:Default *Fixed[4.0] )
+	Call DisablePlayerInput ( .False )
+	Wait 30`
+	% Here you go, have fun.
+	Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 002F002F )
+	
 	Return
 	End
 }
@@ -210,10 +277,12 @@
 	% Wait 60`
 	
 	If *MF_btf_06_PlatformMessageShown == .False
-		Call DisablePlayerInput ( .True )
-		Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 00030029 )
-		Call DisablePlayerInput ( .False )
-		Set *MF_btf_06_PlatformMessageShown .True
+		If *MF_btf_06_PlatformsActivated == .False
+			Call DisablePlayerInput ( .True )
+			Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 002F0026 )
+			Call DisablePlayerInput ( .False )
+			Set *MF_btf_06_PlatformMessageShown .True
+		EndIf
 	EndIf
 	Return
 	End
