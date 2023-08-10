@@ -18,3 +18,6 @@
 01B = MF_btf_XX_TalkedToMuskular
 01C = MF_btf_06_OpenedChest1
 01D = MF_btf_06_CollectedItemDiamondStone
+01E = MF_btf_14_YellowBlock
+01F = MF_btf_14_HiddenRedBlock
+020 = MF_btf_14_AttackFXE

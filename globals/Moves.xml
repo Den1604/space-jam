@@ -76,7 +76,7 @@
 	<Move index="049" nameMsg="2A-01A" desc1Msg="23-077" desc2Msg="25-077" flags="00000000" category="08" inputPopup="FF" fp="00" bp="02" name="PDownDUp" ability="PDownDUp"/>
 	<Move index="04A" nameMsg="00-000" desc1Msg="00-000" desc2Msg="00-000" flags="00000000" category="08" inputPopup="FF" fp="00" bp="01" name="HealthyHealthy" ability="HealthyHealthy"/>
 	<Move index="04B" nameMsg="80098A04" desc1Msg="00-000" desc2Msg="00-000" flags="00000000" category="09" inputPopup="FF" fp="00" bp="00" name="Unused_4B"/>
-	<Move index="04C" nameMsg="26-080" desc1Msg="23-080" desc2Msg="25-080" flags="00000000" category="09" inputPopup="FF" fp="00" bp="02" name="DodgeMaster" ability="DodgeMaster"/>
+	<Move index="04C" nameMsg="26-080" desc1Msg="23-080" desc2Msg="25-080" flags="00000000" category="09" inputPopup="FF" fp="00" bp="00" name="DodgeMaster" ability="DodgeMaster"/>
 	<Move index="04D" nameMsg="26-087" desc1Msg="23-087" desc2Msg="25-087" flags="00000000" category="09" inputPopup="FF" fp="00" bp="01" name="FirstAttack" ability="FirstAttack"/>
 	<Move index="04E" nameMsg="26-094" desc1Msg="23-094" desc2Msg="25-094" flags="00000000" category="09" inputPopup="FF" fp="00" bp="00" name="SlowGo" ability="SlowGo"/>
 	<Move index="04F" nameMsg="26-09B" desc1Msg="23-09B" desc2Msg="25-09B" flags="00000000" category="09" inputPopup="FF" fp="00" bp="08" name="RightOn" ability="RightOn"/>
