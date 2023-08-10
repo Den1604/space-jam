@@ -576,7 +576,6 @@ Artist:[Pause:25] Green Toad
     Call ResetCam ( .Cam:Default *Fixed[2.5] )
     Call EnablePartnerAI ()
     Call DisablePlayerInput ( .False )
-    Set *MF_btf_XX_TalkedToMuskular .True %DEBUG!
     Return
     End
 }

@@ -584,6 +584,7 @@
 		<Map name="btf_12" nickname="Star Temple Roof"/>
 		<Map name="btf_13" nickname="Ship Travel Map"/>
 		<Map name="btf_14" nickname="Gourmet Guy Location 1"/>
+		<Map name="btf_15" nickname="Gourmet Guy Location 2"/>
 		<Stage name="btf_bt01" nickname="CR 2 Battle Map"/>
 	</Area>
 	<Resource name="mac_tex" compressed="false"/>
