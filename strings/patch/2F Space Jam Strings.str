@@ -409,3 +409,53 @@
 	[Wait][End]
 }
 
+#message:2F:025
+{
+	[Style Right]
+	I won't let you in here.[br]
+	However, I can activate[br]
+	the moving platforms for you.[Pause:40][br]
+	[Wait][Next]
+	Here you go,[br]
+	have fun over there.
+	[Wait][End]
+}
+
+#message:2F:026
+{
+	[Style Right]
+	[CenterX:FF][Size 24][PrintRising]Hey, what do you think[br]
+	you are doing?![Size 16][/fx]
+	[Wait][Next]
+	[CenterX:00]Who even are you?[br]
+	Go come to me first.
+	[Wait][End]
+}
+
+#message:2F:027
+{
+	[Style Right]
+	You desparately want to go[br]
+	over there?[Wait][br]
+	If you want it to badly, I can[br]
+	unlock the platforms for you.[Pause:40][br]
+	[Wait][Next]
+	By the way..[br]
+	in case you were wondering,[br]
+	I can [PrintRising][DropShadow]NOT[/fx][/fx] let you see what's[br]
+	behind me. [Pause:20]I cannot![br]
+	[Wait][Next]
+	Now go play in the ball pit[br]
+	or whatever there is to see[br]
+	there.
+	[Wait][End]
+}
+
+#message:2F:028
+{
+	[Style Right]Now go play in the ball pit[br]
+	or whatever there is to see[br]
+	there.[br]
+	[Wait][End]
+}
+
