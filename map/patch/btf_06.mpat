@@ -98,6 +98,14 @@
 	Call  MakeEntity    ( .Entity:Chest ~Vec4d:Chest1 00000000 80000000 )
 	Call  AssignFlag    ( *MF_btf_06_OpenedChest1 )
 	Call  AssignScript  ( $Script_UseChest1 )
+	
+	Call  MakeEntity    ( .Entity:Chest ~Vec4d:Chest2 00000000 80000000 )
+	Call  AssignFlag    ( *MF_btf_06_OpenedChest2 )
+	Call  AssignScript  ( $Script_UseChest2 )
+	
+	Call  MakeEntity    ( .Entity:YellowBlock ~Vec4d:ItemBlock1 .Item:DizzyDial 80000000 )
+	Call  AssignBlockFlag   ( *MF_btf_06_HitItemBlock1 )
+	
 	Return
 	End
 }
@@ -107,6 +115,16 @@
 	Set *VarA .Item:JumpCharge
 	Set *VarB 00000002 % 2 for badge
 	Set *MF_btf_06_OpenedChest1 .True
+	ExecWait $Script_OpenChest
+	Return
+	End
+}
+
+#new:Script $Script_UseChest2
+{
+	Set *VarA .Item:AttackFXA
+	Set *VarB 00000002 % 2 for badge
+	Set *MF_btf_06_OpenedChest2 .True
 	ExecWait $Script_OpenChest
 	Return
 	End

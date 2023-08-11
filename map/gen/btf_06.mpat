@@ -57,6 +57,40 @@
 	End
 }
 
+#new:Script $Script_ScriptedSpring_Spring3
+{
+	Call  DisablePlayerInput    ( .True )
+	Call  DisablePlayerPhysics  ( .True )
+	Call  SetPlayerActionState  ( .ActionState:Launch )
+	Wait  1`
+	Exec  $Script_ScriptedSpring_FollowCam *Var[A]
+	Call  SetPlayerJumpscale    ( *Fixed[0.7] )
+	Call  PlayerJump            ( ~Vec3d:Spring2_Destination 30` )
+	Kill  *Var[A]
+	Call  SetPlayerActionState  ( .ActionState:Idle )
+	Call  DisablePlayerPhysics  ( .False )
+	Call  DisablePlayerInput    ( .False )
+	Return
+	End
+}
+
+#new:Script $Script_ScriptedSpring_Spring4
+{
+	Call  DisablePlayerInput    ( .True )
+	Call  DisablePlayerPhysics  ( .True )
+	Call  SetPlayerActionState  ( .ActionState:Launch )
+	Wait  1`
+	Exec  $Script_ScriptedSpring_FollowCam *Var[A]
+	Call  SetPlayerJumpscale    ( *Fixed[0.7] )
+	Call  PlayerJump            ( ~Vec3d:Spring4_Destination 30` )
+	Kill  *Var[A]
+	Call  SetPlayerActionState  ( .ActionState:Idle )
+	Call  DisablePlayerPhysics  ( .False )
+	Call  DisablePlayerInput    ( .False )
+	Return
+	End
+}
+
 #new:Script_Main $Script_Main
 {
 	Set   *GB_WorldLocation  .Location:GoombaRoad
@@ -92,6 +126,10 @@
 	Call  AssignScript    ( $Script_ScriptedSpring_Spring )
 	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring2 80000000 )
 	Call  AssignScript    ( $Script_ScriptedSpring_Spring2 )
+	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring3 80000000 )
+	Call  AssignScript    ( $Script_ScriptedSpring_Spring3 )
+	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring4 80000000 )
+	Call  AssignScript    ( $Script_ScriptedSpring_Spring4 )
 	Return
 	End
 }

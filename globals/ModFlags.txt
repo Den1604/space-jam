@@ -22,3 +22,5 @@
 01F = MF_btf_14_HiddenRedBlock
 020 = MF_btf_14_AttackFXE
 021 = MF_btf_16_GourmetGuyLetterDelivered
+022 = MF_btf_06_HitItemBlock1
+023 = MF_btf_06_OpenedChest2
