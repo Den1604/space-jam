@@ -1,0 +1,51 @@
+@ $FormationTable {
+    $SJIS_80222330 00000001 $Formation_00 $Stage_802208B0 00000000
+    $SJIS_80222320 00000002 $Formation_01 $Stage_802208B0 00000000
+    $SJIS_80222310 00000003 $Formation_02 $Stage_802208B0 00000000
+    $SJIS_802222F8 00000002 $Formation_03 $Stage_802208B0 00000000
+    $SJIS_802222DC 00000003 $Formation_04 $Stage_802208B0 00000000
+    $SJIS_802222D0 00000001 $Formation_05 $Stage_802208B0 00000000
+    $SJIS_802222C0 00000002 $Formation_06 $Stage_btf_bt02 00000000
+    $SJIS_802222B0 00000003 $Formation_07 $Stage_btf_bt02 00000000
+    $SJIS_802222A0 00000004 $Formation_08 $Stage_802208B0 00000000
+    $SJIS_80222288 00000002 $Formation_09 $Stage_802208B0 00000000
+    $SJIS_8022226C 00000003 $Formation_0A $Stage_802208B0 00000000
+    $SJIS_80222248 00000003 $Formation_0B $Stage_802208B0 00000000
+    $SJIS_8022223C 00000001 $Formation_0C $Stage_802215CC 00000000
+    $SJIS_80222230 00000003 $Formation_0D $Stage_802215CC 00000000
+    00000000 00000000 00000000 00000000 00000000
+}
+
+@ $StageTable {
+    $ASCII_8022234C $Stage_802208B0
+    $ASCII_80222344 $Stage_80221560
+    $ASCII_8022233C $Stage_802215CC
+    "btf_bt01" $Stage_btf_bt02
+    00000000 00000000
+}
+
+#new:Stage $Stage_btf_bt02
+{
+    "iwa_tex"
+	"btf_bt02_shape"
+	"btf_bt02_hit"
+	$Script_BeforeBattle_btf_bt02
+	$Script_AfterBattle_btf_bt02
+    "hos_bg" %BG
+	00000000
+	00000000
+	00000000
+	00000000
+}
+
+#new:Script $Script_BeforeBattle_btf_bt02
+{
+    Return
+    End
+}
+
+#new:Script $Script_AfterBattle_btf_bt02
+{
+    Return
+    End
+}

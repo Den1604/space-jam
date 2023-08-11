@@ -291,7 +291,7 @@
 
 #new:Script $Script_SetupMusic
 {
-	Call  FadeOutMusic  ( 00000000 500` ) % usually between 500-1000
+	Call  SetMusicTrack ( 00000000 .Song:PleasantPath 00000000 00000008 )
 	Call  ClearAmbientSounds ( 250` )
 	Return
 	End
@@ -351,8 +351,32 @@
 	End
 }
 
+#new:Script $Script_Exit_Entry0
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Entry0 )
+	Exec     ExitWalk
+	Call  GotoMap   ( "btf_14" ~Entry:btf_14:Entry0 )
+	Wait  100`
+	Return
+	End
+}
+
+#new:Script $Script_Exit_Entry1
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Entry1 )
+	Exec     ExitWalk
+	Call  GotoMap   ( "btf_15" ~Entry:btf_15:Entry1 )
+	Wait  100`
+	Return
+	End
+}
+
 #new:Script $Script_CreateExitTriggers
 {
+	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:Entry0Collider 00000001 00000000
+	Bind  $Script_Exit_Entry1 .Trigger:FloorAbove ~Collider:Entry1Collider 00000001 00000000
 	Return
 	End
 }
