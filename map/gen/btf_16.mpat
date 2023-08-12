@@ -1,17 +1,16 @@
-% Auto-generated script for btf_15
+% Auto-generated script for btf_16
 
 #new:Header $Header
 {
 	[MainScript] $Script_Main
 	[Background] 80200000
 	[EntryList] $EntryList
-	[EntryCount] 2
+	[EntryCount] 1
 }
 
 #new:EntryList $EntryList
 {
 	~Vec4f:Entry0
-	~Vec4f:Entry1
 }
 
 #new:Script $Script_TexturePan_Update
@@ -299,6 +298,7 @@
 
 #new:Script $Script_SetupTexturePan
 {
+	Call     802C9000 	( ~Model:ChocolateFall 0 )
 	Thread
 		Set  *Var[0] 0
 		Set  *Var[1] 0
@@ -339,11 +339,9 @@
 {
 	Call  GetEntryID    ( *Var[0] )
 	Switch  *Var[0]
-		CaseOR  ==  ~Entry:Entry0
-		CaseOR  ==  ~Entry:Entry1
+		Case  ==  ~Entry:Entry0
 			Set   *Var[0] $Script_CreateExitTriggers
 			Exec  EnterWalk
-		EndCaseGroup
 		Default
 			Exec  $Script_CreateExitTriggers
 	EndSwitch
@@ -356,18 +354,7 @@
 	SetGroup 0000001B
 	Call     UseExitHeading ( 60` ~Entry:Entry0 )
 	Exec     ExitWalk
-	Call  GotoMap   ( "btf_14" ~Entry:btf_14:Entry0 )
-	Wait  100`
-	Return
-	End
-}
-
-#new:Script $Script_Exit_Entry1
-{
-	SetGroup 0000001B
-	Call     UseExitHeading ( 60` ~Entry:Entry1 )
-	Exec     ExitWalk
-	Call  GotoMap   ( "btf_16" ~Entry:btf_16:Entry0 )
+	Call  GotoMap   ( "btf_15" ~Entry:btf_15:Entry1 )
 	Wait  100`
 	Return
 	End
@@ -375,8 +362,7 @@
 
 #new:Script $Script_CreateExitTriggers
 {
-	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:Entry0Collider 00000001 00000000
-	Bind  $Script_Exit_Entry1 .Trigger:FloorAbove ~Collider:Entry1Collider 00000001 00000000
+	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:EastLZ 00000001 00000000
 	Return
 	End
 }

@@ -585,6 +585,7 @@
 		<Map name="btf_13" nickname="Ship Travel Map"/>
 		<Map name="btf_14" nickname="Gourmet Guy Location 1"/>
 		<Map name="btf_15" nickname="Gourmet Guy Location 2"/>
+		<Map name="btf_16" nickname="Gourmet Guy Location 3"/>
 		<Stage name="btf_bt01" nickname="CR 2 Battle Map"/>
 		<Stage name="btf_bt02" nickname="CI Battle Map"/>
 	</Area>
