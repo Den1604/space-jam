@@ -150,6 +150,22 @@
 	End
 }
 
+#new:Script $Script_PanCamera_SpringCam
+{
+	Call  SetCamType        ( .Cam:Default 00000001 .False )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[16.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetCamPosA        ( .Cam:Default 714` 10` )
+	Call  SetCamPosB        ( .Cam:Default -440` 0` )
+	Call  SetCamPosC        ( .Cam:Default 10` -50` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:SpringCam )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[10.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
 #new:Script $Script_SetupMusic
 {
 	Call  FadeOutMusic  ( 00000000 500` ) % usually between 500-1000

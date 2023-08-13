@@ -1,4 +1,5 @@
 #define .NpcID:NpcGuard 1`
+#define .NpcID:NpcSpringDummy 2`
 
 #new:Script $Script_OpenChestAnimation
 {
@@ -64,6 +65,7 @@
 	Exec  $Script_EnterMap
 	% Custom
 	Exec  $Script_MakeItems
+	Exec  $Script_SetupItemCutscenes
 	Exec  $Script_MakeCustomEntities
 	
 	If *MF_btf_06_PlatformsActivated == .True
@@ -80,7 +82,32 @@
 
 #new:Script $Script_MakeItems {
 	Call MakeItemEntity ( .Item:TastyTonic ~Vec3d:Item1 .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedItem1 )
-	Call MakeItemEntity ( .Item:DiamondStone ~Vec3d:ItemDiamondStone .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedItemDiamondStone )
+	Call MakeItemEntity ( .Item:DiamondStone ~Vec3d:ItemDiamondStone .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedDiamondStone )
+	Return
+	End
+}
+
+#new:Script $Script_SetupItemCutscenes {
+	Call AwaitPlayerApproach ( ~Vec2D:ItemDiamondStone 19` )
+	Call AwaitPlayerLeave ( ~Vec2D:ItemDiamondStone 19` )
+	
+	Call DisablePlayerInput ( .True )
+	
+	Wait 30`
+	
+	% ExecWait $Script_PanCamera_AAAAAAAAAAAAAD
+	
+	ExecWait $Script_PanCamera_SpringCam
+	
+	Wait 30`
+	
+	% Call SetNpcPos ( .NpcID:NpcSpringDummy ~Vec3D:Spring )
+	
+	% talkAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 05
+	% idleAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 02
+	% stringID - AAAABBBB - space jam strings resource (0x2F), string 0x28
+	% Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F002F )
+	
 	Return
 	End
 }
@@ -214,7 +241,7 @@
 	End
 }
 
-% Custom NPC
+% Custom NPCs
 #new:NpcGroup $NpcGroup_NpcGuard
 {
 	.NpcID:NpcGuard $NpcSettings_NpcGuard ~Vec3f:NpcGuard
@@ -234,6 +261,28 @@
 #new:Script $Script_Init_NpcGuard
 {
 	Call BindNpcInteract ( .Npc:Self $Script_Interact_NpcGuard )
+    Return
+    End
+}
+
+#new:NpcGroup $NpcGroup_NpcSpringDummy
+{
+	.NpcID:NpcSpringDummy $NpcSettings_NpcSpringDummy ~Vec3f:NpcSpringDummy
+	00402D09 $Script_Init_NpcSpringDummy 0 0 0
+	~NoDrops
+	~Movement:NpcSpringDummy
+	~AnimationTable:NpcSpringDummy
+	00000000 00000000 00000000 00000000 % no tattle string
+}
+
+#new:NpcSettings $NpcSettings_NpcSpringDummy
+{
+	00000000 001E0018 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
+}
+
+#new:Script $Script_Init_NpcSpringDummy
+{
     Return
     End
 }
@@ -308,5 +357,6 @@
 
 #new:NpcGroupList $NpcGroupList {
 	00000001 $NpcGroup_NpcGuard 00000000
+	00000001 $NpcGroup_NpcSpringDummy 00000000
 	00000000 00000000 00000000
 }
