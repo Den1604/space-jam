@@ -1,3 +1,4 @@
+#define .NpcID:Muskular         00
 
 #new:Header $Header
 {
@@ -274,6 +275,7 @@
 	Exec  $Script_SetupTexturePan
     Exec  $Script_ItsCubinTime
 	Exec  $Script_EnterMap
+    Call  MakeNpcs  ( .True $NpcGroupList_8025136C )
 	Return
 	End
 }
@@ -1179,17 +1181,120 @@ End
 End
 }
 
-#new:Script $Script_Trigger_KnockKnock {
+#new:Script $Script_Trigger_KnockKnock %ty for the sick script name, blook    - Den
+{
+    Call DisablePlayerInput ( .True )
+    ExecWait $Script_ToggleCubeDoor
+    Call DisablePartnerAI ( 00000000 )
+    Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F003E )
+    Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F003F )
+    Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F0040 )
+    Wait 15`
+    Call GetNpcPos ( .NpcID:Muskular *VarA *VarB *VarC )
+    Sub *VarA 25`
+    Add *VarB 80`
+    Call NpcFlyTo ( .NpcID:Muskular *VarA *VarB *VarC 30` 20` .Easing:Linear )
+    Call SetPlayerAnimation ( 0001002A )
+    Wait 10`
+    Thread
+        Call GetPartnerPos ( *VarD *VarE *VarF )
+        Wait 15`
+        Sub *VarD 60`
+        Call NpcFlyTo ( .Npc:Partner *VarD *VarE *VarF 15` 0` .Easing:Linear )
+        Call NpcFaceNpc ( .Npc:Partner .NpcID:Muskular 1` )
+    EndThread
+    Call GetPlayerPos ( *Var1 *Var2 *Var3 )
+    Thread
+        Call PlaySound ( 00000262 )
+    EndThread
+    Call ShowEmote ( 00000000 .Emote:Exclamation 0` 15` .False *Var1 *Var2 *Var3 0` )
+    Call SetPlayerAnimation ( 00080016 )
+    Wait 15`
+    Sub *Var1 60`
+    Call PlayerMoveTo ( *Var1 *Var3 15` )
+    Call PlayerFaceNpc ( .NpcID:Muskular .False )
+    Call GetNpcPos ( .NpcID:Muskular *VarA *VarB *VarC )
+    Sub *VarA 25`
+    Sub *VarB 60`
+    Call NpcFlyTo ( .NpcID:Muskular *VarA *VarB *VarC 30` 20` .Easing:Linear )
+    Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F0043 )
+    Call GetPartnerPos ( *VarD *VarE *VarF )
+    Call GetNpcPos ( .NpcID:Muskular *VarA *VarB *VarC )
+    Sub *VarA 5`
+    Add *VarC 2`
+    Call NpcFlyTo ( .Npc:Partner *VarA *VarB *VarC 15` 0` .Easing:Linear )
+    Wait 10`
+    Call NpcFlyTo ( .Npc:Partner *VarD *VarE *VarF 15` 0` .Easing:Linear )
+    Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F0041 )
+    Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F0044 )
+    Call InterpNpcYaw ( .NpcID:Muskular -107` 5` )
+    Call SetNpcAnimation ( .NpcID:Muskular 00150005 )
+    Wait 60`
+    Call ShowMessageAtScreenPos ( 002F0045 000000A0 00000028 )
+    Wait 15`
+    Call InterpNpcYaw ( .NpcID:Muskular -207` 5` )
+    Call SetNpcAnimation ( .NpcID:Muskular 00150001 )
+    Wait 10`
+    Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F0046 )
+    Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F0047 )
+    Wait 5`
+    Call PlayerFaceNpc ( .Npc:Partner .False )
+    Wait 10`
+    Call SetPlayerAnimation ( 00010029 )
+    Wait 10`
+    Call PlayerFaceNpc ( .NpcID:Muskular .False )
+    %
+    % END
+    %
+    Call GetNpcPos ( .NpcID:Muskular *VarA *VarB *VarC )
+    Add *VarA 25`
+    Add *VarB 80`
+    Call NpcFlyTo ( .NpcID:Muskular *VarA *VarB *VarC 30` 20` .Easing:Linear )
+    Add *VarA 25`
+    Sub *VarB 100`
+    Call NpcFlyTo ( .NpcID:Muskular *VarA *VarB *VarC 30` 20` .Easing:Linear )
+    ExecWait $Script_ToggleCubeDoor
+    Call EnablePartnerAI ()
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
 
-% Aight Den here you go, this script triggers in response to the
-% WallPressA Event at the Box home collider
-% The Script for opening and closing the door is
-% '$Script_ToggleCubeDoor', no arguments needed
-% opens it when closed and vice versa
-% The rotation takes 12 frames to complete.
+#new:NpcGroupList $NpcGroupList_8025136C
+{
+	00000001 $NpcGroupList_Muskular 00000000
+	00000000 00000000 00000000
+}
 
-Exec $Script_ToggleCubeDoor
+#new:NpcGroup $NpcGroupList_Muskular
+{
+	.NpcID:Muskular   $NpcSettings_80247CE4 ~Vec3f:Muskular % 100 0 -256
+	00002809 $Script_Init_8024D134 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:Muskular
+	~AnimationTable:Muskular % .Sprite:Gooma
+	00000000 00000000 00000000 001A0064 % She's my grandma, Gooma. I hope she lives forever! ...
 
-Return
-End
+
+}
+
+#new:NpcSettings $NpcSettings_80247CE4
+{
+	00000000 00010001 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
+}
+
+#new:Script $Script_Init_8024D134
+{
+    0:  Call  BindNpcIdle       ( .Npc:Self $Script_Idle_8024CDAC )
+   28:  Return
+   30:  End
+}
+
+#new:Script $Script_Idle_8024CDAC
+{
+	Call SetNpcAnimation ( .NpcID:Muskular 00150001 )
+    Call EnableNpcShadow ( .NpcID:Muskular .False )
+   C4:  Return
+   CC:  End
 }

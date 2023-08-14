@@ -541,7 +541,7 @@
 	[Wait][Next]
 	Fetch me something more[br]
 	interesting instead, man.[br]
-	[Wait][END]
+	[Wait][End]
 }
 
 #message:2F:031
@@ -615,6 +615,9 @@
 #message:2F:037
 {
 	[Style Right]
+	Another letter, duly delivered.[br]
+	A postman's job is never done.[br]
+	[Wait][Next]
 	Well that's that, let's[br]
 	get going Mario![br]
 	[Wait][End]
@@ -668,5 +671,100 @@
 	done something, somehow.[Pause:10][br]
 	Let's continue, maybe we can[br]
 	find a use for it.
-	[Wait][END]
+	[Wait][End]
+}
+
+#message:2F:03E
+{
+	[Style Right]
+	[Voice Star][Down 6][Size 40]Who's there?[br]
+	[Wait][End]
+}
+
+#message:2F:03F
+{
+	[Style Right]
+	Mario and Parakarry, delivering[br]
+	a very important letter![br]
+	[Wait][End]
+}
+
+#message:2F:040
+{
+	[Style Right]
+	[Voice Star]Oh![Pause:10][br]
+	I'll be right there with you,[br]
+	in a second![br]
+	[Wait][End]
+}
+
+#message:2F:041
+{
+	[Style Right]
+	Another letter, duly delivered.[br]
+	A postman's job is never done.[br]
+	[Wait][End]
+}
+
+#message:2F:042
+{
+	[Style Right]
+	Another letter, duly delivered.[br]
+	A postman's job is never done.[br]
+	[Wait][Next]
+	Let's see if we can get out of[br]
+	here now, Mario.[br]
+	[Wait][End]
+}
+
+#message:2F:043
+{
+	[Style Right]
+	Here's the letter![br]
+	[Wait][End]
+}
+
+#message:2F:044
+{
+	[Style Right]
+	Thank you![Pause:15][br]
+	This might be highly important[br]
+	let me go read it, I might need[br]
+	you both again.[br]
+	[Wait][End]
+}
+
+#message:2F:045
+{
+	[Style Right]
+	Hm.[Pause:20].[Pause:20].[Pause:20][br]
+	[Wait][End]
+}
+
+#message:2F:046
+{
+	[Style Right]
+	Mario![Pause:15][br]
+	Parakarry![br]
+	[Wait][Next]
+	I am entrusting you with an[br]
+	extremely important task.[Pause:15][br]
+	I am going to hand you five[br]
+	letters.[br]
+	[Wait][Next]
+	Please deliver all these for[br]
+	me, it's of utmost importance![Pause:15][br]
+	The world is at stake![br]
+	[Wait][End]
+}
+
+#message:2F:047
+{
+	[Style Right]
+	O-Of course![Pause:10][br]
+	Mario and I will not disappoint[br]
+	you, Muskular.[br]
+	[Wait][Next]
+	Right, Mario?[br]
+	[Wait][End]
 }
