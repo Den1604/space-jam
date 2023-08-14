@@ -486,7 +486,7 @@ Artist:[Pause:25] Green Toad
 	SetGroup 0000001B
     Call  UseExitHeading ( 60` ~Entry:Entry_0 )
 	Exec  ExitWalk
-	Call  GotoMap   ( "btf_02" ~Entry:btf_02:Entry_1 )
+	Call  GotoMap   ( "btf_17" ~Entry:btf_17:Entry_0 )
 	Wait  100`
 	Return
 	End

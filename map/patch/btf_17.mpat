@@ -1,0 +1,1195 @@
+
+#new:Header $Header
+{
+	[MainScript] $Script_Main
+	[Background] 80200000
+	[EntryList] $EntryList
+	[EntryCount] 1
+}
+
+#new:EntryList $EntryList
+{
+	~Vec4f:Entry_0
+}
+
+#new:Script $Script_TexturePan_Update
+{
+    SetGroup  00000000
+    If  *Var[5]  ==  00000001
+        If  *Var[6]  ==  00000001
+            If  *Var[7]  ==  00000001
+                If  *Var[8]  ==  00000001
+                    Call  $Function_TexturePan_Simple ( )
+                    Return
+                EndIf
+            EndIf
+        EndIf
+    EndIf
+    Call  $Function_TexturePan_Complex ( )
+    Return
+    End
+}
+
+#new:Function $Function_TexturePan_Simple
+{
+    ADDIU       SP, SP, FFE8
+    SW          S0, 10 (SP)
+    COPY        S0, A0
+    SW          RA, 14 (SP)
+    LW          V1, A8 (S0)
+    LW          V0, 88 (S0)
+    ADDU        V1, V1, V0
+    BGEZ        V1, .o30
+    SW          V1, A8 (S0)
+    LUI         V0, 2
+    BEQ         R0, R0, .o40
+    ADDU        V0, V1, V0
+    .o30
+    LUI         A0, 2
+    SLT         V0, A0, V1
+    BEQ         V0, R0, .o44
+    SUBU        V0, V1, A0
+    .o40
+    SW          V0, A8 (S0)
+    .o44
+    LW          V1, AC (S0)
+    LW          V0, 8C (S0)
+    ADDU        V1, V1, V0
+    BGEZ        V1, .o64
+    SW          V1, AC (S0)
+    LUI         V0, 2
+    BEQ         R0, R0, .o74
+    ADDU        V0, V1, V0
+    .o64
+    LUI         A0, 2
+    SLT         V0, A0, V1
+    BEQ         V0, R0, .o78
+    SUBU        V0, V1, A0
+    .o74
+    SW          V0, AC (S0)
+    .o78
+    LW          V1, B0 (S0)
+    LW          V0, 90 (S0)
+    ADDU        V1, V1, V0
+    BGEZ        V1, .o98
+    SW          V1, B0 (S0)
+    LUI         V0, 2
+    BEQ         R0, R0, .oA8
+    ADDU        V0, V1, V0
+    .o98
+    LUI         A0, 2
+    SLT         V0, A0, V1
+    BEQ         V0, R0, .oAC
+    SUBU        V0, V1, A0
+    .oA8
+    SW          V0, B0 (S0)
+    .oAC
+    LW          V1, B4 (S0)
+    LW          V0, 94 (S0)
+    ADDU        V1, V1, V0
+    BGEZ        V1, .oCC
+    SW          V1, B4 (S0)
+    LUI         V0, 2
+    BEQ         R0, R0, .oDC
+    ADDU        V0, V1, V0
+    .oCC
+    LUI         A0, 2
+    SLT         V0, A0, V1
+    BEQ         V0, R0, .oE0
+    SUBU        V0, V1, A0
+    .oDC
+    SW          V0, B4 (S0)
+    .oE0
+    LW          A0, 84 (S0)
+    JAL         8011BC1C
+    LW          A1, A8 (S0)
+    LW          A0, 84 (S0)
+    JAL         8011BC34
+    LW          A1, AC (S0)
+    LW          A0, 84 (S0)
+    JAL         8011BC4C
+    LW          A1, B0 (S0)
+    LW          A0, 84 (S0)
+    JAL         8011BC64
+    LW          A1, B4 (S0)
+    LW          RA, 14 (SP)
+    LW          S0, 10 (SP)
+    CLEAR       V0
+    JR          RA
+    ADDIU       SP, SP, 18
+}
+
+#new:Function $Function_TexturePan_Complex
+{
+    ADDIU       SP, SP, FFE8
+    SW          S0, 10 (SP)
+    COPY        S0, A0
+    BEQ         A1, R0, .o24
+    SW          RA, 14 (SP)
+    SW          R0, 70 (S0)
+    SW          R0, 74 (S0)
+    SW          R0, 78 (S0)
+    SW          R0, 7C (S0)
+    .o24
+    LW          V0, 70 (S0)
+    BNE         V0, R0, .o64
+    NOP
+    LW          V1, A8 (S0)
+    LW          V0, 88 (S0)
+    ADDU        V1, V1, V0
+    BGEZ        V1, .o50
+    SW          V1, A8 (S0)
+    LUI         V0, 2
+    BEQ         R0, R0, .o60
+    ADDU        V0, V1, V0
+    .o50
+    LUI         A0, 2
+    SLT         V0, A0, V1
+    BEQ         V0, R0, .o64
+    SUBU        V0, V1, A0
+    .o60
+    SW          V0, A8 (S0)
+    .o64
+    LW          V0, 74 (S0)
+    BNE         V0, R0, .oA4
+    NOP
+    LW          V1, AC (S0)
+    LW          V0, 8C (S0)
+    ADDU        V1, V1, V0
+    BGEZ        V1, .o90
+    SW          V1, AC (S0)
+    LUI         V0, 2
+    BEQ         R0, R0, .oA0
+    ADDU        V0, V1, V0
+    .o90
+    LUI         A0, 2
+    SLT         V0, A0, V1
+    BEQ         V0, R0, .oA4
+    SUBU        V0, V1, A0
+    .oA0
+    SW          V0, AC (S0)
+    .oA4
+    LW          V0, 78 (S0)
+    BNE         V0, R0, .oE4
+    NOP
+    LW          V1, B0 (S0)
+    LW          V0, 90 (S0)
+    ADDU        V1, V1, V0
+    BGEZ        V1, .oD0
+    SW          V1, B0 (S0)
+    LUI         V0, 2
+    BEQ         R0, R0, .oE0
+    ADDU        V0, V1, V0
+    .oD0
+    LUI         A0, 2
+    SLT         V0, A0, V1
+    BEQ         V0, R0, .oE4
+    SUBU        V0, V1, A0
+    .oE0
+    SW          V0, B0 (S0)
+    .oE4
+    LW          V0, 7C (S0)
+    BNE         V0, R0, .o124
+    NOP
+    LW          V1, B4 (S0)
+    LW          V0, 94 (S0)
+    ADDU        V1, V1, V0
+    BGEZ        V1, .o110
+    SW          V1, B4 (S0)
+    LUI         V0, 2
+    BEQ         R0, R0, .o120
+    ADDU        V0, V1, V0
+    .o110
+    LUI         A0, 2
+    SLT         V0, A0, V1
+    BEQ         V0, R0, .o124
+    SUBU        V0, V1, A0
+    .o120
+    SW          V0, B4 (S0)
+    .o124
+    LW          A0, 84 (S0)
+    JAL         8011BC1C
+    LW          A1, A8 (S0)
+    LW          A0, 84 (S0)
+    JAL         8011BC34
+    LW          A1, AC (S0)
+    LW          A0, 84 (S0)
+    JAL         8011BC4C
+    LW          A1, B0 (S0)
+    LW          A0, 84 (S0)
+    JAL         8011BC64
+    LW          A1, B4 (S0)
+    LW          V0, 70 (S0)
+    LW          V1, 78 (S0)
+    LW          A0, 98 (S0)
+    ADDIU       V0, V0, 1
+    SW          V0, 70 (S0)
+    LW          V0, 74 (S0)
+    ADDIU       V1, V1, 1
+    SW          V1, 78 (S0)
+    LW          V1, 70 (S0)
+    ADDIU       V0, V0, 1
+    SW          V0, 74 (S0)
+    LW          V0, 7C (S0)
+    SLT         V1, V1, A0
+    ADDIU       V0, V0, 1
+    BNE         V1, R0, .o198
+    SW          V0, 7C (S0)
+    SW          R0, 70 (S0)
+    .o198
+    LW          V0, 74 (S0)
+    LW          V1, 9C (S0)
+    SLT         V0, V0, V1
+    BEQL        V0, R0, .o1AC
+    SW          R0, 74 (S0)
+    .o1AC
+    LW          V0, 78 (S0)
+    LW          V1, A0 (S0)
+    SLT         V0, V0, V1
+    BEQL        V0, R0, .o1C0
+    SW          R0, 78 (S0)
+    .o1C0
+    LW          V0, 7C (S0)
+    LW          V1, A4 (S0)
+    SLT         V0, V0, V1
+    BEQL        V0, R0, .o1D4
+    SW          R0, 7C (S0)
+    .o1D4
+    LW          RA, 14 (SP)
+    LW          S0, 10 (SP)
+    CLEAR       V0
+    JR          RA
+    ADDIU       SP, SP, 18
+}
+
+#new:Script_Main $Script_Main
+{
+	Set   *GB_WorldLocation  .Location:StarHaven
+	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+	Call  SetCamEnabled      ( .Cam:Default .True
+	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+    Exec $Script_MakeEntities
+	Exec  $Script_SetupMusic
+	Exec  $Script_SetupTexturePan
+    Exec  $Script_ItsCubinTime
+	Exec  $Script_EnterMap
+	Return
+	End
+}
+
+#new:Script $Script_MakeEntities
+{
+    Call  MakeEntity    ( .Entity:HiddenYellowBlock ~Vec4d:YellowBlock .Item:DizzyDial 80000000 )
+    Call  AssignBlockFlag   ( *MF_btf_17_Yellow )
+    Call  MakeEntity    ( .Entity:HiddenRedBlock ~Vec4d:RedBlock .Item:AttackFXA 80000000 )
+    Call  AssignBlockFlag   ( *MF_btf_17_Red )
+    Return
+    End
+}
+
+#new:Function_Init $Function_Init
+{
+	PUSH    RA
+	LIA     A0, 800B0CF0
+	LIA     A1, "hos_tex"
+	JAL     800654F0 % sprintf
+	RESERVED
+	CLEAR  V0
+	JPOP   RA
+}
+
+#new:Script $Script_SetupMusic
+{
+	Call  SetMusicTrack ( 00000000 .Song:StarHaven 00000000 00000008 )
+	Call  ClearAmbientSounds ( 250` )
+	Return
+	End
+}
+
+#new:Script $Script_SetupTexturePan
+{
+	Call     802C9000 	( ~Model:River 0 )
+	Call     802C9000 	( ~Model:Waterfall 1 )
+    Call     802C9000 	( ~Model:Waterfall_2 1 )
+	Thread
+		Set  *Var[0] 0
+		Set  *Var[1] 0
+		Set  *Var[2] 1F4
+		Set  *Var[3] 32
+		Set  *Var[4] 3E8
+		Set  *Var[5] 0
+		Set  *Var[6] 0
+		Set  *Var[7] 0
+		Set  *Var[8] 0
+		Set  *Var[9] 0
+		Set  *Var[A] 0
+		Set  *Var[B] 0
+		Set  *Var[C] 0
+		Exec $Script_TexturePan_Update
+	EndThread
+	Thread
+		Set  *Var[0] 1
+		Set  *Var[1] 0
+		Set  *Var[2] 7D0
+		Set  *Var[3] 0
+		Set  *Var[4] 0
+		Set  *Var[5] 0
+		Set  *Var[6] 0
+		Set  *Var[7] 0
+		Set  *Var[8] 0
+		Set  *Var[9] 0
+		Set  *Var[A] 0
+		Set  *Var[B] 0
+		Set  *Var[C] 0
+		Exec $Script_TexturePan_Update
+	EndThread
+	Return
+	End
+}
+
+#new:Script $Script_EnterMap
+{
+
+    Call  GetEntryID    ( *Var[0] )
+    Switch  *Var[0]
+        Case  ==  ~Entry:Entry_0
+            Set   *Var[0] $Script_CreateExitTriggers
+            Exec  EnterWalk
+        Default
+            Exec  $Script_CreateExitTriggers
+    EndSwitch
+    Return
+    End
+
+
+
+	Return
+	End
+}
+
+#new:Script $Script_CreateExitTriggers
+{
+    Bind $Script_Exit_Entry_0 .Trigger:FloorAbove ~Collider:Exit_0_Floor 00000001 00000000
+	Return
+	End
+}
+
+#new:Script $Script_Exit_Entry_0 {
+	SetGroup 0000001B
+    Call  UseExitHeading ( 60` ~Entry:Entry_0 )
+	Exec  ExitWalk
+	Call  GotoMap   ( "btf_02" ~Entry:btf_02:Entry_0 )
+	Wait  100`
+	Return
+	End
+}
+
+#new:Script $Script_ItsCubinTime { % Cookin
+
+    Set *MapFlag[0] .False % Cubes 1-4
+    Set *MapFlag[1] .False % Cubes 5-8
+    Set *MapFlag[2] .False % Cubes 9-12
+    Set *MapFlag[3] .False % Big Cube 1
+    Set *MapFlag[4] .False % Cubes 13-16
+    Set *MapFlag[5] .False % Cubes 17-20
+    Set *MapFlag[6] .False % Big Cube 2
+    Set *MapFlag[7] .False % Cubes 21-24
+
+    Set *MapFlag[8] .False % CubeHomeDoor
+
+    Bind $Script_Trigger_0 .Trigger:FloorAbove ~Collider:CosmicCubeTrigger_0 00000001 00000000
+    Bind $Script_Trigger_1 .Trigger:FloorAbove ~Collider:CosmicCubeTrigger_1 00000001 00000000
+    Bind $Script_Trigger_2 .Trigger:FloorAbove ~Collider:CosmicCubeTrigger_2 00000001 00000000
+    Bind $Script_Trigger_3 .Trigger:FloorAbove ~Collider:CosmicCubeTrigger_3 00000001 00000000
+    Bind $Script_Trigger_4 .Trigger:FloorAbove ~Collider:CosmicCubeTrigger_4 00000001 00000000
+    Bind $Script_Trigger_5 .Trigger:FloorAbove ~Collider:CosmicCubeTrigger_5 00000001 00000000
+    Bind $Script_Trigger_6 .Trigger:FloorAbove ~Collider:CosmicCubeTrigger_6 00000001 00000000
+    Bind $Script_Trigger_7 .Trigger:FloorAbove ~Collider:CosmicCubeTrigger_7 00000001 00000000
+    Bind $Script_Trigger_8 .Trigger:FloorAbove ~Collider:CosmicCubeTrigger_8 00000001 00000000
+    Bind $Script_Trigger_9 .Trigger:FloorAbove ~Collider:CosmicCubeTrigger_9 00000001 00000000
+
+    Bind $Script_Trigger_START .Trigger:FloorAbove ~Collider:BlockTrigger_BASE 00000001 00000000
+    Bind $Script_Trigger_END .Trigger:FloorAbove ~Collider:HomeCol_Ground_Trigger 00000001 00000000
+
+    Bind $Script_Trigger_KnockKnock .Trigger:WallPressA ~Collider:MusHome_Col 00000001 00000000
+
+    Call SetZoneEnabled ( ~Zone:CamZone_Lookout .False )
+    Bind $Script_GogglesCamShift .Trigger:WallPressA ~Collider:GogglesCol 00000001 00000000
+    Return
+End
+}
+
+#new:Script $Script_GogglesCamShift {
+
+Call DisablePlayerInput ( .True )
+Call SetZoneEnabled ( ~Zone:CamZone_Lookout .True )
+Call ModifyColliderFlags ( 00000000 ~Collider:GogglesCol 7FFFFE00 )
+Call GetPlayerPos ( *Debug[0] *Debug[1] *Debug[2] )
+Call PlayerMoveTo ( 45 90 30` ) % Idk how else to trick the game into updating cam zones and I'm not spending what time we have left debugging this
+Wait 100`
+Call SetZoneEnabled ( ~Zone:CamZone_Lookout .False )
+Call PlayerMoveTo ( 15 A5 30` ) % And Update once more to shift back
+Wait 20`
+Call ModifyColliderFlags ( 00000001 ~Collider:GogglesCol 7FFFFE00 )
+Call DisablePlayerInput ( .False )
+Return
+End
+}
+
+#new:Script $Script_Trigger_START {
+
+    If *MapFlag[0] == .True
+    Exec $Script_Cube_1To4_ON
+    EndIf
+    
+    If *MapFlag[1] == .True
+    Exec $Script_Cube_5To8_ON
+    EndIf
+
+
+    Set *MapFlag[0] .False % 1-4
+    Set *MapFlag[1] .False % 5-8
+
+    Return
+    End
+}
+
+#new:Script $Script_Trigger_0 {
+
+    If *MapFlag[0] == .False
+    Exec $Script_Cube_1To4_ON
+    EndIf
+    
+    If *MapFlag[1] == .False
+    Exec $Script_Cube_5To8_ON
+    EndIf
+
+    If *MapFlag[2] == .True
+    Exec $Script_Cube_9To12_ON
+    EndIf
+
+    Set *MapFlag[0] .True % 1-4
+    Set *MapFlag[1] .True % 5-8
+    Set *MapFlag[2] .False % 9-12
+
+    Return
+    End
+}
+
+#new:Script $Script_Trigger_1 {
+
+
+    If *MapFlag[2] == .False
+    Exec $Script_Cube_9To12_ON
+    EndIf
+
+    If *MapFlag[3] == .True
+    Exec $Script_Cube_Big_1_ON
+    EndIf
+
+    Set *MapFlag[2] .True % 9-12
+    Set *MapFlag[3] .False % Big_1
+
+    Return
+    End
+}
+
+#new:Script $Script_Trigger_2 {
+
+    If *MapFlag[3] == .False
+    Exec $Script_Cube_Big_1_ON
+    EndIf
+
+    If *MapFlag[4] == .True
+    Exec $Script_Cube_13To16_ON
+    EndIf
+
+    Set *MapFlag[3] .True % Big_1
+    Set *MapFlag[4] .False % 13-16
+
+
+    Return
+    End
+}
+
+#new:Script $Script_Trigger_3 {
+
+    If *MapFlag[0] == .False
+    Exec $Script_Cube_1To4_ON
+    EndIf
+
+    If *MapFlag[4] == .False
+    Exec $Script_Cube_13To16_ON
+    EndIf
+
+    If *MapFlag[5] == .True
+    Exec $Script_Cube_17To20_ON
+    EndIf
+
+
+    Set *MapFlag[0] .True % 1-4
+    Set *MapFlag[4] .True % 13-16
+    Set *MapFlag[5] .False % 17-20
+
+    Return
+    End
+}
+
+#new:Script $Script_Trigger_4 {
+
+    If *MapFlag[1] == .False
+    Exec $Script_Cube_5To8_ON
+    EndIf
+
+    If *MapFlag[5] == .False
+    Exec $Script_Cube_17To20_ON
+    EndIf
+
+    If *MapFlag[0] == .True
+    Exec $Script_Cube_1To4_ON
+    EndIf
+
+    If *MapFlag[6] == .True
+    Exec $Script_Cube_Big_2_ON
+    EndIf
+
+
+    Set *MapFlag[1] .True % 5-8
+    Set *MapFlag[5] .True % 17-20
+    Set *MapFlag[0] .False % 1-4
+    Set *MapFlag[6] .False % Big_2
+
+    Return
+    End
+}
+
+#new:Script $Script_Trigger_5 {
+
+    If *MapFlag[2] == .False
+    Exec $Script_Cube_9To12_ON
+    EndIf
+
+    If *MapFlag[6] == .False
+    Exec $Script_Cube_Big_2_ON
+    EndIf
+
+    If *MapFlag[1] == .True
+    Exec $Script_Cube_5To8_ON
+    EndIf
+
+    If *MapFlag[7] == .True
+    Exec $Script_Cube_21To24_ON
+    EndIf
+
+    Set *MapFlag[2] .True % 9-12
+    Set *MapFlag[6] .True % Big_2
+    Set *MapFlag[1] .False % 5-8
+    Set *MapFlag[7] .False % 21-24
+
+    Return
+    End
+}
+
+#new:Script $Script_Trigger_6 {
+
+    If *MapFlag[3] == .False
+    Exec $Script_Cube_Big_1_ON
+    EndIf
+
+    If *MapFlag[7] == .False
+    Exec $Script_Cube_21To24_ON
+    EndIf
+
+    If *MapFlag[2] == .True
+    Exec $Script_Cube_9To12_ON
+    EndIf
+
+    Set *MapFlag[3] .True % Big_1
+    Set *MapFlag[7] .True % 21-24
+    Set *MapFlag[2] .False % 9-12
+
+    Return
+    End
+}
+
+#new:Script $Script_Trigger_7 {
+
+    If *MapFlag[4] == .False
+    Exec $Script_Cube_13To16_ON
+    EndIf
+
+    If *MapFlag[3] == .True
+    Exec $Script_Cube_Big_1_ON
+    EndIf
+
+    Set *MapFlag[4] .True % 13-16
+    Set *MapFlag[3] .False % Big_1
+
+    Return
+    End
+}
+
+#new:Script $Script_Trigger_8 {
+
+    If *MapFlag[5] == .False
+    Exec $Script_Cube_17To20_ON
+    EndIf
+
+    If *MapFlag[4] == .True
+    Exec $Script_Cube_13To16_ON
+    EndIf
+
+    Set *MapFlag[5] .True % 17-20
+    Set *MapFlag[4] .False % 13-16
+
+    Return
+    End
+}
+
+#new:Script $Script_Trigger_9 {
+
+    If *MapFlag[6] == .False
+    Exec $Script_Cube_Big_2_ON
+    EndIf
+
+    If *MapFlag[7] == .False
+    Exec $Script_Cube_21To24_ON
+    EndIf
+
+    If *MapFlag[5] == .True
+    Exec $Script_Cube_17To20_ON
+    EndIf
+
+    Set *MapFlag[6] .True % Big_2
+    Set *MapFlag[7] .True % 21-24
+    Set *MapFlag[5] .False % 17-20
+
+    Return
+    End
+}
+
+#new:Script $Script_Trigger_END {
+
+    If *MapFlag[6] == .True
+    Exec $Script_Cube_Big_2_ON
+    EndIf
+    
+    If *MapFlag[7] == .True
+    Exec $Script_Cube_21To24_ON
+    EndIf
+
+    Set *MapFlag[6] .False % Big_2
+    Set *MapFlag[7] .False % 21-24
+
+    Return
+    End
+}
+
+#new:Script $Script_ToggleCubeDoor {
+
+    If *MapFlag[8] == .False
+        Call MakeLerp ( 0 120` 12` .Easing:Linear )
+        Set *MapFlag[8] .True
+    Else
+        Call MakeLerp ( 120` 0 12` .Easing:Linear )
+        Set *MapFlag[8] .False
+    EndIf
+
+    Loop
+        Call UpdateLerp()
+        Mul *Var[0] -1`
+        Call RotateModel ( ~Model:MuskularHomeCube_Door *Var[0] 0 0 1 )
+
+        Wait 1`
+        If *Var[1] == 0
+            BreakLoop
+        EndIf
+        
+    EndLoop
+
+Return
+End
+}
+
+#new:Script $Script_Cube_1To4_ON { % Heyyyyy guys how ya doinnnnn. Don't mind this chunk of code below ty
+
+    If *MapFlag[0] == .False % Due to scripts starting to execute 1 Frame after being called we invert the logic here
+        Call MakeLerp ( 100` 0 8` .Easing:Linear )
+    Else
+        Call MakeLerp ( 0 100` 8` .Easing:Linear )
+    EndIf
+
+    Loop
+        Call UpdateLerp ()
+
+        % Cube 1 | 300 / -150 / 250
+        Set *Var[3] *Var[0]
+        Mul *Var[3] 3`
+        Set *Var[4] *Var[0]
+        MulF *Var[4] *Fixed[-1.500000]
+        Set *Var[5] *Var[0]
+        MulF *Var[5] *Fixed[2.500000]
+        Call TranslateModel ( ~Model:CosmicCube_1 *Var[3] *Var[4] *Var[5] )
+
+        % Cube 2 | -50 / -200 / 400
+        Set *Var[3] *Var[0]
+        MulF *Var[3] *Fixed[-0.500000]
+        Set *Var[4] *Var[0]
+        Mul *Var[4] -2`
+        Set *Var[5] *Var[0]
+        Mul *Var[5] 4`
+        Call TranslateModel ( ~Model:CosmicCube_2 *Var[3] *Var[4] *Var[5] )
+
+        % Cube 3 | -150 / -250 / 150
+        Set *Var[3] *Var[0]
+        MulF *Var[3] *Fixed[-1.500000]
+        Set *Var[4] *Var[0]
+        MulF *Var[4] *Fixed[-2.500000]
+        Set *Var[5] *Var[0]
+        MulF *Var[5] *Fixed[1.500000]
+        Call TranslateModel ( ~Model:CosmicCube_3 *Var[3] *Var[4] *Var[5] )
+
+        % Cube 4 | 50 / 50 / -200
+        Set *Var[3] *Var[0]
+        MulF *Var[3] *Fixed[0.500000]
+        Set *Var[4] *Var[0]
+        MulF *Var[4] *Fixed[0.500000]
+        Set *Var[5] *Var[0]
+        Mul *Var[5] -2`
+        Call TranslateModel ( ~Model:CosmicCube_4 *Var[3] *Var[4] *Var[5] )
+
+        Set *Var[2] *Var[0]
+        MulF *Var[2] *Fixed[0.900000] % Set final result to 90 because angle math
+        Mul *Var[2] 4` % multiply by 4 as we are rotating on all 3 axis at once
+
+        Call RotateModel ( ~Model:CosmicCube_1 *Var[2] 1 1 1 )
+        Call RotateModel ( ~Model:CosmicCube_2 *Var[2] 1 1 1 )
+        Call RotateModel ( ~Model:CosmicCube_3 *Var[2] 1 1 1 )
+        Call RotateModel ( ~Model:CosmicCube_4 *Var[2] 1 1 1 )
+
+        Set *Debug[0] *Var[2]
+        Set *Debug[1] *Var[0]
+        Wait 1`
+        If *Var[1] == 0
+            BreakLoop
+        EndIf
+    EndLoop 
+
+Return
+End
+}
+
+#new:Script $Script_Cube_5To8_ON {
+
+    If *MapFlag[1] == .False % Due to scripts starting to execute 1 Frame after being called we invert the logic here
+        Call MakeLerp ( 100` 0 8` .Easing:Linear )
+    Else
+        Call MakeLerp ( 0 100` 8` .Easing:Linear )
+    EndIf
+
+        Loop
+            Call UpdateLerp ()
+    
+            % Cube 5 | -50 / 150 / 150
+            Set *Var[3] *Var[0]
+            MulF *Var[3] *Fixed[-0.500000]
+            Set *Var[4] *Var[0]
+            MulF *Var[4] *Fixed[1.500000]
+            Set *Var[5] *Var[0]
+            MulF *Var[5] *Fixed[1.500000]
+            Call TranslateModel ( ~Model:CosmicCube_5 *Var[3] *Var[4] *Var[5] )
+    
+            % Cube 6 | 200 / -250 / 50
+            Set *Var[3] *Var[0]
+            Mul *Var[3] 2`
+            Set *Var[4] *Var[0]
+            MulF *Var[4] *Fixed[-2.500000]
+            Set *Var[5] *Var[0]
+            MulF *Var[5] *Fixed[0.500000]
+            Call TranslateModel ( ~Model:CosmicCube_6 *Var[3] *Var[4] *Var[5] )
+    
+            % Cube 7 | 0 / -150 / -200
+            Set *Var[3] 0
+            Set *Var[4] *Var[0]
+            MulF *Var[4] *Fixed[-1.500000]
+            Set *Var[5] *Var[0]
+            Mul *Var[5] -2`
+            Call TranslateModel ( ~Model:CosmicCube_7 *Var[3] *Var[4] *Var[5] )
+    
+            % Cube 8 | 100 / 250 / -100
+            Set *Var[3] *Var[0]
+            Set *Var[4] *Var[0]
+            MulF *Var[4] *Fixed[2.500000]
+            Set *Var[5] *Var[0]
+            Mul *Var[5] -1`
+            Call TranslateModel ( ~Model:CosmicCube_8 *Var[3] *Var[4] *Var[5] )
+    
+            Set *Var[2] *Var[0]
+            MulF *Var[2] *Fixed[0.900000] % Set final result to 90 because angle math
+            Mul *Var[2] 4` % multiply by 4 as we are rotating on all 3 axis at once
+    
+            Call RotateModel ( ~Model:CosmicCube_5 *Var[2] 1 1 1 )
+            Call RotateModel ( ~Model:CosmicCube_6 *Var[2] 1 1 1 )
+            Call RotateModel ( ~Model:CosmicCube_7 *Var[2] 1 1 1 )
+            Call RotateModel ( ~Model:CosmicCube_8 *Var[2] 1 1 1 )
+    
+            Set *Debug[0] *Var[2]
+            Set *Debug[1] *Var[0]
+            Wait 1`
+            If *Var[1] == 0
+                BreakLoop
+            EndIf
+        EndLoop 
+
+    Return
+    End
+}
+
+#new:Script $Script_Cube_9To12_ON {
+
+    If *MapFlag[2] == .False % Due to scripts starting to execute 1 Frame after being called we invert the logic here
+        Call MakeLerp ( 100` 0 8` .Easing:Linear )
+    Else
+        Call MakeLerp ( 0 100` 8` .Easing:Linear )
+    EndIf
+
+        Loop
+            Call UpdateLerp ()
+    
+            % Cube 9 | -100 / -150 / 100
+            Set *Var[3] *Var[0]
+            Mul *Var[3] -1
+            Set *Var[4] *Var[0]
+            MulF *Var[4] *Fixed[-1.500000]
+            Set *Var[5] *Var[0]
+            %MulF *Var[5] *Fixed[1.500000]
+            Call TranslateModel ( ~Model:CosmicCube_9 *Var[3] *Var[4] *Var[5] )
+    
+            % Cube 10 | -200 / -100 / 50
+            Set *Var[3] *Var[0]
+            Mul *Var[3] -2`
+            Set *Var[4] *Var[0]
+            Mul *Var[4] -1`
+            Set *Var[5] *Var[0]
+            MulF *Var[5] *Fixed[0.500000]
+            Call TranslateModel ( ~Model:CosmicCube_10 *Var[3] *Var[4] *Var[5] )
+    
+            % Cube 11 | -100 / -200 / -150
+            Set *Var[3] *Var[0]
+            Mul *Var[3] -1`
+            Set *Var[4] *Var[0]
+            Mul *Var[4] -2`
+            Set *Var[5] *Var[0]
+            MulF *Var[5] *Fixed[-1.500000]
+            Call TranslateModel ( ~Model:CosmicCube_11 *Var[3] *Var[4] *Var[5] )
+    
+            % Cube 12 | 0 / 250 / 150
+            Set *Var[3] 0
+            Set *Var[4] *Var[0]
+            MulF *Var[4] *Fixed[2.500000]
+            Set *Var[5] *Var[0]
+            MulF *Var[5] *Fixed[1.500000]
+            Call TranslateModel ( ~Model:CosmicCube_12 *Var[3] *Var[4] *Var[5] )
+    
+            Set *Var[2] *Var[0]
+            MulF *Var[2] *Fixed[0.900000] % Set final result to 90 because angle math
+            Mul *Var[2] 4` % multiply by 4 as we are rotating on all 3 axis at once
+    
+            Call RotateModel ( ~Model:CosmicCube_9 *Var[2] 1 1 1 )
+            Call RotateModel ( ~Model:CosmicCube_10 *Var[2] 1 1 1 )
+            Call RotateModel ( ~Model:CosmicCube_11 *Var[2] 1 1 1 )
+            Call RotateModel ( ~Model:CosmicCube_12 *Var[2] 1 1 1 )
+    
+            Set *Debug[0] *Var[2]
+            Set *Debug[1] *Var[0]
+            Wait 1`
+            If *Var[1] == 0
+                BreakLoop
+            EndIf
+        EndLoop 
+
+    Return
+    End
+}
+
+#new:Script $Script_Cube_13To16_ON {
+
+    If *MapFlag[4] == .False % Due to scripts starting to execute 1 Frame after being called we invert the logic here
+        Call MakeLerp ( 100` 0 8` .Easing:Linear )
+    Else
+        Call MakeLerp ( 0 100` 8` .Easing:Linear )
+    EndIf
+
+        Loop
+            Call UpdateLerp ()
+    
+            % Cube 13 | -200 / 150 / 50
+            Set *Var[3] *Var[0]
+            Mul *Var[3] -2`
+            Set *Var[4] *Var[0]
+            MulF *Var[4] *Fixed[1.500000]
+            Set *Var[5] *Var[0]
+            MulF *Var[5] *Fixed[0.500000]
+            Call TranslateModel ( ~Model:CosmicCube_13 *Var[3] *Var[4] *Var[5] )
+    
+            % Cube 14 | -100 / -300 / -150
+            Set *Var[3] *Var[0]
+            Mul *Var[3] -1`
+            Set *Var[4] *Var[0]
+            Mul *Var[4] -3`
+            Set *Var[5] *Var[0]
+            MulF *Var[5] *Fixed[-1.500000]
+            Call TranslateModel ( ~Model:CosmicCube_14 *Var[3] *Var[4] *Var[5] )
+    
+            % Cube 15 | -100 / -200 / 100
+            Set *Var[3] *Var[0]
+            Mul *Var[3] -1`
+            Set *Var[4] *Var[0]
+            Mul *Var[4] -2`
+            Set *Var[5] *Var[0]
+            %MulF *Var[5] *Fixed[-1.500000]
+            Call TranslateModel ( ~Model:CosmicCube_15 *Var[3] *Var[4] *Var[5] )
+    
+            % Cube 16 | -50 / 150 / 0
+            Set *Var[3] *Var[0]
+            MulF *Var[3] *Fixed[-0.500000]
+            Set *Var[4] *Var[0]
+            MulF *Var[4] *Fixed[1.500000]
+            Set *Var[5] 0
+            %MulF *Var[5] *Fixed[1.500000]
+            Call TranslateModel ( ~Model:CosmicCube_16 *Var[3] *Var[4] *Var[5] )
+    
+            Set *Var[2] *Var[0]
+            MulF *Var[2] *Fixed[0.900000] % Set final result to 90 because angle math
+            Mul *Var[2] 4` % multiply by 4 as we are rotating on all 3 axis at once
+    
+            Call RotateModel ( ~Model:CosmicCube_13 *Var[2] 1 1 1 )
+            Call RotateModel ( ~Model:CosmicCube_14 *Var[2] 1 1 1 )
+            Call RotateModel ( ~Model:CosmicCube_15 *Var[2] 1 1 1 )
+            Call RotateModel ( ~Model:CosmicCube_16 *Var[2] 1 1 1 )
+    
+            Set *Debug[0] *Var[2]
+            Set *Debug[1] *Var[0]
+            Wait 1`
+            If *Var[1] == 0
+                BreakLoop
+            EndIf
+        EndLoop 
+
+    Return
+    End
+}
+
+#new:Script $Script_Cube_17To20_ON {
+
+    If *MapFlag[5] == .False % Due to scripts starting to execute 1 Frame after being called we invert the logic here
+        Call MakeLerp ( 100` 0 8` .Easing:Linear )
+    Else
+        Call MakeLerp ( 0 100` 8` .Easing:Linear )
+    EndIf
+
+        Loop
+            Call UpdateLerp ()
+    
+            % Cube 17 | 150 / -100 / 100
+            Set *Var[3] *Var[0]
+            MulF *Var[3] *Fixed[1.500000]
+            Set *Var[4] *Var[0]
+            Mul *Var[4] -1`
+            Set *Var[5] *Var[0]
+            %MulF *Var[5] *Fixed[1.500000]
+            Call TranslateModel ( ~Model:CosmicCube_17 *Var[3] *Var[4] *Var[5] )
+    
+            % Cube 18 | -100 / 50 / 0
+            Set *Var[3] *Var[0]
+            Mul *Var[3] -1`
+            Set *Var[4] *Var[0]
+            MulF *Var[4] *Fixed[0.500000]
+            Set *Var[5] 0
+            %MulF *Var[5] *Fixed[0.500000]
+            Call TranslateModel ( ~Model:CosmicCube_18 *Var[3] *Var[4] *Var[5] )
+    
+            % Cube 19 | 50 / 100 / 0
+            Set *Var[3] *Var[0]
+            MulF *Var[3] *Fixed[0.500000]
+            Set *Var[4] *Var[0]
+            %Mul *Var[4] -2`
+            Set *Var[5] 0
+            %MulF *Var[5] *Fixed[-1.500000]
+            Call TranslateModel ( ~Model:CosmicCube_19 *Var[3] *Var[4] *Var[5] )
+    
+            % Cube 20 | -100 / -200 / -50
+            Set *Var[3] *Var[0]
+            Mul *Var[3] -1`
+            Set *Var[4] *Var[0]
+            Mul *Var[4] -2`
+            Set *Var[5] *Var[0]
+            MulF *Var[5] *Fixed[-0.500000]
+            Call TranslateModel ( ~Model:CosmicCube_20 *Var[3] *Var[4] *Var[5] )
+    
+            Set *Var[2] *Var[0]
+            MulF *Var[2] *Fixed[0.900000] % Set final result to 90 because angle math
+            Mul *Var[2] 4` % multiply by 4 as we are rotating on all 3 axis at once
+    
+            Call RotateModel ( ~Model:CosmicCube_17 *Var[2] 1 1 1 )
+            Call RotateModel ( ~Model:CosmicCube_18 *Var[2] 1 1 1 )
+            Call RotateModel ( ~Model:CosmicCube_19 *Var[2] 1 1 1 )
+            Call RotateModel ( ~Model:CosmicCube_20 *Var[2] 1 1 1 )
+    
+            Set *Debug[0] *Var[2]
+            Set *Debug[1] *Var[0]
+            Wait 1`
+            If *Var[1] == 0
+                BreakLoop
+            EndIf
+        EndLoop 
+
+    Return
+    End
+}
+
+#new:Script $Script_Cube_21To24_ON {
+
+    If *MapFlag[7] == .False % Due to scripts starting to execute 1 Frame after being called we invert the logic here
+        Call MakeLerp ( 100` 0 8` .Easing:Linear )
+    Else
+        Call MakeLerp ( 0 100` 8` .Easing:Linear )
+    EndIf
+
+        Loop
+            Call UpdateLerp ()
+    
+            % Cube 21 | -50 / -150 / 150
+            Set *Var[3] *Var[0]
+            MulF *Var[3] *Fixed[-0.500000]
+            Set *Var[4] *Var[0]
+            MulF *Var[4] *Fixed[-1.500000]
+            Set *Var[5] *Var[0]
+            MulF *Var[5] *Fixed[1.500000]
+            Call TranslateModel ( ~Model:CosmicCube_21 *Var[3] *Var[4] *Var[5] )
+    
+            % Cube 22 | 50 / 50 / 250
+            Set *Var[3] *Var[0]
+            MulF *Var[3] *Fixed[0.500000]
+            Set *Var[4] *Var[0]
+            MulF *Var[4] *Fixed[0.500000]
+            Set *Var[5] *Var[0]
+            MulF *Var[5] *Fixed[2.500000]
+            Call TranslateModel ( ~Model:CosmicCube_22 *Var[3] *Var[4] *Var[5] )
+    
+            % Cube 23 | -100 / 0 / -100
+            Set *Var[3] *Var[0]
+            Mul *Var[3] -1`
+            Set *Var[4] 0
+            %Mul *Var[4] -2`
+            Set *Var[5] *Var[0]
+            Mul *Var[5] -1`
+            Call TranslateModel ( ~Model:CosmicCube_23 *Var[3] *Var[4] *Var[5] )
+    
+            % Cube 24 | -200 / -150 / 200
+            Set *Var[3] *Var[0]
+            Mul *Var[3] -2`
+            Set *Var[4] *Var[0]
+            MulF *Var[4] *Fixed[-1.500000]
+            Set *Var[5] *Var[0]
+            Mul *Var[5] 2`
+            Call TranslateModel ( ~Model:CosmicCube_24 *Var[3] *Var[4] *Var[5] )
+    
+            Set *Var[2] *Var[0]
+            MulF *Var[2] *Fixed[0.900000] % Set final result to 90 because angle math
+            Mul *Var[2] 4` % multiply by 4 as we are rotating on all 3 axis at once
+    
+            Call RotateModel ( ~Model:CosmicCube_21 *Var[2] 1 1 1 )
+            Call RotateModel ( ~Model:CosmicCube_22 *Var[2] 1 1 1 )
+            Call RotateModel ( ~Model:CosmicCube_23 *Var[2] 1 1 1 )
+            Call RotateModel ( ~Model:CosmicCube_24 *Var[2] 1 1 1 )
+    
+            Set *Debug[0] *Var[2]
+            Set *Debug[1] *Var[0]
+            Wait 1`
+            If *Var[1] == 0
+                BreakLoop
+            EndIf
+        EndLoop 
+
+    Return
+    End
+}
+
+#new:Script $Script_Cube_Big_1_ON {
+
+    If *MapFlag[3] == .False % Due to scripts starting to execute 1 Frame after being called we invert the logic here
+        Call MakeLerp ( 100` 0 8` .Easing:Linear )
+    Else
+        Call MakeLerp ( 0 100` 8` .Easing:Linear )
+    EndIf
+
+        Loop 
+            Call UpdateLerp ()
+
+            %Big_1 0 / -400 / 0
+            Set *Var[3] *Var[0]
+            Mul *Var[3] -4`
+            Call TranslateModel ( ~Model:BigCosmicCube_1 0 *Var[3] 0 )
+
+            Set *Var[2] *Var[0]
+            MulF *Var[2] *Fixed[0.900000] % Set final result to 90 because angle math
+            Mul *Var[2] 4` % multiply by 4 as we are rotating on all 3 axis at once
+
+            Call RotateModel ( ~Model:BigCosmicCube_1 *Var[2] 0 1 0 )
+
+            Wait 1`
+            If *Var[1] == 0
+                BreakLoop
+            EndIf
+        EndLoop 
+    Return
+End
+}
+
+#new:Script $Script_Cube_Big_2_ON {
+
+    If *MapFlag[6] == .False % Due to scripts starting to execute 1 Frame after being called we invert the logic here
+        Call MakeLerp ( 100` 0 8` .Easing:Linear )
+    Else
+        Call MakeLerp ( 0 100` 8` .Easing:Linear )
+    EndIf
+
+        Loop 
+            Call UpdateLerp ()
+
+            %Big_2 0 / 300 / 0
+            Set *Var[3] *Var[0]
+            Mul *Var[3] 3`
+            Call TranslateModel ( ~Model:BigCosmicCube_2 0 *Var[3] 0 )
+
+            Set *Var[2] *Var[0]
+            MulF *Var[2] *Fixed[0.900000] % Set final result to 90 because angle math
+            Mul *Var[2] 4` % multiply by 4 as we are rotating on all 3 axis at once
+
+            Call RotateModel ( ~Model:BigCosmicCube_2 *Var[2] 0 1 0 )
+
+            Wait 1`
+            If *Var[1] == 0
+                BreakLoop
+            EndIf
+        EndLoop 
+    Return
+End
+}
+
+#new:Script $Script_Trigger_KnockKnock {
+
+% Aight Den here you go, this script triggers in response to the
+% WallPressA Event at the Box home collider
+% The Script for opening and closing the door is
+% '$Script_ToggleCubeDoor', no arguments needed
+% opens it when closed and vice versa
+% The rotation takes 12 frames to complete.
+
+Exec $Script_ToggleCubeDoor
+
+Return
+End
+}
