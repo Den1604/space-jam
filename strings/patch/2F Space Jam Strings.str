@@ -533,15 +533,15 @@
 
 #message:2F:030
 {
-[Style Right]
-Wait, you actually have a letter?[Wait][br]
-[InputOff].[Pause:4].[Pause:4].[Pause:4][InputOn][Wait][br]
-I have no idea who that is[br]
-addressed to. How boring.[br]
-[Wait][Next]
-Fetch me something more[br]
-interesting instead, man.[br]
-[Wait][End]
+	[Style Right]
+	Wait, you actually have a letter?[Wait][br]
+	[InputOff].[Pause:4].[Pause:4].[Pause:4][InputOn][Wait][br]
+	I have no idea who that is[br]
+	addressed to. How boring.[br]
+	[Wait][Next]
+	Fetch me something more[br]
+	interesting instead, man.[br]
+	[Wait][END]
 }
 
 #message:2F:031
@@ -659,4 +659,14 @@ interesting instead, man.[br]
 	Wrong button![br]
 	Wait, where did the thing go?[br]
 	[Wait][End]
+}
+
+#message:2F:03D
+{
+	[Style Right]
+	This artifact seems to have[br]
+	done something, somehow.[Pause:10][br]
+	Let's continue, maybe we can[br]
+	find a use for it.
+	[Wait][END]
 }

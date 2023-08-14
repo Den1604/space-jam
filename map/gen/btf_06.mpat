@@ -23,23 +23,6 @@
 	Return
 	End
 }
-#new:Script $Script_ScriptedSpring_Spring
-{
-	Call  DisablePlayerInput    ( .True )
-	Call  DisablePlayerPhysics  ( .True )
-	Call  SetPlayerActionState  ( .ActionState:Launch )
-	Wait  1`
-	Exec  $Script_ScriptedSpring_FollowCam *Var[A]
-	Call  SetPlayerJumpscale    ( *Fixed[0.7] )
-	Call  PlayerJump            ( ~Vec3d:Spring_Destination 30` )
-	Kill  *Var[A]
-	Call  SetPlayerActionState  ( .ActionState:Idle )
-	Call  DisablePlayerPhysics  ( .False )
-	Call  DisablePlayerInput    ( .False )
-	Return
-	End
-}
-
 #new:Script $Script_ScriptedSpring_Spring2
 {
 	Call  DisablePlayerInput    ( .True )
@@ -122,8 +105,6 @@
 	Call  MakeEntity    ( .Entity:MultiCoinBrick ~Vec4d:BrickBlock1 80000000 )
 	Call  MakeEntity    ( .Entity:Signpost ~Vec4d:Signpost1 80000000 )
 	Call  AssignScript    ( $Script_ReadSign_Signpost1 )
-	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring 80000000 )
-	Call  AssignScript    ( $Script_ScriptedSpring_Spring )
 	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring2 80000000 )
 	Call  AssignScript    ( $Script_ScriptedSpring_Spring2 )
 	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring3 80000000 )
@@ -152,14 +133,11 @@
 
 #new:Script $Script_PanCamera_SpringCam
 {
-	Call  SetCamType        ( .Cam:Default 00000001 .False )
-	Call  SetCamPitch       ( .Cam:Default *Fixed[16.000000] *Fixed[-6.000000] )
+	Call  UseSettingsFrom   ( .Cam:Default 710` 70` -355` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
 	Call  SetCamDistance    ( .Cam:Default 450` )
-	Call  SetCamPosA        ( .Cam:Default 714` 10` )
-	Call  SetCamPosB        ( .Cam:Default -440` 0` )
-	Call  SetCamPosC        ( .Cam:Default 10` -50` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:SpringCam )
-	Call  SetCamSpeed       ( .Cam:Default *Fixed[10.000000] )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[100.000000] )
 	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
 	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
 	Return
@@ -182,12 +160,32 @@
 		Exec $Script_CreateExitTriggers
 		Return
 	EndIf
+	Call  GetEntryID    ( *Var[0] )
+	Switch  *Var[0]
+		Case  ==  ~Entry:entry_s
+			Set   *Var[0] $Script_CreateExitTriggers
+			Exec  EnterWalk
+		Default
+			Exec  $Script_CreateExitTriggers
+	EndSwitch
+	Return
+	End
+}
+
+#new:Script $Script_Exit_entry_s
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:entry_s )
+	Exec     ExitWalk
+	Call  GotoMap   ( "btf_05" ~Entry:btf_05:Entry1 )
+	Wait  100`
 	Return
 	End
 }
 
 #new:Script $Script_CreateExitTriggers
 {
+	Bind  $Script_Exit_entry_s .Trigger:FloorAbove ~Collider:exit_trigger_s 00000001 00000000
 	Return
 	End
 }

@@ -1,5 +1,80 @@
 #define .NpcID:NpcGuard 1`
-#define .NpcID:NpcSpringDummy 2`
+
+#new:Function $Function_PlaySpringAnimation
+{
+    0:  ADDIU     SP, SP, FFE8
+    4:  SW        RA, 10 (SP)
+    8:  LW        V0, C (A0)
+    C:  JAL       ~Func:get_variable
+   10:  LW        A1, 0 (V0)
+   14:  JAL       ~Func:get_entity_by_index
+   18:  COPY      A0, V0
+   1C:  BEQL      V0, R0, .o3C
+   20:  CLEAR     V0
+   24:  LH        A0, 14 (V0)
+   28:  LA        A1, 000001E4
+   30:  JAL       ~Func:play_model_animation
+   34:  NOP
+   38:  LI        V0, 2
+        .o3C
+   3C:  LW        RA, 10 (SP)
+   40:  JR        RA
+   44:  ADDIU     SP, SP, 18
+}
+
+#new:Function $Function_SetEntityPosition
+{
+    0:  ADDIU     SP, SP, FFD8
+    4:  SW        S1, 14 (SP)
+    8:  COPY      S1, A0
+    C:  SW        RA, 20 (SP)
+   10:  SW        S3, 1C (SP)
+   14:  SW        S2, 18 (SP)
+   18:  SW        S0, 10 (SP)
+   1C:  LW        S0, C (S1)
+   20:  LW        A1, 0 (S0)
+   24:  JAL       ~Func:get_variable
+   28:  ADDIU     S0, S0, 4
+   2C:  LW        A1, 0 (S0)
+   30:  ADDIU     S0, S0, 4
+   34:  COPY      A0, S1
+   38:  JAL       ~Func:get_variable
+   3C:  COPY      S3, V0
+   40:  LW        A1, 0 (S0)
+   44:  ADDIU     S0, S0, 4
+   48:  COPY      A0, S1
+   4C:  JAL       ~Func:get_variable
+   50:  COPY      S2, V0
+   54:  COPY      A0, S1
+   58:  LW        A1, 0 (S0)
+   5C:  JAL       ~Func:get_variable
+   60:  COPY      S1, V0
+   64:  COPY      A0, S3
+   68:  JAL       ~Func:get_entity_by_index
+   6C:  COPY      S0, V0
+   70:  COPY      V1, V0
+   74:  MTC1      S2, F0
+   78:  NOP
+   7C:  CVT.S.W   F0, F0
+   80:  SWC1      F0, 48 (V1)
+   84:  MTC1      S1, F0
+   88:  NOP
+   8C:  CVT.S.W   F0, F0
+   90:  SWC1      F0, 4C (V1)
+   94:  MTC1      S0, F0
+   98:  NOP
+   9C:  CVT.S.W   F0, F0
+   A0:  SWC1      F0, 50 (V1)
+   A4:  LW        RA, 20 (SP)
+   A8:  LW        S3, 1C (SP)
+   AC:  LW        S2, 18 (SP)
+   B0:  LW        S1, 14 (SP)
+   B4:  LW        S0, 10 (SP)
+   B8:  LI        V0, 2
+   BC:  JR        RA
+   C0:  ADDIU     SP, SP, 28
+}
+
 
 #new:Script $Script_OpenChestAnimation
 {
@@ -32,24 +107,6 @@
    C0:  Call  DisablePlayerInput    ( .False )
    D0:  Return
    D8:  End
-}
-
-% pasted in here because SR generates 20,000000 instead of 20.000000
-% causing a compilation error :)
-@ $Script_PanCamera_AAAAAAAAAAAAAD
-{
-	Call  SetCamType        ( .Cam:Default 00000001 .False )
-	Call  SetCamPitch       ( .Cam:Default *Fixed[20.000000] *Fixed[-7.000000] )
-	Call  SetCamDistance    ( .Cam:Default 650` )
-	Call  SetCamPosA        ( .Cam:Default 23` 10` )
-	Call  SetCamPosB        ( .Cam:Default 22` 0` )
-	Call  SetCamPosC        ( .Cam:Default 10` 60` )
-	Call  SetPanTarget      ( .Cam:Default ~Vec3d:AAAAAAAAAAAAAD )
-	Call  SetCamSpeed       ( .Cam:Default *Fixed[2.500000] )
-	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
-	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
-	Return
-	End
 }
 
 @ $Script_Main {
@@ -93,20 +150,45 @@
 	
 	Call DisablePlayerInput ( .True )
 	
-	Wait 30`
+	Wait 10`
 	
-	% ExecWait $Script_PanCamera_AAAAAAAAAAAAAD
+	Call GetPlayerPos ( *VarA *VarB *VarC )
+    Call ShowEmote ( 00000000 .Emote:Question -45` 30` .False *VarA *VarB *VarC 0` )
+	
+	Wait 35`
 	
 	ExecWait $Script_PanCamera_SpringCam
 	
-	Wait 30`
+	Wait 15`
 	
-	% Call SetNpcPos ( .NpcID:NpcSpringDummy ~Vec3D:Spring )
+	Call MakeLerp ( 200` 40` 18` .Easing:QuadraticIn )
+	Loop
+		Call UpdateLerp ( )
+		Call $Function_SetEntityPosition ( *MapVar[4] 638` *Var0 -399` )
+		Wait 1`
+		If *Var1 == 00000000
+			BreakLoop
+		EndIf
+	EndLoop
+	
+	% SOUND_OBJECT_LAND
+	Call PlaySoundAt ( 00000048 00000000 638` *Var0 -399` )
+	% SOUND_SPRING
+	Call PlaySoundAt ( 00002086 00000000 638` *Var0 -399` )
+	Call $Function_PlaySpringAnimation ( *MapVar[4] )
+	
+	Wait 80`
+	
+	Call ResetCam ( .Cam:Default *Fixed[4.0] )
+	
+	Wait 10`
 	
 	% talkAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 05
 	% idleAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 02
 	% stringID - AAAABBBB - space jam strings resource (0x2F), string 0x28
-	% Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F002F )
+	Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F003D )
+	
+	Call DisablePlayerInput ( .False )
 	
 	Return
 	End
@@ -133,6 +215,11 @@
 	Call  MakeEntity    ( .Entity:YellowBlock ~Vec4d:ItemBlock1 .Item:DizzyDial 80000000 )
 	Call  AssignBlockFlag   ( *MF_btf_06_HitItemBlock1 )
 	
+	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring 80000000 )
+	Call  AssignScript    ( $Script_ScriptedSpring_Spring )
+	% id of spring entity
+	Set   *MapVar[4] *Var0
+	
 	Return
 	End
 }
@@ -153,6 +240,23 @@
 	Set *VarB 00000002 % 2 for badge
 	Set *MF_btf_06_OpenedChest2 .True
 	ExecWait $Script_OpenChest
+	Return
+	End
+}
+
+#new:Script $Script_ScriptedSpring_Spring
+{
+	Call  DisablePlayerInput    ( .True )
+	Call  DisablePlayerPhysics  ( .True )
+	Call  SetPlayerActionState  ( .ActionState:Launch )
+	Wait  1`
+	Exec  $Script_ScriptedSpring_FollowCam *Var[A]
+	Call  SetPlayerJumpscale    ( *Fixed[0.7] )
+	Call  PlayerJump            ( ~Vec3d:Spring_Destination 30` )
+	Kill  *Var[A]
+	Call  SetPlayerActionState  ( .ActionState:Idle )
+	Call  DisablePlayerPhysics  ( .False )
+	Call  DisablePlayerInput    ( .False )
 	Return
 	End
 }
@@ -265,28 +369,6 @@
     End
 }
 
-#new:NpcGroup $NpcGroup_NpcSpringDummy
-{
-	.NpcID:NpcSpringDummy $NpcSettings_NpcSpringDummy ~Vec3f:NpcSpringDummy
-	00402D09 $Script_Init_NpcSpringDummy 0 0 0
-	~NoDrops
-	~Movement:NpcSpringDummy
-	~AnimationTable:NpcSpringDummy
-	00000000 00000000 00000000 00000000 % no tattle string
-}
-
-#new:NpcSettings $NpcSettings_NpcSpringDummy
-{
-	00000000 001E0018 00000000 00000000 00000000 00000000 00000000 00000000
-	00000000 00000000 00630000
-}
-
-#new:Script $Script_Init_NpcSpringDummy
-{
-    Return
-    End
-}
-
 #new:Script $Script_Interact_NpcGuard
 {
 	% talkAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 05
@@ -357,6 +439,5 @@
 
 #new:NpcGroupList $NpcGroupList {
 	00000001 $NpcGroup_NpcGuard 00000000
-	00000001 $NpcGroup_NpcSpringDummy 00000000
 	00000000 00000000 00000000
 }
