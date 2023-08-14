@@ -24,3 +24,7 @@
 021 = MF_btf_16_GourmetGuyLetterDelivered
 022 = MF_btf_06_HitItemBlock1
 023 = MF_btf_06_OpenedChest2
+024 = MF_btf_15_YellowBlock
+025 = MF_btf_15_HiddenBlock1
+026 = MF_btf_15_HiddenBlock2
+027 = MF_btf_16_HiddenBlock

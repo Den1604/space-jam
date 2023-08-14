@@ -1,6 +1,87 @@
+#define .NpcID:GourmetGuy         00
+
 @ $Script_SetupMusic {
     Call  SetMusicTrack ( 00000000 .Song:LotofDreams 00000000 00000008 )
     Call  ClearAmbientSounds ( 250` )
+    Return
+    End
+}
+
+@ $Script_Main {
+    Set   *GB_WorldLocation  .Location:GoombaRoad
+    Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+    Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+    Call  SetCamEnabled      ( .Cam:Default .True
+    Call  SetCamLeadPlayer   ( .Cam:Default .False )
+    Exec  $Script_SetupMusic
+    Exec  $Script_SetupTexturePan
+    Exec  $Script_EnterMap
+    Exec  $Script_MakeEntities
+    Call  MakeNpcs  ( .True $NpcGroupList_8025136C )
+    Thread
+        Call  ResetFromLava ( $LavaResetList1)
+    EndThread
+    Return
+    End
+}
+
+#new:Script $Script_MakeEntities
+{
+    Call  MakeEntity    ( .Entity:HiddenYellowBlock ~Vec4d:HiddenBlock .Item:ShroomCake 80000000 )
+    Call  AssignBlockFlag   ( *MF_btf_16_HiddenBlock )
+    Return
+    End
+}
+
+#new:LavaResetList $LavaResetList1
+{
+	~Collider:ChocolateCollider ~Vec3f:LavaResetPos
+    FFFFFFFF 00000000 00000000 00000000
+}
+
+#new:NpcGroupList $NpcGroupList_8025136C
+{
+	00000001 $NpcGroup_8024E864 00000000
+	00000000 00000000 00000000
+}
+
+#new:NpcGroup $NpcGroup_8024E864
+{
+	.NpcID:GourmetGuy   $NpcSettings_80247CE4 ~Vec3f:GourmetGuy % 100 0 -256
+	00002809 $Script_Init_8024D134 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:GourmetGuy
+	~AnimationTable:GourmetGuy % .Sprite:Gooma
+	00000000 00000000 00000000 001A0064 % She's my grandma, Gooma. I hope she lives forever! ...
+
+
+}
+
+#new:NpcSettings $NpcSettings_80247CE4
+{
+	00000000 0044003C 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
+}
+
+#new:Script $Script_Init_8024D134
+{
+    0:  Call  BindNpcIdle       ( .Npc:Self $Script_Idle_8024CDAC )
+   14:  Call  BindNpcInteract   ( .Npc:Self $Script_Interact_8024CE80 )
+   28:  Return
+   30:  End
+}
+
+#new:Script $Script_Idle_8024CDAC
+{
+	Call SetNpcAnimation ( .NpcID:GourmetGuy 00C10001 )
+   C4:  Return
+   CC:  End
+}
+
+#new:Script $Script_Interact_8024CE80
+{   
+    Call DisablePlayerInput ( .True )
+    Call DisablePlayerInput ( .False )
     Return
     End
 }
