@@ -28,3 +28,4 @@
 025 = MF_btf_15_HiddenBlock1
 026 = MF_btf_15_HiddenBlock2
 027 = MF_btf_16_HiddenBlock
+028 = MF_btf_16_GourmetGuyFeasted

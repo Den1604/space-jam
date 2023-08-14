@@ -528,7 +528,7 @@
 {
 	[Style Right]
 	Here you go, have fun.[br]
-	[Wait][END]
+	[Wait][End]
 }
 
 #message:2F:030
@@ -541,6 +541,122 @@ addressed to. How boring.[br]
 [Wait][Next]
 Fetch me something more[br]
 interesting instead, man.[br]
-[Wait][END]
+[Wait][End]
 }
 
+#message:2F:031
+{
+	[Style Right]
+	Now that I have this letter,[br]
+	I wonder what it entails...[br]
+	[Wait][Next]
+	Oh well, can't be that important![br]
+	[Wait][End]
+}
+
+#message:2F:032
+{
+	[Style Right]
+	Tastes a litte...[Pause:15][br]
+	bland.[Pause:30][br]
+	Yeah, this tastes like nothing.[br]
+	[Wait][End]
+}
+
+#message:2F:033
+{
+	[Style Right]
+	Now I'm hungry and have no clue[br]
+	what I was supposed to do with[br]
+	that letter...[br]
+	[Wait][End]
+}
+
+#message:2F:034
+{
+	[Style Right]
+	Oh, hello Mario![Pause:10][br]
+	I was just eating some of[br]
+	this chocolate here.[br]
+	[Wait][Next]
+	It was difficult to get over[br]
+	here in the first place.[br]
+	[Wait][Next]
+	I wanted to go further up but[br]
+	I accidentally broke the[br]
+	wooden structure leading[br]
+	up there...[br]
+	[Wait][Next]
+	And then I had to cross this[br]
+	river of hot chocolate to eat[br]
+	this chocolate bar![br]
+	[Wait][Next]
+	Anyways.[Pause:15][br]
+	What leads you two here?[br]
+	[Wait][End]
+}
+
+#message:2F:035
+{
+	[Style Right]
+	We're here to deliver a[br]
+	letter to you![Pause:15][br]
+	Here, take this.[br]
+	[Wait][End]
+}
+
+#message:2F:036
+{
+	[Style Right]
+	Oh! Thank you so much![br]
+	[Wait][End]
+}
+
+#message:2F:037
+{
+	[Style Right]
+	Well that's that, let's[br]
+	get going Mario![br]
+	[Wait][End]
+}
+
+#message:2F:038
+{
+	[Style Right]
+	Four more letters to go![br]
+	[Wait][Next]
+	Should we get going, Mario?[br]
+	[Wait][Yield][End]
+}
+
+#message:2F:039
+{
+	[Style Right]
+	Then let's take our leave![br]
+	[Wait][End]
+}
+
+#message:2F:03A
+{
+	[Style Right]
+	Alright, next up is...[Pause:20][br]
+	Wait, what is that?![br]
+	[Wait][End]
+}
+
+#message:2F:03B
+{
+	[Style Right]
+	Mario! We're gonna hit that[br]
+	thing if you keep driving![Pause:10][br]
+	Hit the brakes![br]
+	[Wait][End]
+}
+
+#message:2F:03C
+{
+	[Style Right]
+	Wrong button![br]
+	Wait, where did the thing go?[br]
+	[Wait][End]
+}

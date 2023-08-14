@@ -1,3 +1,5 @@
+#define .NpcID:Twink 00
+
 @ $Script_SetupMusic {
     Call  SetMusicTrack ( 00000000 .Song:StarshipTheme 00000001 00000008 )
     Call  ClearAmbientSounds ( 250` )
@@ -13,7 +15,8 @@
         Case == ~Entry:Entry1
             Exec $Script_MarioAndParakarryToGourmetGuy
         Case == ~Entry:Entry2
-            %Exec $Script_MarioAndParakarryToTemple
+            Exec $Script_MarioAndParakarryToTemple
+            Call MakeNpcs ( .False $NpcGroupList_Twink )
         Case == ~Entry:Entry3
             Exec $Script_MarioAndParakarryToPieface
         Case == ~Entry:Entry4
@@ -40,9 +43,9 @@
     Call GetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
     Set *Var0 0`
     Loop 40`
-        Add *Var0 20`
-        Add *VarA 20`
-        Add *VarD 20`
+        Add *Var0 40`
+        Add *VarA 40`
+        Add *VarD 40`
         Call TranslateGroup ( ~Model:SpaceShipGroup *Var0 0` 0` )
         Call UpdateColliderTransform ( ~Collider:CarCollider )
         Call SetPlayerPos ( *VarA *VarB *VarC )
@@ -74,9 +77,9 @@
     Call GetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
     Set *Var0 0`
     Loop 40`
-        Add *Var0 20`
-        Add *VarA 20`
-        Add *VarD 20`
+        Add *Var0 40`
+        Add *VarA 40`
+        Add *VarD 40`
         Call TranslateGroup ( ~Model:SpaceShipGroup *Var0 0` 0` )
         Call UpdateColliderTransform ( ~Collider:CarCollider )
         Call SetPlayerPos ( *VarA *VarB *VarC )
@@ -84,6 +87,78 @@
         Wait 1`
     EndLoop
     Call GotoMap ( "btf_14" 00000001 )
+    Call StopSound ( 0000032A )
+    Wait 300`
+    Return
+    End
+}
+
+#new:Script $Script_MarioAndParakarryToTemple
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    Call PlaySound ( 0000032A )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryPos )
+    Call SetNpcYaw ( .Npc:Partner -107` )
+    Exec $Script_ShipBop
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F003A )
+    Call SetPlayerAnimation ( 00010028 )
+    Wait 45`
+    Call SetPlayerAnimation ( 00010023 )
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F003B )
+    Call SetPlayerAnimation ( 00010029 )
+    Wait 20`
+    Call SetPlayerAnimation ( 0001002E )
+    Wait 10`
+    Call PlaySound ( 000000FA )
+    Call SetPlayerAnimation ( 00010002 )
+    Set *MapVar[0] 00000001
+    Wait 10`
+    Set *VarD 0`
+    Loop 9`
+        Add *VarD 15`
+        Call RotateModel ( ~Model:SpaceTruck_Roof *VarD 0` 0` 1` )
+        Wait 1`
+    EndLoop
+    Call SetPlayerAnimation ( 0001002B )
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F003C )
+    Call NpcFlyTo ( .NpcID:Twink ~Vec3d:TwinkFlyTo1 15` 0` .Easing:Linear )
+    Call PlaySound ( 000000E1 )
+    Call  PlayEffect    ( ~FX:Stars:Fan ~Vec3D:TwinkFlyTo1 ~Vec3D:TwinkFlyTo2 5` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    Exec $Script_MarioFlyAway
+    Exec $Script_ParakarryFlyAway
+    Exec $Script_TruckFlyOff
+    Call NpcFlyTo ( .NpcID:Twink ~Vec3d:TwinkFlyTo2 15` 0` .Easing:Linear )
+    Return
+    End
+}
+
+#new:Script $Script_MarioFlyAway
+{
+    Call SetPlayerJumpscale ( *Fixed[1.5] )
+    Call PlayerJump1 ( ~Vec3D:MarioJumpTo 60` )
+    Return
+    End
+}
+
+#new:Script $Script_ParakarryFlyAway
+{
+    Call SetNpcJumpscale ( .Npc:Partner *Fixed[1.5] )
+    Call NpcJump1 ( .Npc:Partner ~Vec3D:MarioJumpTo 60` )
+    Return
+    End
+}
+
+#new:Script $Script_TruckFlyOff
+{
+    Loop 40`
+        Add *Var0 20`
+        Sub *Var1 20`
+        Call TranslateGroup ( ~Model:SpaceShipGroup *Var0 *Var0 *Var1 )
+        Call TranslateGroup ( ~Model:SpaceTruck_RoofGroup *Var0 *Var0 *Var1 )
+        Wait 1`
+    EndLoop
+    Call GotoMap ( "btf_01" 00000000 )
     Call StopSound ( 0000032A )
     Wait 300`
     Return
@@ -109,9 +184,9 @@
     Call GetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
     Set *Var0 0`
     Loop 40`
-        Add *Var0 20`
-        Add *VarA 20`
-        Add *VarD 20`
+        Add *Var0 40`
+        Add *VarA 40`
+        Add *VarD 40`
         Call TranslateGroup ( ~Model:SpaceShipGroup *Var0 0` 0` )
         Call UpdateColliderTransform ( ~Collider:CarCollider )
         Call SetPlayerPos ( *VarA *VarB *VarC )
@@ -132,18 +207,39 @@
         Loop 2`
             Add *Var0 1`
             Call TranslateGroup ( ~Model:SpaceShipGroup 0` *Var0 0` )
-            Call UpdateColliderTransform ( ~Collider:CarCollider )
-            Wait 5`
-        EndLoop
-        Loop 4`
             Sub *Var0 1`
-            Call TranslateGroup ( ~Model:SpaceShipGroup 0` *Var0 0` )
+            Call TranslateGroup ( ~Model:SpaceTruck_RoofGroup 0` *Var0 0` )
+            Add *Var0 1`
             Call UpdateColliderTransform ( ~Collider:CarCollider )
             Wait 5`
         EndLoop
         Loop 2`
+            Sub *Var0 1`
+            Call TranslateGroup ( ~Model:SpaceShipGroup 0` *Var0 0` )
+            Sub *Var0 1`
+            Call TranslateGroup ( ~Model:SpaceTruck_RoofGroup 0` *Var0 0` )
+            Add *Var0 1`
+            Call UpdateColliderTransform ( ~Collider:CarCollider )
+            Wait 5`
+        EndLoop
+        If *MapVar[0] == 00000001
+            BreakLoop
+        EndIf
+        Loop 2`
+            Sub *Var0 1`
+            Call TranslateGroup ( ~Model:SpaceShipGroup 0` *Var0 0` )
+            Sub *Var0 1`
+            Call TranslateGroup ( ~Model:SpaceTruck_RoofGroup 0` *Var0 0` )
+            Add *Var0 1`
+            Call UpdateColliderTransform ( ~Collider:CarCollider )
+            Wait 5
+        EndLoop
+        Loop 2`
             Add *Var0 1`
             Call TranslateGroup ( ~Model:SpaceShipGroup 0` *Var0 0` )
+            Sub *Var0 1`
+            Call TranslateGroup ( ~Model:SpaceTruck_RoofGroup 0` *Var0 0` )
+            Add *Var0 1`
             Call UpdateColliderTransform ( ~Collider:CarCollider )
             Wait 5`
         EndLoop
@@ -153,4 +249,25 @@
     EndLoop
     Return
     End
+}
+
+#new:NpcGroupList $NpcGroupList_Twink {
+	00000001 $NpcGroup_Twink 00000000
+	00000000 00000000 00000000
+}
+
+#new:NpcGroup $NpcGroup_Twink
+{
+    .NpcID:Twink $NpcSettings_80244320 ~Vec3f:Twink % 120 100 -210
+    00400D09 00000000 00000000 00000000 00000000
+    ~NoDrops
+    ~Movement:Twink
+    ~AnimationTable:Twink % .Sprite:Twink
+    00000000 00000000 00000000 001A0104 % This Star Kid thinks he's made himself invisible.  ...
+}
+
+#new:NpcSettings $NpcSettings_80244320
+{
+	00000000 00140014 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
 }

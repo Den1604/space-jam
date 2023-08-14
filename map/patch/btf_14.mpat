@@ -98,14 +98,14 @@
     Call DisablePlayerInput ( .True )
     Call DisablePartnerAI ( 00000000 )
     If *MF_btf_16_GourmetGuyLetterDelivered == .True
-        Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0022 )
+        Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0038 )
         Call ShowChoice ( 001E0004 )
         Call CloseMessage ()
         If *Var0 == 0` %Yes
-            Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0023 )
+            Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0039 )
             Set *Var0 0`
             Loop 9`
-                Sub *Var0 15`
+                Add *Var0 15`
                 Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
                 Wait 1`
             EndLoop
@@ -120,7 +120,7 @@
             Call SetPlayerPos ( ~Vec3D:MarioPos )
             Call SetNpcPos ( .Npc:Partner ~Vec3D:MarioPos )
             Loop 9`
-                Add *Var0 15`
+                Sub *Var0 15`
                 Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
                 Wait 1`
             EndLoop
@@ -131,7 +131,7 @@
                 Wait 1`
             EndLoop
             Wait 10`
-            Call GotoMap ( "btf_13" 00000001 )
+            Call GotoMap ( "btf_13" 00000002 )
             Call StopSound ( 0000032A )
             Wait 300`
         Else %No
