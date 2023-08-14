@@ -1222,9 +1222,9 @@ End
     Call GetNpcPos ( .NpcID:Muskular *VarA *VarB *VarC )
     Sub *VarA 5`
     Add *VarC 2`
-    Call NpcFlyTo ( .Npc:Partner *VarA *VarB *VarC 15` 0` .Easing:Linear )
+    Call NpcFlyTo ( .Npc:Partner *VarA *VarB *VarC 30` 0` .Easing:Linear )
     Wait 10`
-    Call NpcFlyTo ( .Npc:Partner *VarD *VarE *VarF 15` 0` .Easing:Linear )
+    Call NpcFlyTo ( .Npc:Partner *VarD *VarE *VarF 30` 0` .Easing:Linear )
     Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F0041 )
     Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F0044 )
     Call InterpNpcYaw ( .NpcID:Muskular -107` 5` )
@@ -1234,7 +1234,7 @@ End
     Wait 15`
     Call InterpNpcYaw ( .NpcID:Muskular -207` 5` )
     Call SetNpcAnimation ( .NpcID:Muskular 00150001 )
-    Wait 10`
+    Wait 45`
     Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F0046 )
     Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F0047 )
     Wait 5`

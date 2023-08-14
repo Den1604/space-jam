@@ -727,7 +727,7 @@
 #message:2F:044
 {
 	[Style Right]
-	Thank you![Pause:15][br]
+	[Voice Star]Thank you![Pause:15][br]
 	This might be highly important[br]
 	let me go read it, I might need[br]
 	you both again.[br]
@@ -737,14 +737,14 @@
 #message:2F:045
 {
 	[Style Right]
-	Hm.[Pause:20].[Pause:20].[Pause:20][br]
+	[Voice Star]Hm.[Pause:20].[Pause:20].[Pause:20][br]
 	[Wait][End]
 }
 
 #message:2F:046
 {
 	[Style Right]
-	Mario![Pause:15][br]
+	[Voice Star]Mario![Pause:15][br]
 	Parakarry![br]
 	[Wait][Next]
 	I am entrusting you with an[br]
