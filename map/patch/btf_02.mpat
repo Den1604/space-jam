@@ -472,7 +472,7 @@ EndLoop
 [InputOff]
 "The brightest star"[BR][PAUSE:6]
 A gift from the princess.[BR][PAUSE:4]
-Artist:[Pause:25] Green Toad
+Artist:[Pause:25] e0fb83f9
 [InputOn]
 [WAIT][END]
 }
