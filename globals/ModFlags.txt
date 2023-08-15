@@ -32,3 +32,4 @@
 029 = MF_btf_17_Yellow
 030 = MF_btf_17_Red
 031 = MF_btf_17_CubePuzzleSolved
+032 = MF_btf_17_PotatoQuestStarted

@@ -459,13 +459,15 @@
         Call EnableModel ( ~Model:PuzzleCube_7_OFF .False )
         Call EnableModel ( ~Model:PuzzleCube_8_OFF .False )
         Call EnableModel ( ~Model:PuzzleCube_9_OFF .False )
-
         Call EnableModel( ~Model:Cubes_PostPuzzle_OFF .False )
         Call ModifyColliderFlags ( 00000000 ~Collider:PuzzleWallCol 7FFFFE00 )
     EndIf
 
-
-    Bind $Script_Trigger_KnockKnock .Trigger:WallPressA ~Collider:MusHome_Col 00000001 00000000
+    If *MF_btf_17_TalkedToMuskular == .True
+        BindLock  $Script_Potato .Trigger:WallPressA ~Collider:MusHome_Col $ItemList_PotatoQuest 00000000 00000001
+    Else
+        Bind $Script_Trigger_KnockKnock .Trigger:WallPressA ~Collider:MusHome_Col 00000001 00000000
+    EndIf
 
     Call SetZoneEnabled ( ~Zone:CamZone_Lookout .False )
     Call SetZoneEnabled ( ~Zone:CamZone_Puzzle_1 .False )
@@ -1652,12 +1654,19 @@ End
 End
 }
 
+#new:ItemList $ItemList_PotatoQuest
+{
+	.Item:IcedPotato
+	00000000
+}
+
 #new:Script $Script_Trigger_KnockKnock %ty for the sick script name, blook    - Den
 {
     Call DisablePlayerInput ( .True )
     ExecWait $Script_ToggleCubeDoor
     Call DisablePartnerAI ( 00000000 )
     If *MF_btf_17_TalkedToMuskular == .True
+
     Else
         Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F003E )
         Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F003F )
@@ -1738,11 +1747,132 @@ End
         Call NpcFlyTo ( .NpcID:Muskular *VarA *VarB *VarC 30` 20` .Easing:Linear )
         ExecWait $Script_ToggleCubeDoor
         Set *MF_btf_17_TalkedToMuskular .True
+        Unbind 
+        BindLock  $Script_Potato .Trigger:WallPressA ~Collider:MusHome_Col $ItemList_PotatoQuest 00000000 00000001
     EndIf
     Call EnablePartnerAI ()
     Call DisablePlayerInput ( .False )
     Return
     End
+}
+
+#new:Script $Script_Potato { % 000000AF
+
+    Call  DisablePlayerInput    ( .True )
+    ExecWait $Script_ToggleCubeDoor
+    Call  ShowConsumableChoicePopup ( )
+    Call  CloseChoicePopup ( )
+
+    Set   *Var8  *Var0
+   Switch  *Var8
+     	Case  <=  FFFFFFFF
+     	Case  <=  00000000
+            If *MF_btf_17_PotatoQuestStarted == .True
+     		    Call  ShowMessageAtScreenPos    ( $String_LeaveHandsomeStarAlonePls  160`  40` )
+            Else
+                Call  ShowMessageAtScreenPos    ( $String_YouHaveAJobToDo  160`  40` )
+            EndIf
+    	Case  ==  000000AF
+            ExecWait $Script_AnimatePotatoDrop
+            Call RemoveItemAt( *Var[1] )
+            Call  ShowMessageAtScreenPos    ( $String_PotatoResponse 000000A0 00000028 )
+            Call  MakeItemEntity    ( .Item:Cake 847` 0` 51` .ItemSpawnMode:Decoration 0` )
+            Set   *Var7  *Var0
+            Set   *Var6  35`
+            Set   *Var5  00000005
+            Set *Debug[2] 0
+            Call  MakeLerp  ( 847` 783` 20` .Easing:CubicOut )
+            Loop 16`
+                Call  UpdateLerp ( )
+                Call  SetItemPos    ( *Var7 *Var0 *Var6 51` )
+               Add   *Var6  *Var5
+               Add   *Var5  FFFFFFFF
+               Wait  1`
+                  If  *Var1  ==  00000000
+                      BreakLoop % Shouldn't ever trigger but just in case ig
+               EndIf
+             EndLoop
+             Call RemoveItemEntity ( *Var7 )
+             Call ShowGotItem ( .Item:Cake .True 00000000 )
+             Call AddItem ( .Item:Cake 00000000 ) % Idk if this might be jank with more than 1 available item
+             Set *MF_btf_17_PotatoQuestStarted .True
+        Default
+            If *MF_btf_17_PotatoQuestStarted == .True
+                Call  ShowMessageAtScreenPos    ( $String_LeaveHandsomeStarAlonePls  160`  40` )
+            Else
+                Call  ShowMessageAtScreenPos    ( $String_YouHaveAJobToDo  160`  40` )
+            EndIf
+    EndSwitch
+    ExecWait $Script_ToggleCubeDoor
+    Call  DisablePlayerInput    ( .False )
+Return
+End
+}
+
+#new:String $String_LeaveHandsomeStarAlonePls {
+[Style Inspect]
+Smells like Hash Browns.[Pause:10][BR]
+You should probably let him cook[BR]
+and start to deliver the letters.
+[WAIT][END]
+}
+
+#new:String $String_YouHaveAJobToDo {
+[Style Inspect]
+Maybe you should just get to[BR]
+delivering those letters now.
+[WAIT][END]
+}
+
+#new:String $String_PotatoResponse
+{
+[Style Right]
+Hey, what kind of tomfoolery[BR]
+is this?[Pause:10] How would you guys like it[BR]
+if I were to drop an Iced P-[Pause:10][BR]
+...an Iced Potato?[BR][Wait][Next]
+[Pause:6]
+...Nevermind, I know what[BR]
+I'll have for dinner now.[Pause:6][BR]
+Take this in exchange, I'd much[BR]
+rather have the Potato over it.[BR]
+[WAIT][END]
+}
+
+#new:Script $Script_AnimatePotatoDrop { % Rough structure copied from the Well Script in flo_22.mscr 
+
+    Call PlayerMoveTo ( 783` 51` 16` )
+    Wait 16`
+    Call PlayerFaceNpc ( .NpcID:Muskular .False )
+    Wait 8`
+    Call  SetPlayerAnimation    ( 0006000E )
+    Thread
+        Call  GetPlayerPos      ( *Var2 *Var3 *Var4 )
+     	Set   *Var6  = *Var3 + 35`
+     	Set   *Var5  00000005
+        Set   *Var4 = *Var2 + 64`
+     	Call  MakeItemEntity    ( *Var8 *Var2 *Var6 51` .ItemSpawnMode:Decoration 00000000 )
+     	Set   *Var7  *Var0
+     	Call  MakeLerp  ( *Var2 *Var4 20` .Easing:CubicOut )
+     	Loop
+     		Call  UpdateLerp ( )
+     		Call  SetItemPos    ( *Var7 *Var0 *Var6 51` )
+    		Add   *Var6  *Var5
+    		Add   *Var5  FFFFFFFF
+    		Wait  1`
+   		    If  *Var1  ==  00000000
+   			    BreakLoop
+    		EndIf
+  	    EndLoop
+    	Call  RemoveItemEntity  ( *Var7 )
+    EndThread
+    Wait  2`
+    Call  PlaySoundAt   ( 00000302 00000000 847` 00000000 51` )
+    Wait  5`
+    Call  SetPlayerAnimation    ( 00010002 )
+    Wait  10`
+    Return
+   End
 }
 
 #new:NpcGroupList $NpcGroupList_8025136C

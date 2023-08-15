@@ -586,7 +586,7 @@ Artist:[Pause:25] Green Toad
 {
     Call DisablePlayerInput ( .True )
     Call DisablePartnerAI ( 00000000 )
-    If *MF_btf_XX_TalkedToMuskular == .True
+    If *MF_btf_17_TalkedToMuskular == .True
         Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0022 )
         Call ShowChoice ( 001E0004 )
         Call CloseMessage ()
