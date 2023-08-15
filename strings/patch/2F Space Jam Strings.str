@@ -69,7 +69,7 @@
 
 #message:2F:006
 {
-	[Style Narrate]
+	[Style Inspect]
 	[BR]
 	[Size 27]  -    Credits    -[SizeReset][br]
 	[BR]
@@ -237,7 +237,7 @@
 
 #message:2F:014
 {
-	[Style Narrate]
+	[Style Inspect]
 	Do you want to pray to the[br]
 	almighty Whale?[br]
 	[Yield][End]
@@ -801,5 +801,40 @@ OHHHH![br]
 	[Style Right]
 	[Voice Star]Alright, I will now provide[br]
 	you the letters.[br]
+	[Wait][End]
+}
+
+#message:2F:04C
+{
+[style right]
+[Voice Star]Oh![Pause:10] There is one more thing[br]
+I would like to give you[br]
+for your travels.[br]
+[Wait][Next]
+Parakarry, could you come[br]
+a little closer?[br]
+[Wait][End]
+}
+
+#message:2F:04D
+{
+[style right]
+Of course![br]
+[Wait][End]
+}
+
+#message:2F:04E
+{
+	[Style Right]
+	[Voice Star]Off with you two for real[br]
+	this time![br]
+	[Wait][End]
+}
+
+#message:2F:04F
+{
+	[Style Inspect]
+	Parakarry can now use Starmail[br]
+	in battle![br]
 	[Wait][End]
 }

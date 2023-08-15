@@ -27,7 +27,7 @@
 
 #new:Script $Script_MakeEntities
 {
-    Call  MakeEntity    ( .Entity:HiddenYellowBlock ~Vec4d:HiddenBlock .Item:ShroomCake 80000000 )
+    Call  MakeEntity    ( .Entity:HiddenYellowBlock ~Vec4d:HiddenBlock .Item:SweetShroom 80000000 )
     Call  AssignBlockFlag   ( *MF_btf_16_HiddenBlock )
     Return
     End

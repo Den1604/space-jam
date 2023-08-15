@@ -31,7 +31,7 @@
     Call  AssignBlockFlag   ( *MF_btf_15_YellowBlock )
     Call  MakeEntity    ( .Entity:HiddenYellowBlock ~Vec4d:HiddenBlock .Item:KookyCookie 80000000 )
     Call  AssignBlockFlag   ( *MF_btf_15_HiddenBlock1 )
-    Call  MakeEntity    ( .Entity:HiddenYellowBlock ~Vec4d:HiddenBlock2 .Item:ShroomCake 80000000 )
+    Call  MakeEntity    ( .Entity:HiddenYellowBlock ~Vec4d:HiddenBlock2 .Item:ApplePie 80000000 )
     Call  AssignBlockFlag   ( *MF_btf_15_HiddenBlock2 )
     Return
     End
