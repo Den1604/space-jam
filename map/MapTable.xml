@@ -587,6 +587,7 @@
 		<Map name="btf_15" nickname="Gourmet Guy Location 2"/>
 		<Map name="btf_16" nickname="Gourmet Guy Location 3"/>
 		<Map name="btf_17" nickname="MuskularHome: Cube Sanctuary"/>
+		<Map name="btf_18" nickname="Thamz Area 1"/>
 		<Stage name="btf_bt01" nickname="CR 2 Battle Map"/>
 		<Stage name="btf_bt02" nickname="CI Battle Map"/>
 	</Area>

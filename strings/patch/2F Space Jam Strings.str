@@ -786,3 +786,20 @@ OH![br]
 OHHHH![br]
 [Wait][End]
 }
+
+#message:2F:04A
+{
+	[Style Right]
+	[Voice Star]Off you two go then![Pause:10][br]
+	If you need anything I will be[br]
+	right here.[br]
+	[Wait][End]
+}
+
+#message:2F:04B
+{
+	[Style Right]
+	[Voice Star]Alright, I will now provide[br]
+	you the letters.[br]
+	[Wait][End]
+}

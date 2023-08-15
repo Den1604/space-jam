@@ -1657,74 +1657,88 @@ End
     Call DisablePlayerInput ( .True )
     ExecWait $Script_ToggleCubeDoor
     Call DisablePartnerAI ( 00000000 )
-    Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F003E )
-    Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F003F )
-    Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F0040 )
-    Wait 15`
-    Call GetNpcPos ( .NpcID:Muskular *VarA *VarB *VarC )
-    Sub *VarA 25`
-    Add *VarB 80`
-    Call NpcFlyTo ( .NpcID:Muskular *VarA *VarB *VarC 30` 20` .Easing:Linear )
-    Call SetPlayerAnimation ( 0001002A )
-    Wait 10`
-    Thread
-        Call GetPartnerPos ( *VarD *VarE *VarF )
+    If *MF_btf_17_TalkedToMuskular == .True
+    Else
+        Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F003E )
+        Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F003F )
+        Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F0040 )
         Wait 15`
-        Sub *VarD 60`
-        Call NpcFlyTo ( .Npc:Partner *VarD *VarE *VarF 15` 0` .Easing:Linear )
-        Call NpcFaceNpc ( .Npc:Partner .NpcID:Muskular 1` )
-    EndThread
-    Call GetPlayerPos ( *Var1 *Var2 *Var3 )
-    Thread
-        Call PlaySound ( 00000262 )
-    EndThread
-    Call ShowEmote ( 00000000 .Emote:Exclamation 0` 15` .False *Var1 *Var2 *Var3 0` )
-    Call SetPlayerAnimation ( 00080016 )
-    Wait 15`
-    Sub *Var1 60`
-    Call PlayerMoveTo ( *Var1 *Var3 15` )
-    Call PlayerFaceNpc ( .NpcID:Muskular .False )
-    Call GetNpcPos ( .NpcID:Muskular *VarA *VarB *VarC )
-    Sub *VarA 25`
-    Sub *VarB 60`
-    Call NpcFlyTo ( .NpcID:Muskular *VarA *VarB *VarC 30` 20` .Easing:Linear )
-    Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F0043 )
-    Call GetPartnerPos ( *VarD *VarE *VarF )
-    Call GetNpcPos ( .NpcID:Muskular *VarA *VarB *VarC )
-    Sub *VarA 5`
-    Add *VarC 2`
-    Call NpcFlyTo ( .Npc:Partner *VarA *VarB *VarC 30` 0` .Easing:Linear )
-    Wait 10`
-    Call NpcFlyTo ( .Npc:Partner *VarD *VarE *VarF 30` 0` .Easing:Linear )
-    Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F0041 )
-    Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F0044 )
-    Call InterpNpcYaw ( .NpcID:Muskular -107` 5` )
-    Call SetNpcAnimation ( .NpcID:Muskular 00150005 )
-    Wait 60`
-    Call ShowMessageAtScreenPos ( 002F0045 000000A0 00000028 )
-    Wait 15`
-    Call InterpNpcYaw ( .NpcID:Muskular -207` 5` )
-    Call SetNpcAnimation ( .NpcID:Muskular 00150001 )
-    Wait 45`
-    Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F0046 )
-    Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F0047 )
-    Wait 5`
-    Call PlayerFaceNpc ( .Npc:Partner .False )
-    Wait 10`
-    Call SetPlayerAnimation ( 00010029 )
-    Wait 10`
-    Call PlayerFaceNpc ( .NpcID:Muskular .False )
-    %
-    % END
-    %
-    Call GetNpcPos ( .NpcID:Muskular *VarA *VarB *VarC )
-    Add *VarA 25`
-    Add *VarB 80`
-    Call NpcFlyTo ( .NpcID:Muskular *VarA *VarB *VarC 30` 20` .Easing:Linear )
-    Add *VarA 25`
-    Sub *VarB 100`
-    Call NpcFlyTo ( .NpcID:Muskular *VarA *VarB *VarC 30` 20` .Easing:Linear )
-    ExecWait $Script_ToggleCubeDoor
+        Call GetNpcPos ( .NpcID:Muskular *VarA *VarB *VarC )
+        Sub *VarA 25`
+        Add *VarB 80`
+        Call NpcFlyTo ( .NpcID:Muskular *VarA *VarB *VarC 30` 20` .Easing:Linear )
+        Call SetPlayerAnimation ( 0001002A )
+        Wait 10`
+        Thread
+            Call GetPartnerPos ( *VarD *VarE *VarF )
+            Wait 15`
+            Sub *VarD 60`
+            Call NpcFlyTo ( .Npc:Partner *VarD *VarE *VarF 15` 0` .Easing:Linear )
+            Call NpcFaceNpc ( .Npc:Partner .NpcID:Muskular 1` )
+        EndThread
+        Call GetPlayerPos ( *Var1 *Var2 *Var3 )
+        Thread
+            Call PlaySound ( 00000262 )
+        EndThread
+        Call ShowEmote ( 00000000 .Emote:Exclamation 0` 15` .False *Var1 *Var2 *Var3 0` )
+        Call SetPlayerAnimation ( 00080016 )
+        Wait 15`
+        Sub *Var1 60`
+        Call PlayerMoveTo ( *Var1 *Var3 15` )
+        Call PlayerFaceNpc ( .NpcID:Muskular .False )
+        Call GetNpcPos ( .NpcID:Muskular *VarA *VarB *VarC )
+        Sub *VarA 25`
+        Sub *VarB 60`
+        Call NpcFlyTo ( .NpcID:Muskular *VarA *VarB *VarC 30` 20` .Easing:Linear )
+        Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F0043 )
+        Call GetPartnerPos ( *VarD *VarE *VarF )
+        Call GetNpcPos ( .NpcID:Muskular *VarA *VarB *VarC )
+        Sub *VarA 5`
+        Add *VarC 2`
+        Call NpcFlyTo ( .Npc:Partner *VarA *VarB *VarC 30` 0` .Easing:Linear )
+        Wait 10`
+        Call NpcFlyTo ( .Npc:Partner *VarD *VarE *VarF 30` 0` .Easing:Linear )
+        Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F0041 )
+        Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F0044 )
+        Call InterpNpcYaw ( .NpcID:Muskular -107` 5` )
+        Call SetNpcAnimation ( .NpcID:Muskular 00150005 )
+        Wait 60`
+        Call ShowMessageAtScreenPos ( 002F0045 000000A0 00000028 )
+        Wait 15`
+        Call InterpNpcYaw ( .NpcID:Muskular -207` 5` )
+        Call SetNpcAnimation ( .NpcID:Muskular 00150001 )
+        Wait 45`
+        Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F0046 )
+        Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F0047 )%We will not disappoint!
+        Wait 5`
+        Call PlayerFaceNpc ( .Npc:Partner .False )
+        Wait 10`
+        Call SetPlayerAnimation ( 00010029 )
+        Wait 10`
+        Call PlayerFaceNpc ( .NpcID:Muskular .False )
+        Wait 5`
+        Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F004B ) %Alright, I will now provide...
+        Call ShowGotItem ( .Item:Letter01 .True 00000000 )
+        Call AddKeyItem ( .Item:Letter01 )
+        Call ShowGotItem ( .Item:Letter02 .True 00000000 )
+        Call AddKeyItem ( .Item:Letter02 )
+        Call ShowGotItem ( .Item:Letter03 .True 00000000 )
+        Call AddKeyItem ( .Item:Letter03 )
+        Call ShowGotItem ( .Item:Letter04 .True 00000000 )
+        Call AddKeyItem ( .Item:Letter04 )
+        Call ShowGotItem ( .Item:Letter05 .True 00000000 )
+        Call AddKeyItem ( .Item:Letter05 )
+        Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F004A ) %Off you two go...
+        Call GetNpcPos ( .NpcID:Muskular *VarA *VarB *VarC )
+        Add *VarA 25`
+        Add *VarB 80`
+        Call NpcFlyTo ( .NpcID:Muskular *VarA *VarB *VarC 30` 20` .Easing:Linear )
+        Add *VarA 25`
+        Sub *VarB 100`
+        Call NpcFlyTo ( .NpcID:Muskular *VarA *VarB *VarC 30` 20` .Easing:Linear )
+        ExecWait $Script_ToggleCubeDoor
+        Set *MF_btf_17_TalkedToMuskular .True
+    EndIf
     Call EnablePartnerAI ()
     Call DisablePlayerInput ( .False )
     Return
