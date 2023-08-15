@@ -31,3 +31,4 @@
 028 = MF_btf_16_GourmetGuyFeasted
 029 = MF_btf_17_Yellow
 030 = MF_btf_17_Red
+031 = MF_btf_17_CubePuzzleSolved

@@ -282,7 +282,7 @@
 
 #new:Script $Script_MakeEntities
 {
-    Call  MakeEntity    ( .Entity:HiddenYellowBlock ~Vec4d:YellowBlock .Item:DizzyDial 80000000 )
+    Call  MakeEntity    ( .Entity:HiddenYellowBlock ~Vec4d:YellowBlock .Item:IcedPotato 80000000 )
     Call  AssignBlockFlag   ( *MF_btf_17_Yellow )
     Call  MakeEntity    ( .Entity:HiddenRedBlock ~Vec4d:RedBlock .Item:AttackFXA 80000000 )
     Call  AssignBlockFlag   ( *MF_btf_17_Red )
@@ -400,6 +400,18 @@
 
     Set *MapFlag[8] .False % CubeHomeDoor
 
+    % HAHAHAHA MORE THAN 16 MAPFLAGS I KNEW IT THEY WERE HIDING KNOWLEDGE FROM US!!!!
+    Set *MapFlag[09] .False % PuzzleCube 1
+    Set *MapFlag[0A] .False % PuzzleCube 2
+    Set *MapFlag[0B] .False % PuzzleCube 3
+    Set *MapFlag[0C] .False % PuzzleCube 4
+    Set *MapFlag[0D] .False % PuzzleCube 5
+    Set *MapFlag[0E] .False % PuzzleCube 6
+    Set *MapFlag[0F] .False % PuzzleCube 7
+    Set *MapFlag[10] .False % PuzzleCube 8
+    Set *MapFlag[11] .False % PuzzleCube 9
+
+
     Bind $Script_Trigger_0 .Trigger:FloorAbove ~Collider:CosmicCubeTrigger_0 00000001 00000000
     Bind $Script_Trigger_1 .Trigger:FloorAbove ~Collider:CosmicCubeTrigger_1 00000001 00000000
     Bind $Script_Trigger_2 .Trigger:FloorAbove ~Collider:CosmicCubeTrigger_2 00000001 00000000
@@ -414,11 +426,466 @@
     Bind $Script_Trigger_START .Trigger:FloorAbove ~Collider:BlockTrigger_BASE 00000001 00000000
     Bind $Script_Trigger_END .Trigger:FloorAbove ~Collider:HomeCol_Ground_Trigger 00000001 00000000
 
+    If *MF_btf_17_CubePuzzleSolved == .False
+        % No point in binding the triggers when the Puzzle has already been solved anyway
+        Bind $Script_Trigger_Puzzle1 .Trigger:FloorPressA ~Collider:PuzzleCol_1 00000001 00000000
+        Bind $Script_Trigger_Puzzle2 .Trigger:FloorPressA ~Collider:PuzzleCol_2 00000001 00000000
+        Bind $Script_Trigger_Puzzle3 .Trigger:FloorPressA ~Collider:PuzzleCol_3 00000001 00000000
+        Bind $Script_Trigger_Puzzle4 .Trigger:FloorPressA ~Collider:PuzzleCol_4 00000001 00000000
+        Bind $Script_Trigger_Puzzle5 .Trigger:FloorPressA ~Collider:PuzzleCol_5 00000001 00000000
+        Bind $Script_Trigger_Puzzle6 .Trigger:FloorPressA ~Collider:PuzzleCol_6 00000001 00000000
+        Bind $Script_Trigger_Puzzle7 .Trigger:FloorPressA ~Collider:PuzzleCol_7 00000001 00000000
+        Bind $Script_Trigger_Puzzle8 .Trigger:FloorPressA ~Collider:PuzzleCol_8 00000001 00000000
+        Bind $Script_Trigger_Puzzle9 .Trigger:FloorPressA ~Collider:PuzzleCol_9 00000001 00000000
+
+        Call EnableModel ( ~Model:PuzzleCube_1_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_2_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_3_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_4_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_5_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_6_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_7_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_8_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_9_ON .False )
+
+        Call EnableModel( ~Model:Cubes_PostPuzzle_ON .False )
+    Else
+        Call EnableModel ( ~Model:PuzzleCube_1_OFF .False )
+        Call EnableModel ( ~Model:PuzzleCube_2_OFF .False )
+        Call EnableModel ( ~Model:PuzzleCube_3_OFF .False )
+        Call EnableModel ( ~Model:PuzzleCube_4_OFF .False )
+        Call EnableModel ( ~Model:PuzzleCube_5_OFF .False )
+        Call EnableModel ( ~Model:PuzzleCube_6_OFF .False )
+        Call EnableModel ( ~Model:PuzzleCube_7_OFF .False )
+        Call EnableModel ( ~Model:PuzzleCube_8_OFF .False )
+        Call EnableModel ( ~Model:PuzzleCube_9_OFF .False )
+
+        Call EnableModel( ~Model:Cubes_PostPuzzle_OFF .False )
+        Call ModifyColliderFlags ( 00000000 ~Collider:PuzzleWallCol 7FFFFE00 )
+    EndIf
+
+
     Bind $Script_Trigger_KnockKnock .Trigger:WallPressA ~Collider:MusHome_Col 00000001 00000000
 
     Call SetZoneEnabled ( ~Zone:CamZone_Lookout .False )
+    Call SetZoneEnabled ( ~Zone:CamZone_Puzzle_1 .False )
+    Call SetZoneEnabled ( ~Zone:CamZone_Puzzle_2 .False )
     Bind $Script_GogglesCamShift .Trigger:WallPressA ~Collider:GogglesCol 00000001 00000000
     Return
+End
+}
+
+#new:Script $Script_ResolvePuzzle {
+
+    % This is a sin. I'm gonna get punished somewhere down the line for sure.
+If *MapFlag[09] == .True
+    If *MapFlag[0A] == .True
+        If *MapFlag[0B] == .True
+            If *MapFlag[0C] == .True 
+                If *MapFlag[0D] == .True
+                    If *MapFlag[0E] == .True
+                        If *MapFlag[0F] == .True
+                            If *MapFlag[10] == .True
+                                If *MapFlag[11] == .True
+                                    Set *MF_btf_17_CubePuzzleSolved .True
+                                    Call ModifyColliderFlags ( 00000000 ~Collider:PuzzleWallCol 7FFFFE00 )
+                                    Call DisablePlayerInput ( .True )
+                                    Call SetZoneEnabled ( ~Zone:CamZone_Puzzle_1 .True )
+                                    Wait 8`
+
+                                    Call GetModelCenter( ~Model:PuzzleCube_5_ON)
+                                    Call PlayerMoveTo ( *Var[0] *Var[2] 30` )
+                                    Wait 28`
+                                    Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+                                    Call PlaySound		( 00000010 )
+                                    Wait 16`
+
+                                    Call GetModelCenter( ~Model:PuzzleCube_2_ON)
+                                    Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+                                    Call GetModelCenter( ~Model:PuzzleCube_4_ON)
+                                    Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+                                    Call GetModelCenter( ~Model:PuzzleCube_6_ON)
+                                    Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+                                    Call GetModelCenter( ~Model:PuzzleCube_8_ON)
+                                    Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+                                    Call PlaySound		( 00000010 )
+                                    Wait 16`
+
+                                    Call GetModelCenter( ~Model:PuzzleCube_1_ON)
+                                    Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+                                    Call GetModelCenter( ~Model:PuzzleCube_3_ON)
+                                    Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+                                    Call GetModelCenter( ~Model:PuzzleCube_7_ON)
+                                    Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+                                    Call GetModelCenter( ~Model:PuzzleCube_9_ON)
+                                    Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+                                    Call PlaySound		( 00000010 )
+                                    Wait 16`
+
+                                    Call SetZoneEnabled ( ~Zone:CamZone_Puzzle_1 .False )
+                                    Call SetZoneEnabled ( ~Zone:CamZone_Puzzle_2 .True )
+                                    Call GetPlayerPos ( *Var[0] *Var[1] *Var[2] )
+                                    Call PlayerMoveTo ( *Var[0] *Var[2] 1` )
+                                    Wait 60`
+
+                                    Call EnableModel( ~Model:Cubes_PostPuzzle_OFF .False )
+                                    Call EnableModel( ~Model:Cubes_PostPuzzle_ON .True )
+                                    Call GetModelCenter ( ~Model:Cubes_PostPuzzle_ON )
+                                    Set *Var[2] = *Var[2] - 50`
+                                    Set *Var[0] = *Var[0] + 50`
+                                    Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+                                    Set *Var[2] = *Var[2] + 100`
+                                    Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+                                    Call PlaySound		( 00000010 )
+                                    Wait 30`
+
+                                    Call SetZoneEnabled ( ~Zone:CamZone_Puzzle_2 .False )
+                                    Call GetPlayerPos ( *Var[0] *Var[1] *Var[2] )
+                                    Call PlayerMoveTo ( *Var[0] *Var[2] 1` )
+                                    Wait 48`
+
+                                    Call DisablePlayerInput ( .False )
+                                EndIf
+                            EndIf
+                        EndIf
+                    EndIf
+                EndIf
+            EndIf
+        EndIf
+    EndIf
+EndIf
+
+Return
+End
+}
+
+#new:Script $Script_Trigger_Puzzle1 {
+
+    If *MF_btf_17_CubePuzzleSolved == .True
+        Return % Just skip the entire script when the puzzle has been solved
+    EndIf
+
+    Exec $Script_SubTrigger_PuzzleCube_1
+    Exec $Script_SubTrigger_PuzzleCube_2
+    Exec $Script_SubTrigger_PuzzleCube_4
+
+Exec $Script_ResolvePuzzle
+Wait 1`
+
+Return
+End
+}
+
+#new:Script $Script_SubTrigger_PuzzleCube_1 {
+
+    If *MapFlag[09] == .False % Cube 1
+        Set *MapFlag[09] .True
+        Call EnableModel ( ~Model:PuzzleCube_1_ON .True )
+        Call EnableModel ( ~Model:PuzzleCube_1_OFF .False )
+        Call GetModelCenter ( ~Model:PuzzleCube_1_ON )
+        Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+        Call	PlaySound		( 00000010 )
+    Else
+        Set *MapFlag[09] .False
+        Call EnableModel ( ~Model:PuzzleCube_1_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_1_OFF .True )
+    EndIf
+
+Return
+End
+}
+
+#new:Script $Script_SubTrigger_PuzzleCube_2 {
+
+    If *MapFlag[0A] == .False % Cube 2
+        Set *MapFlag[0A] .True
+        Call EnableModel ( ~Model:PuzzleCube_2_ON .True )
+        Call EnableModel ( ~Model:PuzzleCube_2_OFF .False )
+        Call GetModelCenter ( ~Model:PuzzleCube_2_ON )
+        Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+        Call	PlaySound		( 00000010 )
+    Else
+        Set *MapFlag[0A] .False
+        Call EnableModel ( ~Model:PuzzleCube_2_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_2_OFF .True )
+    EndIf
+
+Return
+End
+}
+
+#new:Script $Script_SubTrigger_PuzzleCube_3 {
+
+    If *MapFlag[0B] == .False % Cube 3
+        Set *MapFlag[0B] .True
+        Call EnableModel ( ~Model:PuzzleCube_3_ON .True )
+        Call EnableModel ( ~Model:PuzzleCube_3_OFF .False )
+        Call GetModelCenter ( ~Model:PuzzleCube_3_ON )
+        Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+        Call	PlaySound		( 00000010 )
+    Else
+        Set *MapFlag[0B] .False
+        Call EnableModel ( ~Model:PuzzleCube_3_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_3_OFF .True )
+    EndIf
+    
+Return
+End
+}
+
+#new:Script $Script_SubTrigger_PuzzleCube_4 {
+
+    If *MapFlag[0C] == .False % Cube 4
+        Set *MapFlag[0C] .True
+        Call EnableModel ( ~Model:PuzzleCube_4_ON .True )
+        Call EnableModel ( ~Model:PuzzleCube_4_OFF .False )
+        Call GetModelCenter ( ~Model:PuzzleCube_4_ON )
+        Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+        Call	PlaySound		( 00000010 )
+    Else
+        Set *MapFlag[0C] .False
+        Call EnableModel ( ~Model:PuzzleCube_4_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_4_OFF .True )
+    EndIf
+    
+Return
+End
+}  
+
+#new:Script $Script_SubTrigger_PuzzleCube_5 {
+
+    If *MapFlag[0D] == .False % Cube 5
+        Set *MapFlag[0D] .True
+        Call EnableModel ( ~Model:PuzzleCube_5_ON .True )
+        Call EnableModel ( ~Model:PuzzleCube_5_OFF .False )
+        Call GetModelCenter ( ~Model:PuzzleCube_5_ON )
+        Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+        Call	PlaySound		( 00000010 )
+    Else
+        Set *MapFlag[0D] .False
+        Call EnableModel ( ~Model:PuzzleCube_5_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_5_OFF .True )
+    EndIf
+    
+Return
+End
+}
+
+#new:Script $Script_SubTrigger_PuzzleCube_6 {
+
+    If *MapFlag[0E] == .False % Cube 6
+        Set *MapFlag[0E] .True
+        Call EnableModel ( ~Model:PuzzleCube_6_ON .True )
+        Call EnableModel ( ~Model:PuzzleCube_6_OFF .False )
+        Call GetModelCenter ( ~Model:PuzzleCube_6_ON )
+        Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+        Call	PlaySound		( 00000010 )
+    Else
+        Set *MapFlag[0E] .False
+        Call EnableModel ( ~Model:PuzzleCube_6_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_6_OFF .True )
+    EndIf
+    
+Return
+End
+}
+
+#new:Script $Script_SubTrigger_PuzzleCube_7 {
+
+    If *MapFlag[0F] == .False % Cube 7
+        Set *MapFlag[0F] .True
+        Call EnableModel ( ~Model:PuzzleCube_7_ON .True )
+        Call EnableModel ( ~Model:PuzzleCube_7_OFF .False )
+        Call GetModelCenter ( ~Model:PuzzleCube_7_ON )
+        Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+        Call	PlaySound		( 00000010 )
+    Else
+        Set *MapFlag[0F] .False
+        Call EnableModel ( ~Model:PuzzleCube_7_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_7_OFF .True )
+    EndIf
+    
+Return
+End
+}
+
+#new:Script $Script_SubTrigger_PuzzleCube_8 {
+
+    If *MapFlag[10] == .False % Cube 8
+        Set *MapFlag[10] .True
+        Call EnableModel ( ~Model:PuzzleCube_8_ON .True )
+        Call EnableModel ( ~Model:PuzzleCube_8_OFF .False )
+        Call GetModelCenter ( ~Model:PuzzleCube_8_ON )
+        Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+        Call	PlaySound		( 00000010 )
+    Else
+        Set *MapFlag[10] .False
+        Call EnableModel ( ~Model:PuzzleCube_8_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_8_OFF .True )
+    EndIf
+    
+Return
+End
+}
+
+#new:Script $Script_SubTrigger_PuzzleCube_9 {
+
+    If *MapFlag[11] == .False % Cube 9
+        Set *MapFlag[11] .True
+        Call EnableModel ( ~Model:PuzzleCube_9_ON .True )
+        Call EnableModel ( ~Model:PuzzleCube_9_OFF .False )
+        Call GetModelCenter ( ~Model:PuzzleCube_9_ON )
+        Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
+        Call	PlaySound		( 00000010 )
+    Else
+        Set *MapFlag[11] .False
+        Call EnableModel ( ~Model:PuzzleCube_9_ON .False )
+        Call EnableModel ( ~Model:PuzzleCube_9_OFF .True )
+    EndIf
+    
+Return
+End
+}
+
+#new:Script $Script_Trigger_Puzzle2 {
+
+    If *MF_btf_17_CubePuzzleSolved == .True
+        Return % Just skip the entire script when the puzzle has been solved
+    EndIf
+
+    Exec $Script_SubTrigger_PuzzleCube_1
+    Exec $Script_SubTrigger_PuzzleCube_2
+    Exec $Script_SubTrigger_PuzzleCube_3
+    Exec $Script_SubTrigger_PuzzleCube_5
+
+Exec $Script_ResolvePuzzle
+Wait 1`
+
+Return
+End
+}
+
+#new:Script $Script_Trigger_Puzzle3 {
+    
+    If *MF_btf_17_CubePuzzleSolved == .True
+        Return % Just skip the entire script when the puzzle has been solved
+    EndIf
+
+    Exec $Script_SubTrigger_PuzzleCube_2
+    Exec $Script_SubTrigger_PuzzleCube_3
+    Exec $Script_SubTrigger_PuzzleCube_6
+    
+Exec $Script_ResolvePuzzle
+Wait 1`
+    
+Return
+End
+}
+
+#new:Script $Script_Trigger_Puzzle4 {
+
+    If *MF_btf_17_CubePuzzleSolved == .True
+        Return % Just skip the entire script when the puzzle has been solved
+    EndIf
+
+    Exec $Script_SubTrigger_PuzzleCube_1
+    Exec $Script_SubTrigger_PuzzleCube_4
+    Exec $Script_SubTrigger_PuzzleCube_5
+    Exec $Script_SubTrigger_PuzzleCube_7
+
+Exec $Script_ResolvePuzzle    
+Wait 1`
+
+Return
+End
+}
+
+#new:Script $Script_Trigger_Puzzle5 {
+
+    If *MF_btf_17_CubePuzzleSolved == .True
+        Return % Just skip the entire script when the puzzle has been solved
+    EndIf
+
+    Exec $Script_SubTrigger_PuzzleCube_2
+    Exec $Script_SubTrigger_PuzzleCube_4
+    Exec $Script_SubTrigger_PuzzleCube_5
+    Exec $Script_SubTrigger_PuzzleCube_6
+    Exec $Script_SubTrigger_PuzzleCube_8
+
+    Exec $Script_ResolvePuzzle
+    Wait 1`
+    
+Return
+End
+}
+
+#new:Script $Script_Trigger_Puzzle6 {
+
+    If *MF_btf_17_CubePuzzleSolved == .True
+        Return % Just skip the entire script when the puzzle has been solved
+    EndIf
+
+    Exec $Script_SubTrigger_PuzzleCube_3
+    Exec $Script_SubTrigger_PuzzleCube_5
+    Exec $Script_SubTrigger_PuzzleCube_6
+    Exec $Script_SubTrigger_PuzzleCube_9
+
+    Exec $Script_ResolvePuzzle
+    Wait 1`
+    
+Return
+End
+}
+
+#new:Script $Script_Trigger_Puzzle7 {
+
+    If *MF_btf_17_CubePuzzleSolved == .True
+        Return % Just skip the entire script when the puzzle has been solved
+    EndIf
+
+    Exec $Script_SubTrigger_PuzzleCube_4
+    Exec $Script_SubTrigger_PuzzleCube_7
+    Exec $Script_SubTrigger_PuzzleCube_8
+
+    Exec $Script_ResolvePuzzle
+    Wait 1`
+    
+Return
+End
+}
+
+#new:Script $Script_Trigger_Puzzle8 {
+
+    If *MF_btf_17_CubePuzzleSolved == .True
+        Return % Just skip the entire script when the puzzle has been solved
+    EndIf
+
+    Exec $Script_SubTrigger_PuzzleCube_5
+    Exec $Script_SubTrigger_PuzzleCube_7
+    Exec $Script_SubTrigger_PuzzleCube_8
+    Exec $Script_SubTrigger_PuzzleCube_9
+
+    Exec $Script_ResolvePuzzle
+    Wait 1`
+    
+Return
+End
+}
+
+#new:Script $Script_Trigger_Puzzle9 {
+
+    If *MF_btf_17_CubePuzzleSolved == .True
+        Return % Just skip the entire script when the puzzle has been solved
+    EndIf
+
+    Exec $Script_SubTrigger_PuzzleCube_6
+    Exec $Script_SubTrigger_PuzzleCube_8
+    Exec $Script_SubTrigger_PuzzleCube_9
+
+    Exec $Script_ResolvePuzzle
+    Wait 1`
+    
+Return
 End
 }
 
@@ -458,6 +925,10 @@ End
 }
 
 #new:Script $Script_Trigger_0 {
+
+    If *MF_btf_17_CubePuzzleSolved == .False
+        Return % Only need to put this here due to the temp wall collider
+    EndIf
 
     If *MapFlag[0] == .False
     Exec $Script_Cube_1To4_ON
