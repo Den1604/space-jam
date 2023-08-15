@@ -557,16 +557,20 @@
 #message:2F:032
 {
 	[Style Right]
-	Tastes a litte...[Pause:15][br]
+	Tastes a little...[Pause:15][br]
 	bland.[Pause:30][br]
 	Yeah, this tastes like nothing.[br]
+	[Wait][Next]
+	Now I'm hungry and have no clue[br]
+	what I was supposed to do with[br]
+	that letter...[br]
 	[Wait][End]
 }
 
 #message:2F:033
 {
 	[Style Right]
-	Now I'm hungry and have no clue[br]
+	I'm still hungry and have no clue[br]
 	what I was supposed to do with[br]
 	that letter...[br]
 	[Wait][End]
@@ -767,4 +771,18 @@
 	[Wait][Next]
 	Right, Mario?[br]
 	[Wait][End]
+}
+
+#message:2F:048
+{
+[style right]
+OH![br]
+[Wait][End]
+}
+
+#message:2F:049
+{
+[style right]
+OHHHH![br]
+[Wait][End]
 }

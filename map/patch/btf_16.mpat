@@ -93,6 +93,28 @@
             EndThread
             Call SetNpcAnimation ( .NpcID:GourmetGuy 00C10005 )
             Wait 90`
+            Call SetNpcAnimation ( .NpcID:GourmetGuy 00C10007 )
+            Thread
+                Call     SetCamSpeed     ( .Cam:Default *Fixed[9.0] )
+                Call     GetPlayerPos  ( *Var0 *Var1 *Var2 )
+                Call     UseSettingsFrom   ( .Cam:Default *Var0 *Var1 *Var2 )
+                Call     SetPanTarget     ( .Cam:Default ~Vec3D:GourmetCamera )
+                Call     SetCamDistance    ( .Cam:Default 100` )
+                Call     PanToTarget     ( .Cam:Default .Easing:Linear 00000001 )
+                Call     WaitForCam    ( .Cam:Default *Fixed[1.0] )
+            EndThread
+            Thread
+                Call  PlaySoundAtNpc    ( .Npc:Self 00000381 00000000 )
+            EndThread
+            Call  ShowMessageAtScreenPos ( 002F0048  160`  40` )
+            Thread
+                Call     SetCamDistance    ( .Cam:Default 50` )
+            EndThread
+            Thread
+                Call  PlaySoundAtNpc    ( .Npc:Self 00000382 00000000 )
+            EndThread
+            Call  ShowMessageAtScreenPos ( 002F0049  160`  40` )
+            Call  ResetCam ( .Cam:Default *Fixed[2.0] )
             Call SetNpcAnimation ( .NpcID:GourmetGuy 00C10001 )
             Call SpeakToPlayer ( .NpcID:GourmetGuy 00C10004 00C10001 00000000 002F0032 )
             Set *MF_btf_16_GourmetGuyFeasted .True
