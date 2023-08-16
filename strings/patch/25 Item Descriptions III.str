@@ -45,3 +45,16 @@
 	You can deliver it with your[BR]
 	Paratroopa partner, Parakarry.[End]
 }
+
+#string:25:0B3
+{
+	A crescent-shaped stone found[BR]
+	in this temple.[BR]
+	[End]
+}
+
+#string:25:0B5
+{
+	A star-shaped stone found in[BR]
+	this temple.[End]
+}

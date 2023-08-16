@@ -33,3 +33,15 @@
 	A letter to Merlee at Shooting[BR]
 	Star Summit.[End]
 }
+
+#string:23:0B3
+{
+	A crescent-shaped stone found[BR]
+	in this temple.[End]
+}
+
+#string:23:0B5
+{
+	A star-shaped stone found in[BR]
+	this temple.[End]
+}
