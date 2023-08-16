@@ -36,3 +36,4 @@
 033 = MF_btf_06_SpringFallen
 034 = MF_btf_06_CollectedLunarStone
 035 = MF_btf_06_DoorActivated
+036 = MF_btf_20_ThamzLetterDelivered

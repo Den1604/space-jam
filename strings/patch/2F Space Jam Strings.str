@@ -845,6 +845,36 @@ Of course![br]
 	These gems seem to have a[br]
 	special meaning. I can sense[br]
 	that this did something too.[br]
-	[Wait][END]
+	[Wait][End]
 }
 
+#message:2F:051
+{
+	[Style Right]
+	He should be around here[br]
+	somewhere...[Pause:10][br]
+	I think.[br]
+	[Wait][Next]
+	Let's just get looking, I thought[br]
+	I saw a light over there.[br]
+	[Wait][End]
+}
+
+#message:2F:052
+{
+	[Style Right]
+	We should look a little more,[br]
+	maybe we can find this "Emperor"[br]
+	here some where.[br]
+	[Wait][End]
+}
+
+#message:2F:053
+{
+	[Style Right]
+	One more letter to go, we're[br]
+	almost done, let's finish this.[br]
+	[Wait][Next]
+	Should we get going, Mario?[br]
+	[Wait][Yield][End]
+}

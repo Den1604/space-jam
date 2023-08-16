@@ -5,10 +5,12 @@
     Call  SetCamEnabled      ( .Cam:Default .True
     Call  SetCamLeadPlayer   ( .Cam:Default .False )
     Exec  $Script_SetupMusic
+	Exec  $Script_SetupTexturePan
 	Call  $Function_SetupFog
     Exec  $Script_EnterMap
 	Call  PlayEffect    ( ~FX:Snowfall 00000200 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 ) % is the limit
     Call HidePlayerShadow ( .True )
+    Bind $Script_MarioAndParakarryLeave .Trigger:WallPressA ~Collider:ShipLeaveCollider 00000001 00000000
     Return
     End
 }
@@ -16,6 +18,125 @@
 @ $Script_SetupMusic {
     Call  SetMusicTrack ( 00000000 .Song:IcedLand 00000000 00000006 )
     Call  ClearAmbientSounds ( 250` )
+    Return
+    End
+}
+
+@ $Script_EnterMap {
+    Call  GetEntryID    ( *Var[0] )
+    Switch  *Var[0]
+        Case  ==  ~Entry:Entry0
+            Set   *Var[0] $Script_CreateExitTriggers
+            Exec  EnterWalk
+        Case  ==  ~Entry:Entry1
+            Exec  $Script_CreateExitTriggers
+            Exec $Script_EntryCutscene
+        Default
+            Exec  $Script_CreateExitTriggers
+    EndSwitch
+    Return
+    End
+}
+
+#new:Script $Script_EntryCutscene
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    Call PlaySound ( 0000032A )
+    Call TranslateGroup ( ~Model:SpaceTruckGroup -440` 143` 0` )
+    ExecWait $Script_PanCamera_CamPan
+    Set *Var3 -451`
+    Call  MakeLerp  ( 143` 0` 40` .Easing:Linear )
+    Loop 
+        Add *Var3 11`
+        Call UpdateLerp ( )
+        Call TranslateGroup ( ~Model:SpaceTruckGroup *Var3 *Var0 0` )
+            If *Var1 == 0
+                BreakLoop
+            EndIf
+        Wait 1`
+    EndLoop
+    Call StopSound ( 0000032A )
+    Call SetPlayerPos ( ~Vec3D:MarioCarJumpTo )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryCarFlyTo2 )
+    Set *Var0 0`
+    Loop 9`
+        Add *Var0 15`
+        Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
+        Wait 1`
+    EndLoop
+    Call SetPlayerJumpscale ( *Fixed[2.0] )
+    Call PlayerJump ( ~Vec3D:MarioExitCar 20` )
+    Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryCarFlyTo1 15` 1` .Easing:Linear )
+    Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryExitCar 25` 1` .Easing:Linear )
+    Wait 10`
+    Loop 9`
+        Sub *Var0 15`
+        Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
+        Wait 1`
+    EndLoop
+    Call GetPlayerPos ( *VarA *VarB *VarC )
+    Add *VarA 30`
+    Add *VarB 10`
+    Call NpcFlyTo ( .Npc:Partner *VarA *VarB *VarC 30` 1` .Easing:Linear )
+    Call ResetCam ( .Cam:Default *Fixed[2.0] )
+    Call  SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0051 ) %He should be around here...
+    Call EnablePartnerAI ()
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
+
+#new:Script $Script_MarioAndParakarryLeave
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    If *MF_btf_20_ThamzLetterDelivered == .True
+        Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0053 )%One more letter to go, we're...
+        Call ShowChoice ( 001E0004 )
+        Call CloseMessage ()
+        If *Var0 == 0` %Yes
+            Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0039 )
+            ExecWait $Script_PanCamera_CamPan
+            Set *Var0 0`
+            Loop 9`
+                Add *Var0 15`
+                Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
+                Wait 1`
+            EndLoop
+            Call EnablePartnerAI ()
+            Call SetPlayerJumpscale ( *Fixed[2.0] )
+            Call PlayerJump ( ~Vec3D:MarioCarJumpTo 20` )
+            Call EnablePartnerAI ()
+            Wait 10`
+            Call DisablePartnerAI ( 00000000 )
+            Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryCarFlyTo1 15` 1` .Easing:Linear )
+            Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryCarFlyTo2 15` 1` .Easing:Linear )
+            Call SetPlayerPos ( ~Vec3D:Entry1 )
+            Call SetNpcPos ( .Npc:Partner ~Vec3D:Entry1 )
+            Loop 9`
+                Sub *Var0 15`
+                Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
+                Wait 1`
+            EndLoop
+            Call PlaySound ( 0000032A )
+            Loop 20`
+                Add *Var0 30`
+                Call TranslateGroup ( ~Model:SpaceTruckGroup *Var0 0` 0` )
+                Wait 1`
+            EndLoop
+            Wait 10`
+            Call GotoMap ( "btf_13" 00000005 )
+            Call StopSound ( 0000032A )
+            Wait 300`
+        Else %No
+            Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0024 )
+        EndIf
+    Else
+        Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0052 )
+    EndIf
+    Call EnablePartnerAI ()
+    Call DisablePlayerInput ( .False )
     Return
     End
 }
