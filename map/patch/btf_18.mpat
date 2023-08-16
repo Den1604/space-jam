@@ -91,7 +91,7 @@
 {
     Call DisablePlayerInput ( .True )
     Call DisablePartnerAI ( 00000000 )
-    If *MF_btf_20_ThamzLetterDelivered == .True
+    If *MF_btf_21_ThamzLetterDelivered == .True
         Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0053 )%One more letter to go, we're...
         Call ShowChoice ( 001E0004 )
         Call CloseMessage ()
