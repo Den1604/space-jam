@@ -589,6 +589,7 @@
 		<Map name="btf_17" nickname="MuskularHome: Cube Sanctuary"/>
 		<Map name="btf_18" nickname="Thamz Area 1"/>
 		<Map name="btf_19" nickname="Challenge Room 1a"/>
+		<Map name="btf_20" nickname="Galaxy Gas Station"/>
 		<Stage name="btf_bt01" nickname="CR 2 Battle Map"/>
 		<Stage name="btf_bt02" nickname="CI Battle Map"/>
 	</Area>
