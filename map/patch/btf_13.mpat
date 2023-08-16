@@ -20,6 +20,8 @@
         Case == ~Entry:Entry3
             Exec $Script_MarioAndParakarryToPieface
         Case == ~Entry:Entry4
+            %Exec $Script_MarioAndParakarryToThamz
+        Case == ~Entry:Entry5
             %Exec $Script_MarioAndParakarryToMerlee
         Default
             Exec  $Script_CreateExitTriggers
@@ -47,6 +49,7 @@
         Add *VarA 40`
         Add *VarD 40`
         Call TranslateGroup ( ~Model:SpaceShipGroup *Var0 0` 0` )
+        Call TranslateGroup ( ~Model:SpaceTruck_RoofGroup *Var0 0` 0` )
         Call UpdateColliderTransform ( ~Collider:CarCollider )
         Call SetPlayerPos ( *VarA *VarB *VarC )
         Call SetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
@@ -81,6 +84,7 @@
         Add *VarA 40`
         Add *VarD 40`
         Call TranslateGroup ( ~Model:SpaceShipGroup *Var0 0` 0` )
+        Call TranslateGroup ( ~Model:SpaceTruck_RoofGroup *Var0 0` 0` )
         Call UpdateColliderTransform ( ~Collider:CarCollider )
         Call SetPlayerPos ( *VarA *VarB *VarC )
         Call SetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
@@ -188,6 +192,7 @@
         Add *VarA 40`
         Add *VarD 40`
         Call TranslateGroup ( ~Model:SpaceShipGroup *Var0 0` 0` )
+        Call TranslateGroup ( ~Model:SpaceTruck_RoofGroup *Var0 0` 0` )
         Call UpdateColliderTransform ( ~Collider:CarCollider )
         Call SetPlayerPos ( *VarA *VarB *VarC )
         Call SetNpcPos ( .Npc:Partner *VarD *VarE *VarF )

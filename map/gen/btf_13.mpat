@@ -5,7 +5,7 @@
 	[MainScript] $Script_Main
 	[Background] 00000000
 	[EntryList] $EntryList
-	[EntryCount] 5
+	[EntryCount] 6
 }
 
 #new:EntryList $EntryList
@@ -15,6 +15,7 @@
 	~Vec4f:Entry2
 	~Vec4f:Entry3
 	~Vec4f:Entry4
+	~Vec4f:Entry5
 }
 
 #new:Script $Script_TexturePan_Update

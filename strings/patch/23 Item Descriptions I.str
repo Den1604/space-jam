@@ -3,3 +3,33 @@
 	Allows Mario to strike an enemy[BR]
 	twice with his hammer.[End]
 }
+
+#string:23:0EB
+{
+	A letter to Gourmet Guy on[BR]
+	Chocolate Island.[End]
+}
+
+#string:23:0EC
+{
+	A letter to ??? at the[BR]
+	Star Temple.[End]
+}
+
+#string:23:0ED
+{
+	A letter to Pieface at Galaxy[BR]
+	Gas Station.[End]
+}
+
+#string:23:0EE
+{
+	A letter to Emperor Thamz at[BR]
+	the edge of the galaxy.[End]
+}
+
+#string:23:0EF
+{
+	A letter to Merlee at Shooting[BR]
+	Star Summit.[End]
+}

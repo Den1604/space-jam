@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_13" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="1389.187012,60.885586,140.872116" pitch="3.999999" yaw="288.799896"/>
+		<Camera pos="1426.656494,118.836769,239.059509" pitch="19.200003" yaw="317.759796"/>
 		<Camera pos="1292.893311,65536.000000,-28.285763"/>
 		<Camera pos="65536.000000,0.000000,0.000000"/>
 		<Camera pos="1031.364258,13.599864,65536.000000"/>
@@ -48,19 +48,20 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="A">
-			<Node name="Entrances" id="4">
+		<Node name="Root" id="B">
+			<Node name="Entrances" id="5">
 				<Node name="Entry0" id="FFFFFFFF"/>
 				<Node name="Entry1" id="0"/>
 				<Node name="Entry2" id="1"/>
 				<Node name="Entry3" id="2"/>
 				<Node name="Entry4" id="3"/>
+				<Node name="Entry5" id="4"/>
 			</Node>
-			<Node name="ParakarryPos" id="5"/>
-			<Node name="Twink" id="6"/>
-			<Node name="TwinkFlyTo1" id="7"/>
-			<Node name="TwinkFlyTo2" id="8"/>
-			<Node name="MarioJumpTo" id="9"/>
+			<Node name="ParakarryPos" id="6"/>
+			<Node name="Twink" id="7"/>
+			<Node name="TwinkFlyTo1" id="8"/>
+			<Node name="TwinkFlyTo2" id="9"/>
+			<Node name="MarioJumpTo" id="A"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -1966,9 +1967,9 @@
 				<TriangleBatch ver="0">
 					<VertexTable>
 						<Vertex xyz="-300,0,1000" uv="-512,512"/>
-						<Vertex xyz="1200,0,-300" uv="512,-512"/>
+						<Vertex xyz="4000,0,-300" uv="512,-512"/>
 						<Vertex xyz="-300,0,-300" uv="-512,-512"/>
-						<Vertex xyz="1200,0,1000" uv="512,512"/>
+						<Vertex xyz="4000,0,1000" uv="512,512"/>
 					</VertexTable>
 					<TriangleList>
 						<Triangle ijk="0,1,2"/>
@@ -1981,27 +1982,30 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="A"/>
+			<MapObject name="Root" id="B"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="700,300,500" yaw="0.000000">
-			<MapObject name="MarioJumpTo" id="9"/>
+			<MapObject name="MarioJumpTo" id="A"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="1400,-200,-200" yaw="0.000000">
-			<MapObject name="TwinkFlyTo2" id="8"/>
+			<MapObject name="TwinkFlyTo2" id="9"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="961,10,0" yaw="0.000000">
-			<MapObject name="TwinkFlyTo1" id="7"/>
+			<MapObject name="TwinkFlyTo1" id="8"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="1400,200,200" yaw="0.000000">
-			<MapObject name="Twink" id="6"/>
+			<MapObject name="Twink" id="7"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="20" palette="0" animations="1A,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="907,10,-19" yaw="0.000000">
-			<MapObject name="ParakarryPos" id="5"/>
+			<MapObject name="ParakarryPos" id="6"/>
 		</Marker>
 		<Marker ver="4" type="Group">
-			<MapObject name="Entrances" id="4"/>
+			<MapObject name="Entrances" id="5"/>
+		</Marker>
+		<Marker ver="4" type="Entry" pos="907,10,21" yaw="0.000000">
+			<MapObject name="Entry5" id="4"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="907,10,21" yaw="0.000000">
 			<MapObject name="Entry4" id="3"/>
@@ -2044,6 +2048,7 @@
 			<Entrance type="Teleport" hasCallback="false" entry="Entry2"/>
 			<Entrance type="Teleport" hasCallback="false" entry="Entry3"/>
 			<Entrance type="Teleport" hasCallback="false" entry="Entry4"/>
+			<Entrance type="Teleport" hasCallback="false" entry="Entry5"/>
 		</Generators>
 		<Camera vfov="25" near="16" far="4096" bgcolor="0,0,0" leadsPlayer="false"/>
 		<Fog world="0,10,10,10,255,1000,1000" entity="0,10,10,10,255,950,1000"/>
