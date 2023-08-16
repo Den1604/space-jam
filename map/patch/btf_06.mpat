@@ -119,6 +119,7 @@
 	% Generated
 	Exec  $Script_MakeEntities
 	Exec  $Script_SetupMusic
+	Exec  $Script_SetupTexturePan
 	Exec  $Script_EnterMap
 	% Custom
 	Exec  $Script_MakeItems
@@ -127,6 +128,17 @@
 	
 	If *MF_btf_06_PlatformsActivated == .True
 		Exec  $Script_SetupPlatforms
+	EndIf
+	
+	If *MF_btf_06_DoorActivated == .False
+		If *MF_btf_06_CollectedDiamondStone == .True
+			Call MakeItemEntity ( .Item:DiamondStone ~Vec3D:DiamondEmblemPosition .ItemSpawnMode:Decoration 0 )
+			Set *MapVar[5] *Var0
+		EndIf
+		If *MF_btf_06_CollectedLunarStone == .True
+			Call MakeItemEntity ( .Item:LunarStone ~Vec3D:LunarEmblemPosition .ItemSpawnMode:Decoration 0 )
+			Set *MapVar[6] *Var0
+		EndIf
 	EndIf
 	
 	Call MakeNpcs ( .False $NpcGroupList )
@@ -140,56 +152,14 @@
 #new:Script $Script_MakeItems {
 	Call MakeItemEntity ( .Item:TastyTonic ~Vec3d:Item1 .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedItem1 )
 	Call MakeItemEntity ( .Item:DiamondStone ~Vec3d:ItemDiamondStone .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedDiamondStone )
+	Call MakeItemEntity ( .Item:LunarStone ~Vec3d:ItemLunarStone .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedLunarStone )
 	Return
 	End
 }
 
 #new:Script $Script_SetupItemCutscenes {
-	Call AwaitPlayerApproach ( ~Vec2D:ItemDiamondStone 19` )
-	Call AwaitPlayerLeave ( ~Vec2D:ItemDiamondStone 19` )
-	
-	Call DisablePlayerInput ( .True )
-	
-	Wait 10`
-	
-	Call GetPlayerPos ( *VarA *VarB *VarC )
-    Call ShowEmote ( 00000000 .Emote:Question -45` 30` .False *VarA *VarB *VarC 0` )
-	
-	Wait 35`
-	
-	ExecWait $Script_PanCamera_SpringCam
-	
-	Wait 15`
-	
-	Call MakeLerp ( 200` 40` 18` .Easing:QuadraticIn )
-	Loop
-		Call UpdateLerp ( )
-		Call $Function_SetEntityPosition ( *MapVar[4] 638` *Var0 -399` )
-		Wait 1`
-		If *Var1 == 00000000
-			BreakLoop
-		EndIf
-	EndLoop
-	
-	% SOUND_OBJECT_LAND
-	Call PlaySoundAt ( 00000048 00000000 638` *Var0 -399` )
-	% SOUND_SPRING
-	Call PlaySoundAt ( 00002086 00000000 638` *Var0 -399` )
-	Call $Function_PlaySpringAnimation ( *MapVar[4] )
-	
-	Wait 80`
-	
-	Call ResetCam ( .Cam:Default *Fixed[4.0] )
-	
-	Wait 10`
-	
-	% talkAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 05
-	% idleAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 02
-	% stringID - AAAABBBB - space jam strings resource (0x2F), string 0x28
-	Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F003D )
-	
-	Call DisablePlayerInput ( .False )
-	
+	Exec $Script_SetupDiamondCutscene
+	Exec $Script_SetupLunarCutscene
 	Return
 	End
 }
@@ -215,10 +185,15 @@
 	Call  MakeEntity    ( .Entity:YellowBlock ~Vec4d:ItemBlock1 .Item:DizzyDial 80000000 )
 	Call  AssignBlockFlag   ( *MF_btf_06_HitItemBlock1 )
 	
-	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring 80000000 )
-	Call  AssignScript    ( $Script_ScriptedSpring_Spring )
-	% id of spring entity
-	Set   *MapVar[4] *Var0
+	If *MF_btf_06_SpringFallen == .True
+		Call  MakeEntity ( .Entity:ScriptSpring ~Vec4d:SpringEndPosition 80000000 )
+		Call  AssignScript ( $Script_ScriptedSpring_Spring )
+	Else
+		Call  MakeEntity ( .Entity:ScriptSpring ~Vec4d:Spring 80000000 )
+		Call  AssignScript ( $Script_ScriptedSpring_Spring )
+		% id of spring entity
+		Set   *MapVar[4] *Var0
+	EndIf
 	
 	Return
 	End
@@ -261,6 +236,111 @@
 	End
 }
 
+% Cutscenes
+#new:Script $Script_SetupDiamondCutscene {
+	Call AwaitPlayerApproach ( ~Vec2D:ItemDiamondStone 19` )
+	Call AwaitPlayerLeave ( ~Vec2D:ItemDiamondStone 19` )
+	
+	Call DisablePlayerInput ( .True )
+	
+	Wait 10`
+	
+	Call GetPlayerPos ( *VarA *VarB *VarC )
+    Call ShowEmote ( 00000000 .Emote:Question -45` 30` .False *VarA *VarB *VarC 0` )
+	
+	Wait 35`
+	
+	ExecWait $Script_PanCamera_DoorCam
+	
+	Wait 80`
+	
+	Call MakeItemEntity ( .Item:DiamondStone ~Vec3D:DiamondEmblemPosition .ItemSpawnMode:Decoration 0 )
+	Set *MapVar[5] *Var0
+	
+	Wait 100`
+	
+	ExecWait $Script_PanCamera_SpringCam
+	
+	Wait 15`
+	
+	Call MakeLerp ( 200` 40` 18` .Easing:QuadraticIn )
+	Loop
+		Call UpdateLerp ( )
+		Call $Function_SetEntityPosition ( *MapVar[4] 638` *Var0 -399` )
+		Wait 1`
+		If *Var1 == 00000000
+			BreakLoop
+		EndIf
+	EndLoop
+	
+	Set *MF_btf_06_SpringFallen .True
+	
+	% SOUND_OBJECT_LAND
+	Call PlaySoundAt ( 00000048 00000000 638` *Var0 -399` )
+	% SOUND_SPRING
+	Call PlaySoundAt ( 00002086 00000000 638` *Var0 -399` )
+	Call $Function_PlaySpringAnimation ( *MapVar[4] )
+	
+	Wait 80`
+	
+	Call ResetCam ( .Cam:Default *Fixed[4.0] )
+	
+	Wait 10`
+	
+	% talkAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 05
+	% idleAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 02
+	% stringID - AAAABBBB - space jam strings resource (0x2F), string 0x28
+	Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F003D )
+	
+	Call DisablePlayerInput ( .False )
+	
+	Return
+	End
+}
+
+#new:Script $Script_SetupLunarCutscene {
+	Call AwaitPlayerApproach ( ~Vec2D:ItemLunarStone 19` )
+	Call AwaitPlayerLeave ( ~Vec2D:ItemLunarStone 19` )
+	
+	Call DisablePlayerInput ( .True )
+	
+	Wait 10`
+	
+	Call GetPlayerPos ( *VarA *VarB *VarC )
+    Call ShowEmote ( 00000000 .Emote:Question -45` 30` .False *VarA *VarB *VarC 0` )
+	
+	Wait 35`
+	
+	ExecWait $Script_PanCamera_DoorCam
+	
+	Wait 80`
+	
+	Call MakeItemEntity ( .Item:LunarStone ~Vec3D:LunarEmblemPosition .ItemSpawnMode:Decoration 0 )
+	Set *MapVar[6] *Var0
+	
+	Wait 100`
+	
+	Call RemoveItemEntity ( *MapVar[5] )
+	Call RemoveItemEntity ( *MapVar[6] )
+	Call EnableModel ( ~Model:DoorBBlocker1 .False )
+	Call EnableModel ( ~Model:DoorBBlocker2 .False )
+	
+	Wait 100`
+	
+	Call ResetCam ( .Cam:Default *Fixed[4.0] )
+	
+	Wait 10`
+	
+	% talkAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 05
+	% idleAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 02
+	% stringID - AAAABBBB - space jam strings resource (0x2F), string 0x28
+	Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F003E )
+	
+	Call DisablePlayerInput ( .False )
+	
+	Return
+	End
+}
 
 % Platform movement
 #new:Script $Script_SetupPlatforms {

@@ -670,3 +670,13 @@
 	find a use for it.
 	[Wait][END]
 }
+
+#message:2F:03E
+{
+	[Style Right]
+	These gems seem to have a[br]
+	special meaning. I can sense[br]
+	that this did something too.[br]
+	[Wait][END]
+}
+

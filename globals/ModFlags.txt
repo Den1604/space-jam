@@ -29,3 +29,6 @@
 026 = MF_btf_15_HiddenBlock2
 027 = MF_btf_16_HiddenBlock
 028 = MF_btf_16_GourmetGuyFeasted
+029 = MF_btf_06_SpringFallen
+02F = MF_btf_06_CollectedLunarStone
+030 = MF_btf_06_DoorActivated
