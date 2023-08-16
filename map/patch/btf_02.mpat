@@ -470,8 +470,10 @@ EndLoop
 [CenterX:00]
 [Down:03]
 "The brightest star"[BR][PAUSE:6]
-A gift from the princess.[BR][PAUSE:4]
+A gift from the princess.[BR]
+[InputOff][PAUSE:4]
 Artist:[Pause:25] Green Toad
+[InputOn]
 [WAIT][END]
 }
 
@@ -486,7 +488,7 @@ Artist:[Pause:25] Green Toad
 	SetGroup 0000001B
     Call  UseExitHeading ( 60` ~Entry:Entry_0 )
 	Exec  ExitWalk
-	Call  GotoMap   ( "btf_02" ~Entry:btf_02:Entry_1 )
+	Call  GotoMap   ( "btf_17" ~Entry:btf_17:Entry_0 )
 	Wait  100`
 	Return
 	End
@@ -584,7 +586,7 @@ Artist:[Pause:25] Green Toad
 {
     Call DisablePlayerInput ( .True )
     Call DisablePartnerAI ( 00000000 )
-    If *MF_btf_XX_TalkedToMuskular == .True
+    If *MF_btf_17_TalkedToMuskular == .True
         Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0022 )
         Call ShowChoice ( 001E0004 )
         Call CloseMessage ()

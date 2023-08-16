@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_16" author="unnamed" background="hos_bg" textures="iwa_tex">
 	<Editor>
-		<Camera pos="84.270866,279.326843,332.216675" pitch="37.120041" yaw="359.536011"/>
-		<Camera pos="-380.702209,65536.000000,-56.917889"/>
+		<Camera pos="-445.358398,170.350479,345.221313" pitch="12.000000" yaw="18.318003"/>
+		<Camera pos="-309.474915,65536.000000,-251.204086"/>
 		<Camera pos="65536.000000,11.298388,116.571930"/>
-		<Camera pos="-100.527817,8.184482,65536.000000"/>
+		<Camera pos="-322.098022,48.976139,65536.000000"/>
 	</Editor>
 	<ModelTree>
 		<Node name="Root" id="1F">
@@ -79,13 +79,14 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="4">
+		<Node name="Root" id="5">
 			<Node name="Entrances" id="0">
 				<Node name="Entry0" id="FFFFFFFF"/>
 			</Node>
 			<Node name="GourmetGuy" id="1"/>
 			<Node name="HiddenBlock" id="2"/>
 			<Node name="LavaResetPos" id="3"/>
+			<Node name="GourmetCamera" id="4"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -2601,7 +2602,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="2">
-			<MapObject name="ChocolateCollider" id="F"/>
+			<MapObject name="ChocolateCollider" id="F" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -2638,7 +2639,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="E"/>
+			<MapObject name="MeshCollider" id="E" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -2698,7 +2699,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="CubeCollider" id="C"/>
+			<MapObject name="CubeCollider" id="C" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -2750,7 +2751,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="ProjectionCollider" id="B"/>
+			<MapObject name="ProjectionCollider" id="B" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -2798,7 +2799,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="A"/>
+			<MapObject name="Split Collider" id="A" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -2872,7 +2873,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="9"/>
+			<MapObject name="MeshCollider" id="9" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -2916,7 +2917,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="8"/>
+			<MapObject name="MeshCollider" id="8" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -2964,7 +2965,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="6"/>
+			<MapObject name="MeshCollider" id="6" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -3044,7 +3045,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="4"/>
+			<MapObject name="MeshCollider" id="4" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -3186,7 +3187,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="HullCollider" id="2"/>
+			<MapObject name="HullCollider" id="2" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -3216,7 +3217,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="EastLZ" id="0"/>
+			<MapObject name="EastLZ" id="0" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -3301,7 +3302,10 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="4"/>
+			<MapObject name="Root" id="5"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="-302,77,-247" yaw="0.000000">
+			<MapObject name="GourmetCamera" id="4"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="26,20,-71" yaw="0.000000">
 			<MapObject name="LavaResetPos" id="3"/>

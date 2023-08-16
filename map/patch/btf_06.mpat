@@ -334,7 +334,7 @@
 	% talkAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 05
 	% idleAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 02
 	% stringID - AAAABBBB - space jam strings resource (0x2F), string 0x28
-	Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F003E )
+	Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0050 )
 	
 	Call DisablePlayerInput ( .False )
 	

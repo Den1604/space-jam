@@ -69,7 +69,7 @@
 
 #message:2F:006
 {
-	[Style Narrate]
+	[Style Inspect]
 	[BR]
 	[Size 27]  -    Credits    -[SizeReset][br]
 	[BR]
@@ -237,7 +237,7 @@
 
 #message:2F:014
 {
-	[Style Narrate]
+	[Style Inspect]
 	Do you want to pray to the[br]
 	almighty Whale?[br]
 	[Yield][End]
@@ -541,7 +541,7 @@
 	[Wait][Next]
 	Fetch me something more[br]
 	interesting instead, man.[br]
-	[Wait][END]
+	[Wait][End]
 }
 
 #message:2F:031
@@ -557,16 +557,20 @@
 #message:2F:032
 {
 	[Style Right]
-	Tastes a litte...[Pause:15][br]
+	Tastes a little...[Pause:15][br]
 	bland.[Pause:30][br]
 	Yeah, this tastes like nothing.[br]
+	[Wait][Next]
+	Now I'm hungry and have no clue[br]
+	what I was supposed to do with[br]
+	that letter...[br]
 	[Wait][End]
 }
 
 #message:2F:033
 {
 	[Style Right]
-	Now I'm hungry and have no clue[br]
+	I'm still hungry and have no clue[br]
 	what I was supposed to do with[br]
 	that letter...[br]
 	[Wait][End]
@@ -615,6 +619,9 @@
 #message:2F:037
 {
 	[Style Right]
+	Another letter, duly delivered.[br]
+	A postman's job is never done.[br]
+	[Wait][Next]
 	Well that's that, let's[br]
 	get going Mario![br]
 	[Wait][End]
@@ -668,10 +675,171 @@
 	done something, somehow.[Pause:10][br]
 	Let's continue, maybe we can[br]
 	find a use for it.
-	[Wait][END]
+	[Wait][End]
 }
 
 #message:2F:03E
+{
+	[Style Right]
+	[Voice Star][Down 6][Size 40]Who's there?[br]
+	[Wait][End]
+}
+
+#message:2F:03F
+{
+	[Style Right]
+	Mario and Parakarry, delivering[br]
+	a very important letter![br]
+	[Wait][End]
+}
+
+#message:2F:040
+{
+	[Style Right]
+	[Voice Star]Oh![Pause:10][br]
+	I'll be right there with you,[br]
+	in a second![br]
+	[Wait][End]
+}
+
+#message:2F:041
+{
+	[Style Right]
+	Another letter, duly delivered.[br]
+	A postman's job is never done.[br]
+	[Wait][End]
+}
+
+#message:2F:042
+{
+	[Style Right]
+	Another letter, duly delivered.[br]
+	A postman's job is never done.[br]
+	[Wait][Next]
+	Let's see if we can get out of[br]
+	here now, Mario.[br]
+	[Wait][End]
+}
+
+#message:2F:043
+{
+	[Style Right]
+	Here's the letter![br]
+	[Wait][End]
+}
+
+#message:2F:044
+{
+	[Style Right]
+	[Voice Star]Thank you![Pause:15][br]
+	This might be highly important[br]
+	let me go read it, I might need[br]
+	you both again.[br]
+	[Wait][End]
+}
+
+#message:2F:045
+{
+	[Style Right]
+	[Voice Star]Hm.[Pause:20].[Pause:20].[Pause:20][br]
+	[Wait][End]
+}
+
+#message:2F:046
+{
+	[Style Right]
+	[Voice Star]Mario![Pause:15][br]
+	Parakarry![br]
+	[Wait][Next]
+	I am entrusting you with an[br]
+	extremely important task.[Pause:15][br]
+	I am going to hand you five[br]
+	letters.[br]
+	[Wait][Next]
+	Please deliver all these for[br]
+	me, it's of utmost importance![Pause:15][br]
+	The world is at stake![br]
+	[Wait][End]
+}
+
+#message:2F:047
+{
+	[Style Right]
+	O-Of course![Pause:10][br]
+	Mario and I will not disappoint[br]
+	you, Muskular.[br]
+	[Wait][Next]
+	Right, Mario?[br]
+	[Wait][End]
+}
+
+#message:2F:048
+{
+[style right]
+OH![br]
+[Wait][End]
+}
+
+#message:2F:049
+{
+[style right]
+OHHHH![br]
+[Wait][End]
+}
+
+#message:2F:04A
+{
+	[Style Right]
+	[Voice Star]Off you two go then![Pause:10][br]
+	If you need anything I will be[br]
+	right here.[br]
+	[Wait][End]
+}
+
+#message:2F:04B
+{
+	[Style Right]
+	[Voice Star]Alright, I will now provide[br]
+	you the letters.[br]
+	[Wait][End]
+}
+
+#message:2F:04C
+{
+[style right]
+[Voice Star]Oh![Pause:10] There is one more thing[br]
+I would like to give you[br]
+for your travels.[br]
+[Wait][Next]
+Parakarry, could you come[br]
+a little closer?[br]
+[Wait][End]
+}
+
+#message:2F:04D
+{
+[style right]
+Of course![br]
+[Wait][End]
+}
+
+#message:2F:04E
+{
+	[Style Right]
+	[Voice Star]Off with you two for real[br]
+	this time![br]
+	[Wait][End]
+}
+
+#message:2F:04F
+{
+	[Style Inspect]
+	Parakarry can now use Starmail[br]
+	in battle![br]
+	[Wait][End]
+}
+
+#message:2F:050
 {
 	[Style Right]
 	These gems seem to have a[br]

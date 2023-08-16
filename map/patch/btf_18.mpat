@@ -1,0 +1,21 @@
+@ $Script_Main {
+    Set   *GB_WorldLocation  .Location:GoombaRoad
+    Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+    Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+    Call  SetCamEnabled      ( .Cam:Default .True
+    Call  SetCamLeadPlayer   ( .Cam:Default .False )
+    Exec  $Script_SetupMusic
+	Call  $Function_SetupFog
+    Exec  $Script_EnterMap
+	Call  PlayEffect    ( ~FX:Snowfall 00000200 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 ) % is the limit
+    Call HidePlayerShadow ( .True )
+    Return
+    End
+}
+
+@ $Script_SetupMusic {
+    Call  SetMusicTrack ( 00000000 .Song:IcedLand 00000000 00000006 )
+    Call  ClearAmbientSounds ( 250` )
+    Return
+    End
+}
