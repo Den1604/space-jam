@@ -2,3 +2,8 @@
 {
 	Double Smash[End]
 }
+
+#string:26:0F0
+{
+	Note[End]
+}

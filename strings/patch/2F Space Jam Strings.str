@@ -885,3 +885,64 @@ Of course![br]
 	Should we get going, Mario?[br]
 	[Wait][Yield][End]
 }
+#message:2F:054
+{
+	[Style Right]
+	Were you able to let off your[br]
+	need for movement?[br]
+	[Wait][Next]
+	So proud of you.[br]
+	[Wait][END]
+}
+
+#message:2F:055
+{
+	[Style Right]
+	A Clubba in the Star[br]
+	Temple.. correct?[br]
+	[Wait][Next]
+	The name's Parakarry. I deliver[br]
+	letters..[Pause:10][br]
+	although we are here with[br]
+	something unusual.[br]
+	[Wait][Next]
+	I believe I have something [br]
+	for you.[br]
+	Hang on a moment.[br]
+	[Wait][END]
+}
+
+#message:2F:056
+{
+	[Style Right]
+	Uh...no! Confound it![BR]
+	[Pause 10]I seem to have lost it![BR]
+	[Pause 10]...I'm terribly sorry.
+	[Wait][End]
+}
+
+#message:2F:057
+{
+	[Style Right]
+	Another[Pause:2].[Pause:2].[Pause:2] note?[Pause:5] delivered?[Pause:8][br]
+	A postman's job comes with[br]
+	many surprises.[br]
+	[Wait][END]
+}
+
+#message:2F:058
+{
+	[Style Right]
+	Wait, uh, what is this?[br]
+	Where did you find this[Pause:4].[Pause:4].[Pause:4].[Pause:4]?[br]
+	[Wait][Next]
+	This seems addressed to me.[Pause:20][br]
+	And urgent.[br]
+	[Wait][Next]
+	I'm sorry, I can't spend my time[br]
+	with you here any longer.[br]
+	Good luck with whatever you[br]
+	are doing![br]
+	[Wait][END]
+}
+

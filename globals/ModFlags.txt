@@ -38,3 +38,4 @@
 035 = MF_btf_06_DoorActivated
 036 = MF_btf_21_ThamzLetterDelivered
 037 = MF_PlayerIsOnConsoleOrUsesAres
+038 = MF_btf_19_LetterObtained

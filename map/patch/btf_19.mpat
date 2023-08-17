@@ -1,0 +1,69 @@
+#new:Script $Script_OpenChestAnimation
+{
+    0:  SetGroup  00000000
+    C:  Call  SetTimeFreezeMode ( 00000002 )
+   1C:  Wait  40`
+   28:  Call  ShowGotItem       ( *Var0 .False 00000000 )
+   40:  Call  SetTimeFreezeMode ( 00000000 )
+   50:  Return
+   58:  Return
+   60:  End
+}
+
+#new:Script $Script_OpenChest
+{
+    0:  Call  DisablePlayerInput    ( .True )
+   10:  Set   *Var0  *VarA
+   20:  If  *VarA  !=  00000000
+   30:  	ExecWait  $Script_OpenChestAnimation
+   3C:  EndIf
+   44:  Switch  *VarB
+   50:  	Case  ==  00000000
+   5C:  		Call  AddItem   ( *VarA *Var0 )
+   70:  	Case  ==  00000001
+   7C:  		Call  AddKeyItem    ( *VarA )
+   8C:  	Case  ==  00000002
+   98:  		Call  AddBadge  ( *VarA *Var0 )
+   AC:  EndSwitch
+   B4:  Wait  15`
+   C0:  Call  DisablePlayerInput    ( .False )
+   D0:  Return
+   D8:  End
+}
+
+@ $Script_Main {
+	Set   *GB_WorldLocation  .Location:GoombaRoad
+	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+	Call  SetCamEnabled      ( .Cam:Default .True
+	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+	
+	% Generated
+	Exec  $Script_SetupMusic
+	Exec  $Script_SetupTexturePan
+	Exec  $Script_EnterMap
+	
+	% Custom
+	Exec  $Script_MakeCustomEntities
+	
+	Return
+	End
+}
+
+#new:Script $Script_MakeCustomEntities {
+	Call  MakeEntity    ( .Entity:Chest ~Vec4d:Chenst 00000000 80000000 )
+	Call  AssignFlag    ( *MF_btf_19_LetterObtained )
+	Call  AssignScript  ( $Script_UseChest1 )
+	
+	Return
+	End
+}
+
+#new:Script $Script_UseChest1 {
+	Set *VarA .Item:Letter06
+	Set *VarB 00000001 % 1 for key item
+	Set *MF_btf_19_LetterObtained .True
+	ExecWait $Script_OpenChest
+	Return
+	End
+}
