@@ -245,7 +245,7 @@
         Wait 10`
         Call SetNpcAnimation ( .Npc:Self 00200B03 )
         Wait 15`
-        Call SpeakToPlayer ( .Npc:Self 00200B09 00200B01 00000000 002F0042 )
+        Call SpeakToPlayer ( .Npc:Partner 00200B09 00200B01 00000000 002F0042 )
         %
         % ADD REMOVAL OF LETTER HERE
         %

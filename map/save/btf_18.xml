@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_18" author="unnamed" background="hos_bg" textures="sam_tex">
 	<Editor>
-		<Camera pos="125.731941,247.791382,462.644592" pitch="26.560072" yaw="356.559662"/>
-		<Camera pos="15.859941,65536.000000,-42.305073"/>
+		<Camera pos="249.999985,154.134857,539.081787" pitch="13.000001" yaw="0.000000"/>
+		<Camera pos="274.199188,65536.000000,-94.570023"/>
 		<Camera pos="65536.000000,-9.176682,-33.992348"/>
-		<Camera pos="22.112581,-23.814632,65536.000000"/>
+		<Camera pos="168.132034,12.300945,65536.000000"/>
 	</Editor>
 	<ModelTree>
-		<Node name="Root" id="41">
+		<Node name="Root" id="42">
 			<Node name="Stage" id="0"/>
 			<Node name="Exit_North" id="1"/>
 			<Node name="Exit_East" id="4">
@@ -75,6 +75,7 @@
 				<Node name="SpaceTruck_AirFreshener" id="3E"/>
 				<Node name="SpaceTruck_Roof" id="3F"/>
 			</Node>
+			<Node name="Split Model" id="41"/>
 		</Node>
 	</ModelTree>
 	<ColliderTree>
@@ -123,9 +124,55 @@
 	</LightSets>
 	<Models>
 		<Model ver="2" type="ROOT" lightset="0">
-			<MapObject name="Root" id="41"/>
+			<MapObject name="Root" id="42"/>
 			<BoundingBox empty="false" min="-784,-200,-1000" max="401,297,206"/>
 			<PropertyList>
+			</PropertyList>
+		</Model>
+		<Model ver="2" type="MODEL" lightset="0">
+			<MapObject name="Split Model" id="41"/>
+			<ShapeMesh ver="3" texture="sam_yane_yukitif">
+				<DisplayList>
+					<F3DEX2 cmd="E7000000,0"/>
+					<F3DEX2 cmd="D9FDFFFF,0"/>
+					<F3DEX2 cmd="D9FFFFFF,200400"/>
+					<TriangleBatch ver="0">
+						<VertexTable>
+							<Vertex xyz="-200,-15,0" uv="-13056,1023"/>
+							<Vertex xyz="-186,-6,-48" uv="-10195,1023"/>
+							<Vertex xyz="-186,23,-48" uv="-10195,0"/>
+							<Vertex xyz="-200,14,0" uv="-13056,0"/>
+							<Vertex xyz="-149,-6,-85" uv="-8596,1023"/>
+							<Vertex xyz="-149,23,-85" uv="-8596,0"/>
+							<Vertex xyz="-99,-6,-98" uv="-6436,1023"/>
+							<Vertex xyz="-99,23,-98" uv="-6436,0"/>
+							<Vertex xyz="253,-6,-98" uv="8769,1024"/>
+							<Vertex xyz="253,23,-98" uv="8769,0"/>
+							<Vertex xyz="253,23,-98" uv="8769,0"/>
+							<Vertex xyz="300,14,-100" uv="10800,0"/>
+							<Vertex xyz="300,-15,-100" uv="10800,1024"/>
+							<Vertex xyz="300,-15,-100" uv="10800,1024"/>
+							<Vertex xyz="253,-6,-98" uv="8769,1024"/>
+							<Vertex xyz="253,23,-98" uv="8769,0"/>
+						</VertexTable>
+						<TriangleList>
+							<Triangle ijk="0,1,2"/>
+							<Triangle ijk="2,3,0"/>
+							<Triangle ijk="1,4,5"/>
+							<Triangle ijk="5,2,1"/>
+							<Triangle ijk="4,6,7"/>
+							<Triangle ijk="7,5,4"/>
+							<Triangle ijk="6,8,9"/>
+							<Triangle ijk="9,7,6"/>
+							<Triangle ijk="10,11,12"/>
+							<Triangle ijk="13,14,15"/>
+						</TriangleList>
+					</TriangleBatch>
+				</DisplayList>
+			</ShapeMesh>
+			<PropertyList>
+				<Property v="5C,0,D"/>
+				<Property v="5F,0,0"/>
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="GROUP" lightset="0">
@@ -8731,32 +8778,32 @@
 			<MapObject name="Root" id="8"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="27,0,81" yaw="0.000000">
-			<MapObject name="MarioExitCar" id="7" hidden="true"/>
+			<MapObject name="MarioExitCar" id="7"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="-25,0,82" yaw="0.000000">
-			<MapObject name="ParakarryExitCar" id="6" hidden="true"/>
+			<MapObject name="ParakarryExitCar" id="6"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="-17,87,118" yaw="0.000000">
-			<MapObject name="ParakarryCarFlyTo1" id="5" hidden="true"/>
+			<MapObject name="ParakarryCarFlyTo1" id="5"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="-17,7,183" yaw="0.000000">
-			<MapObject name="ParakarryCarFlyTo2" id="4" hidden="true"/>
+			<MapObject name="ParakarryCarFlyTo2" id="4"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="-17,7,132" yaw="0.000000">
-			<MapObject name="MarioCarJumpTo" id="3" hidden="true"/>
+			<MapObject name="MarioCarJumpTo" id="3"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="25,57,300" yaw="0.000000">
-			<MapObject name="CamPan" id="2" hidden="true"/>
+			<MapObject name="CamPan" id="2"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" samplePos="0,0,0" overrideLength="450.000000" overrideAngles="18.000000,-5.000000"/>
 		</Marker>
 		<Marker ver="4" type="Group">
 			<MapObject name="Entrances" id="1"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="-500,0,0" yaw="90.000000">
-			<MapObject name="Entry1" id="0" hidden="true"/>
+			<MapObject name="Entry1" id="0"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="275,0,0" yaw="270.000000">
-			<MapObject name="Entry0" id="FFFFFFFF" hidden="true"/>
+			<MapObject name="Entry0" id="FFFFFFFF"/>
 		</Marker>
 	</Markers>
 	<ScriptData>
