@@ -461,6 +461,7 @@
 	Set *Var9 002F0057 % "another letter duly delivered"
 	Set *VarA 002F0058 % string by other npc
 	Set *VarB $LetterList_NpcGuard
+	
 	ExecWait  $Script_DoLetterDelivery
 	Return
 	End
@@ -468,6 +469,11 @@
 
 #new:Script $Script_LetterReward_NpcGuard
 {
+	% Script_DoLetterDelivery writes its return value into VarC
+	% it's 0 if you don't have the letter
+	% 1 if you do but cancel out of the item select box
+	% and 2 if the letter was delivered
+	
 	If  *VarC  ==  00000002
 		% purely placeholder
 		Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 002F002F )
