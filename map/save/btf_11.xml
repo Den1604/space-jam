@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_11" author="unnamed" textures="kmr_tex">
 	<Editor>
-		<Camera pos="222.153961,124.036812,342.797729" pitch="9.999999" yaw="-14.693415"/>
+		<Camera pos="324.417175,267.159210,640.251038" pitch="32.799995" yaw="343.546539"/>
 		<Camera pos="5.289062,65536.000000,-9.026970"/>
 		<Camera pos="65536.000000,93.961205,-799.349609"/>
 		<Camera pos="-101.051018,248.455673,65536.000000"/>
@@ -2216,7 +2216,7 @@
 			<HitObject type="ROOT"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="FishCollider" id="6" hidden="true"/>
+			<MapObject name="FishCollider" id="6"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -2257,8 +2257,8 @@
 				</TriangleBatch>
 			</HitMesh>
 		</Collider>
-		<Collider ver="0" flags="0">
-			<MapObject name="HullCollider" id="5" hidden="true"/>
+		<Collider ver="0" flags="8000">
+			<MapObject name="HullCollider" id="5"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -2320,7 +2320,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="4" hidden="true"/>
+			<MapObject name="Split Collider" id="4"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -2454,7 +2454,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Planar GridCollider" id="3" hidden="true"/>
+			<MapObject name="Planar GridCollider" id="3"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">

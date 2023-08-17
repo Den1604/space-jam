@@ -8488,7 +8488,7 @@
 			<MapObject name="MainArea" id="7"/>
 			<HitObject type="GROUP"/>
 		</Collider>
-		<Collider ver="0" flags="0">
+		<Collider ver="0" flags="8000">
 			<MapObject name="Split Collider" id="6"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
@@ -8552,7 +8552,7 @@
 				</TriangleBatch>
 			</HitMesh>
 		</Collider>
-		<Collider ver="0" flags="0">
+		<Collider ver="0" flags="8000">
 			<MapObject name="ShipLeaveCollider" id="5"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
@@ -8652,7 +8652,7 @@
 			<MapObject name="ExitGuards" id="3"/>
 			<HitObject type="GROUP"/>
 		</Collider>
-		<Collider ver="0" flags="0">
+		<Collider ver="0" flags="8000">
 			<MapObject name="HullCollider" id="2"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
