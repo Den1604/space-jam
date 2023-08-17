@@ -8,7 +8,11 @@
 	Exec  $Script_SetupTexturePan
 	Call  $Function_SetupFog
     Exec  $Script_EnterMap
-	Call  PlayEffect    ( ~FX:Snowfall 00000200 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 ) % is the limit
+    If *MF_PlayerIsOnConsoleOrUsesAres == .True
+        Call  PlayEffect    ( ~FX:Snowfall 0000012C 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+    Else
+        Call  PlayEffect    ( ~FX:Snowfall 00000200 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )%is limit, above crashes when hammering
+    EndIf
     Call HidePlayerShadow ( .True )
     Bind $Script_MarioAndParakarryLeave .Trigger:WallPressA ~Collider:ShipLeaveCollider 00000001 00000000
     Return
@@ -17,7 +21,7 @@
 
 @ $Script_SetupMusic {
     Call  SetMusicTrack ( 00000000 .Song:IcedLand 00000000 00000006 )
-    Call  ClearAmbientSounds ( 250` )
+	Call  PlayAmbientSounds  ( .AmbientSounds:Wind )
     Return
     End
 }

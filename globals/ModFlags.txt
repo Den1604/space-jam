@@ -37,3 +37,4 @@
 034 = MF_btf_06_CollectedLunarStone
 035 = MF_btf_06_DoorActivated
 036 = MF_btf_21_ThamzLetterDelivered
+037 = MF_PlayerIsOnConsoleOrUsesAres

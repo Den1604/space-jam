@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_18" author="unnamed" background="hos_bg" textures="sam_tex">
 	<Editor>
-		<Camera pos="51.915104,285.535553,551.234070" pitch="26.720072" yaw="356.559662"/>
+		<Camera pos="125.731941,247.791382,462.644592" pitch="26.560072" yaw="356.559662"/>
 		<Camera pos="15.859941,65536.000000,-42.305073"/>
 		<Camera pos="65536.000000,-9.176682,-33.992348"/>
 		<Camera pos="22.112581,-23.814632,65536.000000"/>
@@ -78,18 +78,24 @@
 		</Node>
 	</ModelTree>
 	<ColliderTree>
-		<Node name="Root" id="A">
-			<Node name="Stage" id="4">
-				<Node name="exit_trigger_e" id="0"/>
-				<Node name="Exits" id="1"/>
-				<Node name="HullCollider" id="2"/>
-				<Node name="ExitGuards" id="3"/>
+		<Node name="Root" id="C">
+			<Node name="Stage" id="B">
+				<Node name="Exits" id="1">
+					<Node name="exit_trigger_e" id="0"/>
+				</Node>
+				<Node name="ExitGuards" id="3">
+					<Node name="HullCollider" id="2"/>
+				</Node>
+				<Node name="MainArea" id="7">
+					<Node name="MeshCollider" id="4"/>
+					<Node name="ShipLeaveCollider" id="5"/>
+					<Node name="Split Collider" id="6"/>
+				</Node>
+				<Node name="Misc" id="A">
+					<Node name="Planar GridCollider" id="8"/>
+					<Node name="MeshCollider" id="9"/>
+				</Node>
 			</Node>
-			<Node name="MeshCollider" id="5"/>
-			<Node name="ShipLeaveCollider" id="6"/>
-			<Node name="Split Collider" id="7"/>
-			<Node name="Planar GridCollider" id="8"/>
-			<Node name="MeshCollider" id="9"/>
 		</Node>
 	</ColliderTree>
 	<ZoneTree>
@@ -8421,8 +8427,16 @@
 	</Models>
 	<Colliders>
 		<Collider ver="0" flags="0">
-			<MapObject name="Root" id="A"/>
+			<MapObject name="Root" id="C"/>
 			<HitObject type="ROOT"/>
+		</Collider>
+		<Collider ver="0" flags="0">
+			<MapObject name="Stage" id="B"/>
+			<HitObject type="GROUP"/>
+		</Collider>
+		<Collider ver="0" flags="0">
+			<MapObject name="Misc" id="A"/>
+			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
 			<MapObject name="MeshCollider" id="9"/>
@@ -8471,7 +8485,11 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="7"/>
+			<MapObject name="MainArea" id="7"/>
+			<HitObject type="GROUP"/>
+		</Collider>
+		<Collider ver="0" flags="0">
+			<MapObject name="Split Collider" id="6"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8535,7 +8553,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="ShipLeaveCollider" id="6"/>
+			<MapObject name="ShipLeaveCollider" id="5"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8555,7 +8573,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="5"/>
+			<MapObject name="MeshCollider" id="4"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8629,10 +8647,6 @@
 					</TriangleList>
 				</TriangleBatch>
 			</HitMesh>
-		</Collider>
-		<Collider ver="0" flags="0">
-			<MapObject name="Stage" id="4"/>
-			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
 			<MapObject name="ExitGuards" id="3"/>
@@ -8770,7 +8784,7 @@
 		</Generators>
 		<Camera vfov="25" near="16" far="4096" bgcolor="0,0,0" leadsPlayer="false"/>
 		<Fog world="1,0,0,0,255,975,1000" entity="0,0,0,0,255,900,1000"/>
-		<Options location="1F" hasMusic="true" song="3B" hasSounds="false" sounds="1" hasShading="false" shadingName="None"/>
+		<Options location="1F" hasMusic="true" song="3B" hasSounds="true" sounds="1" hasShading="false" shadingName="None"/>
 		<Override tex="true"/>
 	</ScriptData>
 </Map>
