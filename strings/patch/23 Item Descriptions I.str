@@ -45,3 +45,9 @@
 	A star-shaped stone found in[BR]
 	this temple.[End]
 }
+
+#string:23:0F0
+{
+	A letter to a Clubba at the[BR]
+	Star Temple.[End]
+}

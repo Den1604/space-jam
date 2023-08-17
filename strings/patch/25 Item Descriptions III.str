@@ -58,3 +58,11 @@
 	A star-shaped stone found in[BR]
 	this temple.[End]
 }
+
+#string:25:0F0
+{
+	A letter to a Clubba at the[BR]
+	Star Temple.[BR]
+	You can deliver it with your[BR]
+	Paratroopa partner, Parakarry.[End]
+}
