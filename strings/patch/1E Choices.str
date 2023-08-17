@@ -7,7 +7,7 @@
 	[EndChoice cancel=1][End]
 }
 
-#message:1E:01B %Unused but leaving it here for people who look at the source code :P	- Den
+#message:1E:01B
 {
 	[Style Choice pos=85,60 size=150,80]
 	[StartChoice]
@@ -15,5 +15,16 @@
 	[Option 1]Pieface[BR]
 	[Option 2]Gourmet Guy[BR]
 	[Option 3]Merlee[BR]
+	[EndChoice][End]
+}
+
+#message:1E:050
+{
+	[Style Choice pos=70,90 size=185,80]
+	[StartChoice]
+	[Option 0]Console / Ares[BR]
+	[Option 1]Project64[BR]
+	[Option 2]Mupen64 / Simple64[BR]
+	[Option 3]BizHawk[BR]
 	[EndChoice][End]
 }
