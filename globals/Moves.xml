@@ -153,7 +153,7 @@
 	<Move index="096" nameMsg="2B-00C" desc1Msg="28-029" desc2Msg="28-02F" flags="00010003" category="0B" inputPopup="00" fp="00" bp="00" name="SkyDive2"/>
 	<Move index="097" nameMsg="2B-00C" desc1Msg="28-029" desc2Msg="28-030" flags="00010003" category="0B" inputPopup="00" fp="00" bp="00" name="SkyDive3"/>
 	<Move index="098" nameMsg="2B-00D" desc1Msg="28-02A" desc2Msg="28-031" flags="00010003" category="0B" inputPopup="05" fp="03" bp="00" name="ShellShot"/>
-	<Move index="099" nameMsg="2B-00E" desc1Msg="28-02B" desc2Msg="28-032" flags="00008403" category="0B" inputPopup="03" fp="03" bp="00" name="AirLift"/>
+	<Move index="099" nameMsg="2B-00E" desc1Msg="28-02B" desc2Msg="28-032" flags="00000008" category="0B" inputPopup="0A" fp="05" bp="00" name="AirLift"/>
 	<Move index="09A" nameMsg="2B-00F" desc1Msg="28-02C" desc2Msg="28-033" flags="00008002" category="0B" inputPopup="04" fp="06" bp="00" name="AirRaid"/>
 	<Move index="09B" nameMsg="800989D0" desc1Msg="00-000" desc2Msg="00-000" flags="00000003" category="0B" inputPopup="00" fp="00" bp="00" name="Unused_LoneFool1"/>
 	<Move index="09C" nameMsg="800989D0" desc1Msg="00-000" desc2Msg="00-000" flags="00000003" category="0B" inputPopup="00" fp="00" bp="00" name="Unused_LoneFool2"/>

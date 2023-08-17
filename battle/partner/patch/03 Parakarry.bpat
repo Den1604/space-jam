@@ -1,0 +1,302 @@
+%%% Star Mail made by ShyBlookster137, originally for secret project "TSC", ported to "PM:5LuD" for use in the 2nd Paper Mario modding jam %%%
+
+% Things this patch file does:
+% Replace "Air Lift" with "Star Mail", a custom move allowing the player to manifest 
+% one of 4 Items based on the results of the Water Block action command once per battle
+% Set a byte located at the first unused location in Parakarry's data struct (Player Data + 34 + 2)
+% after the move has been used to temporarily disable it for the rest of the current battle
+% Note that this only *sets* said byte, you'll still need some additional hooks in a global patch
+% for the game to understand what said byte means.
+
+
+% Additonal note: The actual battle scripting part is not 100% cleaned up yet,
+% meaning there's a couple redundant operations but it works and doesn't cause
+% any slowdown or something along these lines so I will do that
+% at a later date.
+
+% I highly doubt you would but just to make sure. Do NOT mess with any of this Den.
+
+#new:Function $Func_InitItemCalling { % Setup function to call any item script at will
+% Pass this the item ID of the script you would like to call and follow this up
+% with "Jump  80293E40".
+% NOTE: The Game appears to NOT return to where you originally called this from
+% after executing, make sure to resolve anything you need resolved
+% before calling or put that stuff in a Thread!
+
+PUSH	RA
+LA		T0, 800DC070 	% store start of battle struct at T0
+LW		T1, C (A0) 		% load args pointer into T1. required for fetching arguments.
+JAL 	~Func:get_variable	% actually get the argument and pass it back to A1
+LW		A1, 0000 (T1)	% Load first arg into A1
+SH		A1, 17A (T0)	% Store the important part of A1 at our desired spot in battle
+POP		RA 
+JR		RA
+LI		V0, 2
+}
+
+% Adress to disable move after use: 800DC268 [800DC070 + 1F8] (1 Byte)
+#new:Function $Func_LockMoveAfterUse {
+LA		T0, 8010F290 	% Start of player data
+LI		T1, 01			% Parakarry's Data starts at offset 34. As with every partner
+SB		T1, 36 (T0)		% any Byte past the 2nd is unused, so we will store our move flag there
+JR		RA				
+LI		V0, 2
+
+}
+
+	% Mario paper holding + blinking anim: 08 | 27
+	% PK - 12 (talk) | 13 (happy + talk) | 4,5,6 -> Dive | 16 Carry (Quick)
+	% Mario 1|29 Nod, 1|2A lookUp, 1|21 Think, 1|28 look_tilt, 1|2C pray, 1|1F hold up item, 1|16 Throw
+	
+	
+#new:Script $Script_StarMail {	% Patching "Star Mail" over Air Lift
+% This uses the Water Block action command so a good bit of
+% the general structure was forked from sushie's script
+% ^ Nearing completion this is probably no longer accurate tbh
+
+  Call $Func_LockMoveAfterUse ( ) % Once per battle.
+
+  Call  UseIdleAnimation  ( .Actor:Partner .False )
+  Call  SetActorFlagBits  ( .Actor:Player 20000000 .True ) % Enable Mario's animations in case he already acted this turn !!!REMEMBER TO DISABLE LATER!!!
+  Call  UseIdleAnimation  ( .Actor:Player .False )
+  Call  SetAnimation      ( .Actor:Player 00000000 0001002A )
+  
+  % Rotate PK 180 so he faces Mario
+  Call  SetActorYaw       ( .Actor:Partner 0000001E )
+  Wait  1`
+  Call  SetActorYaw       ( .Actor:Partner 0000003C )
+  Wait  1`
+  Call  SetActorYaw       ( .Actor:Partner 0000005A )
+  Wait  1`
+  Call  SetActorYaw       ( .Actor:Partner 00000078 )
+  Wait  1`
+  Call  SetActorYaw       ( .Actor:Partner 00000096 )
+  Wait  1`
+  Call  SetActorYaw       ( .Actor:Partner 000000B4 )
+  Wait  10`
+  
+  Call  InitTargetIterator ( )
+  Call  UseBattleCamPreset    ( 00000013 )
+  Call  SetBattleCamTarget    ( FFFFFFA1 0000001A 0000000A )
+  Call  SetBattleCamOffsetZ   ( 0000000B )
+  Call  SetBattleCamZoom  ( 000000EE )
+  Call  MoveBattleCamOver ( 0000001E )
+  Wait  10`
+  
+  Call  GetActorPos       ( .Actor:Player *Var0 *Var1 *Var2 )
+  Add *Var0 0000002D
+  Add *Var1 00000008
+  Call  SetGoalPos        ( .Actor:Partner *Var0 *Var1 *Var2 )
+  Call  FlyToGoal        ( .Actor:Partner 0000000F .False .False )
+  % PK Custom anims: 1A Cake | 1B Cap | 1C Star | 1D Smile
+  % Note that the IDs are in order of appearance to make scripting involve less If statments
+  Call  SetAnimation      ( .Actor:Partner FFFFFFFF 000F001A )
+  Wait 10`
+  
+  Call  SetAnimation      ( .Actor:Player 00000000 00010021 )
+  Call  GetActorPos       ( .Actor:Player *Var0 *Var1 *Var2 ) % Potentially useless? might aid in positioning AC UI?
+  Add   *Var0  0000001E % Useless?
+  Call  LoadActionCommand ( .ActionCommand:WaterBlock )
+  Call  802A9000  ( 00000001 ) %action_command_water_block_init / args: int - type (0 = WB, 1 = TC, 2 = CN) only affects icon displayed!
+  Call  80269344  ( 00000000 )
+  Set   *Var0  00000000 % Useless?
+  Set	*Var1  00000000
+  Set	*Var2  000F001A % Initial PK anim ID, used to easily adjust current speech bubble shown
+  Wait  10`
+  
+  Call  802A9398  ( 00000000 00000064 00000003 ) % AC function running? Yep.
+  Wait  48`	%110 init | 48 is perfect.
+  
+  Call  GetActionResult   ( *Var0 ) % I do not understand how exactly this function works just yet tbh <- I do now, ty fish :fishpat:
+	If *Var0 == 0000002
+		Call  SetAnimation      ( .Actor:Player 00000000 00010029 )
+		Add	  *Var2 00000001
+		Call  SetAnimation      ( .Actor:Partner FFFFFFFF *Var2 ) % First press, can only ever advance to Stone Cap aka anim 1B
+		Add   *Var1 00000001 % Keep track of correct inputs for later use
+	Else
+		Call  SetAnimation      ( .Actor:Player 00000000 00010028 )
+	EndIf
+  Wait  10`
+  
+  Call  SetAnimation      ( .Actor:Player 00000000 0001002A ) % Could try never resetting animations, might look a tad less jarring?
+  Wait  10`
+  
+  Call  GetActionResult   ( *Var0 ) % Second big light
+  Sub *Var0 *Var1
+		If *Var0 == 0000002
+			Call	SetAnimation      ( .Actor:Player 00000000 00010029 )
+			Add		*Var2 00000001
+			Call	SetAnimation      ( .Actor:Partner FFFFFFFF *Var2 ) % Advances to either 1B or 1C
+			Add		*Var1 00000001
+		Else
+			Call  SetAnimation      ( .Actor:Player 00000000 00010028 )
+		EndIf
+  
+  Wait  10`
+  Call  SetAnimation      ( .Actor:Player 00000000 0001002A )
+  Wait  10`
+  
+  Call  GetActionResult   ( *Var0 ) % Third big light
+  Sub *Var0 *Var1
+	If *Var0 == 0000002
+		Call  SetAnimation      ( .Actor:Player 00000000 00010029 )
+		Add		*Var2 00000001
+		Call	SetAnimation      ( .Actor:Partner FFFFFFFF *Var2 ) % Advances to either 1B, 1C or 1D
+	Else
+		Call  SetAnimation      ( .Actor:Player 00000000 00010028 )
+	EndIf
+  Wait  10`
+  
+  Call  SetAnimation      ( .Actor:Player 00000000 0001002A ) % 2A - Look Up
+  Wait  2`
+  % TODO from here:
+  % BOUNUS: Add Rng which might be able to upgrade an item?
+  % Dried Shroom -> Mystery | Stone Cap -> Repel Gel | Shroom Cake -> Jelly Ultra | Shooting Star -> ???
+  
+  Call  UseBattleCamPreset    ( 00000013 )
+  Call  SetBattleCamTarget    ( FFFFFFA1 0000001B 0000000A )
+  Call  SetBattleCamOffsetZ   ( 0000000B )
+  Call  SetBattleCamZoom      ( 000001A0 ) % Idk how this works let's just brute force a good angle ig
+  Call  MoveBattleCamOver     ( 0000000A )
+  
+  Call  GetActorPos       ( .Actor:Player *Var0 *Var1 *Var2 )
+  Add	*Var1 0000002D	% 2D appears to be the standard for holding items over mario
+  Call  SetAnimation      ( .Actor:Player 00000000 0001001F ) % 1F - HoldUpItem
+  Call	SetAnimation      ( .Actor:Partner FFFFFFFF 000F0013 ) % 13 - Happy
+  Wait 4` % Needs some potential item polish (line fx, sound)
+  
+  Call  MakeItemEntity    ( 0000001D *Var0 *Var1 *Var2 .ItemSpawnMode:Decoration 00000000 ) % Spawn Letter
+  Set	*VarB *Var0		% MakeItemEntity returns a pointer to the entity created in *Var0, make sure to store so we can remove the entity later
+  Wait 6` 
+  
+  Call  SetAnimation      	( .Actor:Player 00000000 00010016 ) % 1|16 - Throw
+  Call	SetAnimation      	( .Actor:Partner FFFFFFFF 000F0017 ) % 17 - Fly_Neutral
+  Call  GetActorPos       	( .Actor:Partner *Var0 *Var1 *Var2 )
+  Add	*Var0 0000001E % 30x
+  Add	*Var1 0000003C % 60y
+  Call  SetGoalPos        	( .Actor:Partner *Var0 *Var1 *Var2 )
+  Call  FlyToGoal        	( .Actor:Partner 0000000F 00000002 .False ) % ActorID, duration, height arc thing, easing mode
+  Wait 15`
+  
+  Call  GetActorPos       ( .Actor:Player *Var0 *Var1 *Var2 )
+  Add	*Var1 0000002D
+  Call  SetGoalPos        ( .Actor:Partner *Var0 *Var1 *Var2 )
+  Call  EnableActorBlur   ( .Actor:Partner 00000001 )
+  Call	PlaySoundAtActor	( .Actor:Partner 00002004 )
+  Thread
+  Call  FlyToGoal        ( .Actor:Partner 0000000F 00000003 .False ) % Appears to fully execute before returning to script therefore we shall use a **Thread**
+  EndThread
+  Call  SetActorRotationOffset    ( .Actor:Partner 00000000 0000000C 00000000 )
+  Call  SetActorRotation  ( .Actor:Partner 00000000 00000000 0000013B ) % 315 degrees?
+  Call  SetAnimation      ( .Actor:Partner FFFFFFFF 000F0004 ) % 4,5,6 -> Dive
+  Wait 4`
+  
+  Call  SetAnimation      ( .Actor:Partner FFFFFFFF 000F0005 ) % 4,5,6 -> Dive
+  Thread
+  	Set   *Var0  00000000
+  	Loop  0000000A
+  		Add   *Var0  00000024
+  		Call  SetActorRotation  ( .Actor:Partner 00000000 00000000 *Var0 )
+  		Wait  1`
+  	EndLoop
+  	Call  SetActorRotation  ( .Actor:Partner 00000000 00000000 00000014 )
+  EndThread
+  Wait 6`
+  
+  Call  SetAnimation      ( .Actor:Partner FFFFFFFF 000F0006 ) % 4,5,6 -> Dive
+  Wait 4`
+  
+  Call  RemoveItemEntity  ( *VarB ) % Get rid of this a bit earlier to prevent visual Z fighting
+  Wait 1`
+  
+  Call  SetAnimation      ( .Actor:Partner FFFFFFFF 000F001E ) % 1E - Carry(Letter) [Derived from 16 - Carry(Quick)]
+  Call	GetActorPos 	  ( .Actor:Partner *Var0 *Var1 *Var2 )
+  Sub	*Var0	00000060
+  Add	*Var1	00000050
+  Call	SetGoalPos		  ( .Actor:Partner *Var0 *Var1 *Var2 )
+  Call  SetAnimation      ( .Actor:Player 00000000 0001001F )
+  Call	PlaySoundAtActor	( .Actor:Partner 00002005 )
+  Call  FlyToGoal        ( .Actor:Partner 00000019 00000003 .False ) % 25 Frames to finish
+  Call 	GetActorPos	( .Actor:Player *Var0 *Var1 *Var2 )
+  Add 	*Var1 0000003A
+  Call  PlayEffect    ( ~FX:StarSpirits:SpellBroken *Var0 *Var1 *Var2 *Fixed[1.0] 000000FF 00000000 00000000 00000000 00000000 00000000 00000000 00000000 ) % X/Y/Z | Scale | Duration
+  
+  Call  UseBattleCamPreset    ( 00000013 )
+  Call  SetBattleCamTarget    ( FFFFFFA1 0000001B 0000000A )
+  Call  SetBattleCamOffsetZ   ( 0000000B )
+  Call  SetBattleCamZoom      ( 00000115 )
+  Call  MoveBattleCamOver     ( 0000000A )
+  Wait 5`
+  Call	PlaySoundAtActor	( .Actor:Player 00000139 ) % 2051 = "StarWoosh" | 241 = "StarAppear" | 2045 = "ShimmerEchoFadeOut" | 139 = "StarAscend"
+  Wait 5`
+  Call  GetActionCommandResult    ( *Var0 )
+  If  *Var0  ==  00000000
+  	Set   *VarA  *Var0
+  	Goto  A
+  EndIf 
+  Wait  45`
+    % Basic Clean-Up
+	% Gotta do it here due to Item Script quirks
+	Thread
+		Switch	*Var0
+			Case  ==  00000001
+				Wait 80`
+			Case  ==  00000002
+				Wait 80`
+			Case  ==  00000003
+				Wait 60` % Stone Cap
+			Case  ==  00000004
+				Wait 180`
+		EndSwitch
+  Call  SetActorFlagBits  ( .Actor:Player 20000000 .False )
+  Call  EnableActorBlur   ( .Actor:Partner 00000000 )
+  Call  SetActorYaw   ( .Actor:Partner 00000000 )
+  Call  SetActorRotation  ( .Actor:Partner 00000000 00000000 00000000 )
+  Call  SetActorRotationOffset    ( .Actor:Partner 00000000 00000000 00000000 )
+  Call  80280818 ( ) % Dunno what exactly this does but it seems to be called at the end of most if not all Partner Moves so probably resets some Partner variables
+  Call  SetActorSpeed ( .Actor:Partner *Fixed[12.0] )
+  Call  SetGoalToHome     ( .Actor:Partner )
+  Call  SetAnimation      ( .Actor:Partner FFFFFFFF 000F0003 )
+  Call  FlyToGoal     ( .Actor:Partner 00000008 00000000 .Easing:Linear )
+	EndThread
+	
+	Call	PlaySoundAtActor	( .Actor:Player 00000137 ) % 137 = "CosmicAppear"
+	
+  Switch  *Var0		% Load different item based on # of hits on the WB action command
+  	Case  ==  00000001 % 0 Inputs = Dried Shroom [8D] / let's call Mystery [96] because it'll be funny.
+		Set *Var8 0000008D
+		Call $Func_InitItemCalling ( *Var8 )
+		Jump  80293E40
+		Return	% I am like 90% that the game never comes back to this script anyway but just in case jank happens let's put a return anyway just like mystery does it
+	Case  ==  00000002 % 1 Input = Shroom Cake [B7]
+		Set *Var8 000000B7
+		Call $Func_InitItemCalling ( *Var8 )
+		Jump  80293E40
+		Return
+	Case  ==  00000003 % 2 Inputs = Stone Cap [88]
+		Set *Var8 00000088
+		Call $Func_InitItemCalling ( *Var8 )
+		Jump  80293E40
+		Return
+	Case  ==  00000004 % 3 Inputs = Shooting Star [83]
+		Call PlayerCreateTargetList ( 00000000 )
+		Set *Var8 00000083
+		Call $Func_InitItemCalling ( *Var8 )
+		Jump  80293E40
+		Return
+  EndSwitch
+  
+  Label  A
+  Call  SetActorFlagBits  ( .Actor:Player 20000000 .False )
+  Call  SetActorSpeed ( .Actor:Partner *Fixed[12.0] )
+  Call  SetGoalToHome     ( .Actor:Partner )
+  Call  SetAnimation      ( .Actor:Partner FFFFFFFF 000F0003 )
+  Call  FlyToGoal     ( .Actor:Partner 00000000 00000000 .Easing:Linear )
+  Return
+  End
+
+}
+
+@ $Script_80239E70 { % Patching one line, redirecting to the new attack
+  [1A8]  	ExecWait $Script_StarMail % $Script_8023AF7C OG Script
+}

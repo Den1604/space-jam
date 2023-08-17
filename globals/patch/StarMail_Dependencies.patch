@@ -1,0 +1,69 @@
+% This .patch file contains all the hooks which manage Firm_Mail's once per battle cooldown
+
+% I highly doubt you would but just to make sure. Do NOT mess with any of this Den.
+
+#new:String $String_SubstituteString {
+ End Battle to recharge![End]
+} % Replacement for: 1D-09F "You don't have enough FP![End]"
+
+@Hook 16FDA0 { % Hook start of battle to reset
+% PK's Firm_Mail move
+% Note that I am overwriting 2 lines with the hook here that I do not know
+% the exact instructions of.
+% All I know is that it supposedly handled some
+% Hustle Drink related things.
+% Here's to hoping it'll be fine
+LA		T0, 8010F290
+J		802414C8
+SB		R0, 36 (T0)
+
+%%% SB		R0, 93 (S4)
+}
+
+@Hook 41E85C { % [802A81C8 + 1904] | [0041CF58 + 1904]
+% Let's hook the end of '$Function_btl_state_update_partner_menu' (Location: BattleMenu.bscr)
+% to disable Move #3 in the list
+%%% Lines overwritten by hook %%%
+%%% 1904:  LW      S1, 14 (SP)%%%	
+%%% 1908:  LW      S0, 10 (SP)%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	LA		T0, 8010F290
+	LB		T1, 36 (T0)
+	BEQ		T1, R0, .END % Check if the Flag to disable the move is set
+	LB		T2, 12 (T0)
+	LI		T3, 04
+	BNE		T2, T3, .END % Check if current Partner ID is 04
+	NOP
+	LA		T4, 800DC070
+	SB		R0, 1F8 (T4)
+	.END
+%%% Restore replaced instructions %%%
+	LW		S1, 14 (SP)
+	J		802A9AD4	% Jumping to [802A81C8 + 190C]
+	LW		S0, 10 (SP)
+
+}
+
+@Hook 41930C { % 4192C4 + 48 | 802A4534 + 48
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Lines overwritten by hook %%%
+%%% 48:  LUI S0, 0x001D	  	  %%%
+%%% 4C:  ORI S0, S0, 0x009F   %%%
+%%% OG -  LI S0, 001D009F	  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	LI 		S0, 001D009F
+	LA		T0, 8010F290
+	LB		T1, 36 (T0)
+	BEQ		T1, R0, .END % Check if the Flag to disable the move is set
+	LB		T2, 12 (T0)
+	LI		T3, 04
+	BNE		T2, T3, .END % Check if current Partner ID is 04
+	ORI     T6, R0, 2 % Air Lift
+	LABU    T5, 802AD109 % Cursor Pos
+	BNE		T5, T6, .END % Check if the cursor is at position 2 so the message doesn't apply to Shell Shot
+	NOP 
+	LI		S0, $String_SubstituteString % Overwrite S0 with our custom string
+	.END
+	J	802A4584 % Jump to [802A4534 + 50]
+	NOP
+}

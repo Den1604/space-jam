@@ -29,7 +29,7 @@
 	<Item index="01A" nameMsg="26-0AB" desc1Msg="23-0AB" desc2Msg="25-0AB" typeFlags="1009" targetFlags="0008" name="BowserCastleKey"/>
 	<Item index="01B" nameMsg="00-000" desc1Msg="00-000" desc2Msg="00-000" typeFlags="1009" targetFlags="0008" name="ForestPass"/>
 	<Item index="01C" nameMsg="26-0B7" desc1Msg="23-0B7" desc2Msg="25-0B7" typeFlags="1009" targetFlags="0008" name="BooWeight"/>
-	<Item index="01D" nameMsg="26-0B8" desc1Msg="23-0B8" desc2Msg="25-0B8" typeFlags="1009" targetFlags="0008" name="BooPortrait"/>
+	<Item index="01D" nameMsg="26-0B8" desc1Msg="23-0B8" desc2Msg="25-0B8" typeFlags="1009" targetFlags="0008" name="BooPortrait" hudElement="ITEM_089" itemEntity="ITEM_089"/>
 	<Item index="01E" nameMsg="26-0C4" desc1Msg="23-0C4" desc2Msg="25-0C4" typeFlags="1009" targetFlags="0008" name="CrystalBerry"/>
 	<Item index="01F" nameMsg="26-0B9" desc1Msg="23-0B9" desc2Msg="25-0B9" typeFlags="1009" targetFlags="0008" name="MysticalKey"/>
 	<Item index="020" nameMsg="26-0BA" desc1Msg="23-0BA" desc2Msg="25-0BA" typeFlags="1009" targetFlags="0008" name="StoreroomKey" hudElement="IronKey" itemEntity="IronKey"/>
