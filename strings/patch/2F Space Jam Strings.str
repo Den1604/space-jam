@@ -946,3 +946,14 @@ Of course![br]
 	[Wait][END]
 }
 
+#message:2F:059
+{
+	[Style Right]
+	Can you read this Mario? I can barely[br]
+	make out a word. However, do you see[br]
+	this? They might be referring to the[br]
+	Clubba in the front of this room.[br]
+	[Wait][Next]
+	Maybe we should show this to him.
+	[Wait][END]
+}

@@ -63,7 +63,27 @@
 	Set *VarA .Item:Letter06
 	Set *VarB 00000001 % 1 for key item
 	Set *MF_btf_19_LetterObtained .True
-	ExecWait $Script_OpenChest
+	
+    % OpenChest inlined because DisablePlayerInput at the end got in the way
+    Call  DisablePlayerInput    ( .True )
+    Set   *Var0  *VarA
+    If  *VarA  !=  00000000
+        ExecWait  $Script_OpenChestAnimation
+    EndIf
+    Switch  *VarB
+        Case  ==  00000000
+            Call  AddItem   ( *VarA *Var0 )
+        Case  ==  00000001
+            Call  AddKeyItem    ( *VarA )
+        Case  ==  00000002
+            Call  AddBadge  ( *VarA *Var0 )
+    EndSwitch
+    
+    Wait  30`
+    
+	Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0059 )
+    Call  DisablePlayerInput    ( .False )
+    
 	Return
 	End
 }

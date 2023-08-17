@@ -132,8 +132,7 @@
 	EndIf
 	
 	If *MF_btf_06_DoorActivated == .True
-		Call EnableModel ( ~Model:DoorBBlocker1 .False )
-		Call EnableModel ( ~Model:DoorBBlocker2 .False )
+		Exec $Script_DisableDoor
 	Else
 		If *MF_btf_06_CollectedDiamondStone == .True
 			Call MakeItemEntity ( .Item:DiamondStone ~Vec3D:DiamondEmblemPosition .ItemSpawnMode:Decoration 0 )
@@ -215,7 +214,7 @@
 
 #new:Script $Script_UseChest2
 {
-	Set *VarA .Item:AttackFXA
+	Set *VarA .Item:AttackFXB
 	Set *VarB 00000002 % 2 for badge
 	Set *MF_btf_06_OpenedChest2 .True
 	ExecWait $Script_OpenChest
@@ -241,6 +240,18 @@
 }
 
 % Cutscenes
+#new:Script $Script_DisableDoor {
+	Set *MF_btf_06_DoorActivated .True
+	
+	Call EnableModel ( ~Model:DoorBBlocker1 .False )
+	Call EnableModel ( ~Model:DoorBBlocker2 .False )
+	
+	Call ModifyColliderFlags ( 0 ~Collider:LetterDoor 00018000 )
+	
+	Return
+	End
+}
+
 #new:Script $Script_SetupDiamondCutscene {
 	If *MF_btf_06_CollectedDiamondStone == .True
 		Return
@@ -334,8 +345,7 @@
 	
 	Call RemoveItemEntity ( *MapVar[5] )
 	Call RemoveItemEntity ( *MapVar[6] )
-	Call EnableModel ( ~Model:DoorBBlocker1 .False )
-	Call EnableModel ( ~Model:DoorBBlocker2 .False )
+	Exec $Script_DisableDoor
 	
 	Wait 100`
 	

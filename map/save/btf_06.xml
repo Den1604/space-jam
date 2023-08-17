@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_06" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="-0.000000,125.192596,929.016907" pitch="10.153000" yaw="0.000000"/>
-		<Camera pos="-16.150820,65536.000000,598.392761"/>
-		<Camera pos="65536.000000,3231.446045,-1468.500488"/>
+		<Camera pos="25.805069,150.156799,576.858215" pitch="-0.078748" yaw="4.183491"/>
+		<Camera pos="18.906256,65536.000000,-454.051666"/>
+		<Camera pos="65536.000000,3191.189697,-1573.485229"/>
 		<Camera pos="54.071323,110.344765,65536.000000"/>
 	</Editor>
 	<ModelTree>
@@ -119,7 +119,7 @@
 		</Node>
 	</ModelTree>
 	<ColliderTree>
-		<Node name="Root" id="1D">
+		<Node name="Root" id="1E">
 			<Node name="EntranceArea" id="5">
 				<Node name="main_floor" id="0"/>
 				<Node name="main_walls" id="1"/>
@@ -155,6 +155,7 @@
 			</Node>
 			<Node name="Split Collider" id="1B"/>
 			<Node name="LetterDoor" id="1C"/>
+			<Node name="door_lz_collider" id="1D"/>
 		</Node>
 	</ColliderTree>
 	<ZoneTree>
@@ -172,43 +173,44 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="20">
-			<Node name="Entrances" id="0">
+		<Node name="Root" id="21">
+			<Node name="Entrances" id="1">
 				<Node name="entry_s" id="FFFFFFFF"/>
+				<Node name="entry_room_1a" id="0"/>
 			</Node>
-			<Node name="NPCs" id="6">
-				<Node name="NpcGuard" id="1"/>
-				<Node name="NpcFuzzy1" id="2"/>
-				<Node name="NpcBobOmb1" id="3"/>
-				<Node name="NpcKoopa1" id="4"/>
-				<Node name="NpcFuzzy1" id="5"/>
+			<Node name="NPCs" id="7">
+				<Node name="NpcGuard" id="2"/>
+				<Node name="NpcFuzzy1" id="3"/>
+				<Node name="NpcBobOmb1" id="4"/>
+				<Node name="NpcKoopa1" id="5"/>
+				<Node name="NpcFuzzy1" id="6"/>
 			</Node>
-			<Node name="Entities" id="14">
-				<Node name="SaveBlock" id="7"/>
-				<Node name="Item1" id="8"/>
-				<Node name="Spring" id="9"/>
-				<Node name="Chest1" id="A"/>
-				<Node name="Signpost1" id="B"/>
-				<Node name="ItemDiamondStone" id="C"/>
-				<Node name="Spring2" id="D"/>
-				<Node name="BrickBlock1" id="E"/>
-				<Node name="Spring3" id="F"/>
-				<Node name="ItemBlock1" id="10"/>
-				<Node name="Spring4" id="11"/>
-				<Node name="Chest2" id="12"/>
-				<Node name="ItemLunarStone" id="13"/>
+			<Node name="Entities" id="15">
+				<Node name="SaveBlock" id="8"/>
+				<Node name="Item1" id="9"/>
+				<Node name="Spring" id="A"/>
+				<Node name="Chest1" id="B"/>
+				<Node name="Signpost1" id="C"/>
+				<Node name="ItemDiamondStone" id="D"/>
+				<Node name="Spring2" id="E"/>
+				<Node name="BrickBlock1" id="F"/>
+				<Node name="Spring3" id="10"/>
+				<Node name="ItemBlock1" id="11"/>
+				<Node name="Spring4" id="12"/>
+				<Node name="Chest2" id="13"/>
+				<Node name="ItemLunarStone" id="14"/>
 			</Node>
-			<Node name="ShyBlookster137" id="15"/>
-			<Node name="Spring_Destination" id="16"/>
-			<Node name="DenCan'tChangeHisNameBackToDen" id="17"/>
-			<Node name="Spring2_Destination" id="18"/>
-			<Node name="AAAAAAAAAAAAAD" id="19"/>
-			<Node name="Spring4_Destination" id="1A"/>
-			<Node name="SpringCam" id="1B"/>
-			<Node name="DoorCam" id="1C"/>
-			<Node name="SpringEndPosition" id="1D"/>
-			<Node name="DiamondEmblemPosition" id="1E"/>
-			<Node name="LunarEmblemPosition" id="1F"/>
+			<Node name="ShyBlookster137" id="16"/>
+			<Node name="Spring_Destination" id="17"/>
+			<Node name="DenCan'tChangeHisNameBackToDen" id="18"/>
+			<Node name="Spring2_Destination" id="19"/>
+			<Node name="AAAAAAAAAAAAAD" id="1A"/>
+			<Node name="Spring4_Destination" id="1B"/>
+			<Node name="SpringCam" id="1C"/>
+			<Node name="DoorCam" id="1D"/>
+			<Node name="SpringEndPosition" id="1E"/>
+			<Node name="DiamondEmblemPosition" id="1F"/>
+			<Node name="LunarEmblemPosition" id="20"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -8199,8 +8201,26 @@
 	</Models>
 	<Colliders>
 		<Collider ver="0" flags="0">
-			<MapObject name="Root" id="1D"/>
+			<MapObject name="Root" id="1E"/>
 			<HitObject type="ROOT"/>
+		</Collider>
+		<Collider ver="0" flags="0">
+			<MapObject name="door_lz_collider" id="1D" hidden="true"/>
+			<HitObject type="HIT"/>
+			<HitMesh ver="0">
+				<TriangleBatch ver="0">
+					<VertexTable>
+						<Vertex xyz="-10,0,-580"/>
+						<Vertex xyz="80,0,-465"/>
+						<Vertex xyz="80,0,-580"/>
+						<Vertex xyz="-10,0,-465"/>
+					</VertexTable>
+					<TriangleList>
+						<Triangle ijk="0,1,2"/>
+						<Triangle ijk="0,3,1"/>
+					</TriangleList>
+				</TriangleBatch>
+			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
 			<MapObject name="LetterDoor" id="1C" hidden="true"/>
@@ -10023,124 +10043,127 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="20"/>
+			<MapObject name="Root" id="21"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="50,37,-457" yaw="0.000000">
-			<MapObject name="LunarEmblemPosition" id="1F"/>
+			<MapObject name="LunarEmblemPosition" id="20"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="20,37,-457" yaw="0.000000">
-			<MapObject name="DiamondEmblemPosition" id="1E"/>
+			<MapObject name="DiamondEmblemPosition" id="1F"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="638,40,-399" yaw="0.000000">
-			<MapObject name="SpringEndPosition" id="1D"/>
+			<MapObject name="SpringEndPosition" id="1E"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="38,0,-396" yaw="0.000000">
-			<MapObject name="DoorCam" id="1C"/>
+			<MapObject name="DoorCam" id="1D"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="100.000000" samplePos="0,0,0" overrideLength="450.000000" overrideAngles="15.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="712,40,-365" yaw="0.000000">
-			<MapObject name="SpringCam" id="1B"/>
+			<MapObject name="SpringCam" id="1C"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="100.000000" samplePos="710,70,-355" overrideLength="450.000000" overrideAngles="15.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="761,420,-864" yaw="0.000000">
-			<MapObject name="Spring4_Destination" id="1A"/>
+			<MapObject name="Spring4_Destination" id="1B"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="37,0,80" yaw="0.000000">
-			<MapObject name="AAAAAAAAAAAAAD" id="19"/>
+			<MapObject name="AAAAAAAAAAAAAD" id="1A"/>
 			<CamTarget sampleZone="false" generatePan="true" panSpeed="2.500000">
 				<Camera type="TYPE_1" flag="false" boomLength="650.000000" boomPitch="20.000000" viewPitch="-7.000000" posA="23,0,22" posB="0,10,60" posC="10,0,10"/>
 			</CamTarget>
 		</Marker>
 		<Marker ver="4" type="Position" pos="1056,275,-568" yaw="0.000000">
-			<MapObject name="Spring2_Destination" id="18"/>
+			<MapObject name="Spring2_Destination" id="19"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="1175,190,-900" yaw="0.000000">
-			<MapObject name="DenCan'tChangeHisNameBackToDen" id="17"/>
+			<MapObject name="DenCan'tChangeHisNameBackToDen" id="18"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="705,200,-500" yaw="0.000000">
-			<MapObject name="Spring_Destination" id="16"/>
+			<MapObject name="Spring_Destination" id="17"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="110,0,80" yaw="0.000000">
-			<MapObject name="ShyBlookster137" id="15"/>
+			<MapObject name="ShyBlookster137" id="16"/>
 		</Marker>
 		<Marker ver="4" type="Group">
-			<MapObject name="Entities" id="14"/>
+			<MapObject name="Entities" id="15"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="1610,345,-800" yaw="0.000000">
-			<MapObject name="ItemLunarStone" id="13"/>
+			<MapObject name="ItemLunarStone" id="14"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="550,420,-880" yaw="0.000000">
-			<MapObject name="Chest2" id="12"/>
+			<MapObject name="Chest2" id="13"/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="710,275,-725" yaw="0.000000">
-			<MapObject name="Spring4" id="11"/>
+			<MapObject name="Spring4" id="12"/>
 			<Entity type="802EAA30" destMarker="Spring4_Destination" launchT="1E"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="1279,250,-611" yaw="0.000000">
-			<MapObject name="ItemBlock1" id="10"/>
+			<MapObject name="ItemBlock1" id="11"/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="1300,190,-730" yaw="0.000000">
-			<MapObject name="Spring3" id="F"/>
+			<MapObject name="Spring3" id="10"/>
 			<Entity type="802EAA30" destMarker="Spring2_Destination" launchT="1E"/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="1055,275,-745" yaw="0.000000">
-			<MapObject name="BrickBlock1" id="E"/>
+			<MapObject name="BrickBlock1" id="F"/>
 			<Entity type="802EA0E8" hasFlag="false" flag=""/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="975,190,-585" yaw="0.000000">
-			<MapObject name="Spring2" id="D"/>
+			<MapObject name="Spring2" id="E"/>
 			<Entity type="802EAA30" destMarker="Spring2_Destination" launchT="1E"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="1597,55,-369" yaw="0.000000">
-			<MapObject name="ItemDiamondStone" id="C"/>
+			<MapObject name="ItemDiamondStone" id="D"/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="915,40,-409" yaw="0.000000">
-			<MapObject name="Signpost1" id="B"/>
+			<MapObject name="Signpost1" id="C"/>
 			<Entity type="802EAFDC"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="1562,40,-20" yaw="0.000000">
-			<MapObject name="Chest1" id="A"/>
+			<MapObject name="Chest1" id="B"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="638,200,-399" yaw="0.000000">
-			<MapObject name="Spring" id="9"/>
+			<MapObject name="Spring" id="A"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="-191,0,-385" yaw="0.000000">
-			<MapObject name="Item1" id="8"/>
+			<MapObject name="Item1" id="9"/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="-122,60,370" yaw="0.000000">
-			<MapObject name="SaveBlock" id="7"/>
+			<MapObject name="SaveBlock" id="8"/>
 			<Entity type="802E9A18"/>
 		</Marker>
 		<Marker ver="4" type="Group">
-			<MapObject name="NPCs" id="6"/>
+			<MapObject name="NPCs" id="7"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="488,40,-378" yaw="0.000000">
-			<MapObject name="NpcFuzzy1" id="5"/>
+			<MapObject name="NpcFuzzy1" id="6"/>
 			<Movement type="Wander" data="1E8,28,FFFFFE86,64,2D,FFFF8001,1,1E8,28,FFFFFE86,2D,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="2B" palette="0" animations="2,2,3,3,1,1,8,8,3,3,3,3,3,3,3,3"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="880,216,-625" yaw="0.000000">
-			<MapObject name="NpcKoopa1" id="4"/>
+			<MapObject name="NpcKoopa1" id="5"/>
 			<Movement type="Wander" data="370,D8,FFFFFD8F,8C,37,FFFF8001,1,370,D8,FFFFFD8F,50,28,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="2A" palette="1" animations="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="1510,39,-370" yaw="0.000000">
-			<MapObject name="NpcBobOmb1" id="3"/>
+			<MapObject name="NpcBobOmb1" id="4"/>
 			<Movement type="Wander" data="5E6,27,FFFFFE8E,28,0,FFFF8001,0,5E6,27,FFFFFE8E,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="2C" palette="0" animations="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="330,40,-393" yaw="0.000000">
-			<MapObject name="NpcFuzzy1" id="2"/>
+			<MapObject name="NpcFuzzy1" id="3"/>
 			<Movement type="Wander" data="14A,28,FFFFFE77,64,46,FFFF8001,1,14A,28,FFFFFE77,2D,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="2B" palette="0" animations="2,2,3,3,1,1,8,8,3,3,3,3,3,3,3,3"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="290,0,381" yaw="-90.000000">
-			<MapObject name="NpcGuard" id="1"/>
+			<MapObject name="NpcGuard" id="2"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="39" palette="1" animations="2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="Group">
-			<MapObject name="Entrances" id="0"/>
+			<MapObject name="Entrances" id="1"/>
+		</Marker>
+		<Marker ver="4" type="Entry" pos="34,0,-448" yaw="180.000000">
+			<MapObject name="entry_room_1a" id="0"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="0,0,495" yaw="0.000000">
 			<MapObject name="entry_s" id="FFFFFFFF"/>
@@ -10166,7 +10189,9 @@
 			<TexPanner id="F" generate="false"/>
 		</TexPanners>
 		<Generators>
+			<Entrance type="Walk" hasCallback="false" entry="entry_room_1a"/>
 			<Entrance name="entry_s" type="Walk" hasCallback="false" entry="entry_s"/>
+			<Exit type="Walk" hasCallback="false" entry="entry_room_1a" destMap="btf_19" destEntry="entry_s" trigger="Split Collider"/>
 			<Exit type="Walk" hasCallback="false" entry="entry_s" destMap="btf_05" destEntry="Entry1" trigger="exit_trigger_s"/>
 		</Generators>
 		<Camera vfov="25" near="16" far="4096" bgcolor="0,0,0" leadsPlayer="false"/>
