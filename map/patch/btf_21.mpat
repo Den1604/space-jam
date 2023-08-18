@@ -23,6 +23,7 @@
     Call  MakeNpcs  ( .True $NpcGroupList_8025136C )
     Exec  $Script_EnterMap
     Exec $Script_CreateHouse
+    Set *MapFlag[003] .False
     Bind $Script_MQNotes .Trigger:WallPressA ~Collider:MQCollider 00000001 00000000
     Return
     End
@@ -161,10 +162,10 @@
                 ExecWait $Script_LetterDelivery_Thamz
                 If *VarC == 00000001
                     Label A
-                        Call DisablePartnerAI ( 00000000 )
-                        Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Thamz 002F0068 )
-                        Set *VarD 002F0069
-                        ExecWait $Script_LetterDelivery_Thamz
+                    Call DisablePartnerAI ( 00000000 )
+                    Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Thamz 002F0068 )
+                    Set *VarD 002F0069
+                    ExecWait $Script_LetterDelivery_Thamz
                     If *VarC == 00000001
                         Goto A
                     Else
@@ -179,9 +180,9 @@
             EndIf
             Call  ModifyColliderFlags     ( 00000001 ~Collider:BedCollider 7FFFFE00 )
         Set *MF_btf_21_MetThamz .True
+        Call EnablePartnerAI ()
+        Call DisablePlayerInput ( .False )
     EndIf
-    Call EnablePartnerAI ()
-    Call DisablePlayerInput ( .False )
     C4:  Return
    CC:  End
 }
@@ -216,7 +217,67 @@
 
 #new:Script $Script_MQNotes
 {
-    Set *MF_btf_21_InteractedWithNotes .True
+    Call DisablePlayerInput ( .True )
+    ExecWait $Script_GetMQNote
+    Call ShowMessageAtScreenPos ( 002F006A 000000A0 00000028 )
+    Label D
+    Call ShowChoice ( 001E0004 )
+    Call  CloseMessage ( )
+    If *Var0 == 0` %Yes
+        If *MapFlag[003] == .False %Check if it's first time or not
+            Call ShowMessageAtScreenPos ( *MapVar[0] 000000A0 00000028 )
+            Set *MapFlag[003] .True
+            Wait 15`
+            Call ShowMessageAtScreenPos ( 002F006B 000000A0 00000028 )
+            Goto D
+        Else
+            ExecWait $Script_NextMQNote
+            Call ShowMessageAtScreenPos ( *MapVar[0] 000000A0 00000028 )
+            Wait 15`
+            Call ShowMessageAtScreenPos ( 002F006B 000000A0 00000028 )
+            Goto D
+        EndIf
+    Else
+        Call DisablePlayerInput ( .False )
+        Return
+    EndIf
+    Return
+    End
+}
+
+#new:Script $Script_GetMQNote
+{
+    Call RandInt ( 4` *Var0 )
+    Switch *Var0
+        Case == 0`
+            Set *MapVar[0] 002F006C
+        Case == 1`
+            Set *MapVar[0] 002F006D
+        Case == 2`
+            Set *MapVar[0] 002F006E
+        Case == 3`
+            Set *MapVar[0] 002F006F
+        Case == 4`
+            Set *MapVar[0] 002F0070
+    EndSwitch
+    Return
+    End
+}
+
+#new:Script $Script_NextMQNote
+{
+    Switch *MapVar[0]
+        Case == 002F006C
+            Set *MapVar[0] 002F006D
+        Case == 002F006D
+            Set *MapVar[0] 002F006E
+        Case == 002F006E
+            Set *MapVar[0] 002F006F
+        Case == 002F006F
+            Set *MapVar[0] 002F0070
+        Case == 002F0070
+            Set *MapVar[0] 002F006C
+    EndSwitch
     Return
     End
 }

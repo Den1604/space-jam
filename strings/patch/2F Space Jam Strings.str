@@ -1123,3 +1123,57 @@ Of course![br]
 	I believe I have one for you.[BR]
 	[Pause 10]Hang on a moment.[Wait][End]
 }
+
+#message:2F:06A
+{
+	[Style Inspect]
+	A lot of scattered notes that[br]
+	seem to relate to something[br]
+	called "Master Quest" are littered[br]
+	across the table and floor.[br]
+	[Wait][Next]
+	Would you like to read some?[br]
+	[Wait][Yield][End]
+}
+
+#message:2F:06B
+{
+	[Style Inspect]
+	Read some more?[br]
+	[Wait][Yield][End]
+}
+
+#message:2F:06C
+{
+	[Style Inspect]
+	MQ Note 1[br]
+	[Wait][End]
+}
+
+#message:2F:06D
+{
+	[Style Inspect]
+	MQ Note 2[br]
+	[Wait][End]
+}
+
+#message:2F:06E
+{
+	[Style Inspect]
+	MQ Note 3[br]
+	[Wait][End]
+}
+
+#message:2F:06F
+{
+	[Style Inspect]
+	MQ Note 4[br]
+	[Wait][End]
+}
+
+#message:2F:070
+{
+	[Style Inspect]
+	MQ Note 5[br]
+	[Wait][End]
+}

@@ -40,4 +40,3 @@
 037 = MF_PlayerIsOnConsoleOrUsesAres
 038 = MF_btf_19_LetterObtained
 039 = MF_btf_21_MetThamz
-03A = MF_btf_21_InteractedWithNotes
