@@ -1,13 +1,222 @@
+#import LetterDelivery.mpat
+
+#define .NpcID:Thamz         00
+
 @ $Script_SetupMusic {
     Call  SetMusicTrack ( 00000000 .Song:IcedLand 00000000 00000004 )
 	Call  PlayAmbientSounds  ( .AmbientSounds:Wind )
-    If *MF_PlayerIsOnConsoleOrUsesAres == .True
-        Call  PlayEffect    ( ~FX:Snowfall 0000012C 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
-    Else
-        Call  PlayEffect    ( ~FX:Snowfall 00000200 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )%is limit, above crashes when hammering
-    EndIf
     Call HidePlayerShadow ( .True )
     Call EnableNpcShadow ( .Npc:Partner .False )
+    Return
+    End
+}
+
+@ $Script_Main {
+    Set   *GB_WorldLocation  .Location:GoombaRoad
+    Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+    Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+    Call  SetCamEnabled      ( .Cam:Default .True
+    Call  SetCamLeadPlayer   ( .Cam:Default .False )
+    Exec  $Script_SetupMusic
+    Exec $Script_HandleSnow
+    %Call  $Function_SetupFog
+    Call  MakeNpcs  ( .True $NpcGroupList_8025136C )
+    Exec  $Script_EnterMap
+    Exec $Script_CreateHouse
+    Bind $Script_MQNotes .Trigger:WallPressA ~Collider:MQCollider 00000001 00000000
+    Return
+    End
+}
+
+#new:Script $Script_CreateHouse {
+    Call MakeDoorAdvanced ( 00000005 $Script_OpenDoor $Script_MoveWalls $Script_DropDoor $Script_ToggleVis ~Collider:DoorColliderOutside ~Collider:DoorColliderInside ~Model:HouseGroup $NpcList1 )
+    Set   *Var0  00000003
+    Exec $Script_ToggleVis
+    Return
+    End
+}
+
+#new:Script $Script_OpenDoor {
+    Call  RotateModel   ( ~Model:Door *Var0 00000000 00000001 00000000 )
+    Return
+    End
+}
+
+#new:Script $Script_MoveWalls {
+    Call  RotateGroup   ( ~Model:HouseWallGroup *Var0 00000001 00000000 00000000 )
+    Return
+    End
+}
+
+#new:Script $Script_DropDoor {
+    Call  RotateModel       ( ~Model:Door *Var0 00000001 00000000 00000000 )
+    Return
+    End
+}
+
+#new:Script $Script_ToggleVis {
+    Switch *Var0
+        Case == 00000000
+            Set   *MapFlag[001]  .False
+            Call SetGroupEnabled ( ~Model:InsideHouse 00000001 )
+            Call HidePlayerShadow ( .False )
+            Call EnableNpcShadow ( .Npc:Partner .True )
+        Case == 00000003
+            Set   *MapFlag[001]  .True
+            Call SetGroupEnabled ( ~Model:InsideHouse 00000000 )
+            Call HidePlayerShadow ( .True )
+            Call EnableNpcShadow ( .Npc:Partner .False )
+    EndSwitch
+    Return
+    End
+}
+
+#new:NpcList $NpcList1 {
+    00000000
+}
+
+#new:Script $Script_HandleSnow
+{
+    Set   *MapFlag[001]  .True
+    Set   *MapFlag[002]  .False
+    Label  A
+    If  *MapFlag[001]  !=  *MapFlag[002]
+        If  *MapFlag[001]  ==  .False
+            Call  RemoveEffect  ( *VarF )
+        Else
+            If *MF_PlayerIsOnConsoleOrUsesAres == .True
+                Call  PlayEffect    ( ~FX:Snowfall 0000012C 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+            Else
+                Call  PlayEffect    ( ~FX:Snowfall 00000200 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )%is limit, above crashes when hammering
+            EndIf
+        EndIf
+        Set   *MapFlag[002]  *MapFlag[001]
+    EndIf
+    Wait  1`
+    Goto  A
+    Return
+    End
+}
+
+#new:NpcGroupList $NpcGroupList_8025136C
+{
+	00000001 $NpcGroup_8024E864 00000000
+	00000000 00000000 00000000
+}
+
+#new:NpcGroup $NpcGroup_8024E864
+{
+	.NpcID:Thamz   $NpcSettings_80247CE4 ~Vec3f:Thamz % 100 0 -256
+	00002809 $Script_Init_8024D134 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:Thamz
+	~AnimationTable:Thamz % .Sprite:Gooma
+	00000000 00000000 00000000 001A0064 % She's my grandma, Gooma. I hope she lives forever! ...
+
+
+}
+
+#new:NpcSettings $NpcSettings_80247CE4
+{
+	00000000 002C000F 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
+}
+
+#new:Script $Script_Init_8024D134
+{
+    0:  Call  BindNpcIdle ( .Npc:Self $Script_Idle_Thamz )
+    0:  Call  BindNpcInteract ( .Npc:Self $Script_Interact_Thamz )
+    Call InterpNpcYaw ( .NpcID:Thamz -107` 5` )
+   28:  Return
+   30:  End
+}
+
+#new:Script $Script_Idle_Thamz
+{
+	Call SetNpcAnimation ( .NpcID:Thamz 00320001 )
+    If *MF_btf_21_MetThamz == .False
+        Call AwaitPlayerApproach ( ~Vec2D:Thamz 80` )
+        Call DisablePlayerInput ( .True )
+        Wait 10`
+        Call DisablePartnerAI ( 00000000 )
+        Call GetNpcPos ( .NpcID:Thamz *Var1 *Var2 *Var3 )
+        Thread
+            Call PlaySound ( 00000263 )
+            Call InterpNpcYaw ( .NpcID:Thamz -207` 20` )
+        EndThread
+        Call ShowEmote ( 00000000 .Emote:Question -45` 15` .True *Var1 *Var2 *Var3 0` )
+        Wait 50`
+        Thread
+            Call PlaySound ( 00000262 )
+        EndThread
+        Call ShowEmote ( 00000000 .Emote:Exclamation -45` 15` .True *Var1 *Var2 *Var3 0` )
+        Wait 15`
+        Call SpeakToPlayer ( .NpcID:Thamz 00320004 00320001 00000000 002F0062 )
+        Call  ModifyColliderFlags     ( 00000000 ~Collider:BedCollider 7FFFFE00 )
+        Label C
+        Call ShowChoice ( 001E0005 )
+        Call  CloseMessage ( )
+            If *Var0 == 0` %Do
+                Set *VarD 002F0063
+                ExecWait $Script_LetterDelivery_Thamz
+                If *VarC == 00000001
+                    Label A
+                        Call DisablePartnerAI ( 00000000 )
+                        Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Thamz 002F0068 )
+                        Set *VarD 002F0069
+                        ExecWait $Script_LetterDelivery_Thamz
+                    If *VarC == 00000001
+                        Goto A
+                    Else
+                        Goto B
+                    EndIf
+                EndIf
+                Label B
+                Set *MF_btf_21_ThamzLetterDelivered .True
+            Else
+                Call SpeakToPlayer ( .NpcID:Thamz 00320004 00320001 00000000 002F0066 )
+                Goto C
+            EndIf
+            Call  ModifyColliderFlags     ( 00000001 ~Collider:BedCollider 7FFFFE00 )
+        Set *MF_btf_21_MetThamz .True
+    EndIf
+    Call EnablePartnerAI ()
+    Call DisablePlayerInput ( .False )
+    C4:  Return
+   CC:  End
+}
+
+#new:Unknown $LetterList_Thamz
+{
+	.Item:Letter04 00000000
+}
+
+#new:Script $Script_LetterDelivery_Thamz
+{
+	Set *Var2 .NpcID:Thamz
+	Set *Var3 00320004 % Talk Animation - same format as SpeakToPlayer
+	Set *Var4 00320001 % Idle Animation - same format as SpeakToPlayer
+	Set *Var5 .Item:Letter04 % same as LetterList
+	Set *Var6 00000000 % same as LetterList
+	Set *Var7 *VarD % string by parakarry
+	Set *Var8 002F0067 % string by parakarry when canceling the letter select box
+	Set *Var9 002F0064 % "another letter duly delivered"
+	Set *VarA 002F0065 % string by other npc
+	Set *VarB $LetterList_Thamz
+	ExecWait  $Script_DoLetterDelivery
+	Return
+	End
+}
+
+#new:Script $Script_Interact_Thamz
+{
+    Return
+    End
+}
+
+#new:Script $Script_MQNotes
+{
+    Set *MF_btf_21_InteractedWithNotes .True
     Return
     End
 }

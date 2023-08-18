@@ -1033,3 +1033,93 @@ Of course![br]
 	Right now.[br]
 	[Wait][End]
 }
+
+#message:2F:062
+{
+	[Style Right]
+	Oh come on, not again.[br]
+	[Wait][Next]
+	I went out of my way to move[br]
+	far away from everyone and[br]
+	everyting yet you find me[br]
+	here anyways?![br]
+	[Wait][Next]
+	I give up.[Pause:10][br]
+	Do what you gotta do.[br]
+	[Wait][Yield][End]
+}
+
+#message:2F:063
+{
+	[Style Right]
+	No clue what you mean, but...[Pause:10][br]
+	Are you Emperor Thamz?[BR]
+	[Wait][Next]
+	The name's Parakarry. I deliver[BR]
+	letters.[BR]
+	[Wait][Next]
+	I believe I have one for you.[BR]
+	[Pause 10]Hang on a moment.[Wait][End]
+}
+
+#message:2F:064
+{
+	[Style Right]
+	Another letter, duly delivered.[br]
+	A postman's job is never done.[br]
+	[Wait][Next]
+	Feel free to do whatever you[br]
+	have left with this guy, Mario.[br]
+	[Wait][End]
+}
+
+#message:2F:065
+{
+	[Style Right]
+	Oh, I wonder what that could[br]
+	be...[Pause:10][br]
+	Oh you gotta be kidding me.[br]
+	[Wait][Next]
+	That's a ludicrous amount of[br]
+	money for a hospital visit![br]
+	[Wait][Next]
+	All I got was this Wheelchair...[br]
+	[Wait][End]
+}
+
+#message:2F:066
+{
+	[Style Right]
+	Come on, just do what[br]
+	you came here for.[Pause:10][br]
+	Let's get this over with.[br]
+	[Wait][Yield][End]
+}
+
+#message:2F:067
+{
+	[Style Right]
+	We've come all this way, let's[br]
+	atleast check if this is the[br]
+	person one of our remaining two[br]
+	letters is addressed to, Mario[br]
+	[Wait][End]
+}
+
+#message:2F:068
+{
+	[Style Right]
+	Sorry about that, as I was[br]
+	saying...[br]
+	[Wait][End]
+}
+
+#message:2F:069
+{
+	[Style Right]
+	The name's Parakarry. I deliver[BR]
+	letters.[BR]
+	[Wait][Next]
+	I believe I have one for you.[BR]
+	[Pause 10]Hang on a moment.[Wait][End]
+}
