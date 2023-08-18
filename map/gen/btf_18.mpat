@@ -273,7 +273,6 @@
 	Call  SetCamLeadPlayer   ( .Cam:Default .False )
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
-	Call  $Function_SetupFog
 	Exec  $Script_EnterMap
 	Return
 	End
@@ -332,23 +331,6 @@
 	EndThread
 	Return
 	End
-}
-
-#new:Function $Function_SetupFog
-{
-	PUSH RA
-	JAL       8011BB50
-	NOP
-	ADDIU     A0, R0, 3CF
-	JAL       8011BB74
-	ADDIU     A1, R0, 3E8
-	ADDIU     A0, R0, 0
-	ADDIU     A1, R0, 0
-	ADDIU     A2, R0, 0
-	JAL       8011BB88
-	ADDIU     A3, R0, FF
-	ADDIU     V0, R0, 2
-	JPOP RA
 }
 
 #new:Script $Script_EnterMap
