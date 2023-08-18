@@ -14,6 +14,7 @@
         Call  PlayEffect    ( ~FX:Snowfall 00000200 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )%is limit, above crashes when hammering
     EndIf
     Call HidePlayerShadow ( .True )
+    Call EnableNpcShadow ( .Npc:Partner .False )
     Bind $Script_MarioAndParakarryLeave .Trigger:WallPressA ~Collider:ShipLeaveCollider 00000001 00000000
     Return
     End

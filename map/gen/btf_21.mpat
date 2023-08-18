@@ -5,15 +5,12 @@
 	[MainScript] $Script_Main
 	[Background] 80200000
 	[EntryList] $EntryList
-	[EntryCount] 4
+	[EntryCount] 1
 }
 
 #new:EntryList $EntryList
 {
-	~Vec4f:entry_n
-	~Vec4f:entry_e
-	~Vec4f:entry_s
-	~Vec4f:entry_w
+	~Vec4f:Entry0
 }
 
 #new:Script_Main $Script_Main
@@ -24,6 +21,7 @@
 	Call  SetCamEnabled      ( .Cam:Default .True
 	Call  SetCamLeadPlayer   ( .Cam:Default .False )
 	Exec  $Script_SetupMusic
+	Call  $Function_SetupFog
 	Exec  $Script_EnterMap
 	Return
 	End
@@ -48,14 +46,51 @@
 	End
 }
 
+#new:Function $Function_SetupFog
+{
+	PUSH RA
+	JAL       8011BB50
+	NOP
+	ADDIU     A0, R0, 3CF
+	JAL       8011BB74
+	ADDIU     A1, R0, 3E8
+	ADDIU     A0, R0, A
+	ADDIU     A1, R0, A
+	ADDIU     A2, R0, A
+	JAL       8011BB88
+	ADDIU     A3, R0, FF
+	ADDIU     V0, R0, 2
+	JPOP RA
+}
+
 #new:Script $Script_EnterMap
 {
+	Call  GetEntryID    ( *Var[0] )
+	Switch  *Var[0]
+		Case  ==  ~Entry:Entry0
+			Set   *Var[0] $Script_CreateExitTriggers
+			Exec  EnterWalk
+		Default
+			Exec  $Script_CreateExitTriggers
+	EndSwitch
+	Return
+	End
+}
+
+#new:Script $Script_Exit_Entry0
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Entry0 )
+	Exec     ExitWalk
+	Call  GotoMap   ( "btf_18" ~Entry:btf_18:Entry0 )
+	Wait  100`
 	Return
 	End
 }
 
 #new:Script $Script_CreateExitTriggers
 {
+	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:exit_trigger_s 00000001 00000000
 	Return
 	End
 }

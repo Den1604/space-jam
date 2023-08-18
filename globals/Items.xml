@@ -53,7 +53,7 @@
 	<Item index="032" nameMsg="26-0D0" desc1Msg="23-0D0" desc2Msg="25-0D0" typeFlags="1009" targetFlags="0008" name="SnowmanScarf"/>
 	<Item index="033" nameMsg="26-0D2" desc1Msg="23-0D2" desc2Msg="25-0D2" typeFlags="1009" targetFlags="0008" name="RedKey"/>
 	<Item index="034" nameMsg="26-0D3" desc1Msg="23-0D3" desc2Msg="25-0D3" typeFlags="1009" targetFlags="0008" name="BlueKey"/>
-	<Item index="035" nameMsg="00-000" desc1Msg="00-000" desc2Msg="00-000" typeFlags="1009" targetFlags="0008" name="UnusedLetter01" hudElement="Letter" itemEntity="Letter"/>
+	<Item index="035" nameMsg="2F-05C" desc1Msg="2F-05D" desc2Msg="2F-05E" typeFlags="1009" targetFlags="0008" name="MuskularLetter" hudElement="ITEM_089" itemEntity="ITEM_089"/>
 	<Item index="036" nameMsg="26-0EB" desc1Msg="23-0EB" desc2Msg="25-0EB" typeFlags="1009" targetFlags="0008" name="Letter01" hudElement="ITEM_08A" itemEntity="ITEM_08A"/>
 	<Item index="037" nameMsg="26-0EC" desc1Msg="23-0EC" desc2Msg="25-0EC" typeFlags="1009" targetFlags="0008" name="Letter02" hudElement="ITEM_08A" itemEntity="ITEM_08A"/>
 	<Item index="038" nameMsg="26-0ED" desc1Msg="23-0ED" desc2Msg="25-0ED" typeFlags="1009" targetFlags="0008" name="Letter03" hudElement="ITEM_08A" itemEntity="ITEM_08A"/>

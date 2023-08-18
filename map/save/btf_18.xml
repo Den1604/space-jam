@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_18" author="unnamed" background="hos_bg" textures="sam_tex">
 	<Editor>
-		<Camera pos="249.999985,154.134857,539.081787" pitch="13.000001" yaw="0.000000"/>
+		<Camera pos="268.999847,108.893257,295.019440" pitch="17.799999" yaw="0.800004"/>
 		<Camera pos="274.199188,65536.000000,-94.570023"/>
 		<Camera pos="65536.000000,-9.176682,-33.992348"/>
 		<Camera pos="168.132034,12.300945,65536.000000"/>
@@ -130,7 +130,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="41"/>
+			<MapObject name="Split Model" id="41" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_yane_yukitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -183,7 +183,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_Roof" id="3F"/>
+			<MapObject name="SpaceTruck_Roof" id="3F" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_ryusei_gou_btif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -225,7 +225,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_AirFreshener" id="3E"/>
+			<MapObject name="SpaceTruck_AirFreshener" id="3E" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_flower_02tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -253,7 +253,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_AirFreshener_String" id="3D"/>
+			<MapObject name="SpaceTruck_AirFreshener_String" id="3D" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_yuka6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -281,7 +281,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_SteeringWheel" id="3C"/>
+			<MapObject name="SpaceTruck_SteeringWheel" id="3C" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_yuka6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -541,7 +541,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_Seats" id="3B"/>
+			<MapObject name="SpaceTruck_Seats" id="3B" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_yellow_blocktif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -577,7 +577,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_WindowFrame" id="3A"/>
+			<MapObject name="SpaceTruck_WindowFrame" id="3A" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_t_mac_house7tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -661,7 +661,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_Window" id="39"/>
+			<MapObject name="SpaceTruck_Window" id="39" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_yuka6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -697,7 +697,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_Motorhaube" id="38"/>
+			<MapObject name="SpaceTruck_Motorhaube" id="38" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_t_mac_house7tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -773,7 +773,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_Exhaust" id="37"/>
+			<MapObject name="SpaceTruck_Exhaust" id="37" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_hasiratif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -927,7 +927,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0" panUnit="0">
-			<MapObject name="TruckFlame" id="36"/>
+			<MapObject name="TruckFlame" id="36" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_sterlighttif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1017,7 +1017,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_Main" id="35"/>
+			<MapObject name="SpaceTruck_Main" id="35" hidden="true"/>
 			<ShapeMesh ver="3" texture="hos_ryusei_gou_btif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1077,7 +1077,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki4" id="34"/>
+			<MapObject name="ki4" id="34" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1217,7 +1217,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="miki4" id="33"/>
+			<MapObject name="miki4" id="33" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1429,7 +1429,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki4" id="32"/>
+			<MapObject name="ki4" id="32" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1569,7 +1569,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="miki4" id="31"/>
+			<MapObject name="miki4" id="31" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1781,7 +1781,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki4" id="30"/>
+			<MapObject name="ki4" id="30" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1921,7 +1921,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="miki4" id="2F"/>
+			<MapObject name="miki4" id="2F" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2133,7 +2133,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki4" id="2E"/>
+			<MapObject name="ki4" id="2E" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2273,7 +2273,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="miki4" id="2D"/>
+			<MapObject name="miki4" id="2D" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2485,7 +2485,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki4" id="2C"/>
+			<MapObject name="ki4" id="2C" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2625,7 +2625,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="miki4" id="2B"/>
+			<MapObject name="miki4" id="2B" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2837,7 +2837,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki2_3" id="2A"/>
+			<MapObject name="ki2_3" id="2A" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2995,7 +2995,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="miki2" id="29"/>
+			<MapObject name="miki2" id="29" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3159,7 +3159,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki4" id="28"/>
+			<MapObject name="ki4" id="28" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3299,7 +3299,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="miki4" id="27"/>
+			<MapObject name="miki4" id="27" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3511,7 +3511,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki5" id="26"/>
+			<MapObject name="ki5" id="26" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3651,7 +3651,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="mili5" id="25"/>
+			<MapObject name="mili5" id="25" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3863,7 +3863,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki4" id="24"/>
+			<MapObject name="ki4" id="24" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4003,7 +4003,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="miki4" id="23"/>
+			<MapObject name="miki4" id="23" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4215,7 +4215,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki2_3" id="22"/>
+			<MapObject name="ki2_3" id="22" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4373,7 +4373,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="miki2" id="21"/>
+			<MapObject name="miki2" id="21" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4537,7 +4537,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki5" id="20"/>
+			<MapObject name="ki5" id="20" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4677,7 +4677,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="mili5" id="1F"/>
+			<MapObject name="mili5" id="1F" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4889,7 +4889,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="miki4" id="1E"/>
+			<MapObject name="miki4" id="1E" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5101,7 +5101,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki4" id="1D"/>
+			<MapObject name="ki4" id="1D" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5241,7 +5241,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="miki2" id="1C"/>
+			<MapObject name="miki2" id="1C" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5405,7 +5405,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki2_3" id="1B"/>
+			<MapObject name="ki2_3" id="1B" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5563,7 +5563,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="miki4" id="1A"/>
+			<MapObject name="miki4" id="1A" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5775,7 +5775,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki4" id="19"/>
+			<MapObject name="ki4" id="19" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5915,7 +5915,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="miki4" id="18"/>
+			<MapObject name="miki4" id="18" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6127,7 +6127,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki4" id="17"/>
+			<MapObject name="ki4" id="17" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6267,7 +6267,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="miki4" id="16"/>
+			<MapObject name="miki4" id="16" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6479,7 +6479,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki4" id="15"/>
+			<MapObject name="ki4" id="15" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6619,7 +6619,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki2_3" id="14"/>
+			<MapObject name="ki2_3" id="14" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6777,7 +6777,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="miki2" id="13"/>
+			<MapObject name="miki2" id="13" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6941,7 +6941,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="mili5" id="12"/>
+			<MapObject name="mili5" id="12" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7153,7 +7153,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki5" id="11"/>
+			<MapObject name="ki5" id="11" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7293,7 +7293,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="mili5" id="10"/>
+			<MapObject name="mili5" id="10" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7505,7 +7505,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki5" id="F"/>
+			<MapObject name="ki5" id="F" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7645,7 +7645,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="mili5" id="E"/>
+			<MapObject name="mili5" id="E" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_hasira1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7857,7 +7857,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ki5" id="D"/>
+			<MapObject name="ki5" id="D" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_ki3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7997,7 +7997,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="C"/>
+			<MapObject name="Split Model" id="C" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_odo_iwatif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8123,7 +8123,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="B"/>
+			<MapObject name="Split Model" id="B" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_yane_yukitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8149,7 +8149,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="DrawnModel" id="A"/>
+			<MapObject name="DrawnModel" id="A" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_pen_snowtif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8220,7 +8220,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="9"/>
+			<MapObject name="Split Model" id="9" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_yane_yukitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8264,7 +8264,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Split Model" id="8"/>
+			<MapObject name="Split Model" id="8" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_yane_yukitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8302,7 +8302,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Radial GridModel" id="7"/>
+			<MapObject name="Radial GridModel" id="7" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_pen_snowtif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8398,7 +8398,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ex_e_edge" id="3"/>
+			<MapObject name="ex_e_edge" id="3" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_yane_yukitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8418,7 +8418,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ex_e_edge" id="2"/>
+			<MapObject name="ex_e_edge" id="2" hidden="true"/>
 			<ShapeMesh ver="3" texture="sam_berosaidetif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8828,6 +8828,7 @@
 		<Generators>
 			<Entrance type="Walk" hasCallback="false" entry="Entry0"/>
 			<Entrance type="Teleport" hasCallback="false" entry="Entry1"/>
+			<Exit type="Walk" hasCallback="false" entry="Entry0" destMap="btf_21" destEntry="Entry0" trigger="exit_trigger_e"/>
 		</Generators>
 		<Camera vfov="25" near="16" far="4096" bgcolor="0,0,0" leadsPlayer="false"/>
 		<Fog world="1,0,0,0,255,975,1000" entity="0,0,0,0,255,900,1000"/>

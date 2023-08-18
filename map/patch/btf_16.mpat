@@ -1,3 +1,5 @@
+#import LetterDelivery.mpat
+
 #define .NpcID:GourmetGuy         00
 
 @ $Script_SetupMusic {
@@ -123,52 +125,80 @@
         EndIf
     Else
         Call SpeakToPlayer ( .NpcID:GourmetGuy 00C10004 00C10001 00000000 002F0034 )
-        Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:GourmetGuy 002F0035 )
-        Call GetPlayerPos ( *VarA *VarB *VarC )
-        If *VarA < -298`
-            Call GetPartnerPos ( *VarA *VarB *VarC )
-            If *VarC < -259`
-                Call GetNpcPos ( .NpcID:GourmetGuy *VarA *VarB *VarC )
-                Sub *VarA 20`
-                Add *VarB 10`
-                Sub *VarC 10`
-            Else
-                Call GetNpcPos ( .NpcID:GourmetGuy *VarA *VarB *VarC )
-                Sub *VarA 20`
-                Add *VarB 10`
-                Add *VarC 10`
-            EndIf
-            Call NpcFlyTo ( .Npc:Partner *VarA *VarB *VarC 15` 0` .Easing:Linear )
-            Wait 5`
-            Call GetPlayerPos ( *VarA *VarB *VarC )
-            Sub *VarA 20`
-        Else
-            Call GetPlayerPos ( *VarA *VarB *VarC )
-            If *VarC < -259`
-                Call GetNpcPos ( .NpcID:GourmetGuy *VarA *VarB *VarC )
-                Add *VarA 30`
-                Add *VarB 10`
-                Sub *VarC 10`
-            Else
-                Call GetNpcPos ( .NpcID:GourmetGuy *VarA *VarB *VarC )
-                Add *VarA 30`
-                Add *VarB 10`
-                Add *VarC 10`
-            EndIf
-            Call NpcFlyTo ( .Npc:Partner *VarA *VarB *VarC 15` 0` .Easing:Linear )
-            Wait 5`
-            Call GetPlayerPos ( *VarA *VarB *VarC )
-            Add *VarA 25`
-        EndIf
         Wait 5`
-        Call NpcFlyTo ( .Npc:Partner *VarA *VarB *VarC 15` 0` .Easing:Linear )
-        Call NpcFaceNpc ( .Npc:Partner 00000000 5` )
-        Call SpeakToPlayer ( .NpcID:GourmetGuy 00C10004 00C10001 00000000 002F0036 )
+        ExecWait $Script_LetterDelivery_GourmetGuy
+        If *VarC == 00000001
+            Call EnablePartnerAI ()
+            Call DisablePlayerInput ( .False )
+            Return
+        EndIf
+        % Call GetPlayerPos ( *VarA *VarB *VarC )
+        % If *VarA < -298`
+        %     Call GetPartnerPos ( *VarA *VarB *VarC )
+        %     If *VarC < -259`
+        %         Call GetNpcPos ( .NpcID:GourmetGuy *VarA *VarB *VarC )
+        %         Sub *VarA 20`
+        %         Add *VarB 10`
+        %         Sub *VarC 10`
+        %     Else
+        %         Call GetNpcPos ( .NpcID:GourmetGuy *VarA *VarB *VarC )
+        %         Sub *VarA 20`
+        %         Add *VarB 10`
+        %         Add *VarC 10`
+        %     EndIf
+        %     Call NpcFlyTo ( .Npc:Partner *VarA *VarB *VarC 15` 0` .Easing:Linear )
+        %     Wait 5`
+        %     Call GetPlayerPos ( *VarA *VarB *VarC )
+        %     Sub *VarA 20`
+        % Else
+        %     Call GetPlayerPos ( *VarA *VarB *VarC )
+        %     If *VarC < -259`
+        %         Call GetNpcPos ( .NpcID:GourmetGuy *VarA *VarB *VarC )
+        %         Add *VarA 30`
+        %         Add *VarB 10`
+        %         Sub *VarC 10`
+        %     Else
+        %         Call GetNpcPos ( .NpcID:GourmetGuy *VarA *VarB *VarC )
+        %         Add *VarA 30`
+        %         Add *VarB 10`
+        %         Add *VarC 10`
+        %     EndIf
+        %     Call NpcFlyTo ( .Npc:Partner *VarA *VarB *VarC 15` 0` .Easing:Linear )
+        %     Wait 5`
+        %     Call GetPlayerPos ( *VarA *VarB *VarC )
+        %     Add *VarA 25`
+        % EndIf
+        % Wait 5`
+        % Call NpcFlyTo ( .Npc:Partner *VarA *VarB *VarC 15` 0` .Easing:Linear )
+        % Call NpcFaceNpc ( .Npc:Partner 00000000 5` )
+        % Call SpeakToPlayer ( .NpcID:GourmetGuy 00C10004 00C10001 00000000 002F0036 )
+        % Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0037 )
         Set *MF_btf_16_GourmetGuyLetterDelivered .True
-        Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0037 )
     EndIf
     Call EnablePartnerAI ()
     Call DisablePlayerInput ( .False )
     Return
     End
+}
+
+#new:Unknown $LetterList_GourmetGuy
+{
+	.Item:Letter01 00000000
+}
+
+#new:Script $Script_LetterDelivery_GourmetGuy
+{
+	Set *Var2 .NpcID:GourmetGuy
+	Set *Var3 00C10004 % Talk Animation - same format as SpeakToPlayer
+	Set *Var4 00C10001 % Idle Animation - same format as SpeakToPlayer
+	Set *Var5 .Item:Letter01 % same as LetterList
+	Set *Var6 00000000 % same as LetterList
+	Set *Var7 002F005A % string by parakarry
+	Set *Var8 002F0056 % string by parakarry when canceling the letter select box
+	Set *Var9 002F0037 % "another letter duly delivered"
+	Set *VarA 002F0036 % string by other npc
+	Set *VarB $LetterList_GourmetGuy
+	ExecWait  $Script_DoLetterDelivery
+	Return
+	End
 }

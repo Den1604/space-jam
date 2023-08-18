@@ -365,8 +365,20 @@
 	End
 }
 
+#new:Script $Script_Exit_Entry0
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Entry0 )
+	Exec     ExitWalk
+	Call  GotoMap   ( "btf_21" ~Entry:btf_21:Entry0 )
+	Wait  100`
+	Return
+	End
+}
+
 #new:Script $Script_CreateExitTriggers
 {
+	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:exit_trigger_e 00000001 00000000
 	Return
 	End
 }

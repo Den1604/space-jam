@@ -1,3 +1,5 @@
+#import LetterDelivery.mpat
+
 #define .NpcID:Muskular         00
 
 #new:Header $Header
@@ -1699,16 +1701,23 @@ End
         Sub *VarA 25`
         Sub *VarB 60`
         Call NpcFlyTo ( .NpcID:Muskular *VarA *VarB *VarC 30` 20` .Easing:Linear )
-        Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F0043 )
-        Call GetPartnerPos ( *VarD *VarE *VarF )
-        Call GetNpcPos ( .NpcID:Muskular *VarA *VarB *VarC )
-        Sub *VarA 5`
-        Add *VarC 2`
-        Call NpcFlyTo ( .Npc:Partner *VarA *VarB *VarC 30` 0` .Easing:Linear )
-        Wait 10`
-        Call NpcFlyTo ( .Npc:Partner *VarD *VarE *VarF 30` 0` .Easing:Linear )
-        Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Muskular 002F0041 )
-        Call SpeakToPlayer ( .NpcID:Muskular 00150002 00150001 00000000 002F0044 )
+        %
+        %
+        %
+        ExecWait $Script_LetterDelivery_Muskular
+        If *VarC == 00000001
+            Label A
+            ExecWait $Script_LetterDelivery_Muskular
+            If *VarC == 00000001
+                Goto A
+            Else
+                Goto B
+            EndIf
+        EndIf
+        Label B
+        %
+        %
+        %
         Call InterpNpcYaw ( .NpcID:Muskular -107` 5` )
         Call SetNpcAnimation ( .NpcID:Muskular 00150005 )
         Wait 60`
@@ -2882,6 +2891,28 @@ End
     SB T1, 00000000, (T0)
     JR RA
     LI V0, 00000002
+}
+
+#new:Unknown $LetterList_Muskular
+{
+	.Item:MuskularLetter 00000000
+}
+
+#new:Script $Script_LetterDelivery_Muskular
+{
+	Set *Var2 .NpcID:Muskular
+	Set *Var3 00150002 % Talk Animation - same format as SpeakToPlayer
+	Set *Var4 00150001 % Idle Animation - same format as SpeakToPlayer
+	Set *Var5 .Item:MuskularLetter % same as LetterList
+	Set *Var6 00000000 % same as LetterList
+	Set *Var7 002F0043 % string by parakarry
+	Set *Var8 002F0061 % string by parakarry when canceling the letter select box
+	Set *Var9 002F0041 % "another letter duly delivered"
+	Set *VarA 002F0044 % string by other npc
+	Set *VarB $LetterList_Muskular
+	ExecWait  $Script_DoLetterDelivery
+	Return
+	End
 }
 
 #new:Script $Script_Potato { % 000000AF

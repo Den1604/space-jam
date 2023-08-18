@@ -47,7 +47,7 @@
     Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0016 )
     Exec $Script_ShipMoveRight
     Wait 15`
-    Call GotoMap ( "btf_13" 00000000 )
+    Call GotoMap ( "btf_13" 00000003 )
     Call StopSound ( 0000032A )
     Return
     End

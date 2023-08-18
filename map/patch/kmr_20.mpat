@@ -179,11 +179,22 @@
     Call SpeakToPlayer ( .Npc:Partner 00050006 00050002 00000000 002F002A )
     ExecWait $Script_PanCamera_CamPan
     Thread
-        Call PlayerMoveTo ( ~Vec2D:CamPan 25` )
+        Call PlayerMoveTo ( ~Vec2D:CamPan 40` )
     EndThread
-    Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryFlyTo 20` 0` .Easing:Linear )
+    Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryFlyTo 35` 0` .Easing:Linear )
     Call WaitForPlayerMoveToComplete ()
     Call InterpPlayerYaw ( -20` 5` )
+    Call SpeakToPlayer ( .Npc:Partner 00050006 00050002 00000000 002F005F )
+    Wait 5`
+    Call GetNpcPos ( .Npc:Partner *Var1 *Var2 *Var3 )
+    Thread
+        Call PlaySound ( 00000262 )
+    EndThread
+    Call ShowEmote ( .Npc:Partner .Emote:Exclamation 0` 15` .True *Var1 *Var2 *Var3 0` )
+    Wait 10`
+    Call SpeakToPlayer ( .Npc:Partner 00050006 00050002 00000000 002F0060 )
+    Call ShowGotItem ( .Item:MuskularLetter .True 00000000 )
+    Call AddKeyItem ( .Item:MuskularLetter )
     Set *Var0 0`
     Loop 9`
         Sub *Var0 15`

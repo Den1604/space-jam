@@ -1,3 +1,5 @@
+#import LetterDelivery.mpat
+
 #define .NpcID:NPC 00
 
 @ $Script_Main {
@@ -225,36 +227,61 @@
         Wait 10`
         Call SpeakToPlayer ( .Npc:Self 00200B09 00200B01 00000000 002F0010 )
         Call SetNpcAnimation ( .Npc:Self 00200B01 )
-        Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 00000000 002F0011 )
-        Call GetNpcPos ( .Npc:Partner *VarA *VarB *VarC )
-        Call GetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
-        Add *VarA 50`
-        Call NpcFlyTo ( .Npc:Partner *VarA *VarB *VarC 15` 0` .Easing:Linear )
-        Wait 10`
-        Call NpcFlyTo ( .Npc:Partner *VarD *VarE *VarF 15` 0` .Easing:Linear )
-        Call NpcFaceNpc ( .Npc:Partner 00000000 5` )
-        Call GetNpcPos ( 00000000 *VarA *VarB *VarC )
-        Thread
-            Call PlaySound ( 00000262 )
-        EndThread
-        Call ShowEmote ( 00000000 .Emote:Exclamation -45` 15` .True *VarA *VarB *VarC 0` )
-        Wait 15`
-        Call SpeakToPlayer ( .Npc:Self 00200B09 00200B01 00000000 002F0012 )
-        Wait 5`
+        ExecWait $Script_LetterDelivery_Mechanic
+        If *VarC == 00000001
+            Call EnablePartnerAI ()
+            Call DisablePlayerInput ( .False )
+            Return
+        EndIf
+        % Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 00000000 002F0011 )
+        % Call GetNpcPos ( .Npc:Partner *VarA *VarB *VarC )
+        % Call GetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
+        % Add *VarA 50`
+        % Call NpcFlyTo ( .Npc:Partner *VarA *VarB *VarC 15` 0` .Easing:Linear )
+        % Wait 10`
+        % Call NpcFlyTo ( .Npc:Partner *VarD *VarE *VarF 15` 0` .Easing:Linear )
+        % Call NpcFaceNpc ( .Npc:Partner 00000000 5` )
+        % Call GetNpcPos ( 00000000 *VarA *VarB *VarC )
+        % Thread
+        %     Call PlaySound ( 00000262 )
+        % EndThread
+        % Call ShowEmote ( 00000000 .Emote:Exclamation -45` 15` .True *VarA *VarB *VarC 0` )
+        % Wait 15`
+        % Call SpeakToPlayer ( .Npc:Self 00200B09 00200B01 00000000 002F0012 )
+        % Wait 5`
         Call InterpNpcYaw ( .Npc:Self -207` 15` )
         Wait 10`
         Call SetNpcAnimation ( .Npc:Self 00200B03 )
         Wait 15`
-        Call SpeakToPlayer ( .Npc:Partner 00200B09 00200B01 00000000 002F0042 )
-        %
-        % ADD REMOVAL OF LETTER HERE
-        %
+        % Call SpeakToPlayer ( .Npc:Partner 00200B09 00200B01 00000000 002F0042 )
         Set *MF_btf_10_DeliveredLetter .True
     EndIf
     Call EnablePartnerAI ()
     Call DisablePlayerInput ( .False )
     Return
     End
+}
+
+#new:Unknown $LetterList_Mechanic
+{
+	.Item:Letter02 00000000
+}
+
+#new:Script $Script_LetterDelivery_Mechanic
+{
+	Set *Var2 .NpcID:NPC
+	Set *Var3 00200B09 % Talk Animation - same format as SpeakToPlayer
+	Set *Var4 00200B01 % Idle Animation - same format as SpeakToPlayer
+	Set *Var5 .Item:Letter02 % same as LetterList
+	Set *Var6 00000000 % same as LetterList
+	Set *Var7 002F005B % string by parakarry
+	Set *Var8 002F0056 % string by parakarry when canceling the letter select box
+	Set *Var9 002F0042 % "another letter duly delivered"
+	Set *VarA 002F0012 % string by other npc
+	Set *VarB $LetterList_Mechanic
+	ExecWait  $Script_DoLetterDelivery
+	Return
+	End
 }
 
 @ $Script_EnterMap {

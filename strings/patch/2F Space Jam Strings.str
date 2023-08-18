@@ -69,33 +69,33 @@
 
 #message:2F:006
 {
-	[Style Inspect][InputOff]
+	[Style Inspect]
 	[BR]
 	[Size 27]  -    Credits    -[SizeReset][br]
-	[BR][InputOn]
-	[Wait][Next][InputOff]
+	[BR]
+	[Wait][Next]
 	Mod made by [Color:06]Darxoon[Color:00], [Color:08]Den[Color:00] and[BR]
 	[Color:01]Shyblookster[Color:00] for the 2nd[BR]
-	Paper Mario Modding Jam.[BR][InputOn]
-	[Wait][Next][InputOff]
+	Paper Mario Modding Jam.[BR]
+	[Wait][Next]
 	[BR]
 	[Size 27]-  Special Thanks  -[SizeReset][br]
-	[BR][InputOn]
-	[Wait][Next][InputOff]
+	[BR]
+	[Wait][Next]
 	[Color:01]Wrymouth[Color:00][BR]
 	[BR]
-	- ASM tutoring for [Color:08]Den[Color:00][BR][InputOn]
-	[Wait][Next][InputOff]
+	- ASM tutoring for [Color:08]Den[Color:00][BR]
+	[Wait][Next]
 	[Color:16]DarkSB24[Color:00][BR]
 	[BR]
-	- Midi used from vgmusic.com[BR][InputOn]
-	[Wait][Next][InputOff]
+	- Midi used from vgmusic.com[BR]
+	[Wait][Next]
 	[Pause:30]
 	[Next]
-	One more thing.[br][InputOn]
-	[Wait][Next][InputOff]
+	One more thing.[br]
+	[Wait][Next]
 	What are you playing this[br]
-	romhack on?[br][InputOn]
+	romhack on?[br]
 	[Wait][Yield][End]
 }
 
@@ -956,4 +956,80 @@ Of course![br]
 	[Wait][Next]
 	Maybe we should show this to him.
 	[Wait][END]
+}
+
+#message:2F:05A
+{
+	[Style Right]
+	You're Gourmet Guy, correct?[BR]
+	[Wait][Next]
+	The name's Parakarry. I deliver[BR]
+	letters.[BR]
+	[Wait][Next]
+	I believe I have one for you.[BR]
+	[Pause 10]Hang on a moment.[Wait][End]
+}
+
+#message:2F:05B
+{
+	[Style Right]
+	The name's Parakarry. I deliver[BR]
+	letters.[BR]
+	[Wait][Next]
+	I believe I have one for you.[Pause:15][BR]
+	If this is not the blueprint needed,[br]
+	please give it back after[br]
+	examining it![br]
+	[Wait][Next]
+	[Pause 10]Hang on a moment.[Wait][End]
+}
+
+
+#string:2F:05C
+{
+	Fancy Letter[End]
+}
+
+
+#string:2F:05D
+{
+	An extra fancy letter to Muskular[BR]
+	near the Star Haven Islands.[End]
+}
+
+#string:2F:05E
+{
+	An extra fancy letter to Muskular[BR]
+	near the Star Haven Islands.[BR]
+	You can deliver it with your[BR]
+	Paratroopa partner, Parakarry.[End]
+}
+
+#message:2F:05F
+{
+	[Style Right]
+	Alright![Pause:15][br]
+	Let's get into it now.[br]
+	[Wait][End]
+}
+
+#message:2F:060
+{
+	[Style Right]
+	Oh right![Pause:10][br]
+	You should probably carry[br]
+	this from now on.[br]
+	[Wait][Next]
+	You know how easily I[br]
+	can lose my letters.[br]
+	[Wait][End]
+}
+
+#message:2F:061
+{
+	[Style Right]
+	Uhm, Mario?[Pause:10][br]
+	We [PrintRising][Pause:5]HAVE[Pause:5][/fx] to deliver this.[Pause:10][br]
+	Right now.[br]
+	[Wait][End]
 }
