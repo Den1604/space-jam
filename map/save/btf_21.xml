@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_21" author="unnamed" background="hos_bg" textures="sam_tex">
 	<Editor>
-		<Camera pos="-33.259857,124.036812,859.351685" pitch="10.000000" yaw="0.000000"/>
+		<Camera pos="-0.000000,124.036812,881.439209" pitch="10.000000" yaw="0.000000"/>
 		<Camera pos="42.531551,65536.000000,502.616089"/>
 		<Camera pos="65536.000000,100.000000,94.000000"/>
 		<Camera pos="-140.719040,-7.226688,65536.000000"/>
@@ -15030,7 +15030,7 @@
 		</TexPanners>
 		<Generators>
 			<Entrance type="Walk" hasCallback="false" entry="Entry0"/>
-			<Exit type="Walk" hasCallback="false" entry="Entry0" destMap="btf_18" destEntry="Entry0" trigger="exit_trigger_s"/>
+			<Exit type="Walk" hasCallback="false" entry="Entry0" destMap="btf_22" destEntry="Entry1" trigger="exit_trigger_s"/>
 		</Generators>
 		<Camera vfov="25" near="16" far="4096" bgcolor="0,0,0" leadsPlayer="false"/>
 		<Fog world="1,10,10,10,255,975,1000" entity="0,10,10,10,255,950,1000"/>

@@ -1,0 +1,25 @@
+@ $Script_SetupMusic {
+    Call  SetMusicTrack ( 00000000 .Song:IcedLand 00000000 00000006 )
+	Call  PlayAmbientSounds  ( .AmbientSounds:Wind )
+    Return
+    End
+}
+
+@ $Script_Main {
+    Set   *GB_WorldLocation  .Location:GoombaRoad
+    Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+    Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+    Call  SetCamEnabled      ( .Cam:Default .True
+    Call  SetCamLeadPlayer   ( .Cam:Default .False )
+    Exec  $Script_SetupMusic
+    Exec  $Script_EnterMap
+    If *MF_PlayerIsOnConsoleOrUsesAres == .True
+        Call  PlayEffect    ( ~FX:Snowfall 0000012C 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+    Else
+        Call  PlayEffect    ( ~FX:Snowfall 00000200 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )%is limit, above crashes when hammering
+    EndIf
+    Call HidePlayerShadow ( .True )
+    Call EnableNpcShadow ( .Npc:Partner .False )
+    Return
+    End
+}

@@ -10,8 +10,8 @@
 
 #new:EntryList $EntryList
 {
-	~Vec4f:entry_e
-	~Vec4f:entry_w
+	~Vec4f:Entry0
+	~Vec4f:Entry1
 }
 
 #new:Script_Main $Script_Main
@@ -40,20 +40,54 @@
 
 #new:Script $Script_SetupMusic
 {
-	Call  FadeOutMusic  ( 00000000 500` ) % usually between 500-1000
-	Call  ClearAmbientSounds ( 250` )
+	Call  SetMusicTrack ( 00000000 .Song:PleasantPath 00000000 00000008 )
+	Call  PlayAmbientSounds  ( .AmbientSounds:Wind )
 	Return
 	End
 }
 
 #new:Script $Script_EnterMap
 {
+	Call  GetEntryID    ( *Var[0] )
+	Switch  *Var[0]
+		CaseOR  ==  ~Entry:Entry0
+		CaseOR  ==  ~Entry:Entry1
+			Set   *Var[0] $Script_CreateExitTriggers
+			Exec  EnterWalk
+		EndCaseGroup
+		Default
+			Exec  $Script_CreateExitTriggers
+	EndSwitch
+	Return
+	End
+}
+
+#new:Script $Script_Exit_Entry0
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Entry0 )
+	Exec     ExitWalk
+	Call  GotoMap   ( "btf_18" ~Entry:btf_18:Entry0 )
+	Wait  100`
+	Return
+	End
+}
+
+#new:Script $Script_Exit_Entry1
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Entry1 )
+	Exec     ExitWalk
+	Call  GotoMap   ( "btf_21" ~Entry:btf_21:Entry0 )
+	Wait  100`
 	Return
 	End
 }
 
 #new:Script $Script_CreateExitTriggers
 {
+	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:exit_trigger_w 00000001 00000000
+	Bind  $Script_Exit_Entry1 .Trigger:FloorAbove ~Collider:ExitN 00000001 00000000
 	Return
 	End
 }
