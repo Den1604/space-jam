@@ -211,6 +211,9 @@
 
 #new:Script $Script_Interact_Thamz
 {
+    Call DisablePlayerInput ( .True )
+    Call SpeakToPlayer ( .NpcID:Thamz 00320004 00320001 00000000 002F0072 )
+    Call DisablePlayerInput ( .False )
     Return
     End
 }

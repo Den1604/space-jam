@@ -1191,3 +1191,16 @@ Of course![br]
 	the world would be doomed![br]
 	[Wait][End]
 }
+
+#message:2F:072
+{
+	[Style Right]
+	What else do you want from me?[Pause:20][br]
+	I refuse to fight you here.[Pause:10][br]
+	Feel free to look at my notes[br]
+	on the table over there.[br]
+	[Wait][Next]
+	I've retired long ago, so I won't[br]
+	find use for them anyways.[br]
+	[Wait][End]
+}
