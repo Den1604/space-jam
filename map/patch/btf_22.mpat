@@ -20,6 +20,31 @@
     EndIf
     Call HidePlayerShadow ( .True )
     Call EnableNpcShadow ( .Npc:Partner .False )
+    Bind  $Script_Denial .Trigger:FloorAbove ~Collider:EndCollider 00000001 00000000
+    Return
+    End
+}
+
+#new:Script $Script_Denial
+{
+    If *MapFlag[01] == .False
+        Set *MapFlag[01] .True
+        Call DisablePlayerInput ( .True )
+        Call DisablePartnerAI ( 00000000 )
+        Call GetNpcPos ( .Npc:Partner *Var1 *Var2 *Var3 )
+        Thread
+            Call PlaySound ( 00000262 )
+        EndThread
+        Call ShowEmote ( .Npc:Partner .Emote:Exclamation -45` 15` .True *Var1 *Var2 *Var3 0` )
+        Wait 15`
+        Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0071 )
+        Call EnablePartnerAI ()
+        Call GetPlayerPos ( *VarA *VarB *VarC )
+        Sub *VarA 40`
+        Call PlayerMoveTo ( *VarA *VarC 15` )
+        Call DisablePlayerInput ( .False )
+        Set *MapFlag[01] .False
+    EndIf
     Return
     End
 }

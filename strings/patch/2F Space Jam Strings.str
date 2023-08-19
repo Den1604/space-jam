@@ -1177,3 +1177,17 @@ Of course![br]
 	MQ Note 5[br]
 	[Wait][End]
 }
+
+#message:2F:071
+{
+	[Style Right]
+	Hey, Mario.[Pause:10][br]
+	I think we shouldn't go further,[br]
+	I saw a light up north.[br]
+	[Wait][Next]
+	Over there seems to be an[br]
+	endless stretch of snow.[Pause:10][br]
+	We would just get lost and[br]
+	the world would be doomed![br]
+	[Wait][End]
+}
