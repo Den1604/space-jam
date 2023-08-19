@@ -949,12 +949,13 @@ Of course![br]
 #message:2F:059
 {
 	[Style Right]
-	Can you read this Mario? I can barely[br]
-	make out a word. However, do you see[br]
-	this? They might be referring to the[br]
-	Clubba in the front of this room.[br]
+	Can you read this Mario? I can[br]
+	barely make out a word.[br]
 	[Wait][Next]
-	Maybe we should show this to him.
+	[Pause:4].[Pause:4].[Pause:4].[Pause:12]But look at this![br]
+	They might be referring to the[br]
+	Clubba in the front of this room.[Pause:12][br]
+	We should show this to him.[br]
 	[Wait][END]
 }
 

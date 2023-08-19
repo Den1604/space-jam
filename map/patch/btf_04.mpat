@@ -1,3 +1,5 @@
+#define .NpcID:NpcGuard 1`
+
 @ $Script_SetupMusic {
     Call  SetMusicTrack ( 00000000 .Song:SpaceJunk 00000000 00000008 )
     Call  ClearAmbientSounds ( 250` )
@@ -22,9 +24,58 @@
     If *MF_btf_04_HeardShipCrash == .False
         Bind  $Script_HearShipCrash .Trigger:FloorTouch ~Collider:CutsceneCollider 1 0
     EndIf
+    
+    Call  MakeNpcs ( .False $NpcGroupList )
+	Call  SetNpcYaw ( .NpcID:NpcGuard -127` ) % Makes Clubba face left
+    
     Return
     End
 }
+
+#new:NpcGroup $NpcGroup_NpcGuard
+{
+	.NpcID:NpcGuard $NpcSettings_NpcGuard ~Vec3f:NpcGuard
+	00402D09 $Script_Init_NpcGuard 0 0 0
+	~NoDrops
+	~Movement:NpcGuard
+	~AnimationTable:NpcGuard
+	00000000 00000000 00000000 00000000 % no tattle string
+}
+
+#new:NpcSettings $NpcSettings_NpcGuard
+{
+	00000000 001E0018 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
+}
+
+#new:Script $Script_Init_NpcGuard
+{
+    If *MF_btf_06_ClubbaGone == .False
+        Call SetNpcPos ( .Npc:Self 0 -100` 0 )
+    Else
+	    Call BindNpcInteract ( .Npc:Self $Script_Interact_NpcGuard )
+    EndIf
+    
+    Return
+    End
+}
+
+#new:Script $Script_Interact_NpcGuard
+{
+	% talkAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 05
+	% idleAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 02
+	% stringID - AAAABBBB - space jam strings resource (0x2F), string 0x28
+    Call SpeakToPlayer ( .NpcID:NpcGuard 00390116 00390115 00000000 002F0028 )
+    
+	Return
+	End
+}
+
+#new:NpcGroupList $NpcGroupList {
+	00000001 $NpcGroup_NpcGuard 00000000
+	00000000 00000000 00000000
+}
+
 
 #new:Script $Script_StarSpin
 {

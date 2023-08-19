@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_19" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="200.232056,103.794479,-524.328186" pitch="34.759975" yaw="18.719749"/>
-		<Camera pos="270.598663,65536.000000,-649.655334"/>
-		<Camera pos="65536.000000,2615.783691,-1578.771362"/>
-		<Camera pos="272.611053,29.105801,65536.000000"/>
+		<Camera pos="280.000000,156.272720,-138.243866" pitch="13.999999" yaw="0.000000"/>
+		<Camera pos="184.308441,65536.000000,-742.356018"/>
+		<Camera pos="65536.000000,3862.357666,-1895.736450"/>
+		<Camera pos="181.699722,0.468680,65536.000000"/>
 	</Editor>
 	<ModelTree>
 		<Node name="Root" id="1E">
@@ -2018,24 +2018,24 @@
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
 					<VertexTable>
-						<Vertex xyz="220,70,-690" uv="1024,944"/>
+						<Vertex xyz="210,80,-690" uv="1024,944"/>
 						<Vertex xyz="248,0,-661" uv="2048,-16"/>
-						<Vertex xyz="248,70,-661" uv="2048,944"/>
-						<Vertex xyz="220,0,-690" uv="1024,-16"/>
+						<Vertex xyz="248,80,-661" uv="2048,944"/>
+						<Vertex xyz="210,0,-690" uv="1024,-16"/>
 						<Vertex xyz="248,0,-661" uv="2048,-16"/>
-						<Vertex xyz="220,70,-690" uv="1024,944"/>
+						<Vertex xyz="210,80,-690" uv="1024,944"/>
 						<Vertex xyz="248,70,-661" uv="2048,944"/>
 						<Vertex xyz="277,0,-689" uv="3072,-16"/>
 						<Vertex xyz="277,70,-689" uv="3072,944"/>
 						<Vertex xyz="248,0,-661" uv="2048,-16"/>
 						<Vertex xyz="277,0,-689" uv="3072,-16"/>
 						<Vertex xyz="248,70,-661" uv="2048,944"/>
-						<Vertex xyz="205,0,-725" uv="1024,-16"/>
-						<Vertex xyz="220,0,-695" uv="2048,-16"/>
-						<Vertex xyz="205,70,-725" uv="1024,944"/>
-						<Vertex xyz="205,70,-725" uv="1024,944"/>
-						<Vertex xyz="220,0,-695" uv="2048,-16"/>
-						<Vertex xyz="220,70,-695" uv="2048,944"/>
+						<Vertex xyz="210,80,-700" uv="1024,944"/>
+						<Vertex xyz="210,0,-690" uv="2048,-16"/>
+						<Vertex xyz="210,80,-690" uv="2048,944"/>
+						<Vertex xyz="210,0,-700" uv="1024,-16"/>
+						<Vertex xyz="210,0,-690" uv="2048,-16"/>
+						<Vertex xyz="210,80,-700" uv="1024,944"/>
 					</VertexTable>
 					<TriangleList>
 						<Triangle ijk="0,1,2"/>
@@ -2054,12 +2054,12 @@
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
 					<VertexTable>
-						<Vertex xyz="160,64,-740" uv="1280,1024"/>
-						<Vertex xyz="160,64,-770" uv="0,1024"/>
+						<Vertex xyz="160,80,-700" uv="1280,1024"/>
+						<Vertex xyz="160,80,-770" uv="0,1024"/>
 						<Vertex xyz="160,0,-770"/>
 						<Vertex xyz="160,0,-770"/>
-						<Vertex xyz="160,0,-740" uv="1280,0"/>
-						<Vertex xyz="160,64,-740" uv="1280,1024"/>
+						<Vertex xyz="160,0,-700" uv="1280,0"/>
+						<Vertex xyz="160,80,-700" uv="1280,1024"/>
 						<Vertex xyz="320,64,-670" uv="4188,1024"/>
 						<Vertex xyz="260,64,-675" uv="1280,1024"/>
 						<Vertex xyz="260,0,-675" uv="1280,0"/>
@@ -2078,12 +2078,12 @@
 						<Vertex xyz="320,0,-670" uv="1280,0"/>
 						<Vertex xyz="355,0,-580" uv="4188,0"/>
 						<Vertex xyz="355,64,-580" uv="4188,1024"/>
-						<Vertex xyz="260,64,-705" uv="4188,1024"/>
-						<Vertex xyz="160,64,-740" uv="1280,1024"/>
-						<Vertex xyz="160,0,-740" uv="1280,0"/>
-						<Vertex xyz="160,0,-740" uv="1280,0"/>
-						<Vertex xyz="260,0,-705" uv="4188,0"/>
-						<Vertex xyz="260,64,-705" uv="4188,1024"/>
+						<Vertex xyz="210,80,-700" uv="4188,1024"/>
+						<Vertex xyz="160,80,-700" uv="1280,1024"/>
+						<Vertex xyz="160,0,-700" uv="1280,0"/>
+						<Vertex xyz="160,0,-700" uv="1280,0"/>
+						<Vertex xyz="210,0,-700" uv="4188,0"/>
+						<Vertex xyz="210,80,-700" uv="4188,1024"/>
 					</VertexTable>
 					<TriangleList>
 						<Triangle ijk="0,1,2"/>

@@ -485,8 +485,18 @@
 	% and 2 if the letter was delivered
 	
 	If  *VarC  ==  00000002
-		% purely placeholder
-		Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 002F002F )
+		Call DisablePlayerInput ( .False )
+		
+		% Flag 100 = Ignore Player Collision
+		% If mode is true, the flag will be added to the npc
+		% rather than removed, which is the case when it is false
+		Call SetNpcFlagBits ( .NpcID:NpcGuard 00000100 .True )
+		
+		Call NpcMoveTo ( .NpcID:NpcGuard ~Vec2D:NpcGuard_Flee_Pos1 30` )
+		Call NpcMoveTo ( .NpcID:NpcGuard ~Vec2D:NpcGuard_Flee_Pos2 30` )
+		Call SetNpcPos ( .NpcID:NpcGuard 0 -100` 0 )
+		
+		Set *MF_btf_06_ClubbaGone .True
 	EndIf
 	Return
 	End
@@ -511,7 +521,12 @@
 
 #new:Script $Script_Init_NpcGuard
 {
-	Call BindNpcInteract ( .Npc:Self $Script_Interact_NpcGuard )
+	If *MF_btf_06_ClubbaGone == .True
+        Call SetNpcPos ( .Npc:Self 0 -100` 0 )
+    Else
+	    Call BindNpcInteract ( .Npc:Self $Script_Interact_NpcGuard )
+    EndIf
+    
     Return
     End
 }
