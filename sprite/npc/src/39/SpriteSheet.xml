@@ -60,6 +60,8 @@
 		<Raster id="2D" palette="0" src="Raster_2D.png"/>
 		<Raster id="2E" palette="0" src="Raster_2E.png"/>
 		<Raster id="2F" palette="0" src="Raster_2F.png"/>
+		<Raster id="30" name="Raster_30" palette="0" src="Raster_30.png"/>
+		<Raster id="31" name="Raster_31" palette="0" src="Raster_31.png"/>
 	</RasterList>
 	<AnimationList>
 		<Animation name="Anim_00">
@@ -669,6 +671,22 @@
 			<Component name="Comp_01" xyz="-2,-1,0">
 				<Command val="100E"/>
 				<Command val="2"/>
+				<Command val="2000"/>
+			</Component>
+		</Animation>
+		<Animation name="Anim_15">
+			<Component xyz="0,0,0">
+				<Command val="1030"/>
+				<Command val="2"/>
+				<Command val="2000"/>
+			</Component>
+		</Animation>
+		<Animation name="Anim_16">
+			<Component xyz="0,0,0">
+				<Command val="1030"/>
+				<Command val="6"/>
+				<Command val="1031"/>
+				<Command val="4"/>
 				<Command val="2000"/>
 			</Component>
 		</Animation>
