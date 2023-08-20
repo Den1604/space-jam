@@ -592,6 +592,7 @@
 		<Map name="btf_20" nickname="Galaxy Gas Station"/>
 		<Map name="btf_21" nickname="Thamz Area 2"/>
 		<Map name="btf_22" nickname="Thamz Area 3"/>
+		<Map name="btf_23" nickname="Challenge Room 1b"/>
 		<Stage name="btf_bt01" nickname="CR 2 Battle Map"/>
 		<Stage name="btf_bt02" nickname="CI Battle Map"/>
 	</Area>

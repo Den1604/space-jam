@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_06" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="218.421036,194.677048,661.574097" pitch="39.759975" yaw="5.120007"/>
+		<Camera pos="344.504242,129.579590,-233.813049" pitch="19.439983" yaw="8.800007"/>
 		<Camera pos="117.422974,65536.000000,532.401855"/>
 		<Camera pos="65536.000000,3055.879150,-1573.485229"/>
 		<Camera pos="277.455902,72.154579,65536.000000"/>
@@ -139,7 +139,7 @@
 				<Node name="NpcFuzzy1" id="3"/>
 				<Node name="NpcBobOmb1" id="4"/>
 				<Node name="NpcKoopa1" id="5"/>
-				<Node name="NpcFuzzy1" id="6"/>
+				<Node name="NpcFuzzy2" id="6"/>
 			</Node>
 			<Node name="Entities" id="15">
 				<Node name="SaveBlock" id="8"/>
@@ -9209,7 +9209,7 @@
 			<MapObject name="NPCs" id="7"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="488,40,-378" yaw="0.000000">
-			<MapObject name="NpcFuzzy1" id="6"/>
+			<MapObject name="NpcFuzzy2" id="6"/>
 			<Movement type="Wander" data="1E8,28,FFFFFE86,64,2D,FFFF8001,1,1E8,28,FFFFFE86,2D,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="2B" palette="0" animations="2,2,3,3,1,1,8,8,3,3,3,3,3,3,3,3"/>
 		</Marker>

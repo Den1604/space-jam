@@ -1,0 +1,155 @@
+@ $FormationTable {
+	$SJIS_8022BE10 00000002 $Formation_00 $Stage_8022BAEC 00000000
+	$SJIS_8022BDF8 00000002 $Formation_01 $Stage_8022BAEC 00000000
+	$SJIS_8022BDE8 00000002 $Formation_02 $Stage_8022BAEC 00000000
+	$SJIS_8022BDCC 00000002 $Formation_03 $Stage_8022BAEC 00000000
+	$SJIS_8022BDBC 00000002 $Formation_04 $Stage_8022BAEC 00000000
+	$SJIS_8022BDA0 00000003 $Formation_05 $Stage_8022BAEC 00000000
+	$SJIS_8022BD90 00000003 $Formation_06 $Stage_8022BAEC 00000000
+	$SJIS_8022BD80 00000004 $Formation_07 $Stage_8022BAEC 00000000
+	$SJIS_8022BD6C 00000002 $Formation_08 $Stage_8022BAEC 00000000
+	$SJIS_8022BD60 00000002 $Formation_09 $Stage_8022BAEC 00000000
+	$SJIS_8022BD54 00000003 $Formation_0A $Stage_8022BAEC 00000000
+	$SJIS_8022BD3C 00000002 $Formation_0B $Stage_8022BAEC 00000000
+	$SJIS_8022BD24 00000003 $Formation_0C $Stage_8022BAEC 00000000
+	$SJIS_8022BD08 00000003 $Formation_0D $Stage_8022BAEC 00000000
+	$SJIS_8022BCEC 00000003 $Formation_0E $Stage_8022BAEC 00000000
+	$SJIS_8022BCC8 00000003 $Formation_0F $Stage_8022BAEC 00000000
+	$SJIS_8022BCA0 00000004 $Formation_10 $Stage_8022BAEC 00000000
+	$SJIS_8022BC94 00000002 $Formation_11 $Stage_8022BAEC 00000000
+	$SJIS_8022BC80 00000002 $Formation_12 $Stage_8022BAEC 00000000
+	$SJIS_8022BC5C 00000003 $Formation_13 $Stage_8022BAEC 00000000
+	$SJIS_8022BC38 00000004 $Formation_14 $Stage_8022BAEC 00000000
+	$SJIS_8022BC2C 00000001 $Formation_15 $Stage_8022BAEC 00000000
+	$SJIS_8022BC1C 00000002 $Formation_16 $Stage_8022BAEC 00000000
+	$SJIS_8022BC0C 00000004 $Formation_17 $Stage_8022BAEC 00000000
+	$SJIS_8022BC00 00000001 $Formation_18 $Stage_8022BAEC 00000000
+	% Custom
+	$SJIS_Formation_19 3` $Formation_19 $Stage_btf_bt01 00000000
+	00000000 00000000 00000000 00000000 00000000
+}
+
+#new:Formation $Formation_19
+{
+	$Fuzzy 00000001 0000000A 00000000 00000000 00000000 00000000
+	$Fuzzy 00000002 00000009 00000000 00000000 00000000 00000000
+	$Paratroopa 00000007 00000008 00000000 00000000 00000000 00000000
+}
+
+#new:SJIS $SJIS_Formation_19
+{
+	チョロボンx2、パタパタx2 % chorobonx2, patapatax2
+}
+
+#new:Stage $Stage_btf_bt01
+{
+    "hos_tex"
+	"btf_bt01_shape"
+	"btf_bt01_hit"
+	$Script_BeforeBattle_btf_bt01
+	$Script_AfterBattle_btf_bt01
+    00000000 %BG
+	00000000
+	00000000
+	00000000
+	00000000
+}
+
+#new:Script $Script_BeforeBattle_btf_bt01
+{
+    Exec $Script_Star1Spin
+    Exec $Script_Star2Spin
+    Return
+    End
+}
+
+#new:Script $Script_Star1Spin
+{
+    Set *VarA 0`
+    Loop
+        Loop 20`
+            Add *VarA 1`
+            Call RotateModel ( 00000005 *VarA 0` 0` 1` )
+            Call RotateModel ( 00000006  *VarA 0` 0` 1` )
+            Call RotateModel ( 00000007 *VarA 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Loop 20`
+            Sub *VarA 1`
+            Call RotateModel ( 00000005 *VarA 0` 0` 1` )
+            Call RotateModel ( 00000006  *VarA 0` 0` 1` )
+            Call RotateModel ( 00000007 *VarA 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Loop 20`
+            Sub *VarA 1`
+            Call RotateModel ( 00000005 *VarA 0` 0` 1` )
+            Call RotateModel ( 00000006  *VarA 0` 0` 1` )
+            Call RotateModel ( 00000007 *VarA 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Loop 20`
+            Add *VarA 1`
+            Call RotateModel ( 00000005 *VarA 0` 0` 1` )
+            Call RotateModel ( 00000006  *VarA 0` 0` 1` )
+            Call RotateModel ( 00000007 *VarA 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Wait 1`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_Star2Spin
+{
+    Set *VarB 0`
+    Loop
+        Loop 20`
+            Sub *VarB 1`
+            Call RotateModel ( 00000009 *VarB 0` 0` 1` )
+            Call RotateModel ( 0000000A  *VarB 0` 0` 1` )
+            Call RotateModel ( 0000000B *VarB 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Loop 20`
+            Add *VarB 1`
+            Call RotateModel ( 00000009 *VarB 0` 0` 1` )
+            Call RotateModel ( 0000000A  *VarB 0` 0` 1` )
+            Call RotateModel ( 0000000B *VarB 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Loop 20`
+            Add *VarB 1`
+            Call RotateModel ( 00000009 *VarB 0` 0` 1` )
+            Call RotateModel ( 0000000A  *VarB 0` 0` 1` )
+            Call RotateModel ( 0000000B *VarB 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Loop 20`
+            Sub *VarB 1`
+            Call RotateModel ( 00000009 *VarB 0` 0` 1` )
+            Call RotateModel ( 0000000A  *VarB 0` 0` 1` )
+            Call RotateModel ( 0000000B *VarB 0` 0` 1` )
+            Wait 1`
+        EndLoop
+        Wait 1`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_AfterBattle_btf_bt01
+{
+    Return
+    End
+}
+
+@ $StageTable {
+	$ASCII_8022BE34 $Stage_8022B7E0
+	$ASCII_8022BE2C $Stage_8022BAEC
+	$ASCII_8022BE24 $Stage_8022BB5C
+	$ASCII_8022BE1C $Stage_8022BBD8
+    "btf_bt01" $Stage_btf_bt01
+	00000000 00000000
+}

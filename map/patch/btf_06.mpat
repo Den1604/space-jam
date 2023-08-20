@@ -1,6 +1,9 @@
 #import LetterDelivery.mpat
+#import nok_03_Fuzzy.mpat
 
 #define .NpcID:NpcGuard 1`
+#define .NpcID:NpcFuzzy1 2`
+#define .NpcID:NpcFuzzy2 3`
 
 #new:Function $Function_PlaySpringAnimation
 {
@@ -591,8 +594,6 @@
 
 #new:Script $Script_Platform_Fall
 {
-	% Wait 60`
-	
 	If *MF_btf_06_PlatformMessageShown == .False
 		If *MF_btf_06_PlatformsActivated == .False
 			Call DisablePlayerInput ( .True )
@@ -605,7 +606,56 @@
 	End
 }
 
+#new:NpcGroup $NpcGroup_NpcFuzzy1
+{
+	.NpcID:NpcFuzzy1 $NpcSettings_8024144C ~Vec3f:NpcFuzzy1 % -388 100 -107
+	00400400 $Script_Init_Fuzzy 00000000 00000000 00000000
+	~NoItems ~HP:Standard:2 ~FP:SlightlyReduced:2 ~CoinBonus:0:1
+	~Movement:NpcFuzzy1
+	~AnimationTable:NpcFuzzy1 % .Sprite:Fuzzy
+	00000001 00000000 00000000 00000000 % no tattle string
+}
+
+#new:NpcGroup $NpcGroup_NpcFuzzy2
+{
+	.NpcID:NpcFuzzy2 $NpcSettings_8024144C ~Vec3f:NpcFuzzy2 % -388 100 -107
+	00400400 $Script_Init_Fuzzy 00000000 00000000 00000000
+	~NoItems ~HP:Standard:2 ~FP:SlightlyReduced:2 ~CoinBonus:0:1
+	~Movement:NpcFuzzy2
+	~AnimationTable:NpcFuzzy2 % .Sprite:Fuzzy
+	00000001 00000000 00000000 00000000 % no tattle string
+}
+
+#new:NpcSettings $NpcSettings_8024144C
+{
+	00000000 00140016 00000000 00000000 $Script_NpcAI_Fuzzy 80077F70 00000000 8007809C
+	00000000 00000000 00060000
+}
+
+#new:Script $Script_Init_Fuzzy
+{
+	Call  BindNpcIdle       ( .Npc:Self $Script_Idle_Fuzzy )
+	Return
+	End
+}
+
+#new:Script $Script_Idle_Fuzzy {
+	Call  SetSelfEnemyFlagBits  ( 40000000 00000001 )
+	Call  BindNpcAI ( .Npc:Self $Script_NpcAI_Fuzzy )
+	Return
+	End
+}
+
+#new:Script $Script_NpcAI_Fuzzy {
+	Call  SetNpcFlagBits    ( .Npc:Self 00000040 .True )
+	Call  $Function_80240BF0_nok_03 ( $AISettings_802413E0_nok_03 00000000 )
+	Return
+	End
+}
+
 #new:NpcGroupList $NpcGroupList {
 	00000001 $NpcGroup_NpcGuard 00000000
+	00000002 $NpcGroup_NpcFuzzy1 05190000
+	00000002 $NpcGroup_NpcFuzzy2 05190000
 	00000000 00000000 00000000
 }
