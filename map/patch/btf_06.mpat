@@ -655,7 +655,7 @@
 
 #new:NpcGroupList $NpcGroupList {
 	00000001 $NpcGroup_NpcGuard 00000000
-	00000002 $NpcGroup_NpcFuzzy1 05190000
-	00000002 $NpcGroup_NpcFuzzy2 05190000
+	00000001 $NpcGroup_NpcFuzzy1 05190000
+	00000001 $NpcGroup_NpcFuzzy2 051A0000
 	00000000 00000000 00000000
 }
