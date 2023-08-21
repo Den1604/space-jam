@@ -986,19 +986,19 @@ Of course![br]
 }
 
 
-#string:2F:05C
+#message:2F:05C
 {
 	Fancy Letter[End]
 }
 
 
-#string:2F:05D
+#message:2F:05D
 {
 	An extra fancy letter to Muskular[BR]
 	near the Star Haven Islands.[End]
 }
 
-#string:2F:05E
+#message:2F:05E
 {
 	An extra fancy letter to Muskular[BR]
 	near the Star Haven Islands.[BR]
@@ -1205,3 +1205,15 @@ Of course![br]
 	find use for them anyways.[br]
 	[Wait][End]
 }
+
+#message:2F:073
+{
+	[Style Right]
+	Oh, are you stuck here too?[br]
+	[Wait][Next]
+	I need to go somewhere kind of[br]
+	immediately[Pause:4].[Pause:4].[Pause:4] if only I knew[br]
+	how to leave this place.[Pause:10] Hm.[Pause:10][br]
+	[Wait][End]
+}
+

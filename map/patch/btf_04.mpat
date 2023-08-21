@@ -65,7 +65,7 @@
 	% talkAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 05
 	% idleAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 02
 	% stringID - AAAABBBB - space jam strings resource (0x2F), string 0x28
-    Call SpeakToPlayer ( .NpcID:NpcGuard 00390116 00390115 00000000 002F0028 )
+    Call SpeakToPlayer ( .NpcID:NpcGuard 00390116 00390115 00000000 002F0073 )
     
 	Return
 	End
