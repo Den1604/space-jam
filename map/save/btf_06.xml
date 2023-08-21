@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_06" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="344.504242,129.579590,-233.813049" pitch="19.439983" yaw="8.800007"/>
-		<Camera pos="117.422974,65536.000000,532.401855"/>
-		<Camera pos="65536.000000,3055.879150,-1573.485229"/>
-		<Camera pos="277.455902,72.154579,65536.000000"/>
+		<Camera pos="1476.594971,156.468567,72.795654" pitch="9.000000" yaw="0.000000"/>
+		<Camera pos="1498.045166,65536.000000,-303.664886"/>
+		<Camera pos="65536.000000,2878.350098,-1573.485229"/>
+		<Camera pos="277.455902,-90.688744,65536.000000"/>
 	</Editor>
 	<ModelTree>
 		<Node name="Root" id="38">
@@ -137,7 +137,7 @@
 			<Node name="NPCs" id="7">
 				<Node name="NpcGuard" id="2"/>
 				<Node name="NpcFuzzy1" id="3"/>
-				<Node name="NpcBobOmb1" id="4"/>
+				<Node name="NpcBobomb1" id="4"/>
 				<Node name="NpcKoopa1" id="5"/>
 				<Node name="NpcFuzzy2" id="6"/>
 			</Node>
@@ -9218,10 +9218,10 @@
 			<Movement type="Wander" data="370,D8,FFFFFD8F,8C,37,FFFF8001,1,370,D8,FFFFFD8F,50,28,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="2A" palette="1" animations="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
-		<Marker ver="4" type="NPC" pos="1510,39,-370" yaw="0.000000">
-			<MapObject name="NpcBobOmb1" id="4"/>
-			<Movement type="Wander" data="5E6,27,FFFFFE8E,28,0,FFFF8001,0,5E6,27,FFFFFE8E,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
-			<Sprite sprite="2C" palette="0" animations="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+		<Marker ver="4" type="NPC" pos="1520,40,-370" yaw="270.000000">
+			<MapObject name="NpcBobomb1" id="4"/>
+			<Movement type="Wander" data="5F0,28,FFFFFE8E,2D,0,FFFF8001,0,5F0,28,FFFFFE8E,2D,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+			<Sprite sprite="2C" palette="0" animations="2,4,6,6,2,2,E,E,6,6,6,6,6,6,6,6"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="330,40,-393" yaw="0.000000">
 			<MapObject name="NpcFuzzy1" id="3"/>

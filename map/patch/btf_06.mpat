@@ -1,9 +1,11 @@
 #import LetterDelivery.mpat
 #import nok_03_Fuzzy.mpat
+#import trd_01_Bobomb.mpat
 
 #define .NpcID:NpcGuard 1`
 #define .NpcID:NpcFuzzy1 2`
 #define .NpcID:NpcFuzzy2 3`
+#define .NpcID:NpcBobomb1 4`
 
 #new:Function $Function_PlaySpringAnimation
 {
@@ -156,7 +158,7 @@
 }
 
 #new:Script $Script_MakeItems {
-	Call MakeItemEntity ( .Item:TastyTonic ~Vec3d:Item1 .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedItem1 )
+	Call MakeItemEntity ( .Item:YellowBerry ~Vec3d:Item1 .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedItem1 )
 	Call MakeItemEntity ( .Item:DiamondStone ~Vec3d:ItemDiamondStone .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedDiamondStone )
 	Call MakeItemEntity ( .Item:LunarStone ~Vec3d:ItemLunarStone .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedLunarStone )
 	Return
@@ -653,9 +655,33 @@
 	End
 }
 
+#new:NpcGroup $NpcGroup_NpcBobomb1
+{
+	.NpcID:NpcBobomb1 $NpcSettings_NpcBobOmb1 ~Vec3f:NpcBobomb1 % -255 640 35
+	00002C00 00000000 00000000 00000000 000000B4
+	~NoItems ~HP:Standard:2 ~FP:Standard:2 ~CoinBonus:0:1
+	~Movement:NpcBobomb1
+	~AnimationTable:NpcBobomb1 % .Sprite:Bombomb
+	00000001 00000000 00000000 00000000 % no tattle string
+}
+
+#new:NpcSettings $NpcSettings_NpcBobOmb1
+{
+	00000000 00170014 00000000 00000000 $Script_NpcAI_NpcBobomb1 80077F70 00000000 8007809C
+	00000000 00000000 00060000
+}
+
+#new:Script $Script_NpcAI_NpcBobomb1 {
+	% Guard AI
+	Call  $Function_802413B8_trd_01 ( $AISettings_802434BC_trd_01 )
+	Return
+	End
+}
+
 #new:NpcGroupList $NpcGroupList {
 	00000001 $NpcGroup_NpcGuard 00000000
 	00000001 $NpcGroup_NpcFuzzy1 05190000
 	00000001 $NpcGroup_NpcFuzzy2 051A0000
+	00000001 $NpcGroup_NpcBobomb1 051B0000
 	00000000 00000000 00000000
 }

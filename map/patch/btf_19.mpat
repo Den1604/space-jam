@@ -45,7 +45,8 @@
 	
 	% Custom
 	Exec  $Script_MakeCustomEntities
-	
+	Exec  $Script_MakeItems
+    
 	Return
 	End
 }
@@ -57,6 +58,13 @@
 	
 	Return
 	End
+}
+
+#new:Script $Script_MakeItems {
+	Call MakeItemEntity ( .Item:ThunderBolt ~Vec3d:Item1 .ItemSpawnMode:Fixed_NeverVanish *MF_btf_19_CollectedItem1 )
+    
+    Return
+    End
 }
 
 #new:Script $Script_UseChest1 {

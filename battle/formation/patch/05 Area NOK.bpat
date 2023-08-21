@@ -29,6 +29,7 @@
 	% Custom
 	$SJIS_Formation_19 3` $Formation_19 $Stage_btf_bt01 00000000
 	$SJIS_Formation_1A 3` $Formation_1A $Stage_btf_bt01 00000000
+	$SJIS_Formation_1B 4` $Formation_1B $Stage_btf_bt01 00000000
 	00000000 00000000 00000000 00000000 00000000
 }
 
@@ -46,6 +47,14 @@
 	$Fuzzy 00000003 00000008 00000000 00000000 00000000 00000000
 }
 
+#new:Formation $Formation_1B
+{
+	$06_Bobomb 00000000 0000000A 00000000 00000000 00000000 00000000
+	$06_Bobomb 00000001 00000009 00000000 00000000 00000000 00000000
+	$Fuzzy 00000002 00000008 00000000 00000000 00000000 00000000
+	$Paratroopa 00000003 00000007 00000000 00000000 00000000 00000000
+}
+
 #new:SJIS $SJIS_Formation_19
 {
 	チョロボンx2、パタパタ % chorobonx2, patapata
@@ -54,6 +63,11 @@
 #new:SJIS $SJIS_Formation_1A
 {
 	チョロボン、ボムへい、チョロボン % chorobon, bomuhei, chorobon
+}
+
+#new:SJIS $SJIS_Formation_1B
+{
+	ボムへいx2、チョロボン、パタパタ % bomuheix2, chorobon, patapata
 }
 
 #new:Stage $Stage_btf_bt01
