@@ -14,7 +14,7 @@
 % any slowdown or something along these lines so I will do that
 % at a later date.
 
-% I highly doubt you would but just to make sure. Do NOT mess with any of this Den.
+% Cringe code below, don't touch and don't even look that'd be sooooo embarassing :/
 
 #new:Function $Func_InitItemCalling { % Setup function to call any item script at will
 % Pass this the item ID of the script you would like to call and follow this up
@@ -264,7 +264,7 @@ LI		V0, 2
 	
   Switch  *Var0		% Load different item based on # of hits on the WB action command
   	Case  ==  00000001 % 0 Inputs = Dried Shroom [8D] / let's call Mystery [96] because it'll be funny.
-		Set *Var8 0000008D
+		Set *Var8 00000096 % using mystery for jam purposes
 		Call $Func_InitItemCalling ( *Var8 )
 		Jump  80293E40
 		Return	% I am like 90% that the game never comes back to this script anyway but just in case jank happens let's put a return anyway just like mystery does it
@@ -278,9 +278,9 @@ LI		V0, 2
 		Call $Func_InitItemCalling ( *Var8 )
 		Jump  80293E40
 		Return
-	Case  ==  00000004 % 3 Inputs = Shooting Star [83]
+	Case  ==  00000004 % 3 Inputs = Shooting Star [83] / Fire Flower [80]
 		Call PlayerCreateTargetList ( 00000000 )
-		Set *Var8 00000083
+		Set *Var8 00000080 % using Fire Flower for a more balanced AoE option in the jam
 		Call $Func_InitItemCalling ( *Var8 )
 		Jump  80293E40
 		Return
