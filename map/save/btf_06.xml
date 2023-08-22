@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_06" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="17.159657,190.498688,251.234161" pitch="40.320007" yaw="9.920020"/>
-		<Camera pos="1498.045166,65536.000000,-303.664886"/>
+		<Camera pos="716.236694,246.133362,-240.385254" pitch="37.359947" yaw="6.240276"/>
+		<Camera pos="714.851013,65536.000000,-387.853882"/>
 		<Camera pos="65536.000000,-304.134460,-1321.539551"/>
-		<Camera pos="277.455902,-90.688744,65536.000000"/>
+		<Camera pos="706.584473,263.702728,65536.000000"/>
 	</Editor>
 	<ModelTree>
 		<Node name="Root" id="38">
@@ -9224,7 +9224,7 @@
 		<Marker ver="4" type="NPC" pos="880,216,-625" yaw="0.000000">
 			<MapObject name="NpcKoopa1" id="5"/>
 			<Movement type="Wander" data="370,D8,FFFFFD8F,8C,37,FFFF8001,1,370,D8,FFFFFD8F,50,28,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
-			<Sprite sprite="2A" palette="1" animations="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+			<Sprite sprite="2A" palette="1" animations="1,2,3,3,1,1,6,5,4,C,A,E,3,3,3,3"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="1520,40,-370" yaw="270.000000">
 			<MapObject name="NpcBobomb1" id="4"/>

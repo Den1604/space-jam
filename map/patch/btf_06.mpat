@@ -162,7 +162,16 @@
 	EndThread
 	
 	Thread
-		Call AwaitPlayerApproach ( ~Vec2D:NpcKoopa1 160` )
+		Loop
+			Call GetPlayerPos ( *VarA *VarB *VarC )
+			
+			If *VarB > 128`
+				BreakLoop
+			EndIf
+			
+			Wait 1`
+		EndLoop
+		
 		Exec $Script_ManuallyInit_NpcKoopa1
 	EndThread
 	
