@@ -42,3 +42,7 @@
 039 = MF_btf_21_MetThamz
 040 = MF_btf_06_ClubbaGone
 041 = MF_btf_19_CollectedItem1
+042 = MF_btf_06_DefeatedNpcFuzzy1
+043 = MF_btf_06_DefeatedNpcFuzzy2
+044 = MF_btf_06_DefeatedNpcBobomb1
+045 = MF_btf_06_DefeatedNpcKoopa1

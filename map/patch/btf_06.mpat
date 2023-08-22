@@ -1,11 +1,13 @@
 #import LetterDelivery.mpat
 #import nok_03_Fuzzy.mpat
 #import trd_01_Bobomb.mpat
+#import nok_14_ParaTroopa.mpat
 
 #define .NpcID:NpcGuard 1`
 #define .NpcID:NpcFuzzy1 2`
 #define .NpcID:NpcFuzzy2 3`
 #define .NpcID:NpcBobomb1 4`
+#define .NpcID:NpcKoopa1 5`
 
 #new:Function $Function_PlaySpringAnimation
 {
@@ -153,6 +155,17 @@
 	Call SetNpcYaw ( .NpcID:NpcGuard -127` ) % Makes Clubba face left
 	Bind $Script_Platform_Fall .Trigger:FloorTouch ~Collider:platform1 1 00000000
 	
+	% Manually initialize npcs
+	Thread
+		Call AwaitPlayerApproach ( ~Vec2D:Bobomb1ApproachPos 160` )
+		Exec $Script_ManuallyInit_NpcBobomb1
+	EndThread
+	
+	Thread
+		Call AwaitPlayerApproach ( ~Vec2D:NpcKoopa1 160` )
+		Exec $Script_ManuallyInit_NpcKoopa1
+	EndThread
+	
 	Return
 	End
 }
@@ -168,6 +181,24 @@
 #new:Script $Script_SetupItemCutscenes {
 	Exec $Script_SetupDiamondCutscene
 	Exec $Script_SetupLunarCutscene
+	Return
+	End
+}
+
+@ $Script_MakeEntities {
+	% 
+	Call  MakeEntity    ( .Entity:SavePoint ~Vec4d:SaveBlock 80000000 )
+	Call  MakeEntity    ( .Entity:MultiCoinBrick ~Vec4d:BrickBlock1 80000000 )
+	Call  MakeEntity    ( .Entity:Signpost ~Vec4d:Signpost1 80000000 )
+	Call  AssignScript    ( $Script_ReadSign_Signpost1 )
+	
+	%
+	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring2 80000000 )
+	Call  AssignScript    ( $Script_ScriptedSpring_Spring2 )
+	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring3 80000000 )
+	Call  AssignScript    ( $Script_ScriptedSpring_Spring3 )
+	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring4 80000000 )
+	Call  AssignScript    ( $Script_ScriptedSpring_Spring4 )
 	Return
 	End
 }
@@ -611,7 +642,7 @@
 #new:NpcGroup $NpcGroup_NpcFuzzy1
 {
 	.NpcID:NpcFuzzy1 $NpcSettings_8024144C ~Vec3f:NpcFuzzy1 % -388 100 -107
-	00400400 $Script_Init_Fuzzy 00000000 00000000 00000000
+	00400400 $Script_Init_NpcFuzzy1 00000000 00000000 00000000
 	~NoItems ~HP:Standard:2 ~FP:SlightlyReduced:2 ~CoinBonus:0:1
 	~Movement:NpcFuzzy1
 	~AnimationTable:NpcFuzzy1 % .Sprite:Fuzzy
@@ -621,7 +652,7 @@
 #new:NpcGroup $NpcGroup_NpcFuzzy2
 {
 	.NpcID:NpcFuzzy2 $NpcSettings_8024144C ~Vec3f:NpcFuzzy2 % -388 100 -107
-	00400400 $Script_Init_Fuzzy 00000000 00000000 00000000
+	00400400 $Script_Init_NpcFuzzy2 00000000 00000000 00000000
 	~NoItems ~HP:Standard:2 ~FP:SlightlyReduced:2 ~CoinBonus:0:1
 	~Movement:NpcFuzzy2
 	~AnimationTable:NpcFuzzy2 % .Sprite:Fuzzy
@@ -630,20 +661,58 @@
 
 #new:NpcSettings $NpcSettings_8024144C
 {
-	00000000 00140016 00000000 00000000 $Script_NpcAI_Fuzzy 80077F70 00000000 8007809C
+	00000000 00140016 00000000 00000000 00000000 80077F70 00000000 8007809C
 	00000000 00000000 00060000
 }
 
-#new:Script $Script_Init_Fuzzy
+#new:Script $Script_Init_NpcFuzzy1
 {
-	Call  BindNpcIdle       ( .Npc:Self $Script_Idle_Fuzzy )
+	If *MF_btf_06_DefeatedNpcFuzzy1 == .True
+		Call SetNpcPos ( .NpcID:NpcFuzzy1 ~Vec3D:BelowMap )
+	Else
+		Call BindNpcIdle       ( .NpcID:NpcFuzzy1 $Script_Idle_NpcFuzzy1 )
+		Call BindNpcDefeat ( .NpcID:NpcFuzzy1 $Script_Defeat_NpcFuzzy1 )
+	EndIf
 	Return
 	End
 }
 
-#new:Script $Script_Idle_Fuzzy {
-	Call  SetSelfEnemyFlagBits  ( 40000000 00000001 )
-	Call  BindNpcAI ( .Npc:Self $Script_NpcAI_Fuzzy )
+#new:Script $Script_Idle_NpcFuzzy1 {
+	Call SetSelfEnemyFlagBits  ( 40000000 00000001 )
+	Call BindNpcAI ( .NpcID:NpcFuzzy1 $Script_NpcAI_Fuzzy )
+	
+	Return
+	End
+}
+
+#new:Script $Script_Defeat_NpcFuzzy1 {
+	Set *MF_btf_06_DefeatedNpcFuzzy1 .True
+	Return
+	End
+}
+
+#new:Script $Script_Init_NpcFuzzy2
+{
+	If *MF_btf_06_DefeatedNpcFuzzy2 == .True
+		Call SetNpcPos ( .NpcID:NpcFuzzy2 ~Vec3D:BelowMap )
+	Else
+		Call BindNpcIdle       ( .NpcID:NpcFuzzy2 $Script_Idle_NpcFuzzy2 )
+		Call BindNpcDefeat ( .NpcID:NpcFuzzy2 $Script_Defeat_NpcFuzzy2 )
+	EndIf
+	Return
+	End
+}
+
+#new:Script $Script_Idle_NpcFuzzy2 {
+	Call SetSelfEnemyFlagBits  ( 40000000 00000001 )
+	Call BindNpcAI ( .NpcID:NpcFuzzy2 $Script_NpcAI_Fuzzy )
+	
+	Return
+	End
+}
+
+#new:Script $Script_Defeat_NpcFuzzy2 {
+	Set *MF_btf_06_DefeatedNpcFuzzy2 .True
 	Return
 	End
 }
@@ -657,8 +726,8 @@
 
 #new:NpcGroup $NpcGroup_NpcBobomb1
 {
-	.NpcID:NpcBobomb1 $NpcSettings_NpcBobOmb1 ~Vec3f:NpcBobomb1 % -255 640 35
-	00002C00 00000000 00000000 00000000 000000B4
+	.NpcID:NpcBobomb1 $NpcSettings_NpcBobOmb1 ~Vec3f:BelowMap % spawned below map to basically unload it
+	00002C00 $Script_Init_NpcBobomb1 00000000 00000000 000000B4
 	~NoItems ~HP:Standard:2 ~FP:Standard:2 ~CoinBonus:0:1
 	~Movement:NpcBobomb1
 	~AnimationTable:NpcBobomb1 % .Sprite:Bombomb
@@ -667,8 +736,42 @@
 
 #new:NpcSettings $NpcSettings_NpcBobOmb1
 {
-	00000000 00170014 00000000 00000000 $Script_NpcAI_NpcBobomb1 80077F70 00000000 8007809C
+	00000000 00170014 00000000 00000000 00000000 80077F70 00000000 8007809C
 	00000000 00000000 00060000
+}
+
+#new:Script $Script_Init_NpcBobomb1 {
+	If *MF_btf_06_DefeatedNpcBobomb1 == .False
+		Call BindNpcIdle ( .NpcID:NpcBobomb1 $Script_Idle_NpcBobomb1 )
+	EndIf
+	
+	Return
+	End
+}
+
+#new:Script $Script_ManuallyInit_NpcBobomb1 {
+	If *MF_btf_06_DefeatedNpcBobomb1 == .True
+		Call SetNpcPos ( .NpcID:NpcBobomb1 ~Vec3D:BelowMap )
+	Else
+		Call SetNpcPos ( .NpcID:NpcBobomb1 ~Vec3D:NpcBobomb1 )
+		Call BindNpcIdle ( .NpcID:NpcBobomb1 $Script_Idle_NpcBobomb1 )
+		Call BindNpcDefeat ( .NpcID:NpcBobomb1 $Script_Defeat_NpcBobomb1 )
+	EndIf
+	
+	Return
+	End
+}
+
+#new:Script $Script_Idle_NpcBobomb1 {
+	Call BindNpcAI ( .NpcID:NpcBobomb1 $Script_NpcAI_NpcBobomb1 )
+	Return
+	End
+}
+
+#new:Script $Script_Defeat_NpcBobomb1 {
+	Set *MF_btf_06_DefeatedNpcBobomb1 .True
+	Return
+	End
 }
 
 #new:Script $Script_NpcAI_NpcBobomb1 {
@@ -678,10 +781,69 @@
 	End
 }
 
+#new:NpcGroup $NpcGroup_NpcKoopa1
+{
+	.NpcID:NpcKoopa1 $NpcSettings_NpcKoopa1 ~Vec3f:NpcKoopa1 % 184 50 -100
+	00000C00 $Script_Init_NpcKoopa1 00000000 00000000 0000010E
+	~NoItems ~HP:Standard:2 ~FP:Standard:2 ~CoinBonus:1:1
+	~Movement:NpcKoopa1
+	~AnimationTable:NpcKoopa1 % .Sprite:ParaTroopa
+	00000000 00000000 00000000 00000000 % no tattle string
+}
+
+#new:NpcSettings $NpcSettings_NpcKoopa1 {
+	00000000 00280018 00000000 00000000 00000000 80077F70 00000000 8007809C 
+	00000000 00000000 00060001 
+}
+
+#new:Script $Script_Init_NpcKoopa1 {
+	If *MF_btf_06_DefeatedNpcKoopa1 == .False
+		Call BindNpcIdle ( .NpcID:NpcKoopa1 $Script_Idle_NpcKoopa1 )
+	EndIf
+	
+	Return
+	End
+}
+
+#new:Script $Script_ManuallyInit_NpcKoopa1 {
+	If *MF_btf_06_DefeatedNpcKoopa1 == .True
+		Call SetNpcPos ( .NpcID:NpcKoopa1 ~Vec3D:BelowMap )
+	Else
+		Call SetNpcPos ( .NpcID:NpcKoopa1 ~Vec3D:NpcKoopa1 )
+		Call BindNpcDefeat ( .NpcID:NpcKoopa1 $Script_Defeat_NpcKoopa1 )
+	EndIf
+	
+	Return
+	End
+}
+
+#new:Script $Script_Idle_NpcKoopa1 {
+	Call BindNpcAI ( .NpcID:NpcKoopa1 $Script_NpcAI_NpcKoopa1 )
+	Return
+	End
+}
+
+#new:Script $Script_Defeat_NpcKoopa1 {
+	Set *MF_btf_06_DefeatedNpcKoopa1 .True
+	Return
+	End
+}
+
+#new:Script $Script_NpcAI_NpcKoopa1 {
+	Call  SetSelfVar    ( 00000000 00000000 )
+	Call  SetSelfVar    ( 00000005 FFFFFD76 )
+	Call  SetSelfVar    ( 00000006 0000001E )
+	Call  SetSelfVar    ( 00000001 00000258 )
+	Call  $Function_802421CC_nok_14 ( $AISettings_80243A30_nok_14 )
+	Return
+	End
+}
+
 #new:NpcGroupList $NpcGroupList {
 	00000001 $NpcGroup_NpcGuard 00000000
 	00000001 $NpcGroup_NpcFuzzy1 05190000
 	00000001 $NpcGroup_NpcFuzzy2 051A0000
 	00000001 $NpcGroup_NpcBobomb1 051B0000
+	00000001 $NpcGroup_NpcKoopa1 051C0000
 	00000000 00000000 00000000
 }
