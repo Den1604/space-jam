@@ -264,8 +264,8 @@ LI		V0, 2
 	
   Switch  *Var0		% Load different item based on # of hits on the WB action command
   	Case  ==  00000001 % 0 Inputs = Dried Shroom [8D] / let's call Mystery [96] because it'll be funny.
-		Set *Var8 00000096 % using mystery for jam purposes
-    Call PlayerCreateTargetList ( 00000000 ) % Hope, pray & cope that the game handles everything correctly from here.
+		Set *Var8 00000085 % calling pebble without adjusting target flags meaning it should hit mario. but idk where he will throw it 
+    %Call PlayerCreateTargetList ( 00000000 ) % Hope, pray & cope that the game handles everything correctly from here. Spoiler: It did not. In fact, it led to even more bugs somehow. wtf.
 		Call $Func_InitItemCalling ( *Var8 )
 		Jump  80293E40
 		Return	% I am like 90% that the game never comes back to this script anyway but just in case jank happens let's put a return anyway just like mystery does it
