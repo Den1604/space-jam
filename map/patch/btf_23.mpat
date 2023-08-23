@@ -1,0 +1,122 @@
+@ $Script_Main {
+	Set   *GB_WorldLocation  .Location:GoombaRoad
+	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+	Call  SetCamEnabled      ( .Cam:Default .True
+	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+	Exec  $Script_MakeEntities
+	Exec  $Script_SetupMusic
+	Exec  $Script_EnterMap
+	
+	Exec  $Script_RedStarsTopSpin
+	Exec  $Script_RedStarsBottomSpin
+	
+	Return
+	End
+}
+
+#new:Script $Script_RedStarsTopSpin
+{
+    Set *MapVar[2] 0` 
+    Loop
+        Loop 360`
+            If *MapFlag[0] == .True
+                BreakLoop
+            EndIf
+            Add *MapVar[2] 1`
+            Call RotateModel ( ~Model:RedStarTop *MapVar[2] 0` 1` 0` )
+            Wait 1`
+        EndLoop
+        Wait 1`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_RedStarsBottomSpin
+{
+    Set *MapVar[3] 0` 
+    Loop
+        Loop 360`
+            If *MapFlag[1] == .True
+                BreakLoop
+            EndIf
+            Sub *MapVar[3] 1`
+            Call RotateModel ( ~Model:RedStarBottom *MapVar[3] 0` 1` 0` )
+            Wait 1`
+        EndLoop
+        Wait 1`
+    EndLoop
+    Return
+    End
+}
+
+@ $Script_MakeEntities {
+	If *MF_btf_06_YellowStarFlag == .False
+		Call MakeEntity ( .Entity:BlueSwitch ~Vec4d:Marker 80000000 )
+        Call AssignScript ( $Script_BlueSwitchHit )
+	EndIf
+	Return
+	End
+}
+
+#new:Script $Script_BlueSwitchHit
+{
+    Call DisablePlayerInput ( .True )
+    Call  PlayEffect    ( ~FX:Sparkles:Star -429` 22` 0` 25` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    Set *MF_btf_06_YellowStarFlag .True
+    Exec $Script_TopStarFlyAway
+    Wait 15`
+    ExecWait $Script_BottomStarFlyAway
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
+
+#new:Script $Script_TopStarFlyAway
+{
+    Set *MapVar[4] 0`
+    Thread
+        Wait 30`
+        Call PlaySound ( 00000063 )
+        Call  PlayEffect    ( ~FX:ShimmerBurst:White ~Vec3D:EffectMarker 1` 15` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    EndThread
+    Loop 10`
+        Add *MapVar[4] 2`
+        Call TranslateModel ( ~Model:RedStarTop 0` *MapVar[4] 0` )
+        Wait 1`
+    EndLoop
+    Loop 50`
+        Add *MapVar[4] 5`
+        Call TranslateModel ( ~Model:RedStarTop 0` *MapVar[4] 0` )
+        Wait 1`
+    EndLoop
+    Set *MapFlag[0] .True
+    Call EnableModel ( ~Model:RedStarTop .False )
+    Return
+    End
+}
+
+#new:Script $Script_BottomStarFlyAway
+{
+    Set *MapVar[5] 0`
+    Thread
+        Wait 30`
+        Call PlaySound ( 00000063 )
+        Call  PlayEffect    ( ~FX:ShimmerBurst:White ~Vec3D:EffectMarker 1` 15` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    EndThread
+    Loop 10`
+        Add *MapVar[5] 2`
+        Call TranslateModel ( ~Model:RedStarBottom 0` *MapVar[5] 0` )
+        Wait 1`
+    EndLoop
+    Loop 50`
+        Add *MapVar[5] 5`
+        Call TranslateModel ( ~Model:RedStarBottom 0` *MapVar[5] 0` )
+        Wait 1`
+    EndLoop
+    Set *MapFlag[1] .True
+    Call EnableModel ( ~Model:RedStarBottom .False )
+    Return
+    End
+}

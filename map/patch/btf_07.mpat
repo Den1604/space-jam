@@ -167,9 +167,6 @@
     Call DisablePlayerInput ( .True )
     Call  PlayEffect    ( ~FX:Sparkles:Star -429` 22` 0` 25` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
     Set *MF_btf_07_RedStarFlag .True
-    % DEBUG !!!
-    Set *MF_btf_06_YellowStarFlag .True
-    % DEBUG !!!
     Exec $Script_TopStarFlyAway
     Wait 15`
     ExecWait $Script_BottomStarFlyAway
