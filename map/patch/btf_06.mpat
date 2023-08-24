@@ -124,15 +124,15 @@
 	Call  SetCamEnabled      ( .Cam:Default .True
 	Call  SetCamLeadPlayer   ( .Cam:Default .False )
 	
-	% Generated
-	Exec  $Script_MakeEntities
+	% replaced with Main, UpperPath and RightPath scripts
+	% Exec  $Script_MakeEntities
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
 	Exec  $Script_EnterMap
+	
 	% Custom
-	Exec  $Script_MakeItems
 	Exec  $Script_SetupItemCutscenes
-	Exec  $Script_MakeCustomEntities
+	Exec  $Script_MakeMainEntities
 	
 	If *MF_btf_06_PlatformsActivated == .True
 		Exec  $Script_SetupPlatforms
@@ -151,14 +151,19 @@
 		EndIf
 	EndIf
 	
+	If *MF_btf_06_ClubbaGone == .True
+		Call ModifyColliderFlags ( 0 ~Collider:switch_room_blocker 00018000 )
+	EndIf
+	
 	Call MakeNpcs ( .False $NpcGroupList )
 	Call SetNpcYaw ( .NpcID:NpcGuard -127` ) % Makes Clubba face left
 	Bind $Script_Platform_Fall .Trigger:FloorTouch ~Collider:platform1 1 00000000
 	
-	% Manually initialize npcs
+	% Manually initialize npcs and entities
 	Thread
 		Call AwaitPlayerApproach ( ~Vec2D:Bobomb1ApproachPos 160` )
 		Exec $Script_ManuallyInit_NpcBobomb1
+		Exec $Script_MakeRightPathEntities
 	EndThread
 	
 	Thread
@@ -173,16 +178,9 @@
 		EndLoop
 		
 		Exec $Script_ManuallyInit_NpcKoopa1
+		Exec $Script_MakeUpperPathEntities
 	EndThread
 	
-	Return
-	End
-}
-
-#new:Script $Script_MakeItems {
-	Call MakeItemEntity ( .Item:YellowBerry ~Vec3d:Item1 .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedItem1 )
-	Call MakeItemEntity ( .Item:DiamondStone ~Vec3d:ItemDiamondStone .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedDiamondStone )
-	Call MakeItemEntity ( .Item:LunarStone ~Vec3d:ItemLunarStone .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedLunarStone )
 	Return
 	End
 }
@@ -190,24 +188,6 @@
 #new:Script $Script_SetupItemCutscenes {
 	Exec $Script_SetupDiamondCutscene
 	Exec $Script_SetupLunarCutscene
-	Return
-	End
-}
-
-@ $Script_MakeEntities {
-	% 
-	Call  MakeEntity    ( .Entity:SavePoint ~Vec4d:SaveBlock 80000000 )
-	Call  MakeEntity    ( .Entity:MultiCoinBrick ~Vec4d:BrickBlock1 80000000 )
-	Call  MakeEntity    ( .Entity:Signpost ~Vec4d:Signpost1 80000000 )
-	Call  AssignScript    ( $Script_ReadSign_Signpost1 )
-	
-	%
-	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring2 80000000 )
-	Call  AssignScript    ( $Script_ScriptedSpring_Spring2 )
-	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring3 80000000 )
-	Call  AssignScript    ( $Script_ScriptedSpring_Spring3 )
-	Call  MakeEntity    ( .Entity:ScriptSpring ~Vec4d:Spring4 80000000 )
-	Call  AssignScript    ( $Script_ScriptedSpring_Spring4 )
 	Return
 	End
 }
@@ -221,17 +201,12 @@
 }
 
 % Custom entities
-#new:Script $Script_MakeCustomEntities {
-	Call  MakeEntity    ( .Entity:Chest ~Vec4d:Chest1 00000000 80000000 )
-	Call  AssignFlag    ( *MF_btf_06_OpenedChest1 )
-	Call  AssignScript  ( $Script_UseChest1 )
+#new:Script $Script_MakeMainEntities {
+	Call MakeItemEntity ( .Item:YellowBerry ~Vec3d:Item1 .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedItem1 )
 	
-	Call  MakeEntity    ( .Entity:Chest ~Vec4d:Chest2 00000000 80000000 )
-	Call  AssignFlag    ( *MF_btf_06_OpenedChest2 )
-	Call  AssignScript  ( $Script_UseChest2 )
-	
-	Call  MakeEntity    ( .Entity:YellowBlock ~Vec4d:ItemBlock1 .Item:DizzyDial 80000000 )
-	Call  AssignBlockFlag   ( *MF_btf_06_HitItemBlock1 )
+	Call MakeEntity     ( .Entity:SavePoint ~Vec4d:SaveBlock 80000000 )
+	Call MakeEntity     ( .Entity:Signpost ~Vec4d:Signpost1 80000000 )
+	Call AssignScript   ( $Script_ReadSign_Signpost1 )
 	
 	If *MF_btf_06_SpringFallen == .True
 		Call  MakeEntity ( .Entity:ScriptSpring ~Vec4d:SpringEndPosition 80000000 )
@@ -242,6 +217,40 @@
 		% id of spring entity
 		Set   *MapVar[4] *Var0
 	EndIf
+	
+	Return
+	End
+}
+
+#new:Script $Script_MakeRightPathEntities {
+	Call MakeItemEntity ( .Item:DiamondStone ~Vec3d:ItemDiamondStone .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedDiamondStone )
+	
+	Call MakeEntity     ( .Entity:Chest ~Vec4d:Chest1 00000000 80000000 )
+	Call AssignFlag     ( *MF_btf_06_OpenedChest1 )
+	Call AssignScript   ( $Script_UseChest1 )
+	
+	Return
+	End
+}
+
+#new:Script $Script_MakeUpperPathEntities {
+	Call MakeItemEntity ( .Item:LunarStone ~Vec3d:ItemLunarStone .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedLunarStone )
+	
+	Call MakeEntity     ( .Entity:MultiCoinBrick ~Vec4d:BrickBlock1 80000000 )
+	
+	Call MakeEntity     ( .Entity:Chest ~Vec4d:Chest2 00000000 80000000 )
+	Call AssignFlag     ( *MF_btf_06_OpenedChest2 )
+	Call AssignScript   ( $Script_UseChest2 )
+	
+	Call MakeEntity     ( .Entity:YellowBlock ~Vec4d:ItemBlock1 .Item:DizzyDial 80000000 )
+	Call AssignBlockFlag    ( *MF_btf_06_HitItemBlock1 )
+	
+	Call MakeEntity     ( .Entity:ScriptSpring ~Vec4d:Spring2 80000000 )
+	Call AssignScript   ( $Script_ScriptedSpring_Spring2 )
+	Call MakeEntity     ( .Entity:ScriptSpring ~Vec4d:Spring3 80000000 )
+	Call AssignScript   ( $Script_ScriptedSpring_Spring3 )
+	Call MakeEntity     ( .Entity:ScriptSpring ~Vec4d:Spring4 80000000 )
+	Call AssignScript   ( $Script_ScriptedSpring_Spring4 )
 	
 	Return
 	End
@@ -541,6 +550,8 @@
 		Call NpcMoveTo ( .NpcID:NpcGuard ~Vec2D:NpcGuard_Flee_Pos2 30` )
 		Call SetNpcPos ( .NpcID:NpcGuard 0 -100` 0 )
 		
+		Call ModifyColliderFlags ( 0 ~Collider:switch_room_blocker 00018000 )
+		
 		Set *MF_btf_06_ClubbaGone .True
 	EndIf
 	Return
@@ -567,7 +578,7 @@
 #new:Script $Script_Init_NpcGuard
 {
 	If *MF_btf_06_ClubbaGone == .True
-        Call SetNpcPos ( .Npc:Self 0 -100` 0 )
+        Call SetNpcPos ( .Npc:Self ~Vec3D:BelowMap )
     Else
 	    Call BindNpcInteract ( .Npc:Self $Script_Interact_NpcGuard )
     EndIf
@@ -792,7 +803,7 @@
 
 #new:NpcGroup $NpcGroup_NpcKoopa1
 {
-	.NpcID:NpcKoopa1 $NpcSettings_NpcKoopa1 ~Vec3f:NpcKoopa1 % 184 50 -100
+	.NpcID:NpcKoopa1 $NpcSettings_NpcKoopa1 ~Vec3f:BelowMap
 	00000C00 $Script_Init_NpcKoopa1 00000000 00000000 0000010E
 	~NoItems ~HP:Standard:2 ~FP:Standard:2 ~CoinBonus:1:1
 	~Movement:NpcKoopa1

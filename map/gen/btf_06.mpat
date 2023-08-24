@@ -5,13 +5,14 @@
 	[MainScript] $Script_Main
 	[Background] 00000000
 	[EntryList] $EntryList
-	[EntryCount] 2
+	[EntryCount] 3
 }
 
 #new:EntryList $EntryList
 {
 	~Vec4f:entry_s
 	~Vec4f:entry_room_1a
+	~Vec4f:entry_room_1b
 }
 
 #new:Script $Script_ScriptedSpring_FollowCam
@@ -467,6 +468,7 @@
 	EndIf
 	Call  GetEntryID    ( *Var[0] )
 	Switch  *Var[0]
+		CaseOR  ==  ~Entry:entry_room_1b
 		CaseOR  ==  ~Entry:entry_room_1a
 		CaseOR  ==  ~Entry:entry_s
 			Set   *Var[0] $Script_CreateExitTriggers
@@ -475,6 +477,17 @@
 		Default
 			Exec  $Script_CreateExitTriggers
 	EndSwitch
+	Return
+	End
+}
+
+#new:Script $Script_Exit_entry_room_1b
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:entry_room_1b )
+	Exec     ExitWalk
+	Call  GotoMap   ( "btf_23" ~Entry:btf_23:entry_w )
+	Wait  100`
 	Return
 	End
 }
@@ -503,6 +516,7 @@
 
 #new:Script $Script_CreateExitTriggers
 {
+	Bind  $Script_Exit_entry_room_1b .Trigger:FloorAbove ~Collider:exit_trigger_e 00000001 00000000
 	Bind  $Script_Exit_entry_room_1a .Trigger:FloorAbove ~Collider:door_lz_collider 00000001 00000000
 	Bind  $Script_Exit_entry_s .Trigger:FloorAbove ~Collider:exit_trigger_s 00000001 00000000
 	Return

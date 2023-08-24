@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_23" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="157.796021,105.716187,225.584641" pitch="21.280069" yaw="17.279423"/>
-		<Camera pos="120.372238,65536.000000,11.133855"/>
-		<Camera pos="65536.000000,-155.399292,150.151199"/>
-		<Camera pos="166.666611,10.176448,65536.000000"/>
+		<Camera pos="96.897285,122.968826,367.891815" pitch="0.560001" yaw="5.920000"/>
+		<Camera pos="123.590736,65536.000000,22.888918"/>
+		<Camera pos="65536.000000,0.000000,20.000000"/>
+		<Camera pos="62.000000,0.000000,65536.000000"/>
 	</Editor>
 	<ModelTree>
-		<Node name="Root" id="12">
+		<Node name="Root" id="14">
 			<Node name="Stage" id="0"/>
 			<Node name="Exit_North" id="1"/>
 			<Node name="Exit_East" id="2"/>
@@ -23,10 +23,14 @@
 			<Node name="Split Model" id="B"/>
 			<Node name="Split Model" id="C"/>
 			<Node name="Split Model" id="D"/>
-			<Node name="RedStarTop" id="E"/>
-			<Node name="RedStarBottom" id="F"/>
-			<Node name="DrawnModel" id="10"/>
-			<Node name="ProjectionModel" id="11"/>
+			<Node name="RedStarBottomGroup" id="F">
+				<Node name="RedStarBottom" id="E"/>
+			</Node>
+			<Node name="RedStarTopGroup" id="11">
+				<Node name="RedStarTop" id="10"/>
+			</Node>
+			<Node name="DrawnModel" id="12"/>
+			<Node name="ProjectionModel" id="13"/>
 		</Node>
 	</ModelTree>
 	<ColliderTree>
@@ -59,13 +63,13 @@
 	</LightSets>
 	<Models>
 		<Model ver="2" type="ROOT" lightset="0">
-			<MapObject name="Root" id="12"/>
+			<MapObject name="Root" id="14"/>
 			<BoundingBox empty="false" min="-265,-160,-70" max="390,160,110"/>
 			<PropertyList>
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ProjectionModel" id="11"/>
+			<MapObject name="ProjectionModel" id="13"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -117,7 +121,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="DrawnModel" id="10"/>
+			<MapObject name="DrawnModel" id="12"/>
 			<ShapeMesh ver="3" texture="hos_h_kabe6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -222,8 +226,17 @@
 				<Property v="5F,0,0"/>
 			</PropertyList>
 		</Model>
+		<Model ver="2" type="GROUP" lightset="0">
+			<MapObject name="RedStarTopGroup" id="11"/>
+			<BoundingBox empty="false" min="126,8,-21" max="206,8,58"/>
+			<TransformMatrix m="1.000000,0.000000,0.000000,166.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000,23.000000,0.000000,0.000000,0.000000,1.000000"/>
+			<PropertyList>
+				<Property v="60,0,0"/>
+				<Property v="60,0,1"/>
+			</PropertyList>
+		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="RedStarBottom" id="F"/>
+			<MapObject name="RedStarTop" id="10"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -231,45 +244,21 @@
 					<F3DEX2 cmd="D9FFFFFF,200400"/>
 					<TriangleBatch ver="0">
 						<VertexTable>
-						</VertexTable>
-						<TriangleList>
-						</TriangleList>
-					</TriangleBatch>
-					<TriangleBatch ver="0">
-						<VertexTable>
-						</VertexTable>
-						<TriangleList>
-						</TriangleList>
-					</TriangleBatch>
-					<TriangleBatch ver="0">
-						<VertexTable>
-						</VertexTable>
-						<TriangleList>
-						</TriangleList>
-					</TriangleBatch>
-					<TriangleBatch ver="0">
-						<VertexTable>
-						</VertexTable>
-						<TriangleList>
-						</TriangleList>
-					</TriangleBatch>
-					<TriangleBatch ver="0">
-						<VertexTable>
-							<Vertex xyz="181,4,3" uv="256,240" rgba="255,102,102,125"/>
-							<Vertex xyz="166,4,-21" uv="640,0" rgba="255,51,51,125"/>
-							<Vertex xyz="151,4,3" uv="256,-240" rgba="255,102,102,125"/>
-							<Vertex xyz="189,4,31" uv="-192,368" rgba="255,102,102,125"/>
-							<Vertex xyz="166,4,49" uv="-480,0" rgba="255,102,102,125"/>
-							<Vertex xyz="190,4,58" uv="-624,384" rgba="255,51,51,125"/>
-							<Vertex xyz="189,4,31" uv="-192,368" rgba="255,102,102,125"/>
-							<Vertex xyz="206,4,11" uv="128,640" rgba="255,51,51,125"/>
-							<Vertex xyz="181,4,3" uv="256,240" rgba="255,102,102,125"/>
-							<Vertex xyz="143,4,31" uv="-192,-368" rgba="255,102,102,125"/>
-							<Vertex xyz="151,4,3" uv="256,-240" rgba="255,102,102,125"/>
-							<Vertex xyz="126,4,11" uv="128,-640" rgba="255,51,51,125"/>
-							<Vertex xyz="142,4,58" uv="-624,-384" rgba="255,51,51,125"/>
-							<Vertex xyz="166,4,49" uv="-480,0" rgba="255,102,102,125"/>
-							<Vertex xyz="143,4,31" uv="-192,-368" rgba="255,102,102,125"/>
+							<Vertex xyz="15,8,-20" uv="256,240" rgba="-2,-2,124,125"/>
+							<Vertex xyz="0,8,-44" uv="640,0" rgba="-3,-53,18,125"/>
+							<Vertex xyz="-15,8,-20" uv="256,-240" rgba="-2,-2,124,125"/>
+							<Vertex xyz="23,8,8" uv="-192,368" rgba="-2,-2,124,125"/>
+							<Vertex xyz="0,8,26" uv="-480,0" rgba="-2,-2,124,125"/>
+							<Vertex xyz="24,8,35" uv="-624,384" rgba="-3,-53,18,125"/>
+							<Vertex xyz="23,8,8" uv="-192,368" rgba="-2,-2,124,125"/>
+							<Vertex xyz="40,8,-12" uv="128,640" rgba="-3,-53,18,125"/>
+							<Vertex xyz="15,8,-20" uv="256,240" rgba="-2,-2,124,125"/>
+							<Vertex xyz="-23,8,8" uv="-192,-368" rgba="-2,-2,124,125"/>
+							<Vertex xyz="-15,8,-20" uv="256,-240" rgba="-2,-2,124,125"/>
+							<Vertex xyz="-40,8,-12" uv="128,-640" rgba="-3,-53,18,125"/>
+							<Vertex xyz="-24,8,35" uv="-624,-384" rgba="-3,-53,18,125"/>
+							<Vertex xyz="0,8,26" uv="-480,0" rgba="-2,-2,124,125"/>
+							<Vertex xyz="-23,8,8" uv="-192,-368" rgba="-2,-2,124,125"/>
 						</VertexTable>
 						<TriangleList>
 							<Triangle ijk="0,1,2"/>
@@ -279,12 +268,6 @@
 							<Triangle ijk="12,13,14"/>
 						</TriangleList>
 					</TriangleBatch>
-					<TriangleBatch ver="0">
-						<VertexTable>
-						</VertexTable>
-						<TriangleList>
-						</TriangleList>
-					</TriangleBatch>
 				</DisplayList>
 			</ShapeMesh>
 			<PropertyList>
@@ -292,8 +275,17 @@
 				<Property v="5F,0,0"/>
 			</PropertyList>
 		</Model>
+		<Model ver="2" type="GROUP" lightset="0">
+			<MapObject name="RedStarBottomGroup" id="F"/>
+			<BoundingBox empty="false" min="126,4,-20" max="206,4,58"/>
+			<TransformMatrix m="1.000000,0.000000,0.000000,166.797089,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000,23.173140,0.000000,0.000000,0.000000,1.000000"/>
+			<PropertyList>
+				<Property v="60,0,0"/>
+				<Property v="60,0,1"/>
+			</PropertyList>
+		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="RedStarTop" id="E"/>
+			<MapObject name="RedStarBottom" id="E"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -325,21 +317,21 @@
 					</TriangleBatch>
 					<TriangleBatch ver="0">
 						<VertexTable>
-							<Vertex xyz="181,8,3" uv="256,240" rgba="255,102,102,125"/>
-							<Vertex xyz="166,8,-21" uv="640,0" rgba="255,51,51,125"/>
-							<Vertex xyz="151,8,3" uv="256,-240" rgba="255,102,102,125"/>
-							<Vertex xyz="189,8,31" uv="-192,368" rgba="255,102,102,125"/>
-							<Vertex xyz="166,8,49" uv="-480,0" rgba="255,102,102,125"/>
-							<Vertex xyz="190,8,58" uv="-624,384" rgba="255,51,51,125"/>
-							<Vertex xyz="189,8,31" uv="-192,368" rgba="255,102,102,125"/>
-							<Vertex xyz="206,8,11" uv="128,640" rgba="255,51,51,125"/>
-							<Vertex xyz="181,8,3" uv="256,240" rgba="255,102,102,125"/>
-							<Vertex xyz="143,8,31" uv="-192,-368" rgba="255,102,102,125"/>
-							<Vertex xyz="151,8,3" uv="256,-240" rgba="255,102,102,125"/>
-							<Vertex xyz="126,8,11" uv="128,-640" rgba="255,51,51,125"/>
-							<Vertex xyz="142,8,58" uv="-624,-384" rgba="255,51,51,125"/>
-							<Vertex xyz="166,8,49" uv="-480,0" rgba="255,102,102,125"/>
-							<Vertex xyz="143,8,31" uv="-192,-368" rgba="255,102,102,125"/>
+							<Vertex xyz="15,4,-20" uv="256,240" rgba="-2,-2,124,125"/>
+							<Vertex xyz="0,4,-44" uv="640,0" rgba="-3,-53,18,125"/>
+							<Vertex xyz="-15,4,-20" uv="256,-240" rgba="-2,-2,124,125"/>
+							<Vertex xyz="23,4,8" uv="-192,368" rgba="-2,-2,124,125"/>
+							<Vertex xyz="0,4,26" uv="-480,0" rgba="-2,-2,124,125"/>
+							<Vertex xyz="24,4,35" uv="-624,384" rgba="-3,-53,18,125"/>
+							<Vertex xyz="23,4,8" uv="-192,368" rgba="-2,-2,124,125"/>
+							<Vertex xyz="40,4,-12" uv="128,640" rgba="-3,-53,18,125"/>
+							<Vertex xyz="15,4,-20" uv="256,240" rgba="-2,-2,124,125"/>
+							<Vertex xyz="-23,4,8" uv="-192,-368" rgba="-2,-2,124,125"/>
+							<Vertex xyz="-15,4,-20" uv="256,-240" rgba="-2,-2,124,125"/>
+							<Vertex xyz="-40,4,-12" uv="128,-640" rgba="-3,-53,18,125"/>
+							<Vertex xyz="-24,4,35" uv="-624,-384" rgba="-3,-53,18,125"/>
+							<Vertex xyz="0,4,26" uv="-480,0" rgba="-2,-2,124,125"/>
+							<Vertex xyz="-23,4,8" uv="-192,-368" rgba="-2,-2,124,125"/>
 						</VertexTable>
 						<TriangleList>
 							<Triangle ijk="0,1,2"/>
@@ -823,12 +815,12 @@
 					<F3DEX2 cmd="D9FFFFFF,200400"/>
 					<TriangleBatch ver="0">
 						<VertexTable>
-							<Vertex xyz="225,160,-70" uv="-604,1536"/>
-							<Vertex xyz="225,0,110" uv="604,-1536" rgba="156,156,156,255"/>
-							<Vertex xyz="225,160,110" uv="604,1536"/>
-							<Vertex xyz="225,0,110" uv="604,-1536" rgba="156,156,156,255"/>
-							<Vertex xyz="225,160,-70" uv="-604,1536"/>
-							<Vertex xyz="225,0,-70" uv="-604,-1536" rgba="156,156,156,255"/>
+							<Vertex xyz="225,160,-70" uv="-2608,1280"/>
+							<Vertex xyz="225,0,110" uv="-3961,-1280" rgba="156,156,156,255"/>
+							<Vertex xyz="225,160,110" uv="-3961,1280"/>
+							<Vertex xyz="225,0,110" uv="-3961,-1280" rgba="156,156,156,255"/>
+							<Vertex xyz="225,160,-70" uv="-2608,1280"/>
+							<Vertex xyz="225,0,-70" uv="-2608,-1280" rgba="156,156,156,255"/>
 							<Vertex xyz="-100,160,-70" uv="2592,1280"/>
 							<Vertex xyz="225,0,-70" uv="-2608,-1280" rgba="156,156,156,255"/>
 							<Vertex xyz="225,160,-70" uv="-2608,1280"/>
@@ -1347,7 +1339,7 @@
 		<Marker ver="4" type="Position" pos="166,133,23" yaw="0.000000">
 			<MapObject name="EffectMarker" id="2"/>
 		</Marker>
-		<Marker ver="4" type="Entity" pos="166,12,23" yaw="0.000000">
+		<Marker ver="4" type="Entity" pos="166,12,23" yaw="360.000000">
 			<MapObject name="Marker" id="1"/>
 			<Entity type="802E9BD4" hasSpawnFlag="false" spawnFlag="" callback="false" areaFlag="1"/>
 		</Marker>
@@ -1379,7 +1371,7 @@
 		</TexPanners>
 		<Generators>
 			<Entrance type="Walk" hasCallback="false" entry="entry_w"/>
-			<Exit type="Walk" hasCallback="false" entry="entry_w" destMap="btf_06" destEntry="entry_s" trigger="entry_w"/>
+			<Exit type="Walk" hasCallback="false" entry="entry_w" destMap="btf_06" destEntry="entry_room_1b" trigger="entry_w"/>
 		</Generators>
 		<Camera vfov="25" near="16" far="4096" bgcolor="0,0,0" leadsPlayer="false"/>
 		<Fog world="0,10,10,10,255,950,1000" entity="0,10,10,10,255,950,1000"/>
