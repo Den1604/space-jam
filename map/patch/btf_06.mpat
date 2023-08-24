@@ -268,7 +268,7 @@
 
 #new:Script $Script_UseChest2
 {
-	Set *VarA .Item:AttackFXB
+	Set *VarA .Item:AttackFXF
 	Set *VarB 00000002 % 2 for badge
 	Set *MF_btf_06_OpenedChest2 .True
 	ExecWait $Script_OpenChest
