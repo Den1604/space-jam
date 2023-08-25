@@ -420,8 +420,6 @@
 
 % Platform movement
 #new:Script $Script_SetupPlatforms {
-	Set *MF_btf_06_PlatformsActivated .True
-	
 	Set *Var2 0`
 	Set *Var3 -300`
 	Set *Var6 140`
@@ -617,6 +615,7 @@
 		Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 002F0027 )
 		Call DisablePlayerInput ( .True )
 		ExecWait $Script_PanCamera_AAAAAAAAAAAAAD
+		Set *MF_btf_06_PlatformsActivated .True
 		Exec $Script_SetupPlatforms
 		Wait 60`
 		Call ResetCam ( .Cam:Default *Fixed[4.0] )
@@ -633,6 +632,7 @@
 	Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 002F0025 )
 	Call DisablePlayerInput ( .True )
 	ExecWait $Script_PanCamera_AAAAAAAAAAAAAD
+	Set *MF_btf_06_PlatformsActivated .True
 	Exec $Script_SetupPlatforms
 	Wait 60`
 	Call ResetCam ( .Cam:Default *Fixed[4.0] )
