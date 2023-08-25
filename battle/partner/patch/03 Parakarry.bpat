@@ -281,7 +281,7 @@ LI		V0, 2
 		Return
 	Case  ==  00000004 % 3 Inputs = Shooting Star [83] / Fire Flower [80]
 		Call PlayerCreateTargetList ( 00000000 )
-		Set *Var8 00000080 % using Fire Flower for a more balanced AoE option in the jam
+		Set *Var8 00000083 % Fire Flower caused animation bugs we don't have the time to fix so 3 damage shooting stars are real.
 		Call $Func_InitItemCalling ( *Var8 )
 		Jump  80293E40
 		Return
