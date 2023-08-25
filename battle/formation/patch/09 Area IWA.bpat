@@ -49,3 +49,30 @@
     Return
     End
 }
+
+@ $MontyMole {
+    % stats
+    [Index]        12b
+    [Level]         8`b
+    [MaxHP]         3`b
+    [Coins]         1`b
+    [Flags]       00000000
+    [StatusTable] $StatusTable_8021A45C
+    % ai
+    [PartsCount]    3`s
+    [PartsTable]  $PartsTable_8021A508
+    [Script]      $Script_Init_8021A7B0
+    % move effectiveness
+    [Escape]       80`b
+    [Item]         85`b
+    [AirLift]      70`b
+    [Hurricane]    50`b % Bow's "Spook" as well
+    [UpAndAway]    95`b
+    [PowerBounce] 100`b
+    [SpinSmash]     4`b % weight (0-4)
+    % ui positions
+    [Size]         34`b  18`b % width height
+    [HealthBar]     0`b   0`b % dx dy
+    [StatusTurn]  -10`b  20`b % dx dy
+    [StatusIcon]   10`b  20`b % dx dy
+}
