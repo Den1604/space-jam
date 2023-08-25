@@ -53,8 +53,8 @@
 @ $MontyMole {
     % stats
     [Index]        12b
-    [Level]         8`b
-    [MaxHP]         3`b
+    [Level]         19`b
+    [MaxHP]         7`b
     [Coins]         1`b
     [Flags]       00000000
     [StatusTable] $StatusTable_8021A45C

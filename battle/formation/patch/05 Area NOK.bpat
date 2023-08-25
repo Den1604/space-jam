@@ -27,10 +27,10 @@
 	$SJIS_8022BC0C 00000004 $Formation_17 $Stage_8022BAEC 00000000
 	$SJIS_8022BC00 00000001 $Formation_18 $Stage_8022BAEC 00000000
 	% Custom
-	$SJIS_Formation_19 3` $Formation_19 $Stage_btf_bt01 00000000
-	$SJIS_Formation_1A 3` $Formation_1A $Stage_btf_bt01 00000000
-	$SJIS_Formation_1B 4` $Formation_1B $Stage_btf_bt01 00000000
-	$SJIS_Formation_1C 3` $Formation_1C $Stage_btf_bt01 00000000
+	$SJIS_Formation_19 3` $Formation_19 $Stage_btf_bt03 00000000
+	$SJIS_Formation_1A 3` $Formation_1A $Stage_btf_bt03 00000000
+	$SJIS_Formation_1B 4` $Formation_1B $Stage_btf_bt03 00000000
+	$SJIS_Formation_1C 3` $Formation_1C $Stage_btf_bt03 00000000
 	00000000 00000000 00000000 00000000 00000000
 }
 
@@ -84,13 +84,13 @@
 	パタパタ、ボムへいx2、パタパタ % patapata, bomuheix2, patapata
 }
 
-#new:Stage $Stage_btf_bt01
+#new:Stage $Stage_btf_bt03
 {
     "hos_tex"
-	"btf_bt01_shape"
-	"btf_bt01_hit"
-	$Script_BeforeBattle_btf_bt01
-	$Script_AfterBattle_btf_bt01
+	"btf_bt03_shape"
+	"btf_bt03_hit"
+	$Script_BeforeBattle_btf_bt03
+	$Script_AfterBattle_btf_bt03
     00000000 %BG
 	00000000
 	00000000
@@ -98,91 +98,13 @@
 	00000000
 }
 
-#new:Script $Script_BeforeBattle_btf_bt01
+#new:Script $Script_BeforeBattle_btf_bt03
 {
-    Exec $Script_Star1Spin
-    Exec $Script_Star2Spin
     Return
     End
 }
 
-#new:Script $Script_Star1Spin
-{
-    Set *VarA 0`
-    Loop
-        Loop 20`
-            Add *VarA 1`
-            Call RotateModel ( 00000005 *VarA 0` 0` 1` )
-            Call RotateModel ( 00000006  *VarA 0` 0` 1` )
-            Call RotateModel ( 00000007 *VarA 0` 0` 1` )
-            Wait 1`
-        EndLoop
-        Loop 20`
-            Sub *VarA 1`
-            Call RotateModel ( 00000005 *VarA 0` 0` 1` )
-            Call RotateModel ( 00000006  *VarA 0` 0` 1` )
-            Call RotateModel ( 00000007 *VarA 0` 0` 1` )
-            Wait 1`
-        EndLoop
-        Loop 20`
-            Sub *VarA 1`
-            Call RotateModel ( 00000005 *VarA 0` 0` 1` )
-            Call RotateModel ( 00000006  *VarA 0` 0` 1` )
-            Call RotateModel ( 00000007 *VarA 0` 0` 1` )
-            Wait 1`
-        EndLoop
-        Loop 20`
-            Add *VarA 1`
-            Call RotateModel ( 00000005 *VarA 0` 0` 1` )
-            Call RotateModel ( 00000006  *VarA 0` 0` 1` )
-            Call RotateModel ( 00000007 *VarA 0` 0` 1` )
-            Wait 1`
-        EndLoop
-        Wait 1`
-    EndLoop
-    Return
-    End
-}
-
-#new:Script $Script_Star2Spin
-{
-    Set *VarB 0`
-    Loop
-        Loop 20`
-            Sub *VarB 1`
-            Call RotateModel ( 00000009 *VarB 0` 0` 1` )
-            Call RotateModel ( 0000000A  *VarB 0` 0` 1` )
-            Call RotateModel ( 0000000B *VarB 0` 0` 1` )
-            Wait 1`
-        EndLoop
-        Loop 20`
-            Add *VarB 1`
-            Call RotateModel ( 00000009 *VarB 0` 0` 1` )
-            Call RotateModel ( 0000000A  *VarB 0` 0` 1` )
-            Call RotateModel ( 0000000B *VarB 0` 0` 1` )
-            Wait 1`
-        EndLoop
-        Loop 20`
-            Add *VarB 1`
-            Call RotateModel ( 00000009 *VarB 0` 0` 1` )
-            Call RotateModel ( 0000000A  *VarB 0` 0` 1` )
-            Call RotateModel ( 0000000B *VarB 0` 0` 1` )
-            Wait 1`
-        EndLoop
-        Loop 20`
-            Sub *VarB 1`
-            Call RotateModel ( 00000009 *VarB 0` 0` 1` )
-            Call RotateModel ( 0000000A  *VarB 0` 0` 1` )
-            Call RotateModel ( 0000000B *VarB 0` 0` 1` )
-            Wait 1`
-        EndLoop
-        Wait 1`
-    EndLoop
-    Return
-    End
-}
-
-#new:Script $Script_AfterBattle_btf_bt01
+#new:Script $Script_AfterBattle_btf_bt03
 {
     Return
     End
@@ -193,6 +115,6 @@
 	$ASCII_8022BE2C $Stage_8022BAEC
 	$ASCII_8022BE24 $Stage_8022BB5C
 	$ASCII_8022BE1C $Stage_8022BBD8
-    "btf_bt01" $Stage_btf_bt01
+    "btf_bt03" $Stage_btf_bt03
 	00000000 00000000
 }

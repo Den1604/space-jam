@@ -595,6 +595,7 @@
 		<Map name="btf_23" nickname="Challenge Room 1b"/>
 		<Stage name="btf_bt01" nickname="CR 2 Battle Map"/>
 		<Stage name="btf_bt02" nickname="CI Battle Map"/>
+		<Stage name="btf_bt03" nickname="btf_06 Fuzzy Battle Map"/>
 	</Area>
 	<Resource name="mac_tex" compressed="false"/>
 	<Resource name="tik_tex" compressed="false"/>
