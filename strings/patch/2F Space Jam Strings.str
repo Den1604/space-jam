@@ -1084,7 +1084,8 @@ Of course![br]
 	That's a ludicrous amount of[br]
 	money for a hospital visit![br]
 	[Wait][Next]
-	All I got was this Wheelchair...[br]
+	All I got was this Wheelchair...[Pause:15][br]
+	and beaten up.[br]
 	[Wait][End]
 }
 
@@ -1217,3 +1218,68 @@ Of course![br]
 	[Wait][End]
 }
 
+#message:2F:074
+{
+	[Style Right]
+	No way we are leaving now,[br]
+	we're about to be done, Mario![Pause:10][br]
+	Let's finish this.[br]
+	[Wait][End]
+}
+
+#message:2F:075
+{
+	[Style Right]
+	We're at our final destination,[br]
+	let's deliver our last letter[br]
+	and end this quest to save[br]
+	the world, Mario![br]
+	[Wait][End]
+}
+
+#message:2F:076
+{
+	[Style Right]
+	One letter left, I believe[br]
+	we can finish this in no time.[Pause:10][br]
+	Don't you agree, Mario?[br]
+	[Wait][End]
+}
+
+#message:2F:077
+{
+	[Style Right]
+	Then let's get going[br]
+	and save the world![br]
+	[Wait][End]
+}
+
+#message:2F:078
+{
+	[Style Right]
+	[Style Right]
+	The next letter is addressed[BR]
+	to...[Pause:15][br]
+	[Color:07]Emperor Thamz[Color:0A]![br]
+	[Wait][Next]
+	The letter is written to be[BR]
+	delivered to...[Pause:15][br]
+	the edge of the galaxy?![br]
+	[Wait][Next]
+	And ontop of that, this seems to[br]
+	be a hospital bill?![Pause:15][br]
+	Couldn't he have payed it BEFORE[br]
+	traveling that far away?![br]
+	[Wait][Next]
+	Mario, do you know this guy??[br]
+	[Wait][End]
+}
+
+#message:2F:079
+{
+	[Style Right]
+	So you atleast know who we[br]
+	are looking for.[Pause:10][br]
+	That's a good start.[br]
+	[Wait][End]
+}

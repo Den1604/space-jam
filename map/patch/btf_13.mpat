@@ -20,9 +20,9 @@
         Case == ~Entry:Entry3
             Exec $Script_MarioAndParakarryToPieface
         Case == ~Entry:Entry4
-            %Exec $Script_MarioAndParakarryToThamz
+            Exec $Script_MarioAndParakarryToThamz
         Case == ~Entry:Entry5
-            %Exec $Script_MarioAndParakarryToMerlee
+            Exec $Script_MarioAndParakarryToMerlee
         Default
             Exec  $Script_CreateExitTriggers
     EndSwitch
@@ -44,7 +44,7 @@
     Call GetPlayerPos ( *VarA *VarB *VarC )
     Call GetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
     Set *Var0 0`
-    Loop 40`
+    Loop 30`
         Add *Var0 40`
         Add *VarA 40`
         Add *VarD 40`
@@ -79,7 +79,7 @@
     Call GetPlayerPos ( *VarA *VarB *VarC )
     Call GetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
     Set *Var0 0`
-    Loop 40`
+    Loop 30`
         Add *Var0 40`
         Add *VarA 40`
         Add *VarD 40`
@@ -187,7 +187,7 @@
     Call GetPlayerPos ( *VarA *VarB *VarC )
     Call GetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
     Set *Var0 0`
-    Loop 40`
+    Loop 30`
         Add *Var0 40`
         Add *VarA 40`
         Add *VarD 40`
@@ -200,6 +200,76 @@
     EndLoop
     Call StopSound ( 0000032A )
     Call GotoMap ( "btf_13" ~Entry:Entry3 )
+    Return
+    End
+}
+
+#new:Script $Script_MarioAndParakarryToThamz
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    Call PlaySound ( 0000032A )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryPos )
+    Call SetNpcYaw ( .Npc:Partner -107` )
+    Exec $Script_ShipBop
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0078 )
+    Call SetPlayerAnimation ( 00010029 )
+    Wait 15`
+    Call SetPlayerAnimation ( 00010002 )
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0079 )
+    Set *MapVar[0] 00000001
+    Call ParentColliderToModel ( ~Collider:CarCollider ~Model:SpaceTruck_Seats )
+    Call GetPlayerPos ( *VarA *VarB *VarC )
+    Call GetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
+    Set *Var0 0`
+    Loop 30`
+        Add *Var0 40`
+        Add *VarA 40`
+        Add *VarD 40`
+        Call TranslateGroup ( ~Model:SpaceShipGroup *Var0 0` 0` )
+        Call TranslateGroup ( ~Model:SpaceTruck_RoofGroup *Var0 0` 0` )
+        Call UpdateColliderTransform ( ~Collider:CarCollider )
+        Call SetPlayerPos ( *VarA *VarB *VarC )
+        Call SetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
+        Wait 1`
+    EndLoop
+    Call StopSound ( 0000032A )
+    Call GotoMap ( "btf_18" ~Entry:Entry1 )
+    Return
+    End
+}
+
+#new:Script $Script_MarioAndParakarryToMerlee
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    Call PlaySound ( 0000032A )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryPos )
+    Call SetNpcYaw ( .Npc:Partner -107` )
+    Exec $Script_ShipBop
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0076 )
+    Call SetPlayerAnimation ( 00010029 )
+    Wait 15`
+    Call SetPlayerAnimation ( 00010002 )
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0077 )
+    Set *MapVar[0] 00000001
+    Call ParentColliderToModel ( ~Collider:CarCollider ~Model:SpaceTruck_Seats )
+    Call GetPlayerPos ( *VarA *VarB *VarC )
+    Call GetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
+    Set *Var0 0`
+    Loop 30`
+        Add *Var0 40`
+        Add *VarA 40`
+        Add *VarD 40`
+        Call TranslateGroup ( ~Model:SpaceShipGroup *Var0 0` 0` )
+        Call TranslateGroup ( ~Model:SpaceTruck_RoofGroup *Var0 0` 0` )
+        Call UpdateColliderTransform ( ~Collider:CarCollider )
+        Call SetPlayerPos ( *VarA *VarB *VarC )
+        Call SetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
+        Wait 1`
+    EndLoop
+    Call StopSound ( 0000032A )
+    Call GotoMap ( "dro_02" ~Entry:Entry4 )
     Return
     End
 }

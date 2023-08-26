@@ -267,7 +267,7 @@
         Call SpeakToPlayer ( .NpcID:NPC1 00560302 00560301 00000000 002F0003 )
         Call SetNpcAnimation ( .NpcID:NPC1 00560309 )
         Wait 3`
-        Call StartBattle (  )
+        Call StartBossBattle ( .Song:NormalBattle )
     EndIf
     Return
     End
@@ -328,7 +328,7 @@
         Call SpeakToPlayer ( .NpcID:NPC2 00390105 00390102 00000000 002F0004 )
         Call SetNpcAnimation ( .NpcID:NPC2 00390110 )
         Wait 3`
-        Call StartBattle (  )
+        Call StartBossBattle ( .Song:NormalBattle )
     EndIf
     Return
     End
@@ -389,7 +389,7 @@
         Call SpeakToPlayer ( .NpcID:NPC3 0044000A 00440002 00000000 002F0005 )
         Call SetNpcAnimation ( .NpcID:NPC3 00440006 )
         Wait 3`
-        Call StartBattle (  )
+        Call StartBossBattle ( .Song:NormalBattle )
     EndIf
     Return
     End

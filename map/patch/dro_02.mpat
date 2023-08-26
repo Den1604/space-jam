@@ -1,0 +1,147 @@
+#define .NpcID:Archeologist_00      00
+#define .NpcID:Dryite_01            01
+#define .NpcID:DisguisedMoustafa_02 02
+#define .NpcID:Toad_03              03
+#define .NpcID:WorldMerlee_04       04
+#define .NpcID:Moustafa_05          05
+#define .NpcID:Dryite_06            06
+#define .NpcID:Mouser_07            07
+#define .NpcID:Mouser_08            08
+#define .NpcID:Mouser_09            09
+#define .NpcID:ChuckQuizmo_10       0A
+#define .NpcID:Dryite_11            0B
+
+@ $Script_Main_EnterWalk {
+    Set   *GB_WorldLocation  .Location:DryDryOutpost
+    Call  SetSpriteShading  ( .Shading:None )
+    Call  SetCamPerspective ( .Cam:Default 00000003  25`  16`  4096` )
+    Call  SetCamBGColor     ( .Cam:Default  0`  0`  0` )
+    Call  SetCamEnabled     ( .Cam:Default .True )
+    Call  SetCamLeadPlayer  ( .Cam:Default .False )
+    Call  MakeNpcs  ( .False $NpcGroupList_8024EEF4 )
+    Call  InitVirtualEntityList ( )
+    ExecWait  $Script_MakeEntities
+    ExecWait  $Script_80244C78
+    Exec  $Script_80243AF0
+    Call  GetEntryID        ( *Var0 )
+    Switch  *Var0
+        CaseOR  ==  ~Entry:Entry2
+        CaseOR  ==  ~Entry:Entry3
+            ExecWait  $Script_80243D10
+        EndCaseGroup
+        Default
+            Set   *Var0  $Script_80243C9C
+            %Exec  EnterWalk
+    EndSwitch
+    Wait  1`
+    Thread
+        Call  SetTexPanner  ( ~Model:kemuri 00000001 )
+        Set   *Var0  00000000
+        Label  7B
+        Add   *Var0  000001A4
+        If  *Var0  >  00010000
+            Add   *Var0  FFFF0000
+        EndIf
+        Call  SetTexPanOffset   ( 00000001 00000000 00000000 *Var0 )
+        Wait  1`
+        Goto  7B
+    EndThread
+    Set   *MapFlag[00]  .False
+    Bind  $Script_NoLeavingForYou .Trigger:WallPressA ~Collider:CarCollider 00000001 00000000
+    Bind  $Script_GoToMerleeNerd .Trigger:FloorTouch ~Collider:HoleBottomCollider 00000001 00000000
+    Call  SetCamSpeed   ( .Cam:Default *Fixed[1.3339844] )
+    Call SetNpcPos ( .NpcID:Archeologist_00 0` -1000` 0` )
+    Call SetNpcPos ( .NpcID:Dryite_01 0` -1000` 0` )
+    Call SetNpcPos ( .NpcID:Toad_03 0` -1000` 0` )
+    Call SetNpcPos ( .NpcID:WorldMerlee_04 0` -1000` 0` )
+    Call SetNpcPos ( .NpcID:Dryite_06 0` -1000` 0` )
+    Call SetNpcPos ( .NpcID:Mouser_08 0` -1000` 0` )
+    Call SetNpcPos ( .NpcID:Mouser_09 0` -1000` 0` )
+    Call SetNpcPos ( .NpcID:Dryite_11 0` -1000` 0` )
+    Exec $Script_CutsceneEntry
+    Return
+    End
+}
+
+@ $Header {
+    [MainScript]  $Script_Main_EnterWalk
+    [EntryList]   $EntryList
+    [EntryCount]  00000005
+    [Background]  80200000
+    [MapTattle]   00190094
+}
+
+@ $EntryList {
+    ~Vec4f:Entry0 % -473.0    0.0   12.0   90.0
+    ~Vec4f:Entry1 %  415.0   35.0  -15.0  180.0
+    ~Vec4f:Entry2 %    0.0    0.0    0.0    0.0
+    ~Vec4f:Entry3 %    0.0    0.0    0.0    0.0
+    ~Vec4f:Entry4
+}
+
+#new:Script $Script_NoLeavingForYou
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0074 )
+    Call EnablePartnerAI ()
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
+
+#new:Script $Script_GoToMerleeNerd
+{
+    Call DisablePlayerInput ( .True )
+    Call GotoMap ( "dro_02" ~Entry:Entry4 )
+    Wait 300`
+    Return
+    End
+}
+
+#new:Script $Script_CutsceneEntry
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    Call PlaySound ( 0000032A )
+    Call TranslateGroup ( ~Model:SpaceTruckGroup -450` 0` 0` )
+    Call  UseSettingsFrom   ( .Cam:Default ~Vec3D:MarioJumpToExit )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:MarioJumpToExit )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[0.500000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+    Set *VarA -450`
+    Loop 45`
+        Add *VarA 10`
+        Call TranslateGroup ( ~Model:SpaceTruckGroup *VarA 0` 0` )
+        Wait 1`
+    EndLoop
+    Call StopSound ( 0000032A )
+    Call SetPlayerPos ( ~Vec3D:MarioCarPos )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryCarPos )
+    Set *Var0 0`
+    Loop 9`
+        Add *Var0 15`
+        Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
+        Wait 1`
+    EndLoop
+    Call SetPlayerJumpscale ( *Fixed[2.0] )
+    Call PlayerJump ( ~Vec3D:MarioJumpToExit 20` )
+    Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryFlyOutPos1 15` 1` .Easing:Linear )
+    Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryFlyOutPos2 25` 1` .Easing:Linear )
+    Wait 10`
+    Loop 9`
+        Sub *Var0 15`
+        Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
+        Wait 1`
+    EndLoop
+    Wait 10`
+    Call ResetCam ( .Cam:Default *Fixed[2.0] )
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0075 )
+    Call EnablePartnerAI ()
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
