@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_06" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="1425.441040,491.877716,-42.656563" pitch="45.279984" yaw="13.599646"/>
-		<Camera pos="632.000000,65536.000000,-150.000000"/>
+		<Camera pos="867.778564,469.627411,-531.844666" pitch="68.320000" yaw="352.960205"/>
+		<Camera pos="632.000000,65536.000000,235.744141"/>
 		<Camera pos="65536.000000,195.000000,-150.000000"/>
-		<Camera pos="632.000000,195.000000,65536.000000"/>
+		<Camera pos="529.364136,-189.017822,65536.000000"/>
 	</Editor>
 	<ModelTree>
 		<Node name="Root" id="3B">
@@ -148,7 +148,7 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="27">
+		<Node name="Root" id="2A">
 			<Node name="Entrances" id="2">
 				<Node name="entry_s" id="FFFFFFFF"/>
 				<Node name="entry_room_1a" id="0"/>
@@ -192,6 +192,9 @@
 			<Node name="Bobomb1ApproachPos" id="24"/>
 			<Node name="BelowMap" id="25"/>
 			<Node name="DiamondHelper" id="26"/>
+			<Node name="DiamondEmblemFX" id="27"/>
+			<Node name="LunarEmblemFX" id="28"/>
+			<Node name="DoorFX" id="29"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -8672,7 +8675,16 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="27"/>
+			<MapObject name="Root" id="2A"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="35,37,-458" yaw="0.000000">
+			<MapObject name="DoorFX" id="29"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="49,51,-454" yaw="0.000000">
+			<MapObject name="LunarEmblemFX" id="28"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="21,51,-454" yaw="0.000000">
+			<MapObject name="DiamondEmblemFX" id="27"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="1553,40,-407" yaw="0.000000">
 			<MapObject name="DiamondHelper" id="26"/>
@@ -8700,7 +8712,7 @@
 		<Marker ver="4" type="Position" pos="638,40,-399" yaw="0.000000">
 			<MapObject name="SpringEndPosition" id="1F"/>
 		</Marker>
-		<Marker ver="4" type="CamTarget" pos="38,0,-396" yaw="0.000000">
+		<Marker ver="4" type="CamTarget" pos="34,0,-396" yaw="0.000000">
 			<MapObject name="DoorCam" id="1E"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="100.000000" samplePos="0,0,0" overrideLength="450.000000" overrideAngles="15.000000,-6.000000"/>
 		</Marker>
@@ -8787,7 +8799,7 @@
 		</Marker>
 		<Marker ver="4" type="NPC" pos="880,216,-625" yaw="0.000000">
 			<MapObject name="NpcKoopa1" id="6"/>
-			<Movement type="Wander" data="370,D8,FFFFFD8F,8C,37,FFFF8001,1,370,D8,FFFFFD8F,50,28,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+			<Movement type="Wander" data="370,D8,FFFFFD8F,8C,37,FFFF8001,1,370,D8,FFFFFD8F,5A,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="2A" palette="1" animations="1,2,3,3,1,1,6,5,4,C,A,E,3,3,3,3"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="1520,40,-370" yaw="270.000000">

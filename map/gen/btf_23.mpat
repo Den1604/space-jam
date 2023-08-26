@@ -75,7 +75,7 @@
 	SetGroup 0000001B
 	Call     UseExitHeading ( 60` ~Entry:entry_w )
 	Exec     ExitWalk
-	Call  GotoMap   ( "btf_06" ~Entry:btf_06:entry_s )
+	Call  GotoMap   ( "btf_06" ~Entry:btf_06:entry_room_1b )
 	Wait  100`
 	Return
 	End
