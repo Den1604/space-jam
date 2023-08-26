@@ -8,6 +8,7 @@
 #define .NpcID:NpcFuzzy2 3`
 #define .NpcID:NpcBobomb1 4`
 #define .NpcID:NpcKoopa1 5`
+#define .NpcID:DiamondHelper 6`
 
 #new:Function $Function_PlaySpringAnimation
 {
@@ -131,7 +132,6 @@
 	Exec  $Script_EnterMap
 	
 	% Custom
-	Exec  $Script_SetupItemCutscenes
 	Exec  $Script_MakeMainEntities
 	
 	If *MF_btf_06_PlatformsActivated == .True
@@ -181,13 +181,6 @@
 		Exec $Script_MakeUpperPathEntities
 	EndThread
 	
-	Return
-	End
-}
-
-#new:Script $Script_SetupItemCutscenes {
-	Exec $Script_SetupDiamondCutscene
-	Exec $Script_SetupLunarCutscene
 	Return
 	End
 }
@@ -306,14 +299,7 @@
 	End
 }
 
-#new:Script $Script_SetupDiamondCutscene {
-	If *MF_btf_06_CollectedDiamondStone == .True
-		Return
-	EndIf
-	
-	Call AwaitPlayerApproach ( ~Vec2D:ItemDiamondStone 19` )
-	Call AwaitPlayerLeave ( ~Vec2D:ItemDiamondStone 19` )
-	
+#new:Script $Script_ShowDiamondCutscene {
 	Call DisablePlayerInput ( .True )
 	
 	Wait 10`
@@ -371,14 +357,7 @@
 	End
 }
 
-#new:Script $Script_SetupLunarCutscene {
-	If *MF_btf_06_CollectedLunarStone == .True
-		Return
-	EndIf
-	
-	Call AwaitPlayerApproach ( ~Vec2D:ItemLunarStone 19` )
-	Call AwaitPlayerLeave ( ~Vec2D:ItemLunarStone 19` )
-	
+#new:Script $Script_ShowLunarCutscene {
 	Call DisablePlayerInput ( .True )
 	
 	Wait 10`
@@ -859,11 +838,67 @@
 	End
 }
 
+#new:NpcGroup $NpcGroup_DiamondHelper
+{
+	.NpcID:DiamondHelper $NpcSettings_DiamondHelper ~Vec3f:BelowMap
+	00442D09 $Script_Init_DiamondHelper 0 0 0
+	~NoDrops
+	~Movement:DiamondHelper
+	~AnimationTable:DiamondHelper
+	00000000 00000000 00000000 00000000 % no tattle string
+}
+
+#new:NpcSettings $NpcSettings_DiamondHelper
+{
+	00000000 001E0018 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
+}
+
+#new:Script $Script_Init_DiamondHelper
+{
+	Call BindNpcIdle ( .Npc:Self $Script_Idle_DiamondHelper )
+    Return
+    End
+}
+
+#new:Script $Script_Idle_DiamondHelper {
+	If *MF_btf_06_CollectedDiamondStone  ==  .False
+		Label  0
+		Wait  1`
+		If  *MF_btf_06_CollectedDiamondStone  ==  .False
+			Goto  0
+		EndIf
+		
+		% Idle Script pauses during Item get dialogue
+		% but 1 frame later than it would in vanilla maps??
+		Wait 1`
+		
+		% when the dialogue closes and this script resumes, that's when the cutscene is shown
+		Exec $Script_ShowDiamondCutscene
+	EndIf
+	
+	If *MF_btf_06_CollectedLunarStone  ==  .False
+		Label  1
+		Wait  1`
+		If  *MF_btf_06_CollectedLunarStone  ==  .False
+			Goto  1
+		EndIf
+		
+		Wait 1`
+		
+		Exec $Script_ShowLunarCutscene
+	EndIf
+	
+	Return
+	End
+}
+
 #new:NpcGroupList $NpcGroupList {
-	00000001 $NpcGroup_NpcGuard 00000000
-	00000001 $NpcGroup_NpcFuzzy1 05190000
-	00000001 $NpcGroup_NpcFuzzy2 051A0000
-	00000001 $NpcGroup_NpcBobomb1 051B0000
-	00000001 $NpcGroup_NpcKoopa1 051C0000
+	00000001 $NpcGroup_NpcGuard      00000000
+	00000001 $NpcGroup_NpcFuzzy1     05190000
+	00000001 $NpcGroup_NpcFuzzy2     051A0000
+	00000001 $NpcGroup_NpcBobomb1    051B0000
+	00000001 $NpcGroup_NpcKoopa1     051C0000
+	00000001 $NpcGroup_DiamondHelper 00000000
 	00000000 00000000 00000000
 }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_06" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="1009.986206,828.216614,-97.738327" pitch="65.279999" yaw="329.984711"/>
-		<Camera pos="476.281342,65536.000000,-405.736145"/>
-		<Camera pos="65536.000000,60.417561,-603.944458"/>
-		<Camera pos="283.930206,93.759216,65536.000000"/>
+		<Camera pos="1425.441040,491.877716,-42.656563" pitch="45.279984" yaw="13.599646"/>
+		<Camera pos="632.000000,65536.000000,-150.000000"/>
+		<Camera pos="65536.000000,195.000000,-150.000000"/>
+		<Camera pos="632.000000,195.000000,65536.000000"/>
 	</Editor>
 	<ModelTree>
 		<Node name="Root" id="3B">
@@ -148,7 +148,7 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="26">
+		<Node name="Root" id="27">
 			<Node name="Entrances" id="2">
 				<Node name="entry_s" id="FFFFFFFF"/>
 				<Node name="entry_room_1a" id="0"/>
@@ -191,6 +191,7 @@
 			<Node name="NpcGuard_Flee_Pos2" id="23"/>
 			<Node name="Bobomb1ApproachPos" id="24"/>
 			<Node name="BelowMap" id="25"/>
+			<Node name="DiamondHelper" id="26"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -8671,7 +8672,12 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="26"/>
+			<MapObject name="Root" id="27"/>
+		</Marker>
+		<Marker ver="4" type="NPC" pos="1553,40,-407" yaw="0.000000">
+			<MapObject name="DiamondHelper" id="26"/>
+			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+			<Sprite sprite="65" palette="0" animations="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="0,-1000,0" yaw="0.000000">
 			<MapObject name="BelowMap" id="25"/>
