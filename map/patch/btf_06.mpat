@@ -313,6 +313,13 @@
 	
 	Wait 80`
 	
+	Thread
+		Call PlaySound ( 000000B2 )
+    	Call PlayEffect ( ~FX:LensFlare:Rotating ~Vec3D:DiamondEmblemFX 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+	EndThread
+
+	Wait 1`
+	
 	Call MakeItemEntity ( .Item:DiamondStone ~Vec3D:DiamondEmblemPosition .ItemSpawnMode:Decoration 0 )
 	Set *MapVar[5] *Var0
 	
@@ -371,10 +378,32 @@
 	
 	Wait 80`
 	
+	Thread
+		Call PlaySound ( 000000B2 )
+    	Call PlayEffect ( ~FX:LensFlare:Rotating ~Vec3D:LunarEmblemFX 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+	EndThread
+	
+	Wait 1`
+	
 	Call MakeItemEntity ( .Item:LunarStone ~Vec3D:LunarEmblemPosition .ItemSpawnMode:Decoration 0 )
 	Set *MapVar[6] *Var0
 	
 	Wait 100`
+	
+	Call PlaySound ( 0000024A )
+    Call PlayEffect ( ~FX:GatherEnergyPink ~Vec3D:DoorFX 5` 60` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    
+	Wait 60`
+	
+	Thread
+		Call PlaySound ( 000000B2 )
+    	Call PlayEffect ( ~FX:LensFlare:Rotating ~Vec3D:DiamondEmblemFX 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+	EndThread
+	Thread
+    	Call PlayEffect ( ~FX:LensFlare:Rotating ~Vec3D:LunarEmblemFX 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+	EndThread
+	
+	Wait 1`
 	
 	Call RemoveItemEntity ( *MapVar[5] )
 	Call RemoveItemEntity ( *MapVar[6] )

@@ -1,18 +1,24 @@
 @ $Script_Main {
-	Set   *GB_WorldLocation  .Location:GoombaRoad
-	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
-	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
-	Call  SetCamEnabled      ( .Cam:Default .True
-	Call  SetCamLeadPlayer   ( .Cam:Default .False )
-	Exec  $Script_MakeEntities
-	Exec  $Script_SetupMusic
-	Exec  $Script_EnterMap
-	
-	Exec  $Script_RedStarsTopSpin
-	Exec  $Script_RedStarsBottomSpin
-	
-	Return
-	End
+    Set   *GB_WorldLocation  .Location:GoombaRoad
+    Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+    Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+    Call  SetCamEnabled      ( .Cam:Default .True
+    Call  SetCamLeadPlayer   ( .Cam:Default .False )
+    Exec  $Script_MakeEntities
+    Exec  $Script_SetupMusic
+    Exec  $Script_EnterMap
+    
+    % these stars are not red but that's the fun part :)
+    Exec  $Script_RedStarsTopSpin
+    Exec  $Script_RedStarsBottomSpin
+    
+    If *MF_btf_06_YellowStarFlag == .True
+        Call EnableModel ( ~Model:RedStarTop .False )
+        Call EnableModel ( ~Model:RedStarBottom .False )
+    EndIf
+    
+    Return
+    End
 }
 
 #new:Script $Script_RedStarsTopSpin
@@ -52,12 +58,12 @@
 }
 
 @ $Script_MakeEntities {
-	If *MF_btf_06_YellowStarFlag == .False
-		Call MakeEntity ( .Entity:BlueSwitch ~Vec4d:Marker 80000000 )
+    If *MF_btf_06_YellowStarFlag == .False
+        Call MakeEntity ( .Entity:BlueSwitch ~Vec4d:Marker 80000000 )
         Call AssignScript ( $Script_BlueSwitchHit )
-	EndIf
-	Return
-	End
+    EndIf
+    Return
+    End
 }
 
 #new:Script $Script_BlueSwitchHit
