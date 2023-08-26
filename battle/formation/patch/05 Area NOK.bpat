@@ -29,7 +29,7 @@
 	% Custom
 	$SJIS_Formation_19 3` $Formation_19 $Stage_btf_bt03 00000000
 	$SJIS_Formation_1A 3` $Formation_1A $Stage_btf_bt03 00000000
-	$SJIS_Formation_1B 4` $Formation_1B $Stage_btf_bt03 00000000
+	$SJIS_Formation_1B 4` $Formation_1B $Stage_btf_bt04 00000000
 	$SJIS_Formation_1C 3` $Formation_1C $Stage_btf_bt03 00000000
 	00000000 00000000 00000000 00000000 00000000
 }
@@ -89,8 +89,8 @@
     "hos_tex"
 	"btf_bt03_shape"
 	"btf_bt03_hit"
-	$Script_BeforeBattle_btf_bt03
-	$Script_AfterBattle_btf_bt03
+	00000000
+	00000000
     00000000 %BG
 	00000000
 	00000000
@@ -98,16 +98,18 @@
 	00000000
 }
 
-#new:Script $Script_BeforeBattle_btf_bt03
+#new:Stage $Stage_btf_bt04
 {
-    Return
-    End
-}
-
-#new:Script $Script_AfterBattle_btf_bt03
-{
-    Return
-    End
+    "hos_tex"
+	"btf_bt04_shape"
+	"btf_bt04_hit"
+	00000000
+	00000000
+    00000000 %BG
+	00000000
+	00000000
+	00000000
+	00000000
 }
 
 @ $StageTable {
@@ -116,5 +118,6 @@
 	$ASCII_8022BE24 $Stage_8022BB5C
 	$ASCII_8022BE1C $Stage_8022BBD8
     "btf_bt03" $Stage_btf_bt03
+    "btf_bt04" $Stage_btf_bt04
 	00000000 00000000
 }
