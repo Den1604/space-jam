@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="dro_02" author="unnamed" background="sbk_bg" textures="dro_tex">
 	<Editor>
-		<Camera pos="-161.821823,18.947411,-407.858826" pitch="54.160004" yaw="254.719971"/>
+		<Camera pos="-27.909817,53.127918,-387.613708" pitch="13.680015" yaw="265.600037"/>
 		<Camera pos="48.256172,65536.000000,-351.853394"/>
 		<Camera pos="65536.000000,27.000000,0.000000"/>
 		<Camera pos="-20.409822,52.375465,65536.000000"/>
@@ -388,7 +388,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_Roof" id="B1" hidden="true"/>
+			<MapObject name="SpaceTruck_Roof" id="B1"/>
 			<ShapeMesh ver="3" texture="hos_ryusei_gou_btif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -430,7 +430,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_AirFreshener" id="B0" hidden="true"/>
+			<MapObject name="SpaceTruck_AirFreshener" id="B0"/>
 			<ShapeMesh ver="3" texture="hos_flower_02tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -458,7 +458,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_AirFreshener_String" id="AF" hidden="true"/>
+			<MapObject name="SpaceTruck_AirFreshener_String" id="AF"/>
 			<ShapeMesh ver="3" texture="hos_yuka6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -486,7 +486,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_SteeringWheel" id="AE" hidden="true"/>
+			<MapObject name="SpaceTruck_SteeringWheel" id="AE"/>
 			<ShapeMesh ver="3" texture="hos_yuka6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -746,7 +746,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_Seats" id="AD" hidden="true"/>
+			<MapObject name="SpaceTruck_Seats" id="AD"/>
 			<ShapeMesh ver="3" texture="hos_yellow_blocktif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -782,7 +782,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_WindowFrame" id="AC" hidden="true"/>
+			<MapObject name="SpaceTruck_WindowFrame" id="AC"/>
 			<ShapeMesh ver="3" texture="hos_t_mac_house7tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -866,7 +866,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_Window" id="AB" hidden="true"/>
+			<MapObject name="SpaceTruck_Window" id="AB"/>
 			<ShapeMesh ver="3" texture="hos_yuka6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -902,7 +902,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_Motorhaube" id="AA" hidden="true"/>
+			<MapObject name="SpaceTruck_Motorhaube" id="AA"/>
 			<ShapeMesh ver="3" texture="hos_t_mac_house7tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -978,7 +978,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_Exhaust" id="A9" hidden="true"/>
+			<MapObject name="SpaceTruck_Exhaust" id="A9"/>
 			<ShapeMesh ver="3" texture="hos_hasiratif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1132,7 +1132,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="TruckFlame" id="A8" hidden="true"/>
+			<MapObject name="TruckFlame" id="A8"/>
 			<ShapeMesh ver="3" texture="hos_sterlighttif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1222,7 +1222,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="SpaceTruck_Main" id="A7" hidden="true"/>
+			<MapObject name="SpaceTruck_Main" id="A7"/>
 			<ShapeMesh ver="3" texture="hos_ryusei_gou_btif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1282,7 +1282,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Planar GridModel" id="A6" hidden="true"/>
+			<MapObject name="Planar GridModel" id="A6"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1308,7 +1308,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="DrawnModel" id="A5" hidden="true"/>
+			<MapObject name="DrawnModel" id="A5"/>
 			<ShapeMesh ver="3" texture="dro_gyuutann2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1392,7 +1392,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="DrawnModel" id="A4" hidden="true"/>
+			<MapObject name="DrawnModel" id="A4"/>
 			<ShapeMesh ver="3" texture="dro_blocktif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1454,7 +1454,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0" panUnit="1">
-			<MapObject name="kemuri" id="A2" hidden="true" dumped="true" fileOffset="14808"/>
+			<MapObject name="kemuri" id="A2" dumped="true" fileOffset="14808"/>
 			<ShapeMesh ver="3" texture="dro_kemutif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1497,7 +1497,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="m_hone" id="A1" hidden="true" dumped="true" fileOffset="14780"/>
+			<MapObject name="m_hone" id="A1" dumped="true" fileOffset="14780"/>
 			<ShapeMesh ver="3" texture="dro_honetif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1529,7 +1529,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ProjectionModel" id="A0" hidden="true"/>
+			<MapObject name="ProjectionModel" id="A0"/>
 			<ShapeMesh ver="3" texture="dro_gyuutann2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1577,7 +1577,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="m_nuno1" id="9F" hidden="true"/>
+			<MapObject name="m_nuno1" id="9F"/>
 			<ShapeMesh ver="3" texture="dro_nuno2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1731,7 +1731,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="m_nuno2" id="9E" hidden="true" dumped="true" fileOffset="14670"/>
+			<MapObject name="m_nuno2" id="9E" dumped="true" fileOffset="14670"/>
 			<ShapeMesh ver="3" texture="dro_hon2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1761,7 +1761,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="m_hasi" id="9D" hidden="true"/>
+			<MapObject name="m_hasi" id="9D"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1877,7 +1877,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o971" id="9B" hidden="true" dumped="true" fileOffset="1441C"/>
+			<MapObject name="o971" id="9B" dumped="true" fileOffset="1441C"/>
 			<ShapeMesh ver="3" texture="dro_d_tubo01tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1996,7 +1996,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o970" id="9A" hidden="true" dumped="true" fileOffset="143A0"/>
+			<MapObject name="o970" id="9A" dumped="true" fileOffset="143A0"/>
 			<ShapeMesh ver="3" texture="dro_d_tubo01tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2120,7 +2120,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o967" id="99" hidden="true" dumped="true" fileOffset="14324"/>
+			<MapObject name="o967" id="99" dumped="true" fileOffset="14324"/>
 			<ShapeMesh ver="3" texture="dro_d_tubo01tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2239,7 +2239,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o965" id="98" hidden="true" dumped="true" fileOffset="142A8"/>
+			<MapObject name="o965" id="98" dumped="true" fileOffset="142A8"/>
 			<ShapeMesh ver="3" texture="dro_d_tubo01tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2372,7 +2372,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o907" id="96" hidden="true" dumped="true" fileOffset="14194"/>
+			<MapObject name="o907" id="96" dumped="true" fileOffset="14194"/>
 			<ShapeMesh ver="3" texture="dro_d_tubo01tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2476,7 +2476,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o906" id="95" hidden="true" dumped="true" fileOffset="1410C"/>
+			<MapObject name="o906" id="95" dumped="true" fileOffset="1410C"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2515,7 +2515,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o956" id="93" hidden="true" dumped="true" fileOffset="13FF0"/>
+			<MapObject name="o956" id="93" dumped="true" fileOffset="13FF0"/>
 			<ShapeMesh ver="3" texture="dro_taru1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2616,7 +2616,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o955" id="91" hidden="true" dumped="true" fileOffset="13EE0"/>
+			<MapObject name="o955" id="91" dumped="true" fileOffset="13EE0"/>
 			<ShapeMesh ver="3" texture="dro_taru1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2717,7 +2717,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o958" id="8F" hidden="true" dumped="true" fileOffset="13DD0"/>
+			<MapObject name="o958" id="8F" dumped="true" fileOffset="13DD0"/>
 			<ShapeMesh ver="3" texture="dro_taru1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2818,7 +2818,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="tubo5" id="8D" hidden="true" dumped="true" fileOffset="13CBC"/>
+			<MapObject name="tubo5" id="8D" dumped="true" fileOffset="13CBC"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2900,7 +2900,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="futa5" id="8C" hidden="true" dumped="true" fileOffset="13C34"/>
+			<MapObject name="futa5" id="8C" dumped="true" fileOffset="13C34"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -2939,7 +2939,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="tubo4" id="8A" hidden="true" dumped="true" fileOffset="13B14"/>
+			<MapObject name="tubo4" id="8A" dumped="true" fileOffset="13B14"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3008,7 +3008,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="futa4" id="89" hidden="true" dumped="true" fileOffset="13A8C"/>
+			<MapObject name="futa4" id="89" dumped="true" fileOffset="13A8C"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3047,7 +3047,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="futa2" id="87" hidden="true" dumped="true" fileOffset="1396C"/>
+			<MapObject name="futa2" id="87" dumped="true" fileOffset="1396C"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3077,7 +3077,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="tubo2" id="86" hidden="true" dumped="true" fileOffset="138E4"/>
+			<MapObject name="tubo2" id="86" dumped="true" fileOffset="138E4"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3188,7 +3188,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o966" id="82" hidden="true" dumped="true" fileOffset="1365C"/>
+			<MapObject name="o966" id="82" dumped="true" fileOffset="1365C"/>
 			<ShapeMesh ver="3" texture="dro_d_tubo01tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3318,7 +3318,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o977" id="81" hidden="true" dumped="true" fileOffset="135E0"/>
+			<MapObject name="o977" id="81" dumped="true" fileOffset="135E0"/>
 			<ShapeMesh ver="3" texture="dro_d_tubo01tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3452,7 +3452,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o975" id="7F" hidden="true" dumped="true" fileOffset="134CC"/>
+			<MapObject name="o975" id="7F" dumped="true" fileOffset="134CC"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3637,7 +3637,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o974" id="7E" hidden="true" dumped="true" fileOffset="13450"/>
+			<MapObject name="o974" id="7E" dumped="true" fileOffset="13450"/>
 			<ShapeMesh ver="3" texture="dro_d_t_doatif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3676,7 +3676,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o973" id="7C" hidden="true" dumped="true" fileOffset="1333C"/>
+			<MapObject name="o973" id="7C" dumped="true" fileOffset="1333C"/>
 			<ShapeMesh ver="3" texture="dro_d_t_doatif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3717,7 +3717,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o972" id="7B" hidden="true" dumped="true" fileOffset="132C0"/>
+			<MapObject name="o972" id="7B" dumped="true" fileOffset="132C0"/>
 			<ShapeMesh ver="3" texture="dro_d_t_doatif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3899,7 +3899,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="book2" id="7A" hidden="true" dumped="true" fileOffset="13244"/>
+			<MapObject name="book2" id="7A" dumped="true" fileOffset="13244"/>
 			<ShapeMesh ver="3" texture="dro_hon2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -3944,7 +3944,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="book1" id="79" hidden="true" dumped="true" fileOffset="131BC"/>
+			<MapObject name="book1" id="79" dumped="true" fileOffset="131BC"/>
 			<ShapeMesh ver="3" texture="dro_hon3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4028,7 +4028,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="5n_ranpu" id="78" hidden="true" dumped="true" fileOffset="13134"/>
+			<MapObject name="5n_ranpu" id="78" dumped="true" fileOffset="13134"/>
 			<ShapeMesh ver="3" texture="dro_ranputif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4060,7 +4060,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="5n_kanbutu" id="77" hidden="true" dumped="true" fileOffset="130AC"/>
+			<MapObject name="5n_kanbutu" id="77" dumped="true" fileOffset="130AC"/>
 			<ShapeMesh ver="3" texture="dro_kudamonotif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4098,7 +4098,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="5n_binn" id="76" hidden="true" dumped="true" fileOffset="13024"/>
+			<MapObject name="5n_binn" id="76" dumped="true" fileOffset="13024"/>
 			<ShapeMesh ver="3" texture="dro_binn2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4130,7 +4130,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="5n_tukue" id="75" hidden="true" dumped="true" fileOffset="12F9C"/>
+			<MapObject name="5n_tukue" id="75" dumped="true" fileOffset="12F9C"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4233,7 +4233,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="r_hako" id="74" hidden="true" dumped="true" fileOffset="12F14"/>
+			<MapObject name="r_hako" id="74" dumped="true" fileOffset="12F14"/>
 			<ShapeMesh ver="3" texture="dro_taru1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4301,7 +4301,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="5n_futi" id="73" hidden="true" dumped="true" fileOffset="12E8C"/>
+			<MapObject name="5n_futi" id="73" dumped="true" fileOffset="12E8C"/>
 			<ShapeMesh ver="3" texture="dro_wall_ftif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4339,7 +4339,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="5n_zyu" id="72" hidden="true" dumped="true" fileOffset="12E04"/>
+			<MapObject name="5n_zyu" id="72" dumped="true" fileOffset="12E04"/>
 			<ShapeMesh ver="3" texture="dro_hon2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4369,7 +4369,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="5_uka" id="71" hidden="true" dumped="true" fileOffset="12D7C"/>
+			<MapObject name="5_uka" id="71" dumped="true" fileOffset="12D7C"/>
 			<ShapeMesh ver="3" texture="dro_blocktif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4420,7 +4420,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="5n_kabe" id="70" hidden="true" dumped="true" fileOffset="12C70"/>
+			<MapObject name="5n_kabe" id="70" dumped="true" fileOffset="12C70"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4467,7 +4467,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o770" id="6E" hidden="true" dumped="true" fileOffset="12B54"/>
+			<MapObject name="o770" id="6E" dumped="true" fileOffset="12B54"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4502,7 +4502,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o769" id="6C" hidden="true" dumped="true" fileOffset="12A38"/>
+			<MapObject name="o769" id="6C" dumped="true" fileOffset="12A38"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4537,7 +4537,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="6_moyou" id="6A" hidden="true" dumped="true" fileOffset="12914"/>
+			<MapObject name="6_moyou" id="6A" dumped="true" fileOffset="12914"/>
 			<ShapeMesh ver="3" texture="dro_moyou2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4573,7 +4573,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="6_waku" id="69" hidden="true" dumped="true" fileOffset="1288C"/>
+			<MapObject name="6_waku" id="69" dumped="true" fileOffset="1288C"/>
 			<ShapeMesh ver="3" texture="dro_wall_ftif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4599,7 +4599,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="6_kabe" id="68" hidden="true" dumped="true" fileOffset="12804"/>
+			<MapObject name="6_kabe" id="68" dumped="true" fileOffset="12804"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4640,7 +4640,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="yane" id="66" hidden="true" dumped="true" fileOffset="126E4"/>
+			<MapObject name="yane" id="66" dumped="true" fileOffset="126E4"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4668,7 +4668,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="5_post2" id="65" hidden="true" dumped="true" fileOffset="1265C"/>
+			<MapObject name="5_post2" id="65" dumped="true" fileOffset="1265C"/>
 			<ShapeMesh ver="3" texture="dro_posuta2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4694,7 +4694,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="5_poster" id="64" hidden="true" dumped="true" fileOffset="125D4"/>
+			<MapObject name="5_poster" id="64" dumped="true" fileOffset="125D4"/>
 			<ShapeMesh ver="3" texture="dro_posutatif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4720,7 +4720,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="5_yane" id="63" hidden="true" dumped="true" fileOffset="1254C"/>
+			<MapObject name="5_yane" id="63" dumped="true" fileOffset="1254C"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4767,7 +4767,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="5_waku" id="62" hidden="true" dumped="true" fileOffset="12440"/>
+			<MapObject name="5_waku" id="62" dumped="true" fileOffset="12440"/>
 			<ShapeMesh ver="3" texture="dro_wall_ftif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4805,7 +4805,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="5_hasira2" id="61" hidden="true" dumped="true" fileOffset="123B8"/>
+			<MapObject name="5_hasira2" id="61" dumped="true" fileOffset="123B8"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4831,7 +4831,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="5_moyou" id="60" hidden="true" dumped="true" fileOffset="12330"/>
+			<MapObject name="5_moyou" id="60" dumped="true" fileOffset="12330"/>
 			<ShapeMesh ver="3" texture="dro_moyou2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4857,7 +4857,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="5_kabe" id="5F" hidden="true" dumped="true" fileOffset="122A8"/>
+			<MapObject name="5_kabe" id="5F" dumped="true" fileOffset="122A8"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -4973,7 +4973,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o938" id="5C" hidden="true" dumped="true" fileOffset="120DC"/>
+			<MapObject name="o938" id="5C" dumped="true" fileOffset="120DC"/>
 			<ShapeMesh ver="3" texture="dro_wall_ftif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5013,7 +5013,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o937" id="5B" hidden="true" dumped="true" fileOffset="12054"/>
+			<MapObject name="o937" id="5B" dumped="true" fileOffset="12054"/>
 			<ShapeMesh ver="3" texture="dro_moyou2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5047,7 +5047,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o936" id="5A" hidden="true" dumped="true" fileOffset="11FCC"/>
+			<MapObject name="o936" id="5A" dumped="true" fileOffset="11FCC"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5093,7 +5093,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="i4_mado" id="59" hidden="true" dumped="true" fileOffset="11F44"/>
+			<MapObject name="i4_mado" id="59" dumped="true" fileOffset="11F44"/>
 			<ShapeMesh ver="3" texture="dro_mado6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5125,7 +5125,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4_hasis2" id="58" hidden="true" dumped="true" fileOffset="11EBC"/>
+			<MapObject name="4_hasis2" id="58" dumped="true" fileOffset="11EBC"/>
 			<ShapeMesh ver="3" texture="dro_wall_ftif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5225,7 +5225,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o980" id="54" hidden="true" dumped="true" fileOffset="11C3C"/>
+			<MapObject name="o980" id="54" dumped="true" fileOffset="11C3C"/>
 			<ShapeMesh ver="3" texture="dro_d_t_doatif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5266,7 +5266,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o979" id="53" hidden="true" dumped="true" fileOffset="11BC0"/>
+			<MapObject name="o979" id="53" dumped="true" fileOffset="11BC0"/>
 			<ShapeMesh ver="3" texture="dro_d_t_doatif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5437,7 +5437,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4_ranpu" id="52" hidden="true" dumped="true" fileOffset="11B44"/>
+			<MapObject name="4_ranpu" id="52" dumped="true" fileOffset="11B44"/>
 			<ShapeMesh ver="3" texture="dro_ranputif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5469,7 +5469,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="tukue" id="51" hidden="true" dumped="true" fileOffset="11ABC"/>
+			<MapObject name="tukue" id="51" dumped="true" fileOffset="11ABC"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5575,7 +5575,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o987" id="4F" hidden="true" dumped="true" fileOffset="11998"/>
+			<MapObject name="o987" id="4F" dumped="true" fileOffset="11998"/>
 			<ShapeMesh ver="3" texture="dro_d_tubo01tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5635,7 +5635,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="futon" id="4E" hidden="true" dumped="true" fileOffset="11910"/>
+			<MapObject name="futon" id="4E" dumped="true" fileOffset="11910"/>
 			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5697,7 +5697,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="bed__" id="4D" hidden="true" dumped="true" fileOffset="11888"/>
+			<MapObject name="bed__" id="4D" dumped="true" fileOffset="11888"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5766,7 +5766,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4n_kannbutu" id="4C" hidden="true" dumped="true" fileOffset="1177C"/>
+			<MapObject name="4n_kannbutu" id="4C" dumped="true" fileOffset="1177C"/>
 			<ShapeMesh ver="3" texture="dro_kudamonotif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5810,7 +5810,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4n_hari" id="4B" hidden="true" dumped="true" fileOffset="116F4"/>
+			<MapObject name="4n_hari" id="4B" dumped="true" fileOffset="116F4"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5858,7 +5858,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4n_tana" id="4A" hidden="true" dumped="true" fileOffset="1166C"/>
+			<MapObject name="4n_tana" id="4A" dumped="true" fileOffset="1166C"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5890,7 +5890,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4n_binn" id="49" hidden="true" dumped="true" fileOffset="115E4"/>
+			<MapObject name="4n_binn" id="49" dumped="true" fileOffset="115E4"/>
 			<ShapeMesh ver="3" texture="dro_binn2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5928,7 +5928,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4n_mado" id="48" hidden="true" dumped="true" fileOffset="1155C"/>
+			<MapObject name="4n_mado" id="48" dumped="true" fileOffset="1155C"/>
 			<ShapeMesh ver="3" texture="dro_mado6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -5960,7 +5960,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4n_moyo" id="47" hidden="true" dumped="true" fileOffset="114D4"/>
+			<MapObject name="4n_moyo" id="47" dumped="true" fileOffset="114D4"/>
 			<ShapeMesh ver="3" texture="dro_moyou2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6000,7 +6000,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4n_kabe" id="46" hidden="true" dumped="true" fileOffset="1144C"/>
+			<MapObject name="4n_kabe" id="46" dumped="true" fileOffset="1144C"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6116,7 +6116,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4n_waku" id="45" hidden="true" dumped="true" fileOffset="113C4"/>
+			<MapObject name="4n_waku" id="45" dumped="true" fileOffset="113C4"/>
 			<ShapeMesh ver="3" texture="dro_wall_ftif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6172,7 +6172,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4n_yane" id="44" hidden="true" dumped="true" fileOffset="1133C"/>
+			<MapObject name="4n_yane" id="44" dumped="true" fileOffset="1133C"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6217,7 +6217,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4_yuka" id="43" hidden="true" dumped="true" fileOffset="11230"/>
+			<MapObject name="4_yuka" id="43" dumped="true" fileOffset="11230"/>
 			<ShapeMesh ver="3" texture="dro_gyuutann2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6263,7 +6263,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="tubo8" id="41" hidden="true" dumped="true" fileOffset="1108C"/>
+			<MapObject name="tubo8" id="41" dumped="true" fileOffset="1108C"/>
 			<ShapeMesh ver="3" texture="dro_d_tubo01tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6345,7 +6345,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="futa8" id="40" hidden="true" dumped="true" fileOffset="11004"/>
+			<MapObject name="futa8" id="40" dumped="true" fileOffset="11004"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6384,7 +6384,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4_doa" id="3E" hidden="true" dumped="true" fileOffset="10EE8"/>
+			<MapObject name="4_doa" id="3E" dumped="true" fileOffset="10EE8"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6419,7 +6419,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4_hasira2" id="3C" hidden="true" dumped="true" fileOffset="10DC0"/>
+			<MapObject name="4_hasira2" id="3C" dumped="true" fileOffset="10DC0"/>
 			<ShapeMesh ver="3" texture="dro_wall_ftif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6467,7 +6467,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4_kabe2" id="3B" hidden="true" dumped="true" fileOffset="10D38"/>
+			<MapObject name="4_kabe2" id="3B" dumped="true" fileOffset="10D38"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6525,7 +6525,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4_moyou2" id="3A" hidden="true" dumped="true" fileOffset="10CB0"/>
+			<MapObject name="4_moyou2" id="3A" dumped="true" fileOffset="10CB0"/>
 			<ShapeMesh ver="3" texture="dro_moyou2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6557,7 +6557,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4_waku2" id="39" hidden="true" dumped="true" fileOffset="10C28"/>
+			<MapObject name="4_waku2" id="39" dumped="true" fileOffset="10C28"/>
 			<ShapeMesh ver="3" texture="dro_wall_ftif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6597,7 +6597,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4_saku" id="37" hidden="true" dumped="true" fileOffset="10B0C"/>
+			<MapObject name="4_saku" id="37" dumped="true" fileOffset="10B0C"/>
 			<ShapeMesh ver="3" texture="dro_sakutif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6629,7 +6629,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4_yane" id="36" hidden="true" dumped="true" fileOffset="10A84"/>
+			<MapObject name="4_yane" id="36" dumped="true" fileOffset="10A84"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6674,7 +6674,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4_waku" id="35" hidden="true" dumped="true" fileOffset="10978"/>
+			<MapObject name="4_waku" id="35" dumped="true" fileOffset="10978"/>
 			<ShapeMesh ver="3" texture="dro_wall_ftif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6710,7 +6710,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4_kabe" id="34" hidden="true" dumped="true" fileOffset="108F0"/>
+			<MapObject name="4_kabe" id="34" dumped="true" fileOffset="108F0"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6778,7 +6778,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="4_moyou" id="33" hidden="true" dumped="true" fileOffset="10868"/>
+			<MapObject name="4_moyou" id="33" dumped="true" fileOffset="10868"/>
 			<ShapeMesh ver="3" texture="dro_moyou2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6804,7 +6804,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="i4_bou" id="32" hidden="true" dumped="true" fileOffset="107E0"/>
+			<MapObject name="i4_bou" id="32" dumped="true" fileOffset="107E0"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6839,7 +6839,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o852" id="30" hidden="true" dumped="true" fileOffset="106C4"/>
+			<MapObject name="o852" id="30" dumped="true" fileOffset="106C4"/>
 			<ShapeMesh ver="3" texture="dro_kinopiotif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6871,7 +6871,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="3_yane" id="2E" hidden="true" dumped="true" fileOffset="105B8"/>
+			<MapObject name="3_yane" id="2E" dumped="true" fileOffset="105B8"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6908,7 +6908,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="3_rennga" id="2D" hidden="true" dumped="true" fileOffset="104AC"/>
+			<MapObject name="3_rennga" id="2D" dumped="true" fileOffset="104AC"/>
 			<ShapeMesh ver="3" texture="dro_kabe_htif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -6954,7 +6954,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="3_kabe" id="2C" hidden="true" dumped="true" fileOffset="10424"/>
+			<MapObject name="3_kabe" id="2C" dumped="true" fileOffset="10424"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7034,7 +7034,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="2_saku" id="2A" hidden="true" dumped="true" fileOffset="10304"/>
+			<MapObject name="2_saku" id="2A" dumped="true" fileOffset="10304"/>
 			<ShapeMesh ver="3" texture="dro_sakutif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7066,7 +7066,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="2_yane" id="29" hidden="true" dumped="true" fileOffset="1027C"/>
+			<MapObject name="2_yane" id="29" dumped="true" fileOffset="1027C"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7103,7 +7103,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="2_hasira3" id="28" hidden="true" dumped="true" fileOffset="10170"/>
+			<MapObject name="2_hasira3" id="28" dumped="true" fileOffset="10170"/>
 			<ShapeMesh ver="3" texture="dro_moyou2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7135,7 +7135,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="2_hasira2" id="27" hidden="true" dumped="true" fileOffset="100E8"/>
+			<MapObject name="2_hasira2" id="27" dumped="true" fileOffset="100E8"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7189,7 +7189,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="2_hasira" id="26" hidden="true" dumped="true" fileOffset="10060"/>
+			<MapObject name="2_hasira" id="26" dumped="true" fileOffset="10060"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7249,7 +7249,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="2_moyou" id="25" hidden="true" dumped="true" fileOffset="FFD8"/>
+			<MapObject name="2_moyou" id="25" dumped="true" fileOffset="FFD8"/>
 			<ShapeMesh ver="3" texture="dro_moyou2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7311,7 +7311,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="2_mado" id="24" hidden="true" dumped="true" fileOffset="FF50"/>
+			<MapObject name="2_mado" id="24" dumped="true" fileOffset="FF50"/>
 			<ShapeMesh ver="3" texture="dro_mado6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7343,7 +7343,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="2_kabe" id="23" hidden="true" dumped="true" fileOffset="FEC8"/>
+			<MapObject name="2_kabe" id="23" dumped="true" fileOffset="FEC8"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7455,7 +7455,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="1_saku" id="21" hidden="true" dumped="true" fileOffset="FD98"/>
+			<MapObject name="1_saku" id="21" dumped="true" fileOffset="FD98"/>
 			<ShapeMesh ver="3" texture="dro_sakutif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7499,7 +7499,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="1_yane" id="20" hidden="true" dumped="true" fileOffset="FD10"/>
+			<MapObject name="1_yane" id="20" dumped="true" fileOffset="FD10"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7563,7 +7563,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="1_kui" id="1F" hidden="true" dumped="true" fileOffset="FC04"/>
+			<MapObject name="1_kui" id="1F" dumped="true" fileOffset="FC04"/>
 			<ShapeMesh ver="3" texture="dro_wall_ftif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7643,7 +7643,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="1_nuno" id="1E" hidden="true" dumped="true" fileOffset="FB7C"/>
+			<MapObject name="1_nuno" id="1E" dumped="true" fileOffset="FB7C"/>
 			<ShapeMesh ver="3" texture="dro_nunoyanetif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7669,7 +7669,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="1_waku" id="1D" hidden="true" dumped="true" fileOffset="FAF4"/>
+			<MapObject name="1_waku" id="1D" dumped="true" fileOffset="FAF4"/>
 			<ShapeMesh ver="3" texture="dro_wall_ftif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7731,7 +7731,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="1_hasira3" id="1C" hidden="true" dumped="true" fileOffset="FA6C"/>
+			<MapObject name="1_hasira3" id="1C" dumped="true" fileOffset="FA6C"/>
 			<ShapeMesh ver="3" texture="dro_moyou2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7757,7 +7757,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="1_hasira2" id="1B" hidden="true" dumped="true" fileOffset="F9E4"/>
+			<MapObject name="1_hasira2" id="1B" dumped="true" fileOffset="F9E4"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7789,7 +7789,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="1_hasira" id="1A" hidden="true" dumped="true" fileOffset="F95C"/>
+			<MapObject name="1_hasira" id="1A" dumped="true" fileOffset="F95C"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7823,7 +7823,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="1_moyou" id="19" hidden="true" dumped="true" fileOffset="F8D4"/>
+			<MapObject name="1_moyou" id="19" dumped="true" fileOffset="F8D4"/>
 			<ShapeMesh ver="3" texture="dro_moyou2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7875,7 +7875,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="1_mado" id="18" hidden="true" dumped="true" fileOffset="F84C"/>
+			<MapObject name="1_mado" id="18" dumped="true" fileOffset="F84C"/>
 			<ShapeMesh ver="3" texture="dro_mado6tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -7913,7 +7913,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="1_kabe" id="17" hidden="true" dumped="true" fileOffset="F7C4"/>
+			<MapObject name="1_kabe" id="17" dumped="true" fileOffset="F7C4"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8002,7 +8002,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="1_doa" id="15" hidden="true" dumped="true" fileOffset="F6A8"/>
+			<MapObject name="1_doa" id="15" dumped="true" fileOffset="F6A8"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8034,7 +8034,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="saku" id="13" hidden="true" dumped="true" fileOffset="F584"/>
+			<MapObject name="saku" id="13" dumped="true" fileOffset="F584"/>
 			<ShapeMesh ver="3" texture="dro_sakutif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8124,7 +8124,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="nuno" id="12" hidden="true" dumped="true" fileOffset="F4FC"/>
+			<MapObject name="nuno" id="12" dumped="true" fileOffset="F4FC"/>
 			<ShapeMesh ver="3" texture="dro_nunoyanetif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8168,7 +8168,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="bou" id="11" hidden="true" dumped="true" fileOffset="F474"/>
+			<MapObject name="bou" id="11" dumped="true" fileOffset="F474"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8267,7 +8267,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="oke" id="10" hidden="true" dumped="true" fileOffset="F3EC"/>
+			<MapObject name="oke" id="10" dumped="true" fileOffset="F3EC"/>
 			<ShapeMesh ver="3" texture="dro_taru1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8373,7 +8373,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="g_moyou" id="E" hidden="true" dumped="true" fileOffset="F2CC"/>
+			<MapObject name="g_moyou" id="E" dumped="true" fileOffset="F2CC"/>
 			<ShapeMesh ver="3" texture="dro_moyou2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8421,7 +8421,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="h_kabe" id="D" hidden="true" dumped="true" fileOffset="F244"/>
+			<MapObject name="h_kabe" id="D" dumped="true" fileOffset="F244"/>
 			<ShapeMesh ver="3" texture="dro_kabe1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8497,7 +8497,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="hako2" id="C" hidden="true" dumped="true" fileOffset="F1BC"/>
+			<MapObject name="hako2" id="C" dumped="true" fileOffset="F1BC"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8643,7 +8643,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="hako3" id="B" hidden="true" dumped="true" fileOffset="F134"/>
+			<MapObject name="hako3" id="B" dumped="true" fileOffset="F134"/>
 			<ShapeMesh ver="3" texture="dro_taru1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8752,7 +8752,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="hako" id="A" hidden="true" dumped="true" fileOffset="F0B8"/>
+			<MapObject name="hako" id="A" dumped="true" fileOffset="F0B8"/>
 			<ShapeMesh ver="3" texture="dro_doa1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8829,7 +8829,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="hako4" id="9" hidden="true" dumped="true" fileOffset="EFAC"/>
+			<MapObject name="hako4" id="9" dumped="true" fileOffset="EFAC"/>
 			<ShapeMesh ver="3" texture="dro_taru1tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8920,7 +8920,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="waku" id="7" hidden="true" dumped="true" fileOffset="EEB0"/>
+			<MapObject name="waku" id="7" dumped="true" fileOffset="EEB0"/>
 			<ShapeMesh ver="3" texture="dro_berosaidetif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -8958,7 +8958,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="bero" id="6" hidden="true" dumped="true" fileOffset="EE28"/>
+			<MapObject name="bero" id="6" dumped="true" fileOffset="EE28"/>
 			<ShapeMesh ver="3" texture="dro_road3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -9003,7 +9003,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="road" id="4" hidden="true" dumped="true" fileOffset="EC78"/>
+			<MapObject name="road" id="4" dumped="true" fileOffset="EC78"/>
 			<ShapeMesh ver="3" texture="dro_road3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -9056,7 +9056,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="frame" id="3" hidden="true" dumped="true" fileOffset="EB6C"/>
+			<MapObject name="frame" id="3" dumped="true" fileOffset="EB6C"/>
 			<ShapeMesh ver="3" texture="dro_frametif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -9121,7 +9121,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="1_uka" id="2" hidden="true" dumped="true" fileOffset="EA60"/>
+			<MapObject name="1_uka" id="2" dumped="true" fileOffset="EA60"/>
 			<ShapeMesh ver="3" texture="dro_blocktif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -9162,7 +9162,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="stege2" id="1" hidden="true" dumped="true" fileOffset="E954"/>
+			<MapObject name="stege2" id="1" dumped="true" fileOffset="E954"/>
 			<ShapeMesh ver="3" texture="dro_suna3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -9208,7 +9208,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="stege" id="0" hidden="true" dumped="true" fileOffset="E848"/>
+			<MapObject name="stege" id="0" dumped="true" fileOffset="E848"/>
 			<ShapeMesh ver="3" texture="dro_suna3tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -9301,7 +9301,7 @@
 			<HitObject type="ROOT"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="CarCollider" id="3F"/>
+			<MapObject name="CarCollider" id="3F" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9319,7 +9319,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="SeatCollider" id="3E"/>
+			<MapObject name="SeatCollider" id="3E" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9347,7 +9347,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="DrawnCollider" id="3D"/>
+			<MapObject name="DrawnCollider" id="3D" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9367,7 +9367,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="HoleBottomCollider" id="3C"/>
+			<MapObject name="HoleBottomCollider" id="3C" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9387,7 +9387,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="CamBlocker" id="3B"/>
+			<MapObject name="CamBlocker" id="3B" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9399,7 +9399,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="3A"/>
+			<MapObject name="MeshCollider" id="3A" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9519,7 +9519,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="poster" id="38" dumped="true" fileOffset="1C24"/>
+			<MapObject name="poster" id="38" hidden="true" dumped="true" fileOffset="1C24"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9537,7 +9537,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="a_mazinai" id="37" dumped="true" fileOffset="1C18"/>
+			<MapObject name="a_mazinai" id="37" hidden="true" dumped="true" fileOffset="1C18"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9559,7 +9559,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1278" id="35" dumped="true" fileOffset="1C00"/>
+			<MapObject name="o1278" id="35" hidden="true" dumped="true" fileOffset="1C00"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9582,7 +9582,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1241" id="34" dumped="true" fileOffset="1BF4"/>
+			<MapObject name="o1241" id="34" hidden="true" dumped="true" fileOffset="1BF4"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9723,7 +9723,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1277" id="33" dumped="true" fileOffset="1BE8"/>
+			<MapObject name="o1277" id="33" hidden="true" dumped="true" fileOffset="1BE8"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9777,7 +9777,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="8000">
-			<MapObject name="o1309" id="31" dumped="true" fileOffset="1BD0"/>
+			<MapObject name="o1309" id="31" hidden="true" dumped="true" fileOffset="1BD0"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9811,7 +9811,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1239" id="30" dumped="true" fileOffset="1BC4"/>
+			<MapObject name="o1239" id="30" hidden="true" dumped="true" fileOffset="1BC4"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9835,7 +9835,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1274" id="2F" dumped="true" fileOffset="1BB8"/>
+			<MapObject name="o1274" id="2F" hidden="true" dumped="true" fileOffset="1BB8"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9883,7 +9883,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1272" id="2E" dumped="true" fileOffset="1BAC"/>
+			<MapObject name="o1272" id="2E" hidden="true" dumped="true" fileOffset="1BAC"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9950,7 +9950,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1266" id="2D" dumped="true" fileOffset="1BA0"/>
+			<MapObject name="o1266" id="2D" hidden="true" dumped="true" fileOffset="1BA0"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -10033,7 +10033,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1240" id="2C" dumped="true" fileOffset="1B94"/>
+			<MapObject name="o1240" id="2C" hidden="true" dumped="true" fileOffset="1B94"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -10135,7 +10135,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1227" id="2A" dumped="true" fileOffset="1B7C"/>
+			<MapObject name="o1227" id="2A" hidden="true" dumped="true" fileOffset="1B7C"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -10188,7 +10188,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1220" id="29" dumped="true" fileOffset="1B70"/>
+			<MapObject name="o1220" id="29" hidden="true" dumped="true" fileOffset="1B70"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -10303,7 +10303,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1219" id="27" dumped="true" fileOffset="1B58"/>
+			<MapObject name="o1219" id="27" hidden="true" dumped="true" fileOffset="1B58"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -10321,7 +10321,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1218" id="26" dumped="true" fileOffset="1B4C"/>
+			<MapObject name="o1218" id="26" hidden="true" dumped="true" fileOffset="1B4C"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -10355,7 +10355,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1217" id="25" dumped="true" fileOffset="1B40"/>
+			<MapObject name="o1217" id="25" hidden="true" dumped="true" fileOffset="1B40"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -10427,7 +10427,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1308" id="22" dumped="true" fileOffset="1B1C"/>
+			<MapObject name="o1308" id="22" hidden="true" dumped="true" fileOffset="1B1C"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -10466,7 +10466,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1303" id="21" dumped="true" fileOffset="1B10"/>
+			<MapObject name="o1303" id="21" hidden="true" dumped="true" fileOffset="1B10"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -10515,7 +10515,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1190" id="20" dumped="true" fileOffset="1B04"/>
+			<MapObject name="o1190" id="20" hidden="true" dumped="true" fileOffset="1B04"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -10543,7 +10543,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1199" id="1F" dumped="true" fileOffset="1AF8"/>
+			<MapObject name="o1199" id="1F" hidden="true" dumped="true" fileOffset="1AF8"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -10577,7 +10577,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1201" id="1E" dumped="true" fileOffset="1AEC"/>
+			<MapObject name="o1201" id="1E" hidden="true" dumped="true" fileOffset="1AEC"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -10610,7 +10610,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1197" id="1D" dumped="true" fileOffset="1AE0"/>
+			<MapObject name="o1197" id="1D" hidden="true" dumped="true" fileOffset="1AE0"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -10684,7 +10684,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1259" id="1C" dumped="true" fileOffset="1AD4"/>
+			<MapObject name="o1259" id="1C" hidden="true" dumped="true" fileOffset="1AD4"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -10857,7 +10857,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1216" id="1B" dumped="true" fileOffset="1AC8"/>
+			<MapObject name="o1216" id="1B" hidden="true" dumped="true" fileOffset="1AC8"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -10923,7 +10923,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1257" id="1A" dumped="true" fileOffset="1ABC"/>
+			<MapObject name="o1257" id="1A" hidden="true" dumped="true" fileOffset="1ABC"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -10975,7 +10975,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1256" id="19" dumped="true" fileOffset="1AB0"/>
+			<MapObject name="o1256" id="19" hidden="true" dumped="true" fileOffset="1AB0"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11011,7 +11011,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1206" id="18" dumped="true" fileOffset="1AA4"/>
+			<MapObject name="o1206" id="18" hidden="true" dumped="true" fileOffset="1AA4"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11033,7 +11033,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1205" id="16" dumped="true" fileOffset="1A8C"/>
+			<MapObject name="o1205" id="16" hidden="true" dumped="true" fileOffset="1A8C"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11055,7 +11055,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1295" id="14" dumped="true" fileOffset="1A74"/>
+			<MapObject name="o1295" id="14" hidden="true" dumped="true" fileOffset="1A74"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11083,7 +11083,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1166" id="13" dumped="true" fileOffset="1A68"/>
+			<MapObject name="o1166" id="13" hidden="true" dumped="true" fileOffset="1A68"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11108,7 +11108,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1251" id="12" dumped="true" fileOffset="1A5C"/>
+			<MapObject name="o1251" id="12" hidden="true" dumped="true" fileOffset="1A5C"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11245,7 +11245,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1253" id="10" dumped="true" fileOffset="1A44"/>
+			<MapObject name="o1253" id="10" hidden="true" dumped="true" fileOffset="1A44"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11263,7 +11263,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1252" id="F" dumped="true" fileOffset="1A38"/>
+			<MapObject name="o1252" id="F" hidden="true" dumped="true" fileOffset="1A38"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11285,7 +11285,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1261" id="D" dumped="true" fileOffset="1A20"/>
+			<MapObject name="o1261" id="D" hidden="true" dumped="true" fileOffset="1A20"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11303,7 +11303,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1204" id="C" dumped="true" fileOffset="1A14"/>
+			<MapObject name="o1204" id="C" hidden="true" dumped="true" fileOffset="1A14"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11325,7 +11325,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1289" id="A" dumped="true" fileOffset="19FC"/>
+			<MapObject name="o1289" id="A" hidden="true" dumped="true" fileOffset="19FC"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11347,7 +11347,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1287" id="8" dumped="true" fileOffset="19E4"/>
+			<MapObject name="o1287" id="8" hidden="true" dumped="true" fileOffset="19E4"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11377,7 +11377,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="8000">
-			<MapObject name="nw" id="6" dumped="true" fileOffset="19CC"/>
+			<MapObject name="nw" id="6" hidden="true" dumped="true" fileOffset="19CC"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11401,7 +11401,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="8000">
-			<MapObject name="deilitw" id="5" dumped="true" fileOffset="19C0"/>
+			<MapObject name="deilitw" id="5" hidden="true" dumped="true" fileOffset="19C0"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11419,7 +11419,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="deiliw" id="4" dumped="true" fileOffset="19B4"/>
+			<MapObject name="deiliw" id="4" hidden="true" dumped="true" fileOffset="19B4"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11441,7 +11441,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="8000">
-			<MapObject name="o1290" id="2" dumped="true" fileOffset="199C"/>
+			<MapObject name="o1290" id="2" hidden="true" dumped="true" fileOffset="199C"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11459,7 +11459,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o776" id="1" dumped="true" fileOffset="1990"/>
+			<MapObject name="o776" id="1" hidden="true" dumped="true" fileOffset="1990"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11532,7 +11532,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="o1020" id="0"/>
+			<MapObject name="o1020" id="0" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11578,7 +11578,7 @@
 			<HitObject type="ROOT"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="Planar GridZone" id="E" hidden="true"/>
+			<MapObject name="Planar GridZone" id="E"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11597,17 +11597,17 @@
 			<Camera type="TYPE_6" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="-36,10,-183" posB="-43,10,-183" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="MeshZone" id="D" hidden="true"/>
+			<MapObject name="MeshZone" id="D"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
 					<VertexTable>
-						<Vertex xyz="-207,-83,-365" uv="-512,512" rgba="0,0,0,255"/>
-						<Vertex xyz="-152,-83,-432" uv="512,-512" rgba="0,0,0,255"/>
-						<Vertex xyz="-207,-83,-432" uv="-512,-512" rgba="0,0,0,255"/>
-						<Vertex xyz="-152,-83,-432" uv="512,-512" rgba="0,0,0,255"/>
-						<Vertex xyz="-207,-83,-365" uv="-512,512" rgba="0,0,0,255"/>
-						<Vertex xyz="-152,-83,-365" uv="512,512" rgba="0,0,0,255"/>
+						<Vertex xyz="-207,-79,-365" uv="-512,512" rgba="0,0,0,255"/>
+						<Vertex xyz="-152,-79,-432" uv="512,-512" rgba="0,0,0,255"/>
+						<Vertex xyz="-207,-79,-432" uv="-512,-512" rgba="0,0,0,255"/>
+						<Vertex xyz="-152,-79,-432" uv="512,-512" rgba="0,0,0,255"/>
+						<Vertex xyz="-207,-79,-365" uv="-512,512" rgba="0,0,0,255"/>
+						<Vertex xyz="-152,-79,-365" uv="512,512" rgba="0,0,0,255"/>
 					</VertexTable>
 					<TriangleList>
 						<Triangle ijk="0,1,2"/>
@@ -11618,15 +11618,15 @@
 			<Camera type="TYPE_6" flag="false" boomLength="350.000000" boomPitch="30.000000" viewPitch="-12.000000" posA="-143,10,-397" posB="-143,10,-399" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="Planar GridZone" id="C" hidden="true"/>
+			<MapObject name="Planar GridZone" id="C"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
 					<VertexTable>
-						<Vertex xyz="-207,-89,-300" uv="-512,512"/>
-						<Vertex xyz="-111,-89,-500" uv="512,-512"/>
-						<Vertex xyz="-207,-89,-500" uv="-512,-512"/>
-						<Vertex xyz="-111,-89,-300" uv="512,512"/>
+						<Vertex xyz="-207,-3,-300" uv="-512,512"/>
+						<Vertex xyz="-111,-3,-500" uv="512,-512"/>
+						<Vertex xyz="-207,-3,-500" uv="-512,-512"/>
+						<Vertex xyz="-111,-3,-300" uv="512,512"/>
 					</VertexTable>
 					<TriangleList>
 						<Triangle ijk="0,1,2"/>
@@ -11641,7 +11641,7 @@
 			<HitObject type="GROUP"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="o766" id="A" hidden="true" dumped="true" fileOffset="259C"/>
+			<MapObject name="o766" id="A" dumped="true" fileOffset="259C"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11664,7 +11664,7 @@
 			<HitObject type="GROUP"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="hako" id="8" hidden="true" dumped="true" fileOffset="2584"/>
+			<MapObject name="hako" id="8" dumped="true" fileOffset="2584"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11683,7 +11683,7 @@
 			<Camera type="TYPE_6" flag="false" boomLength="435.000000" boomPitch="15.500000" viewPitch="-5.800000" posA="-380,0,0" posB="400,0,0" posC="0,0,0"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="roren" id="7" hidden="true" dumped="true" fileOffset="2578"/>
+			<MapObject name="roren" id="7" dumped="true" fileOffset="2578"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11702,7 +11702,7 @@
 			<Camera type="TYPE_2" flag="true" boomLength="400.000000" boomPitch="20.000000" viewPitch="-7.000000" posA="-393,0,-95" posB="-393,0,175" posC="0,0,0"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="rorre_mae" id="6" hidden="true" dumped="true" fileOffset="256C"/>
+			<MapObject name="rorre_mae" id="6" dumped="true" fileOffset="256C"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11721,7 +11721,7 @@
 			<Camera type="TYPE_6" flag="false" boomLength="450.000000" boomPitch="17.500000" viewPitch="-5.000000" posA="-380,0,0" posB="290,0,0" posC="0,0,0"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="o759" id="5" hidden="true" dumped="true" fileOffset="2560"/>
+			<MapObject name="o759" id="5" dumped="true" fileOffset="2560"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11804,7 +11804,7 @@
 			<HitObject type="GROUP"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="mazinai" id="3" hidden="true" dumped="true" fileOffset="2548"/>
+			<MapObject name="mazinai" id="3" dumped="true" fileOffset="2548"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11833,7 +11833,7 @@
 			<Camera type="TYPE_6" flag="true" boomLength="300.000000" boomPitch="17.500000" viewPitch="-12.000000" posA="50,0,-371" posB="50,0,-399" posC="0,0,0"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="stege" id="2" hidden="true" dumped="true" fileOffset="253C"/>
+			<MapObject name="stege" id="2" dumped="true" fileOffset="253C"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -11864,7 +11864,7 @@
 			<HitObject type="GROUP"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="o760" id="0" hidden="true" dumped="true" fileOffset="2524"/>
+			<MapObject name="o760" id="0" dumped="true" fileOffset="2524"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
