@@ -588,7 +588,7 @@ End
         Call EnableModel ( ~Model:PuzzleCube_1_OFF .False )
         Call GetModelCenter ( ~Model:PuzzleCube_1_ON )
         Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
-        Call	PlaySound		( 00000010 )
+        Call	PlaySound		( 0000006E )
     Else
         Set *MapFlag[09] .False
         Call EnableModel ( ~Model:PuzzleCube_1_ON .False )
@@ -607,7 +607,7 @@ End
         Call EnableModel ( ~Model:PuzzleCube_2_OFF .False )
         Call GetModelCenter ( ~Model:PuzzleCube_2_ON )
         Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
-        Call	PlaySound		( 00000010 )
+        Call	PlaySound		( 0000006E )
     Else
         Set *MapFlag[0A] .False
         Call EnableModel ( ~Model:PuzzleCube_2_ON .False )
@@ -626,7 +626,7 @@ End
         Call EnableModel ( ~Model:PuzzleCube_3_OFF .False )
         Call GetModelCenter ( ~Model:PuzzleCube_3_ON )
         Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
-        Call	PlaySound		( 00000010 )
+        Call	PlaySound		( 0000006E )
     Else
         Set *MapFlag[0B] .False
         Call EnableModel ( ~Model:PuzzleCube_3_ON .False )
@@ -645,7 +645,7 @@ End
         Call EnableModel ( ~Model:PuzzleCube_4_OFF .False )
         Call GetModelCenter ( ~Model:PuzzleCube_4_ON )
         Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
-        Call	PlaySound		( 00000010 )
+        Call	PlaySound		( 0000006E )
     Else
         Set *MapFlag[0C] .False
         Call EnableModel ( ~Model:PuzzleCube_4_ON .False )
@@ -664,7 +664,7 @@ End
         Call EnableModel ( ~Model:PuzzleCube_5_OFF .False )
         Call GetModelCenter ( ~Model:PuzzleCube_5_ON )
         Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
-        Call	PlaySound		( 00000010 )
+        Call	PlaySound		( 0000006E )
     Else
         Set *MapFlag[0D] .False
         Call EnableModel ( ~Model:PuzzleCube_5_ON .False )
@@ -683,7 +683,7 @@ End
         Call EnableModel ( ~Model:PuzzleCube_6_OFF .False )
         Call GetModelCenter ( ~Model:PuzzleCube_6_ON )
         Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
-        Call	PlaySound		( 00000010 )
+        Call	PlaySound		( 0000006E )
     Else
         Set *MapFlag[0E] .False
         Call EnableModel ( ~Model:PuzzleCube_6_ON .False )
@@ -702,7 +702,7 @@ End
         Call EnableModel ( ~Model:PuzzleCube_7_OFF .False )
         Call GetModelCenter ( ~Model:PuzzleCube_7_ON )
         Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
-        Call	PlaySound		( 00000010 )
+        Call	PlaySound		( 0000006E )
     Else
         Set *MapFlag[0F] .False
         Call EnableModel ( ~Model:PuzzleCube_7_ON .False )
@@ -721,7 +721,7 @@ End
         Call EnableModel ( ~Model:PuzzleCube_8_OFF .False )
         Call GetModelCenter ( ~Model:PuzzleCube_8_ON )
         Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
-        Call	PlaySound		( 00000010 )
+        Call	PlaySound		( 0000006E )
     Else
         Set *MapFlag[10] .False
         Call EnableModel ( ~Model:PuzzleCube_8_ON .False )
@@ -740,7 +740,7 @@ End
         Call EnableModel ( ~Model:PuzzleCube_9_OFF .False )
         Call GetModelCenter ( ~Model:PuzzleCube_9_ON )
         Call PlayEffect ( ~FX:LensFlare:Rotating *Var[0] *Var[1] *Var[2] 20` 0 0 0 0 0 0 0 0 )
-        Call	PlaySound		( 00000010 )
+        Call	PlaySound		( 0000006E )
     Else
         Set *MapFlag[11] .False
         Call EnableModel ( ~Model:PuzzleCube_9_ON .False )
