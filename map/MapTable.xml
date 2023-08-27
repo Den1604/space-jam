@@ -593,6 +593,7 @@
 		<Map name="btf_21" nickname="Thamz Area 2"/>
 		<Map name="btf_22" nickname="Thamz Area 3"/>
 		<Map name="btf_23" nickname="Challenge Room 1b"/>
+		<Map name="btf_24" nickname="Merlee's Lair"/>
 		<Stage name="btf_bt01" nickname="CR 2 Battle Map"/>
 		<Stage name="btf_bt02" nickname="CI Battle Map"/>
 		<Stage name="btf_bt03" nickname="btf_06 Fuzzy Battle Map"/>

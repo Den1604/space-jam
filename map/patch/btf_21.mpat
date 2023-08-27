@@ -25,6 +25,8 @@
     Exec $Script_CreateHouse
     Set *MapFlag[003] .False
     Bind $Script_MQNotes .Trigger:WallPressA ~Collider:MQCollider 00000001 00000000
+	Call MakeItemEntity ( .Item:Pebble ~Vec3d:Pebble .ItemSpawnMode:Fixed_NeverVanish *MF_btf_21_Pebble )
+	Call MakeItemEntity ( .Item:AttackFXB ~Vec3d:AttackFXB .ItemSpawnMode:Fixed_NeverVanish *MF_btf_21_AttackFXB )
     Return
     End
 }
@@ -85,11 +87,7 @@
         If  *MapFlag[001]  ==  .False
             Call  RemoveEffect  ( *VarF )
         Else
-            If *MF_PlayerIsOnConsoleOrUsesAres == .True
-                Call  PlayEffect    ( ~FX:Snowfall 0000012C 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
-            Else
-                Call  PlayEffect    ( ~FX:Snowfall 00000200 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )%is limit, above crashes when hammering
-            EndIf
+            Call  PlayEffect    ( ~FX:Snowfall 0000012C 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
         EndIf
         Set   *MapFlag[002]  *MapFlag[001]
     EndIf

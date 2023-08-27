@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_21" author="unnamed" background="hos_bg" textures="sam_tex">
 	<Editor>
-		<Camera pos="-0.000000,124.036812,881.439209" pitch="10.000000" yaw="0.000000"/>
-		<Camera pos="42.531551,65536.000000,502.616089"/>
+		<Camera pos="165.264191,64.850754,175.229767" pitch="12.079994" yaw="5.920017"/>
+		<Camera pos="196.619263,65536.000000,62.823780"/>
 		<Camera pos="65536.000000,100.000000,94.000000"/>
-		<Camera pos="-140.719040,-7.226688,65536.000000"/>
+		<Camera pos="165.200256,7.039720,65536.000000"/>
 	</Editor>
 	<ModelTree>
 		<Node name="Root" id="92">
@@ -214,12 +214,13 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="3">
+		<Node name="Root" id="4">
 			<Node name="Entrances" id="0">
 				<Node name="Entry0" id="FFFFFFFF"/>
 			</Node>
 			<Node name="Pebble" id="1"/>
 			<Node name="Thamz" id="2"/>
+			<Node name="AttackFXB" id="3"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -13948,7 +13949,7 @@
 			<HitObject type="ROOT"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="22" hidden="true"/>
+			<MapObject name="Split Collider" id="22"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -13980,7 +13981,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="BedCollider" id="1F" hidden="true"/>
+			<MapObject name="BedCollider" id="1F"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14010,7 +14011,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MQCollider" id="1E" hidden="true"/>
+			<MapObject name="MQCollider" id="1E"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14032,7 +14033,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="1D" hidden="true"/>
+			<MapObject name="Split Collider" id="1D"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14052,7 +14053,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="1C" hidden="true"/>
+			<MapObject name="Split Collider" id="1C"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14072,7 +14073,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="1B" hidden="true"/>
+			<MapObject name="Split Collider" id="1B"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14092,7 +14093,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="1A" hidden="true"/>
+			<MapObject name="Split Collider" id="1A"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14110,7 +14111,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="19" hidden="true"/>
+			<MapObject name="Split Collider" id="19"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14160,7 +14161,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="18" hidden="true"/>
+			<MapObject name="Split Collider" id="18"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14194,7 +14195,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="HullCollider" id="17" hidden="true"/>
+			<MapObject name="HullCollider" id="17"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14230,7 +14231,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="16" hidden="true"/>
+			<MapObject name="MeshCollider" id="16"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14274,7 +14275,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="15" hidden="true"/>
+			<MapObject name="MeshCollider" id="15"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14310,7 +14311,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="DoorColliderInside" id="14" hidden="true"/>
+			<MapObject name="DoorColliderInside" id="14"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14330,7 +14331,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="DoorColliderOutside" id="13" hidden="true"/>
+			<MapObject name="DoorColliderOutside" id="13"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14350,7 +14351,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="12" hidden="true"/>
+			<MapObject name="MeshCollider" id="12"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14370,7 +14371,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="11" hidden="true"/>
+			<MapObject name="MeshCollider" id="11"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14482,7 +14483,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="F" hidden="true"/>
+			<MapObject name="MeshCollider" id="F"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14502,7 +14503,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="E" hidden="true"/>
+			<MapObject name="Split Collider" id="E"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14520,7 +14521,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="D" hidden="true"/>
+			<MapObject name="Split Collider" id="D"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14550,7 +14551,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="DrawnCollider" id="C" hidden="true"/>
+			<MapObject name="DrawnCollider" id="C"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14630,7 +14631,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="A" hidden="true"/>
+			<MapObject name="MeshCollider" id="A"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14690,7 +14691,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="9" hidden="true"/>
+			<MapObject name="MeshCollider" id="9"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14770,7 +14771,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="8" hidden="true"/>
+			<MapObject name="Split Collider" id="8"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14800,7 +14801,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="8000">
-			<MapObject name="Split Collider" id="7" hidden="true"/>
+			<MapObject name="Split Collider" id="7"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14822,7 +14823,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="8000">
-			<MapObject name="Split Collider" id="6" hidden="true"/>
+			<MapObject name="Split Collider" id="6"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14844,7 +14845,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="Split Collider" id="5" hidden="true"/>
+			<MapObject name="Split Collider" id="5"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14868,7 +14869,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="main_floor" id="4" hidden="true"/>
+			<MapObject name="main_floor" id="4"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14898,7 +14899,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="8000">
-			<MapObject name="DrawnCollider" id="2" hidden="true"/>
+			<MapObject name="DrawnCollider" id="2"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14928,7 +14929,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="exit_trigger_s" id="0" hidden="true"/>
+			<MapObject name="exit_trigger_s" id="0"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14952,7 +14953,7 @@
 			<HitObject type="ROOT"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="Planar GridZone" id="1"/>
+			<MapObject name="Planar GridZone" id="1" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14971,7 +14972,7 @@
 			<Camera type="TYPE_6" flag="false" boomLength="450.000000" boomPitch="10.000000" viewPitch="-4.000000" posA="-193,10,0" posB="-20,10,0" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="Planar GridZone" id="0"/>
+			<MapObject name="Planar GridZone" id="0" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -14992,14 +14993,17 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="3"/>
+			<MapObject name="Root" id="4"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="162,0,80" yaw="195.000000">
+			<MapObject name="AttackFXB" id="3"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="-190,35,-14" yaw="135.000000">
 			<MapObject name="Thamz" id="2"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="32" palette="0" animations="1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
-		<Marker ver="4" type="Position" pos="217,10,89" yaw="30.000000">
+		<Marker ver="4" type="Position" pos="217,0,89" yaw="195.000000">
 			<MapObject name="Pebble" id="1"/>
 		</Marker>
 		<Marker ver="4" type="Group">

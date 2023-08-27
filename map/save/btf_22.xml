@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_22" author="unnamed" background="hos_bg" textures="sam_tex">
 	<Editor>
-		<Camera pos="236.000000,270.406921,473.772034" pitch="13.559999" yaw="0.000000"/>
-		<Camera pos="675.574402,65536.000000,-286.466675"/>
+		<Camera pos="129.076782,217.304092,364.474792" pitch="13.080005" yaw="356.800140"/>
+		<Camera pos="-396.836487,65536.000000,-27.092611"/>
 		<Camera pos="65536.000000,77.662048,-193.817566"/>
-		<Camera pos="506.827667,46.090099,65536.000000"/>
+		<Camera pos="-20.303217,89.792152,65536.000000"/>
 	</Editor>
 	<ModelTree>
 		<Node name="Root" id="6C">
@@ -185,11 +185,15 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="2">
-			<Node name="Entrances" id="0">
+		<Node name="Root" id="6">
+			<Node name="Entrances" id="1">
 				<Node name="Entry0" id="FFFFFFFF"/>
+				<Node name="Entry1" id="0"/>
 			</Node>
-			<Node name="Entry1" id="1"/>
+			<Node name="AttackFXB" id="2"/>
+			<Node name="HiddenYellowBlock2" id="3"/>
+			<Node name="YellowBlock" id="4"/>
+			<Node name="HiddenYellowBlock1" id="5"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -16734,13 +16738,25 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="2"/>
+			<MapObject name="Root" id="6"/>
 		</Marker>
-		<Marker ver="4" type="Entry" pos="0,68,-374" yaw="180.000000">
-			<MapObject name="Entry1" id="1"/>
+		<Marker ver="4" type="Position" pos="-274,82,-58" yaw="180.000000">
+			<MapObject name="HiddenYellowBlock1" id="5"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="96,82,36" yaw="180.000000">
+			<MapObject name="YellowBlock" id="4"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="399,150,-185" yaw="180.000000">
+			<MapObject name="HiddenYellowBlock2" id="3"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="118,149,-247" yaw="180.000000">
+			<MapObject name="AttackFXB" id="2"/>
 		</Marker>
 		<Marker ver="4" type="Group">
-			<MapObject name="Entrances" id="0"/>
+			<MapObject name="Entrances" id="1"/>
+		</Marker>
+		<Marker ver="4" type="Entry" pos="0,68,-374" yaw="180.000000">
+			<MapObject name="Entry1" id="0"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="-475,0,0" yaw="90.000000">
 			<MapObject name="Entry0" id="FFFFFFFF"/>

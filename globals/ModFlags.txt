@@ -46,3 +46,5 @@
 043 = MF_btf_06_DefeatedNpcFuzzy2
 044 = MF_btf_06_DefeatedNpcBobomb1
 045 = MF_btf_06_DefeatedNpcKoopa1
+046 = MF_btf_21_Pebble
+047 = MF_btf_21_AttackFXB

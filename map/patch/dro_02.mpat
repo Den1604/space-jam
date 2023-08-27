@@ -93,7 +93,7 @@
 #new:Script $Script_GoToMerleeNerd
 {
     Call DisablePlayerInput ( .True )
-    Call GotoMap ( "dro_02" ~Entry:Entry4 )
+    Call GotoMap ( "btf_24" ~Entry:Entry0 )
     Wait 300`
     Return
     End

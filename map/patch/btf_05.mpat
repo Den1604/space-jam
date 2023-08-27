@@ -119,20 +119,15 @@
     Call PlaySound ( 0000024A )
     Call  PlayEffect    ( ~FX:GatherEnergyPink ~Vec3D:SFXMarker1 5` 60` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
     Wait 40` 
-    ExecWait $Script_PanCamera_CamPan1
     Call PlaySound ( 000000B2 )
     Call  PlayEffect    ( ~FX:LensFlare:Rotating ~Vec3D:SFXMarker1 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    Call  PlayEffect    ( ~FX:LensFlare:Rotating ~Vec3D:SFXMarker2 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 ) 
     Wait 5`
     Call EnableModel ( ~Model:DoorGBlocker1 .False )
     Call EnableModel ( ~Model:DoorGBlocker2 .False )
-    Call  ModifyColliderFlags     ( 00000000 ~Collider:GDoorBlocker 7FFFFE00 )
-    Wait 15`
-    ExecWait $Script_PanCamera_CamPan2
-    Call PlaySound ( 000000B2 )
-    Call  PlayEffect    ( ~FX:LensFlare:Rotating ~Vec3D:SFXMarker2 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 ) 
-    Wait 5`
     Call EnableModel ( ~Model:DoorBBlocker1 .False )
     Call EnableModel ( ~Model:DoorBBlocker2 .False )
+    Call  ModifyColliderFlags     ( 00000000 ~Collider:GDoorBlocker 7FFFFE00 )
     Call  ModifyColliderFlags     ( 00000000 ~Collider:BDoorBlocker 7FFFFE00 )
     Wait 15`
     Call SetPlayerAnimation ( 00010002 )
