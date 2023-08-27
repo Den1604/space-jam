@@ -157,7 +157,13 @@
 	
 	Call MakeNpcs ( .False $NpcGroupList )
 	Call SetNpcYaw ( .NpcID:NpcGuard -127` ) % Makes Clubba face left
-	Bind $Script_Platform_Fall .Trigger:FloorTouch ~Collider:platform1 1 00000000
+	Bind $Script_Platform_Fall .Trigger:FloorTouch ~Collider:platform1 00000001 00000000
+	Bind $Script_ResetMario1 .Trigger:CeilingTouch ~Collider:reset_collider_1 00000001 00000000
+	Bind $Script_ResetMario1 .Trigger:CeilingTouch ~Collider:reset_collider_2 00000001 00000000
+	
+	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:fuzzy_platform_floor 00000001 00000000
+	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:right_path_floor 00000001 00000000
+	Bind $Script_SetResetPos_SignPlatform .Trigger:FloorTouch ~Collider:sign_platform_floor 00000001 00000000
 	
 	% Manually initialize npcs and entities
 	Thread
@@ -251,7 +257,7 @@
 
 #new:Script $Script_UseChest1
 {
-	Set *VarA .Item:JumpCharge
+	Set *VarA .Item:Multibounce
 	Set *VarB 00000002 % 2 for badge
 	Set *MF_btf_06_OpenedChest1 .True
 	ExecWait $Script_OpenChest
@@ -353,11 +359,14 @@
 	
 	Wait 10`
 	
+	Call DisablePartnerAI ( .False ) % 0 lets me change the partner's animation, 1 does not
+	
 	% talkAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 05
 	% idleAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 02
 	% stringID - AAAABBBB - space jam strings resource (0x2F), string 0x28
 	Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F003D )
 	
+	Call EnablePartnerAI ()
 	Call DisablePlayerInput ( .False )
 	
 	Return
@@ -415,15 +424,93 @@
 	
 	Wait 10`
 	
+	Call DisablePartnerAI ( .False )
+	
 	% talkAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 05
 	% idleAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 02
 	% stringID - AAAABBBB - space jam strings resource (0x2F), string 0x28
 	Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0050 )
 	
+	Call EnablePartnerAI ()
 	Call DisablePlayerInput ( .False )
 	
 	Return
 	End
+}
+
+% Pit Respawning
+#new:Script $Script_PanCamera_Dynamic {
+	Call  UseSettingsFrom   ( .Cam:Default 0` 0` 0` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetPanTarget      ( .Cam:Default *MapVar[A] *MapVar[B] *MapVar[C] )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+#new:Script $Script_SetResetPos_SignPlatform {
+	Set *MapVar[9] 0`
+	Return
+	End
+}
+
+#new:Script $Script_SetResetPos_Dynamic {
+	Call GetPlayerPos ( *VarA *VarB *VarC )
+	Set *MapVar[9] 1`
+	% respawn pos
+	Set *MapVar[A] *VarA
+	Set *MapVar[B] *VarB
+	Set *MapVar[C] *VarC
+	Return
+	End
+}
+
+#new:Script $Script_ResetMario1 {
+	Call DisablePartnerAI ( .True )
+	Call DisablePlayerInput ( .True )
+	
+	Call SetPlayerAnimation ( 00080012 )
+	
+	If *MapVar[9] == 1`
+		ExecWait $Script_PanCamera_Dynamic
+	Else
+		ExecWait $Script_PanCamera_PitCam2
+	EndIf
+	
+	Call InterpPlayerYaw ( -207` 5` )
+	
+	If *MapVar[9] == 1`
+		Set *VarB *MapVar[B]
+		Add *VarB 5
+		Set *VarC *MapVar[C]
+		Add *VarC 2
+		Call PlayEffect ( ~FX:Sparkles:Star *MapVar[A] *VarB *VarC 25` 0 0 0 0 0 0 0 0 )
+	Else
+		Call PlayEffect ( ~FX:Sparkles:Star ~Vec3D:PitCamFX 25` 0 0 0 0 0 0 0 0 )
+	EndIf
+	Call PlaySound ( 00000064 )
+	
+	Wait 3`
+	
+	Call SetPlayerAnimation ( 00010002 )
+	
+	If *MapVar[9] == 1`
+		Call SetPlayerPos ( *MapVar[A] *MapVar[B] *MapVar[C] )
+	Else
+		Call SetPlayerPos ( ~Vec3D:PitCam2 )
+	EndIf
+	
+	Call ResetCam ( .Cam:Default *Fixed[2.0] )
+	
+	Wait 10`
+	
+	Call EnablePartnerAI ()
+	Call DisablePlayerInput ( .False )
+    Return
+    End
 }
 
 % Platform movement
@@ -546,6 +633,7 @@
 	
 	If  *VarC  ==  00000002
 		Call DisablePlayerInput ( .False )
+		Call EnablePartnerAI ()
 		
 		% Flag 100 = Ignore Player Collision
 		% If mode is true, the flag will be added to the npc
@@ -607,47 +695,53 @@
 	If *MF_btf_06_PlatformsActivated == .True
 		If *MF_btf_06_PlatformMessageShown == .True
 			% Now go play in the ball pit or whatever there is to see there.
-			Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 002F0028 )
+			Call SpeakToPlayer ( .NpcID:NpcGuard 00390205 00390202 00000000 002F0028 )
 		Else
 			% Wait, you actually have a letter? ...
-			Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 002F0030 )
+			Call SpeakToPlayer ( .NpcID:NpcGuard 00390205 00390202 00000000 002F0030 )
 		EndIf
-		% TODO: remove, this is temporary
-		Set *MF_btf_06_PlatformsActivated .False
-		Set *MF_btf_06_PlatformMessageShown .False
 		Return
 	EndIf
 	
 	If *MF_btf_06_PlatformMessageShown == .True
 		% You desparately want to go over there? ...
-		Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 002F0027 )
+		Call SpeakToPlayer ( .NpcID:NpcGuard 00390205 00390202 00000000 002F0027 )
 		Call DisablePlayerInput ( .True )
+		
 		ExecWait $Script_PanCamera_AAAAAAAAAAAAAD
+		
 		Set *MF_btf_06_PlatformsActivated .True
 		Exec $Script_SetupPlatforms
+		
 		Wait 60`
+		
 		Call ResetCam ( .Cam:Default *Fixed[4.0] )
+		
 		Call DisablePlayerInput ( .False )
-		Call EndSpeech ( .NpcID:NpcGuard 00390105 00390102 00000000 )
+		Call EndSpeech ( .NpcID:NpcGuard 00390205 00390202 00000000 )
 		Return
 	EndIf
 	
     Call GetPlayerPos ( *VarA *VarB *VarC )
     Call ShowEmote ( 00000000 .Emote:Question -45` 30` .False *VarA *VarB *VarC 0` )
 	Wait 60`
-	% TODO: some text is too small to be readable with N64 or LLE grapics, test a better font size with ares
 	% You want to know what's behind this door? TOO BAD! ...
-	Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 002F0025 )
+	Call SpeakToPlayer ( .NpcID:NpcGuard 00390205 00390202 00000000 002F0025 )
 	Call DisablePlayerInput ( .True )
+	
 	ExecWait $Script_PanCamera_AAAAAAAAAAAAAD
+	
 	Set *MF_btf_06_PlatformsActivated .True
 	Exec $Script_SetupPlatforms
+	
 	Wait 60`
+	
 	Call ResetCam ( .Cam:Default *Fixed[4.0] )
+	
 	Call DisablePlayerInput ( .False )
 	Wait 30`
 	% Here you go, have fun.
-	Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 002F002F )
+	Call SpeakToPlayer ( .NpcID:NpcGuard 00390205 00390202 00000000 002F002F )
 	
 	Return
 	End
@@ -658,7 +752,11 @@
 	If *MF_btf_06_PlatformMessageShown == .False
 		If *MF_btf_06_PlatformsActivated == .False
 			Call DisablePlayerInput ( .True )
-			Call SpeakToPlayer ( .NpcID:NpcGuard 00390105 00390102 00000000 002F0026 )
+			Call DisablePartnerAI ( .True )
+			
+			Call SpeakToPlayer ( .NpcID:NpcGuard 00390205 00390202 00000000 002F0026 )
+			
+			Call EnablePartnerAI ()
 			Call DisablePlayerInput ( .False )
 			Set *MF_btf_06_PlatformMessageShown .True
 		EndIf

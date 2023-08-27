@@ -42,7 +42,7 @@
             Thread
                 Call PlaySound ( 00000262 )
             EndThread
-            Call ShowEmote ( 00000000 .Emote:Exclamation -45` 15` .False *VarA *VarB *VarC 0` )
+            Call ShowEmote ( 00000000 .Emote:Exclamation -45` 15` .Truent *VarA *VarB *VarC 0` )
             Wait 15`
             Call NpcFlyTo ( .Npc:Partner ~Vec3D:NPCFlyTo1 15` 1` .Easing:Linear )
             Call NpcFlyTo ( .Npc:Partner ~Vec3D:NPCFlyTo2 30` 0` .Easing:Linear )
