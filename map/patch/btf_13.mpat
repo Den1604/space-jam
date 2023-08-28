@@ -199,7 +199,7 @@
         Wait 1`
     EndLoop
     Call StopSound ( 0000032A )
-    Call GotoMap ( "btf_13" ~Entry:Entry3 )
+    Call GotoMap ( "btf_20" 0` )
     Return
     End
 }
