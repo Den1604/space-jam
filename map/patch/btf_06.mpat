@@ -160,10 +160,24 @@
 	Bind $Script_Platform_Fall .Trigger:FloorTouch ~Collider:platform1 00000001 00000000
 	Bind $Script_ResetMario1 .Trigger:CeilingTouch ~Collider:reset_collider_1 00000001 00000000
 	Bind $Script_ResetMario1 .Trigger:CeilingTouch ~Collider:reset_collider_2 00000001 00000000
+	Bind $Script_ResetMario1 .Trigger:CeilingTouch ~Collider:reset_collider_3 00000001 00000000
 	
 	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:fuzzy_platform_floor 00000001 00000000
 	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:right_path_floor 00000001 00000000
 	Bind $Script_SetResetPos_SignPlatform .Trigger:FloorTouch ~Collider:sign_platform_floor 00000001 00000000
+	
+	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor0 00000001 00000000
+	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor1 00000001 00000000
+	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor2 00000001 00000000
+	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor3 00000001 00000000
+	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor4 00000001 00000000
+	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor5 00000001 00000000
+	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor6 00000001 00000000
+	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor7 00000001 00000000
+	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor8 00000001 00000000
+	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor9 00000001 00000000
+	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor10 00000001 00000000
+	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor11 00000001 00000000
 	
 	% Manually initialize npcs and entities
 	Thread
@@ -257,7 +271,7 @@
 
 #new:Script $Script_UseChest1
 {
-	Set *VarA .Item:Multibounce
+	Set *VarA .Item:PUpDDown
 	Set *VarB 00000002 % 2 for badge
 	Set *MF_btf_06_OpenedChest1 .True
 	ExecWait $Script_OpenChest

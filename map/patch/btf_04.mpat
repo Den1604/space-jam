@@ -51,7 +51,7 @@
 #new:Script $Script_Init_NpcGuard
 {
     If *MF_btf_06_ClubbaGone == .False
-        Call SetNpcPos ( .Npc:Self 0 -100` 0 )
+        Call SetNpcPos ( .Npc:Self 0 -1000` 0 )
     Else
 	    Call BindNpcInteract ( .Npc:Self $Script_Interact_NpcGuard )
     EndIf
@@ -65,7 +65,7 @@
 	% talkAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 05
 	% idleAnim - AAAABBCC - overworld clubba (0x39), palette 01, animation 02
 	% stringID - AAAABBBB - space jam strings resource (0x2F), string 0x28
-    Call SpeakToPlayer ( .NpcID:NpcGuard 00390116 00390115 00000000 002F0073 )
+    Call SpeakToPlayer ( .NpcID:NpcGuard 00390216 00390215 00000000 002F0073 )
     
 	Return
 	End
