@@ -1283,3 +1283,41 @@ Of course![br]
 	That's a good start.[br]
 	[Wait][End]
 }
+
+#message:2F:080
+{
+Screwdriver[End]
+}
+
+#message:2F:081
+{
+Appears to have been[BR]
+in Muskular's cake.[BR][End]
+}
+
+#message:2F:082
+{
+Appears to have been[BR]
+in Muskular's cake.[BR]
+Has a metallic flavor[BR]
+according to Gourmet Guy.[BR][End]
+}
+
+#message:2F:083
+{
+Pokémon Card[End]
+}
+
+#message:2F:084
+{
+A Pokémon Card depicting[BR]
+a tree of some sort.[BR][End]
+}
+
+#message:2F:085
+{
+A Pokémon Card depicting[BR]
+a tree of some sort.[BR]
+Rufus gave you this in exchange[BR]
+for a Screwdriver.[BR][End]
+}

@@ -1,4 +1,6 @@
 
+#import PotatoUtility.mpat
+
 #define .NpcID:Pieface         00
 #define .ItemID_Temp 0
 
@@ -321,19 +323,76 @@ End
 
 #new:Script $Script_Interact_Pieface
 {
+	Call DisablePlayerInput ( .True )
+
 	Call SetNpcAnimation ( .NpcID:Pieface 00EA0002 )
-	Wait 15`
+	Wait 5`
 	Call SetNpcAnimation ( .NpcID:Pieface 00EA0003 )
-	Wait 15`
+	Wait 5`
 	Call SetNpcAnimation ( .NpcID:Pieface 00EA0004 )
-	Wait 15`
+	Wait 5`
 	Call SetNpcAnimation ( .NpcID:Pieface 00EA0005 )
-	Wait 15`
+	Wait 5`
 	Call SetNpcAnimation ( .NpcID:Pieface 00EA0001 )
+
+
+   Call FindKeyItem ( .Item:ForestPass *Var[1] )
+    Set *Debug[0] *Var[1]
+    If *Var[1] != FFFFFFFF
+        Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_GimmeCard )
+        Set *Var[0] $Data_MakeItemStuffWork
+        Set *Var[1] 0
+        ExecWait $Script_ItemThingSetup_Key
+        Switch *Var[0]
+            Case  <=  00000000
+                Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_GimmeCard_NO )
+            Default
+                Call RemoveKeyItemAt( *Debug[0] )
+                Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_GimmeCard_YES )
+                Call ShowGotItem ( .Item:KootTheTape .True 00000000 )
+                Call AddKeyItem ( .Item:KootTheTape )
+        EndSwitch
+    EndIf
+
+	Call DisablePlayerInput ( .False )
     Return
 End
 }
 
+#new:String $String_GimmeCard {
+[Style Right]
+Hold on a second...[Pause:10][BR]
+Is that a limited Edition[BR]
+Sudowoodo card?[Pause:10][BR][Wait][Next]
+I'll give you my fire mixtape[BR]
+if you're willing to part with it![BR]
+[Wait][End]
+}
+
+#new:String $String_GimmeCard_YES {
+[Style Right]
+Ayyyy, thanks guys![BR]
+I'll make sure to take good care[BR]
+of it.[Pause:10] Here's the promised[BR]
+tape,[Pause:4] I hope you like it![BR]
+[Wait][End]
+}
+
+#new:String $String_GimmeCard_NO {
+[Style Right]
+Aww, that's rough but[BR]
+I understand.[Pause:10] I wouldn't[BR]
+wanna part with such an[BR]
+awesome card either.[BR][Wait][Next]
+Well, you know where to find me[BR]
+if you happen to change your[BR]
+mind though![BR]
+[Wait][End]
+}
+
+#new:Data $Data_MakeItemStuffWork {
+    .Item:ForestPass 00000000
+}
 
 %%% A Mashing stuff %%%
 % Call  $Function_802406C4    ( 0000012C )
