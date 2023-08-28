@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Map name="btf_20" author="unnamed" background="hos_bg" textures="kkj_tex">
 	<Editor>
-		<Camera pos="76.039246,131.475098,-86.199760" pitch="20.480057" yaw="0.643707"/>
+		<Camera pos="97.154922,141.991226,275.804138" pitch="11.360081" yaw="10.723859"/>
 		<Camera pos="-128.999817,65536.000000,-711.951172"/>
 		<Camera pos="65536.000000,27.017319,-290.605225"/>
 		<Camera pos="-254.684372,153.459229,65536.000000"/>
@@ -4858,7 +4858,7 @@
 	</Markers>
 	<ScriptData>
 		<TexPanners>
-			<TexPanner id="0" generate="false"/>
+			<TexPanner id="0" generate="false" mainStep="0,1500" auxStep="150,100"/>
 			<TexPanner id="1" generate="false"/>
 			<TexPanner id="2" generate="false"/>
 			<TexPanner id="3" generate="false"/>
