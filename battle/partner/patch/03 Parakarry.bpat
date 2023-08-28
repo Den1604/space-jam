@@ -44,6 +44,25 @@ LI		V0, 2
 
 }
 
+#new:Function $Func_ApplyPebbleDamage { % Pebble's script is not designed to damage Mario if he's the target so I'll just call this as a quick fix
+LA T0, 8010F290
+LB T1, 02 (T0)
+SUBIU T1, T1, 1
+BEQ T1, R0, .GetItTwisted
+NOP
+BEQ R0, R0, .END
+SB T1, 02 (T0)
+
+.GetItTwisted
+LA T0, 800DC070
+LI T1, 05
+SB T1, 96 (T0)
+
+.END
+JR RA
+LI V0, 2
+}
+
 	% Mario paper holding + blinking anim: 08 | 27
 	% PK - 12 (talk) | 13 (happy + talk) | 4,5,6 -> Dive | 16 Carry (Quick)
 	% Mario 1|29 Nod, 1|2A lookUp, 1|21 Think, 1|28 look_tilt, 1|2C pray, 1|1F hold up item, 1|16 Throw
@@ -60,7 +79,6 @@ LI		V0, 2
   Call  SetActorFlagBits  ( .Actor:Player 20000000 .True ) % Enable Mario's animations in case he already acted this turn !!!REMEMBER TO DISABLE LATER!!!
   Call  UseIdleAnimation  ( .Actor:Player .False )
   Call  SetAnimation      ( .Actor:Player 00000000 0001002A )
-  
   % Rotate PK 180 so he faces Mario
   Call  SetActorYaw       ( .Actor:Partner 0000001E )
   Wait  1`
@@ -240,7 +258,9 @@ LI		V0, 2
 	Thread
 		Switch	*Var0
 			Case  ==  00000001
-				Wait 80`
+				Wait 60`
+        Call $Func_ApplyPebbleDamage ()
+        Wait 20`
 			Case  ==  00000002
 				Wait 80`
 			Case  ==  00000003
