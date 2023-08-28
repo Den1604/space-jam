@@ -1,4 +1,5 @@
 #import LetterDelivery.mpat
+#import PotatoUtility.mpat
 
 #define .NpcID:GourmetGuy         00
 
@@ -175,11 +176,58 @@
         % Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0037 )
         Set *MF_btf_16_GourmetGuyLetterDelivered .True
     EndIf
+
+    Call FindItem ( .Item:Cake *Var[1] )
+    Set *Debug[0] *Var[1]
+    If *Var[1] != FFFFFFFF
+        Call SpeakToPlayer ( .NpcID:GourmetGuy 00C10004 00C10001 00000000 $String_PotatoQuest_1 )
+        % Call ShowChoice ( 001E0006 )
+        Set *Var[0] $Data_MakeItemStuffWork
+        Set *Var[1] 0
+        ExecWait $Script_ItemThingSetup
+        Switch *Var[0]
+            Case  <=  00000000
+                Call SpeakToPlayer ( .NpcID:GourmetGuy 00C10004 00C10001 00000000 $String_PotatoQuest_NO )
+            Default
+                % Call RemoveItemAt( *Debug[0] ) Don't need this with consumables?
+                Call SpeakToPlayer ( .NpcID:GourmetGuy 00C10004 00C10001 00000000 $String_PotatoQuest_YES )
+                Call ShowGotItem ( .Item:Screwdriver .True 00000000 )
+                Call AddKeyItem ( .Item:Screwdriver )
+        EndSwitch
+    EndIf
     Call EnablePartnerAI ()
     Call DisablePlayerInput ( .False )
     Return
     End
 }
+% I would put this in actual string files but deadline & tired & it really doesn't matter
+#new:String $String_PotatoQuest_1 {
+[Style Right]
+Oh, what is this [Wave]heavenly[/fx] smell?[Pause:10][BR]
+You've brought Cake?![Pause:10][BR]
+Please,[Pause:3] I must have a taste![BR]
+[Wait][End]
+}
+
+#new:String $String_PotatoQuest_YES {
+[Style Right]
+Hmm...[Pause:4] not awful but I gotta[BR]
+say, the metallic taste from this[BR]
+flavor stick is not for me.[Pause:10][BR]
+I don't want it, here.[BR]
+[Wait][End]
+}
+
+#new:String $String_PotatoQuest_NO {
+[Style Right]
+Oh...[Pause:4] okay...[Pause:10]
+[Wait][End]
+}
+
+#new:Data $Data_MakeItemStuffWork {
+    .Item:Cake 00000000
+}
+
 
 #new:Unknown $LetterList_GourmetGuy
 {

@@ -27,7 +27,7 @@
 	<Item index="018" nameMsg="26-0B2" desc1Msg="23-0B2" desc2Msg="25-0B2" typeFlags="1009" targetFlags="0008" name="VolcanoVase"/>
 	<Item index="019" nameMsg="26-0AF" desc1Msg="23-0AF" desc2Msg="25-0AF" typeFlags="1009" targetFlags="0008" name="KooperShell"/>
 	<Item index="01A" nameMsg="26-0AB" desc1Msg="23-0AB" desc2Msg="25-0AB" typeFlags="1009" targetFlags="0008" name="BowserCastleKey"/>
-	<Item index="01B" nameMsg="00-000" desc1Msg="00-000" desc2Msg="00-000" typeFlags="1009" targetFlags="0008" name="ForestPass"/>
+	<Item index="01B" nameMsg="2F-083" desc1Msg="2F-084" desc2Msg="2F-085" typeFlags="1009" targetFlags="0008" name="ForestPass"/>
 	<Item index="01C" nameMsg="26-0B7" desc1Msg="23-0B7" desc2Msg="25-0B7" typeFlags="1009" targetFlags="0008" name="BooWeight"/>
 	<Item index="01D" nameMsg="26-0B8" desc1Msg="23-0B8" desc2Msg="25-0B8" typeFlags="1009" targetFlags="0008" name="BooPortrait" hudElement="ITEM_089" itemEntity="ITEM_089"/>
 	<Item index="01E" nameMsg="26-0C4" desc1Msg="23-0C4" desc2Msg="25-0C4" typeFlags="1009" targetFlags="0008" name="CrystalBerry"/>
@@ -40,7 +40,7 @@
 	<Item index="025" nameMsg="26-0BE" desc1Msg="23-0BE" desc2Msg="25-0BE" typeFlags="1009" targetFlags="0008" name="MysteryNote"/>
 	<Item index="026" nameMsg="00-000" desc1Msg="00-000" desc2Msg="00-000" typeFlags="1009" targetFlags="0008" name="SuspiciousNote"/>
 	<Item index="027" nameMsg="26-0C9" desc1Msg="23-0C9" desc2Msg="25-0C9" typeFlags="1009" targetFlags="0008" name="CrystalBall"/>
-	<Item index="028" nameMsg="00-000" desc1Msg="00-000" desc2Msg="00-000" typeFlags="1009" targetFlags="0008" name="Screwdriver"/>
+	<Item index="028" nameMsg="2F-080" desc1Msg="2F-081" desc2Msg="2F-082" typeFlags="1009" targetFlags="0008" name="Screwdriver"/>
 	<Item index="029" nameMsg="26-0CB" desc1Msg="23-0CB" desc2Msg="25-0CB" typeFlags="1009" targetFlags="0008" name="Cookbook"/>
 	<Item index="02A" nameMsg="26-0CC" desc1Msg="23-0CC" desc2Msg="25-0CC" typeFlags="1009" targetFlags="0008" name="JadeRaven"/>
 	<Item index="02B" nameMsg="26-0C0" desc1Msg="23-0C0" desc2Msg="25-0C0" typeFlags="1009" targetFlags="0008" name="MagicalSeed1"/>
