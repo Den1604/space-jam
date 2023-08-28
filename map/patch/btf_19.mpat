@@ -47,6 +47,15 @@
 	Exec  $Script_MakeCustomEntities
 	Exec  $Script_MakeItems
     
+	Bind $Script_ResetMario1 .Trigger:CeilingTouch ~Collider:reset_collider 00000001 00000000
+    
+	Return
+	End
+}
+
+@ $Script_SetupMusic {
+	Call  SetMusicTrack ( 00000000 .Song:SpaceJunk 00000000 00000008 )
+	Call  ClearAmbientSounds ( 250` )
 	Return
 	End
 }
@@ -92,6 +101,35 @@
 	Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0059 )
     Call  DisablePlayerInput    ( .False )
     
+	Return
+	End
+}
+
+#new:Script $Script_ResetMario1 {
+	Call DisablePartnerAI ( .True )
+	Call DisablePlayerInput ( .True )
+	
+	Call SetPlayerAnimation ( 00080012 )
+	
+    ExecWait $Script_PanCamera_ResetCam
+	
+	Call InterpPlayerYaw ( -207` 5` )
+	
+    Call PlayEffect ( ~FX:Sparkles:Star ~Vec3D:ResetCamFX 25` 0 0 0 0 0 0 0 0 )
+	Call PlaySound ( 00000064 )
+	
+	Wait 3`
+	
+	Call SetPlayerAnimation ( 00010002 )
+	
+    Call SetPlayerPos ( ~Vec3D:ResetCam )
+	
+	Call ResetCam ( .Cam:Default *Fixed[2.0] )
+	
+	Wait 10`
+	
+	Call EnablePartnerAI ()
+	Call DisablePlayerInput ( .False )
 	Return
 	End
 }
