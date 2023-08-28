@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_20" author="unnamed" background="hos_bg" textures="kkj_tex">
 	<Editor>
-		<Camera pos="-189.960831,137.730026,-850.974426" pitch="65.280052" yaw="166.723984"/>
+		<Camera pos="76.039246,131.475098,-86.199760" pitch="20.480057" yaw="0.643707"/>
 		<Camera pos="-128.999817,65536.000000,-711.951172"/>
 		<Camera pos="65536.000000,27.017319,-290.605225"/>
 		<Camera pos="-254.684372,153.459229,65536.000000"/>
