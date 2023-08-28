@@ -288,6 +288,19 @@
 	JPOP   RA
 }
 
+#new:Script $Script_PanCamera_ResetCam
+{
+	Call  UseSettingsFrom   ( .Cam:Default 200` 15` -633` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:ResetCam )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
 #new:Script $Script_SetupMusic
 {
 	Call  FadeOutMusic  ( 00000000 500` ) % usually between 500-1000

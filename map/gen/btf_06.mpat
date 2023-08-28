@@ -354,7 +354,6 @@
 
 #new:Script $Script_MakeEntities
 {
-	Call  MakeEntity    ( .Entity:SavePoint ~Vec4d:SaveBlock 80000000 )
 	Call  MakeEntity    ( .Entity:MultiCoinBrick ~Vec4d:BrickBlock1 80000000 )
 	Call  MakeEntity    ( .Entity:Signpost ~Vec4d:Signpost1 80000000 )
 	Call  AssignScript    ( $Script_ReadSign_Signpost1 )
@@ -473,12 +472,6 @@
 
 #new:Script $Script_EnterMap
 {
-	Call  GetLoadType   ( *Var[0] )
-	If  *Var[0]  ==  1
-		Exec  EnterSavePoint
-		Exec $Script_CreateExitTriggers
-		Return
-	EndIf
 	Call  GetEntryID    ( *Var[0] )
 	Switch  *Var[0]
 		CaseOR  ==  ~Entry:entry_room_1b

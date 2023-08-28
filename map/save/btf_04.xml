@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_04" author="unnamed" background="hos_bg" textures="hos_tex">
 	<Editor>
-		<Camera pos="976.842957,83.507309,-116.114830" pitch="14.880004" yaw="354.560059"/>
+		<Camera pos="1023.411194,113.307762,-25.971333" pitch="18.880003" yaw="338.080200"/>
 		<Camera pos="900.319153,65536.000000,-354.062500"/>
 		<Camera pos="65536.000000,145.770935,-550.060547"/>
 		<Camera pos="1137.039551,180.782623,65536.000000"/>
@@ -17934,7 +17934,7 @@
 		<Marker ver="4" type="NPC" pos="976,47,-152" yaw="0.000000">
 			<MapObject name="NpcGuard" id="4"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
-			<Sprite sprite="39" palette="1" animations="15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+			<Sprite sprite="39" palette="2" animations="15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="812,132,-354" yaw="180.000000">
 			<MapObject name="YellowBlock" id="3"/>

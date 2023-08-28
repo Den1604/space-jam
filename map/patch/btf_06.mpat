@@ -160,6 +160,7 @@
 	Bind $Script_Platform_Fall .Trigger:FloorTouch ~Collider:platform1 00000001 00000000
 	Bind $Script_ResetMario1 .Trigger:CeilingTouch ~Collider:reset_collider_1 00000001 00000000
 	Bind $Script_ResetMario1 .Trigger:CeilingTouch ~Collider:reset_collider_2 00000001 00000000
+	Bind $Script_ResetMario1 .Trigger:CeilingTouch ~Collider:reset_collider_3 00000001 00000000
 	
 	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:fuzzy_platform_floor 00000001 00000000
 	Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:right_path_floor 00000001 00000000
@@ -185,8 +186,28 @@
 		
 		Exec $Script_ManuallyInit_NpcKoopa1
 		Exec $Script_MakeUpperPathEntities
+		
+		Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor0 00000001 00000000
+		Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor1 00000001 00000000
+		Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor2 00000001 00000000
+		Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor3 00000001 00000000
+		Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor4 00000001 00000000
+		Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor5 00000001 00000000
+		Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor6 00000001 00000000
+		Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor7 00000001 00000000
+		Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor8 00000001 00000000
+		Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor9 00000001 00000000
+		Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor10 00000001 00000000
+		Bind $Script_SetResetPos_Dynamic .Trigger:FloorTouch ~Collider:upper_path_floor11 00000001 00000000
 	EndThread
 	
+	Return
+	End
+}
+
+@ $Script_SetupMusic {
+	Call  SetMusicTrack ( 00000000 .Song:SpaceJunk 00000000 00000008 )
+	Call  ClearAmbientSounds ( 250` )
 	Return
 	End
 }
@@ -203,9 +224,11 @@
 #new:Script $Script_MakeMainEntities {
 	Call MakeItemEntity ( .Item:YellowBerry ~Vec3d:Item1 .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedItem1 )
 	
-	Call MakeEntity     ( .Entity:SavePoint ~Vec4d:SaveBlock 80000000 )
 	Call MakeEntity     ( .Entity:Signpost ~Vec4d:Signpost1 80000000 )
 	Call AssignScript   ( $Script_ReadSign_Signpost1 )
+	
+	Call MakeEntity     ( .Entity:YellowBlock ~Vec4d:SaveBlock .Item:Coin 80000000 )
+	Call AssignBlockFlag    ( *MF_btf_06_HitCoinBlock )
 	
 	If *MF_btf_06_SpringFallen == .True
 		Call  MakeEntity ( .Entity:ScriptSpring ~Vec4d:SpringEndPosition 80000000 )
@@ -257,7 +280,7 @@
 
 #new:Script $Script_UseChest1
 {
-	Set *VarA .Item:Multibounce
+	Set *VarA .Item:PUpDDown
 	Set *VarB 00000002 % 2 for badge
 	Set *MF_btf_06_OpenedChest1 .True
 	ExecWait $Script_OpenChest
@@ -311,7 +334,7 @@
 	Wait 10`
 	
 	Call GetPlayerPos ( *VarA *VarB *VarC )
-    Call ShowEmote ( 00000000 .Emote:Question -45` 30` .False *VarA *VarB *VarC 0` )
+	Call ShowEmote ( 00000000 .Emote:Question -45` 30` .False *VarA *VarB *VarC 0` )
 	
 	Wait 35`
 	
@@ -321,7 +344,7 @@
 	
 	Thread
 		Call PlaySound ( 000000B2 )
-    	Call PlayEffect ( ~FX:LensFlare:Rotating ~Vec3D:DiamondEmblemFX 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+		Call PlayEffect ( ~FX:LensFlare:Rotating ~Vec3D:DiamondEmblemFX 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
 	EndThread
 
 	Wait 1`
@@ -379,7 +402,7 @@
 	Wait 10`
 	
 	Call GetPlayerPos ( *VarA *VarB *VarC )
-    Call ShowEmote ( 00000000 .Emote:Question -45` 30` .False *VarA *VarB *VarC 0` )
+	Call ShowEmote ( 00000000 .Emote:Question -45` 30` .False *VarA *VarB *VarC 0` )
 	
 	Wait 35`
 	
@@ -389,7 +412,7 @@
 	
 	Thread
 		Call PlaySound ( 000000B2 )
-    	Call PlayEffect ( ~FX:LensFlare:Rotating ~Vec3D:LunarEmblemFX 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+		Call PlayEffect ( ~FX:LensFlare:Rotating ~Vec3D:LunarEmblemFX 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
 	EndThread
 	
 	Wait 1`
@@ -400,16 +423,16 @@
 	Wait 100`
 	
 	Call PlaySound ( 0000024A )
-    Call PlayEffect ( ~FX:GatherEnergyPink ~Vec3D:DoorFX 5` 60` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
-    
+	Call PlayEffect ( ~FX:GatherEnergyPink ~Vec3D:DoorFX 5` 60` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+	
 	Wait 60`
 	
 	Thread
 		Call PlaySound ( 000000B2 )
-    	Call PlayEffect ( ~FX:LensFlare:Rotating ~Vec3D:DiamondEmblemFX 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+		Call PlayEffect ( ~FX:LensFlare:Rotating ~Vec3D:DiamondEmblemFX 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
 	EndThread
 	Thread
-    	Call PlayEffect ( ~FX:LensFlare:Rotating ~Vec3D:LunarEmblemFX 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+		Call PlayEffect ( ~FX:LensFlare:Rotating ~Vec3D:LunarEmblemFX 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
 	EndThread
 	
 	Wait 1`
@@ -509,8 +532,8 @@
 	
 	Call EnablePartnerAI ()
 	Call DisablePlayerInput ( .False )
-    Return
-    End
+	Return
+	End
 }
 
 % Platform movement
@@ -609,8 +632,8 @@
 	% here, but that is equivalent to...
 	
 	Set *Var2 .NpcID:NpcGuard
-	Set *Var3 00390105 % Talk Animation - same format as SpeakToPlayer
-	Set *Var4 00390102 % Idle Animation - same format as SpeakToPlayer
+	Set *Var3 00390205 % Talk Animation - same format as SpeakToPlayer
+	Set *Var4 00390202 % Idle Animation - same format as SpeakToPlayer
 	Set *Var5 .Item:Letter06 % same as LetterList
 	Set *Var6 00000000 % same as LetterList
 	Set *Var7 002F0055 % string by parakarry
@@ -672,13 +695,13 @@
 #new:Script $Script_Init_NpcGuard
 {
 	If *MF_btf_06_ClubbaGone == .True
-        Call SetNpcPos ( .Npc:Self ~Vec3D:BelowMap )
-    Else
-	    Call BindNpcInteract ( .Npc:Self $Script_Interact_NpcGuard )
-    EndIf
-    
-    Return
-    End
+		Call SetNpcPos ( .Npc:Self ~Vec3D:BelowMap )
+	Else
+		Call BindNpcInteract ( .Npc:Self $Script_Interact_NpcGuard )
+	EndIf
+	
+	Return
+	End
 }
 
 #new:Script $Script_Interact_NpcGuard
@@ -722,8 +745,8 @@
 		Return
 	EndIf
 	
-    Call GetPlayerPos ( *VarA *VarB *VarC )
-    Call ShowEmote ( 00000000 .Emote:Question -45` 30` .False *VarA *VarB *VarC 0` )
+	Call GetPlayerPos ( *VarA *VarB *VarC )
+	Call ShowEmote ( 00000000 .Emote:Question -45` 30` .False *VarA *VarB *VarC 0` )
 	Wait 60`
 	% You want to know what's behind this door? TOO BAD! ...
 	Call SpeakToPlayer ( .NpcID:NpcGuard 00390205 00390202 00000000 002F0025 )
@@ -984,8 +1007,8 @@
 #new:Script $Script_Init_DiamondHelper
 {
 	Call BindNpcIdle ( .Npc:Self $Script_Idle_DiamondHelper )
-    Return
-    End
+	Return
+	End
 }
 
 #new:Script $Script_Idle_DiamondHelper {

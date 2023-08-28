@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_24" author="unnamed" textures="isk_tex">
 	<Editor>
-		<Camera pos="8.810099,73.720711,51.192280" pitch="17.319996" yaw="338.480255"/>
-		<Camera pos="-67.927986,65536.000000,-43.845219"/>
+		<Camera pos="11.431718,31.796200,109.815788" pitch="22.719997" yaw="356.479889"/>
+		<Camera pos="-2.945749,65536.000000,82.160919"/>
 		<Camera pos="65536.000000,-50.000000,0.000000"/>
-		<Camera pos="10.656178,2.472767,65536.000000"/>
+		<Camera pos="25.351597,-5.131078,65536.000000"/>
 	</Editor>
 	<ModelTree>
-		<Node name="Root" id="7">
+		<Node name="Root" id="C">
 			<Node name="Stage" id="0"/>
 			<Node name="Exit_North" id="1"/>
 			<Node name="Exit_East" id="2"/>
 			<Node name="Exit_South" id="3"/>
 			<Node name="Exit_West" id="4"/>
 			<Node name="Planar GridModel" id="5"/>
-			<Node name="Planar GridModel" id="6"/>
+			<Node name="DrawnModel" id="6"/>
+			<Node name="ProjectionModel" id="7"/>
+			<Node name="HullModel" id="8"/>
+			<Node name="Split Model" id="9"/>
+			<Node name="Planar GridModel" id="A"/>
+			<Node name="Split Model" id="B"/>
 		</Node>
 	</ModelTree>
 	<ColliderTree>
-		<Node name="Root" id="3">
+		<Node name="Root" id="4">
 			<Node name="Stage" id="0"/>
 			<Node name="Exits" id="1"/>
 			<Node name="ExitGuards" id="2"/>
+			<Node name="MeshCollider" id="3"/>
 		</Node>
 	</ColliderTree>
 	<ZoneTree>
-		<Node name="Root" id="0"/>
+		<Node name="Root" id="1">
+			<Node name="MeshZone" id="0"/>
+		</Node>
 	</ZoneTree>
 	<MarkerTree>
 		<Node name="Root" id="1">
@@ -39,30 +47,86 @@
 	</LightSets>
 	<Models>
 		<Model ver="2" type="ROOT" lightset="0">
-			<MapObject name="Root" id="7"/>
-			<BoundingBox empty="false" min="-100,0,-60" max="100,100,60"/>
+			<MapObject name="Root" id="C"/>
+			<BoundingBox empty="false" min="-85,0,0" max="400,200,100"/>
 			<PropertyList>
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Planar GridModel" id="6"/>
-			<ShapeMesh ver="3" texture="isk_sikaku_2tif">
+			<MapObject name="Split Model" id="B"/>
+			<ShapeMesh ver="3" texture="jan_ropetif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
 					<F3DEX2 cmd="D9FFFFFF,200400"/>
 					<TriangleBatch ver="0">
 						<VertexTable>
-							<Vertex xyz="-62,0,-41" uv="465,-5073" rgba="59,41,41,-1"/>
-							<Vertex xyz="-61,100,-44" uv="-16,1632" rgba="59,41,41,255"/>
-							<Vertex xyz="-62,100,-41" uv="496,1632" rgba="59,41,41,255"/>
-							<Vertex xyz="-61,100,-44" uv="-16,1632" rgba="59,41,41,255"/>
-							<Vertex xyz="-62,0,-41" uv="465,-5073" rgba="59,41,41,-1"/>
-							<Vertex xyz="-61,0,-44" uv="-16,-5073" rgba="59,41,41,-1"/>
+							<Vertex xyz="0,1,83" uv="496,4096" rgba="59,41,41,255"/>
+							<Vertex xyz="17,0,71" uv="-16,5120" rgba="59,41,41,0"/>
+							<Vertex xyz="12,0,70" uv="496,5120" rgba="59,41,41,0"/>
+							<Vertex xyz="2,1,86" uv="-16,4096" rgba="59,41,41,255"/>
 						</VertexTable>
 						<TriangleList>
 							<Triangle ijk="0,1,2"/>
+							<Triangle ijk="1,0,3"/>
+						</TriangleList>
+					</TriangleBatch>
+				</DisplayList>
+			</ShapeMesh>
+			<PropertyList>
+				<Property v="5C,0,D"/>
+				<Property v="5F,0,0"/>
+			</PropertyList>
+		</Model>
+		<Model ver="2" type="MODEL" lightset="0">
+			<MapObject name="Planar GridModel" id="A"/>
+			<ShapeMesh ver="3" texture="jan_ropetif">
+				<DisplayList>
+					<F3DEX2 cmd="E7000000,0"/>
+					<F3DEX2 cmd="D9FDFFFF,0"/>
+					<F3DEX2 cmd="D9FFFFFF,200400"/>
+					<TriangleBatch ver="0">
+						<VertexTable>
+							<Vertex xyz="-8,1,28" uv="-16,-4096" rgba="59,41,41,255"/>
+							<Vertex xyz="-4,1,12" uv="496,-5120" rgba="59,41,41,255"/>
+							<Vertex xyz="-8,1,12" uv="-16,-5120" rgba="59,41,41,255"/>
+							<Vertex xyz="-4,1,28" uv="496,-4096" rgba="59,41,41,255"/>
+							<Vertex xyz="-15,1,40" uv="-16,-3072" rgba="59,41,41,255"/>
+							<Vertex xyz="-12,1,41" uv="496,-3072" rgba="59,41,41,255"/>
+							<Vertex xyz="-26,1,50" uv="-16,-2048" rgba="59,41,41,255"/>
+							<Vertex xyz="-23,1,52" uv="496,-2048" rgba="59,41,41,255"/>
+							<Vertex xyz="-34,1,68" uv="-16,-1024" rgba="59,41,41,255"/>
+							<Vertex xyz="-30,1,69" uv="496,-1024" rgba="59,41,41,255"/>
+							<Vertex xyz="-40,1,86" uv="-16,0" rgba="59,41,41,255"/>
+							<Vertex xyz="-36,1,86" uv="496,0" rgba="59,41,41,255"/>
+							<Vertex xyz="-36,1,94" uv="-16,1024" rgba="59,41,41,255"/>
+							<Vertex xyz="-32,1,93" uv="496,1024" rgba="59,41,41,255"/>
+							<Vertex xyz="-26,1,99" uv="-16,2048" rgba="59,41,41,255"/>
+							<Vertex xyz="-26,1,95" uv="496,2048" rgba="59,41,41,255"/>
+							<Vertex xyz="-11,1,94" uv="-16,3072" rgba="59,41,41,255"/>
+							<Vertex xyz="-12,1,90" uv="496,3072" rgba="59,41,41,255"/>
+							<Vertex xyz="2,1,86" uv="-16,4096" rgba="59,41,41,255"/>
+							<Vertex xyz="0,1,83" uv="496,4096" rgba="59,41,41,255"/>
+						</VertexTable>
+						<TriangleList>
+							<Triangle ijk="0,1,2"/>
+							<Triangle ijk="1,0,3"/>
+							<Triangle ijk="4,3,0"/>
 							<Triangle ijk="3,4,5"/>
+							<Triangle ijk="6,5,4"/>
+							<Triangle ijk="5,6,7"/>
+							<Triangle ijk="8,7,6"/>
+							<Triangle ijk="7,8,9"/>
+							<Triangle ijk="10,9,8"/>
+							<Triangle ijk="9,10,11"/>
+							<Triangle ijk="12,11,10"/>
+							<Triangle ijk="11,12,13"/>
+							<Triangle ijk="14,13,12"/>
+							<Triangle ijk="13,14,15"/>
+							<Triangle ijk="16,15,14"/>
+							<Triangle ijk="15,16,17"/>
+							<Triangle ijk="18,17,16"/>
+							<Triangle ijk="17,18,19"/>
 						</TriangleList>
 					</TriangleBatch>
 				</DisplayList>
@@ -73,22 +137,254 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="Planar GridModel" id="5"/>
-			<ShapeMesh ver="3" texture="isk_yuka_ctif">
+			<MapObject name="Split Model" id="9"/>
+			<ShapeMesh ver="3" texture="">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
 					<F3DEX2 cmd="D9FFFFFF,200400"/>
 					<TriangleBatch ver="0">
 						<VertexTable>
-							<Vertex xyz="-100,0,60" uv="-960,-1600"/>
-							<Vertex xyz="100,0,-60" uv="960,1600"/>
-							<Vertex xyz="-100,0,-60" uv="960,-1600"/>
-							<Vertex xyz="100,0,60" uv="-960,1600"/>
+							<Vertex xyz="400,200,64" uv="-620,6400" rgba="0,0,0,255"/>
+							<Vertex xyz="135,200,64" uv="192,6400" rgba="0,0,0,255"/>
+							<Vertex xyz="135,64,64" uv="192,2048" rgba="0,0,0,255"/>
+							<Vertex xyz="400,64,64" uv="-620,2048" rgba="0,0,0,255"/>
+						</VertexTable>
+						<TriangleList>
+							<Triangle ijk="0,1,2"/>
+							<Triangle ijk="2,3,0"/>
+						</TriangleList>
+					</TriangleBatch>
+				</DisplayList>
+			</ShapeMesh>
+			<PropertyList>
+				<Property v="5C,0,1"/>
+				<Property v="5F,0,0"/>
+			</PropertyList>
+		</Model>
+		<Model ver="2" type="MODEL" lightset="0">
+			<MapObject name="HullModel" id="8"/>
+			<ShapeMesh ver="3" texture="isk_kabe_htif">
+				<DisplayList>
+					<F3DEX2 cmd="E7000000,0"/>
+					<F3DEX2 cmd="D9FDFFFF,0"/>
+					<F3DEX2 cmd="D9FFFFFF,200400"/>
+					<TriangleBatch ver="0">
+						<VertexTable>
+							<Vertex xyz="-50,200,0" uv="6464,6400" rgba="191,191,191,255"/>
+							<Vertex xyz="100,0,0" uv="1664,0" rgba="140,140,140,255"/>
+							<Vertex xyz="100,200,0" uv="1664,6400" rgba="140,140,140,255"/>
+							<Vertex xyz="-50,0,0" uv="6464,0" rgba="191,191,191,255"/>
+							<Vertex xyz="100,64,0" uv="1664,2048" rgba="140,140,140,255"/>
+							<Vertex xyz="400,0,0" uv="-7936,0" rgba="140,140,140,255"/>
+							<Vertex xyz="400,64,0" uv="-7936,2048" rgba="140,140,140,255"/>
+							<Vertex xyz="400,0,0" uv="-7936,0" rgba="140,140,140,255"/>
+							<Vertex xyz="100,64,0" uv="1664,2048" rgba="140,140,140,255"/>
+							<Vertex xyz="100,0,0" uv="1664,0" rgba="140,140,140,255"/>
 						</VertexTable>
 						<TriangleList>
 							<Triangle ijk="0,1,2"/>
 							<Triangle ijk="1,0,3"/>
+							<Triangle ijk="4,5,6"/>
+							<Triangle ijk="7,8,9"/>
+						</TriangleList>
+					</TriangleBatch>
+					<TriangleBatch ver="0">
+						<VertexTable>
+							<Vertex xyz="-73,200,12" uv="7200,6400" rgba="191,191,191,255"/>
+							<Vertex xyz="-50,0,0" uv="6464,0" rgba="191,191,191,255"/>
+							<Vertex xyz="-50,200,0" uv="6464,6400" rgba="191,191,191,255"/>
+							<Vertex xyz="-73,0,12" uv="7200,0" rgba="191,191,191,255"/>
+							<Vertex xyz="-85,200,35" uv="7936,6400" rgba="191,191,191,255"/>
+							<Vertex xyz="-85,0,35" uv="7936,0" rgba="191,191,191,255"/>
+							<Vertex xyz="-85,200,64" uv="8748,6400" rgba="191,191,191,255"/>
+							<Vertex xyz="-85,0,64" uv="8748,0" rgba="191,191,191,255"/>
+							<Vertex xyz="100,64,0" uv="1664,2048" rgba="140,140,140,255"/>
+							<Vertex xyz="123,64,12" uv="928,2048" rgba="140,140,140,255"/>
+							<Vertex xyz="123,200,12" uv="928,6400" rgba="140,140,140,255"/>
+							<Vertex xyz="123,200,12" uv="928,6400" rgba="140,140,140,255"/>
+							<Vertex xyz="100,200,0" uv="1664,6400" rgba="140,140,140,255"/>
+							<Vertex xyz="100,64,0" uv="1664,2048" rgba="140,140,140,255"/>
+							<Vertex xyz="135,200,35" uv="192,6400" rgba="140,140,140,255"/>
+							<Vertex xyz="123,200,12" uv="928,6400" rgba="140,140,140,255"/>
+							<Vertex xyz="123,64,12" uv="928,2048" rgba="140,140,140,255"/>
+							<Vertex xyz="135,200,64" uv="-620,6400" rgba="140,140,140,255"/>
+							<Vertex xyz="135,200,35" uv="192,6400" rgba="140,140,140,255"/>
+							<Vertex xyz="135,64,35" uv="192,2048" rgba="140,140,140,255"/>
+							<Vertex xyz="123,64,12" uv="928,2048" rgba="140,140,140,255"/>
+							<Vertex xyz="135,64,35" uv="192,2048" rgba="140,140,140,255"/>
+							<Vertex xyz="135,200,35" uv="192,6400" rgba="140,140,140,255"/>
+							<Vertex xyz="135,64,35" uv="192,2048" rgba="140,140,140,255"/>
+							<Vertex xyz="135,64,64" uv="-620,2048" rgba="140,140,140,255"/>
+							<Vertex xyz="135,200,64" uv="-620,6400" rgba="140,140,140,255"/>
+						</VertexTable>
+						<TriangleList>
+							<Triangle ijk="0,1,2"/>
+							<Triangle ijk="1,0,3"/>
+							<Triangle ijk="4,3,0"/>
+							<Triangle ijk="3,4,5"/>
+							<Triangle ijk="6,5,4"/>
+							<Triangle ijk="5,6,7"/>
+							<Triangle ijk="8,9,10"/>
+							<Triangle ijk="11,12,13"/>
+							<Triangle ijk="14,15,16"/>
+							<Triangle ijk="17,18,19"/>
+							<Triangle ijk="20,21,22"/>
+							<Triangle ijk="23,24,25"/>
+						</TriangleList>
+					</TriangleBatch>
+				</DisplayList>
+			</ShapeMesh>
+			<PropertyList>
+				<Property v="5C,0,1"/>
+				<Property v="5F,0,0"/>
+			</PropertyList>
+		</Model>
+		<Model ver="2" type="MODEL" lightset="0">
+			<MapObject name="ProjectionModel" id="7"/>
+			<ShapeMesh ver="3" texture="isk_isk_yuka1tif">
+				<DisplayList>
+					<F3DEX2 cmd="E7000000,0"/>
+					<F3DEX2 cmd="D9FDFFFF,0"/>
+					<F3DEX2 cmd="D9FFFFFF,200400"/>
+					<TriangleBatch ver="0">
+						<VertexTable>
+							<Vertex xyz="-50,0,0" uv="-800,-3312"/>
+							<Vertex xyz="100,0,100" uv="800,-912" rgba="140,140,140,255"/>
+							<Vertex xyz="100,0,0" uv="-800,-912" rgba="140,140,140,255"/>
+							<Vertex xyz="-85,0,35" uv="-240,-3872"/>
+							<Vertex xyz="-73,0,12" uv="-608,-3680"/>
+							<Vertex xyz="-85,0,64" uv="224,-3872"/>
+							<Vertex xyz="-50,0,100" uv="800,-3312"/>
+							<Vertex xyz="-73,0,88" uv="608,-3680"/>
+							<Vertex xyz="100,0,0" uv="-800,-912" rgba="140,140,140,255"/>
+							<Vertex xyz="400,0,100" uv="800,3888" rgba="140,140,140,255"/>
+							<Vertex xyz="400,0,0" uv="-800,3888" rgba="140,140,140,255"/>
+							<Vertex xyz="100,0,100" uv="800,-912" rgba="140,140,140,255"/>
+							<Vertex xyz="400,0,100" uv="800,3888" rgba="140,140,140,255"/>
+							<Vertex xyz="100,0,0" uv="-800,-912" rgba="140,140,140,255"/>
+						</VertexTable>
+						<TriangleList>
+							<Triangle ijk="0,1,2"/>
+							<Triangle ijk="3,0,4"/>
+							<Triangle ijk="5,0,3"/>
+							<Triangle ijk="6,1,0"/>
+							<Triangle ijk="6,5,7"/>
+							<Triangle ijk="6,0,5"/>
+							<Triangle ijk="8,9,10"/>
+							<Triangle ijk="11,12,13"/>
+						</TriangleList>
+					</TriangleBatch>
+				</DisplayList>
+			</ShapeMesh>
+			<PropertyList>
+				<Property v="5C,0,1"/>
+				<Property v="5F,0,0"/>
+			</PropertyList>
+		</Model>
+		<Model ver="2" type="MODEL" lightset="0">
+			<MapObject name="DrawnModel" id="6"/>
+			<ShapeMesh ver="3" texture="">
+				<DisplayList>
+					<F3DEX2 cmd="E7000000,0"/>
+					<F3DEX2 cmd="D9FDFFFF,0"/>
+					<F3DEX2 cmd="D9FFFFFF,200400"/>
+					<TriangleBatch ver="0">
+						<VertexTable>
+							<Vertex xyz="25,200,28" uv="320,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="27,200,47" uv="0,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="27,0,47" rgba="255,255,255,0"/>
+							<Vertex xyz="27,0,47" rgba="255,255,255,0"/>
+							<Vertex xyz="25,0,28" uv="320,0" rgba="255,255,255,0"/>
+							<Vertex xyz="25,200,28" uv="320,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="1,200,11" uv="764,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="25,200,28" uv="320,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="25,0,28" uv="320,0" rgba="255,255,255,0"/>
+							<Vertex xyz="25,0,28" uv="320,0" rgba="255,255,255,0"/>
+							<Vertex xyz="1,0,11" uv="764,0" rgba="255,255,255,0"/>
+							<Vertex xyz="1,200,11" uv="764,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="-21,200,11" uv="1122,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="1,200,11" uv="764,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="1,0,11" uv="764,0" rgba="255,255,255,0"/>
+							<Vertex xyz="1,0,11" uv="764,0" rgba="255,255,255,0"/>
+							<Vertex xyz="-21,0,11" uv="1122,0" rgba="255,255,255,0"/>
+							<Vertex xyz="-21,200,11" uv="1122,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="-42,200,26" uv="1531,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="-21,200,11" uv="1122,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="-21,0,11" uv="1122,0" rgba="255,255,255,0"/>
+							<Vertex xyz="-21,0,11" uv="1122,0" rgba="255,255,255,0"/>
+							<Vertex xyz="-42,0,26" uv="1531,0" rgba="255,255,255,0"/>
+							<Vertex xyz="-42,200,26" uv="1531,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="-41,200,47" uv="1851,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="-42,200,26" uv="1531,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="-42,0,26" uv="1531,0" rgba="255,255,255,0"/>
+							<Vertex xyz="-42,0,26" uv="1531,0" rgba="255,255,255,0"/>
+							<Vertex xyz="-41,0,47" uv="1851,0" rgba="255,255,255,0"/>
+							<Vertex xyz="-41,200,47" uv="1851,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="-15,200,63" uv="2350,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="-41,200,47" uv="1851,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="-41,0,47" uv="1851,0" rgba="255,255,255,0"/>
+							<Vertex xyz="-41,0,47" uv="1851,0" rgba="255,255,255,0"/>
+							<Vertex xyz="-15,0,63" uv="2350,0" rgba="255,255,255,0"/>
+							<Vertex xyz="-15,200,63" uv="2350,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="6,200,62" uv="2702,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="-15,200,63" uv="2350,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="-15,0,63" uv="2350,0" rgba="255,255,255,0"/>
+							<Vertex xyz="-15,0,63" uv="2350,0" rgba="255,255,255,0"/>
+							<Vertex xyz="6,0,62" uv="2702,0" rgba="255,255,255,0"/>
+							<Vertex xyz="6,200,62" uv="2702,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="27,200,47" uv="3119,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="6,200,62" uv="2702,1024" rgba="255,255,255,125"/>
+							<Vertex xyz="6,0,62" uv="2702,0" rgba="255,255,255,0"/>
+							<Vertex xyz="6,0,62" uv="2702,0" rgba="255,255,255,0"/>
+							<Vertex xyz="27,0,47" uv="3119,0" rgba="255,255,255,0"/>
+							<Vertex xyz="27,200,47" uv="3119,1024" rgba="255,255,255,125"/>
+						</VertexTable>
+						<TriangleList>
+							<Triangle ijk="0,1,2"/>
+							<Triangle ijk="3,4,5"/>
+							<Triangle ijk="6,7,8"/>
+							<Triangle ijk="9,10,11"/>
+							<Triangle ijk="12,13,14"/>
+							<Triangle ijk="15,16,17"/>
+							<Triangle ijk="18,19,20"/>
+							<Triangle ijk="21,22,23"/>
+							<Triangle ijk="24,25,26"/>
+							<Triangle ijk="27,28,29"/>
+							<Triangle ijk="30,31,32"/>
+							<Triangle ijk="33,34,35"/>
+							<Triangle ijk="36,37,38"/>
+							<Triangle ijk="39,40,41"/>
+							<Triangle ijk="42,43,44"/>
+							<Triangle ijk="45,46,47"/>
+						</TriangleList>
+					</TriangleBatch>
+				</DisplayList>
+			</ShapeMesh>
+			<PropertyList>
+				<Property v="5C,0,11"/>
+				<Property v="5F,0,0"/>
+			</PropertyList>
+		</Model>
+		<Model ver="2" type="MODEL" lightset="0">
+			<MapObject name="Planar GridModel" id="5"/>
+			<ShapeMesh ver="3" texture="jan_ropetif">
+				<DisplayList>
+					<F3DEX2 cmd="E7000000,0"/>
+					<F3DEX2 cmd="D9FDFFFF,0"/>
+					<F3DEX2 cmd="D9FFFFFF,200400"/>
+					<TriangleBatch ver="0">
+						<VertexTable>
+							<Vertex xyz="-8,1,12" uv="465,-5073" rgba="59,41,41,255"/>
+							<Vertex xyz="-4,200,12" uv="-16,10240" rgba="59,41,41,255"/>
+							<Vertex xyz="-8,200,12" uv="496,10240" rgba="59,41,41,255"/>
+							<Vertex xyz="-4,200,12" uv="-16,10240" rgba="59,41,41,255"/>
+							<Vertex xyz="-8,1,12" uv="465,-5073" rgba="59,41,41,255"/>
+							<Vertex xyz="-4,1,12" uv="-16,-5073" rgba="59,41,41,255"/>
+						</VertexTable>
+						<TriangleList>
+							<Triangle ijk="0,1,2"/>
+							<Triangle ijk="3,4,5"/>
 						</TriangleList>
 					</TriangleBatch>
 				</DisplayList>
@@ -141,8 +437,52 @@
 	</Models>
 	<Colliders>
 		<Collider ver="0" flags="0">
-			<MapObject name="Root" id="3"/>
+			<MapObject name="Root" id="4"/>
 			<HitObject type="ROOT"/>
+		</Collider>
+		<Collider ver="0" flags="0">
+			<MapObject name="MeshCollider" id="3" hidden="true"/>
+			<HitObject type="HIT"/>
+			<HitMesh ver="0">
+				<TriangleBatch ver="0">
+					<VertexTable>
+						<Vertex xyz="-50,0,0" uv="-800,-3312"/>
+						<Vertex xyz="100,0,100" uv="800,-912" rgba="140,140,140,255"/>
+						<Vertex xyz="100,0,0" uv="-800,-912" rgba="140,140,140,255"/>
+						<Vertex xyz="-85,0,35" uv="-240,-3872"/>
+						<Vertex xyz="-50,0,0" uv="-800,-3312"/>
+						<Vertex xyz="-73,0,12" uv="-608,-3680"/>
+						<Vertex xyz="-85,0,64" uv="224,-3872"/>
+						<Vertex xyz="-50,0,0" uv="-800,-3312"/>
+						<Vertex xyz="-85,0,35" uv="-240,-3872"/>
+						<Vertex xyz="-50,0,100" uv="800,-3312"/>
+						<Vertex xyz="100,0,100" uv="800,-912" rgba="140,140,140,255"/>
+						<Vertex xyz="-50,0,0" uv="-800,-3312"/>
+						<Vertex xyz="-50,0,100" uv="800,-3312"/>
+						<Vertex xyz="-85,0,64" uv="224,-3872"/>
+						<Vertex xyz="-73,0,88" uv="608,-3680"/>
+						<Vertex xyz="-50,0,100" uv="800,-3312"/>
+						<Vertex xyz="-50,0,0" uv="-800,-3312"/>
+						<Vertex xyz="-85,0,64" uv="224,-3872"/>
+						<Vertex xyz="100,0,0" uv="-800,-912" rgba="140,140,140,255"/>
+						<Vertex xyz="400,0,100" uv="800,3888" rgba="140,140,140,255"/>
+						<Vertex xyz="400,0,0" uv="-800,3888" rgba="140,140,140,255"/>
+						<Vertex xyz="100,0,100" uv="800,-912" rgba="140,140,140,255"/>
+						<Vertex xyz="400,0,100" uv="800,3888" rgba="140,140,140,255"/>
+						<Vertex xyz="100,0,0" uv="-800,-912" rgba="140,140,140,255"/>
+					</VertexTable>
+					<TriangleList>
+						<Triangle ijk="0,1,2"/>
+						<Triangle ijk="3,4,5"/>
+						<Triangle ijk="6,7,8"/>
+						<Triangle ijk="9,10,11"/>
+						<Triangle ijk="12,13,14"/>
+						<Triangle ijk="15,16,17"/>
+						<Triangle ijk="18,19,20"/>
+						<Triangle ijk="21,22,23"/>
+					</TriangleList>
+				</TriangleBatch>
+			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
 			<MapObject name="ExitGuards" id="2"/>
@@ -159,16 +499,37 @@
 	</Colliders>
 	<Zones>
 		<Zone ver="0">
-			<MapObject name="Root" id="0"/>
+			<MapObject name="Root" id="1"/>
 			<HitObject type="ROOT"/>
+		</Zone>
+		<Zone ver="0">
+			<MapObject name="MeshZone" id="0" hidden="true"/>
+			<HitObject type="HIT"/>
+			<HitMesh ver="0">
+				<TriangleBatch ver="0">
+					<VertexTable>
+						<Vertex xyz="-100,-1,100" uv="-960,-1600"/>
+						<Vertex xyz="400,-1,0" uv="960,1600"/>
+						<Vertex xyz="-100,-1,0" uv="960,-1600"/>
+						<Vertex xyz="400,-1,0" uv="960,1600"/>
+						<Vertex xyz="-100,-1,100" uv="-960,-1600"/>
+						<Vertex xyz="400,-1,100" uv="-960,1600"/>
+					</VertexTable>
+					<TriangleList>
+						<Triangle ijk="0,1,2"/>
+						<Triangle ijk="3,4,5"/>
+					</TriangleList>
+				</TriangleBatch>
+			</HitMesh>
+			<Camera type="TYPE_6" flag="true" boomLength="450.000000" boomPitch="10.000000" viewPitch="-6.000000" posA="0,10,0" posB="400,10,0" posC="10,0,10"/>
 		</Zone>
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
 			<MapObject name="Root" id="1"/>
 		</Marker>
-		<Marker ver="4" type="Entry" pos="0,0,0" yaw="0.000000">
-			<MapObject name="Entry0" id="0"/>
+		<Marker ver="4" type="Entry" pos="-9,0,34" yaw="180.000000">
+			<MapObject name="Entry0" id="0" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Group">
 			<MapObject name="Entrances" id="FFFFFFFF"/>

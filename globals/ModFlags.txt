@@ -50,3 +50,4 @@
 047 = MF_btf_21_AttackFXB
 048 = MF_btf_20_ATKFXC
 049 = MF_btf_20_DumpsterCleared
+04A = MF_btf_06_HitCoinBlock
