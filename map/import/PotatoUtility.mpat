@@ -220,7 +220,7 @@
    48:  End
 }
 
-#new:Script $Script_ItemThingSetup_Key % I hate this
+#new:Script $Script_ItemThingSetup_Key % I hate this, too
 {
     0:  Call  $Function_8024064C    ( *Var0 )
    10:  BindLock  $Script_ItemThingMain_Key 00000010 00000000 $End[0] 00000000 00000001
