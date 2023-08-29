@@ -425,7 +425,7 @@ End
       Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0088 )
       Call  ShowChoice    ( 001E000D ) % Yes No
       Call  CloseMessage ( )
-      If *Var0 == .True
+      If *Var0 == 00000000
             Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0039 )
             ExecWait $Script_ShowLeavingCutscene
       Else
