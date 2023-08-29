@@ -1,4 +1,5 @@
 #import LetterDelivery.mpat
+#import PotatoUtility.mpat
 
 #define .NpcID:NPC 00
 
@@ -12,7 +13,7 @@
     Exec  $Script_EnterMap
 	Bind  $Script_ResetMario1 .Trigger:CeilingTouch ~Collider:ResetCollider1 00000001 00000000
 	Bind  $Script_ResetMario2 .Trigger:CeilingTouch ~Collider:ResetCollider2 00000001 00000000
-    Call MakeNpcs ( .False $NpcGroupList_Twink )
+    Call MakeNpcs ( .True $NpcGroupList_Rufus )
     Exec $Script_SpinStars1n3
     Exec $Script_SpinStars2n4
     Return
@@ -171,53 +172,53 @@
     End
 }
 
-#new:NpcGroupList $NpcGroupList_Twink {
-	00000001 $NpcGroup_Twink 00000000
+#new:NpcGroupList $NpcGroupList_Rufus {
+	00000001 $NpcGroup_Rufus 00000000
 	00000000 00000000 00000000
 }
 
-#new:NpcGroup $NpcGroup_Twink
+#new:NpcGroup $NpcGroup_Rufus
 {
     .NpcID:NPC $NpcSettings_80244320 ~Vec3f:NPC % 120 100 -210
     00400D09 $Script_Init_80249FA4 00000000 00000000 00000000
     ~NoDrops
     ~Movement:NPC
-    ~AnimationTable:NPC % .Sprite:Twink
-    00000000 00000000 00000000 001A0104 % This Star Kid thinks he's made himself invisible.  ...
+    ~AnimationTable:NPC % .Sprite:Rufus
+    00000000 00000000 00000000 001A0104 % No goombario who cares about tattles
 }
 
 #new:NpcSettings $NpcSettings_80244320
 {
-	00000000 00140014 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00300020 00000000 00000000 00000000 00000000 00000000 00000000
 	00000000 00000000 00630000
 }
 
 #new:Script $Script_Init_80249FA4
 {
-    Call BindNpcIdle ( .Npc:Self $Script_TwinkIdle )
-    Call BindNpcInteract ( .Npc:Self $Script_TwinkInteract )
+    Call BindNpcIdle ( .Npc:Self $Script_RufusIdle )
+    Call BindNpcInteract ( .Npc:Self $Script_RufusInteract )
     Return
     End
 }
 
-#new:Script $Script_TwinkIdle
+#new:Script $Script_RufusIdle
 {
-    Call SetNpcAnimation ( .Npc:Self 00200B03 )
+    Call SetNpcAnimation ( .Npc:Self 00EB0001 )
     Return
     End
 }
 
-#new:Script $Script_TwinkInteract
+#new:Script $Script_RufusInteract
 {
     Call DisablePlayerInput ( .True )
     Call DisablePartnerAI ( 00000000 )
     If *MF_btf_10_DeliveredLetter == .True
-        Call SpeakToPlayer ( .Npc:Self 00200B09 00200B01 00000000 002F000F )
-        Call SetNpcAnimation ( .Npc:Self 00200B01 )
+        Call SpeakToPlayer ( .Npc:Self 00EB0002 00EB0001 00000000 002F000F )
+        Call SetNpcAnimation ( .Npc:Self 00EB0001 )
         Wait 5`
         Call InterpNpcYaw ( .Npc:Self -207` 15` )
         Wait 10`
-        Call SetNpcAnimation ( .Npc:Self 00200B03 )
+        Call SetNpcAnimation ( .Npc:Self 00EB0001 )
     Else
         Call GetNpcPos ( 00000000 *VarA *VarB *VarC )
         Thread
@@ -225,8 +226,8 @@
         EndThread
         Call ShowEmote ( 00000000 .Emote:Exclamation -45` 15` .True *VarA *VarB *VarC 0` )
         Wait 10`
-        Call SpeakToPlayer ( .Npc:Self 00200B09 00200B01 00000000 002F0010 )
-        Call SetNpcAnimation ( .Npc:Self 00200B01 )
+        Call SpeakToPlayer ( .Npc:Self 00EB0002 00EB0001 00000000 002F0010 )
+        Call SetNpcAnimation ( .Npc:Self 00EB0001 )
         ExecWait $Script_LetterDelivery_Mechanic
         If *VarC == 00000001
             Call EnablePartnerAI ()
@@ -251,15 +252,72 @@
         % Wait 5`
         Call InterpNpcYaw ( .Npc:Self -207` 15` )
         Wait 10`
-        Call SetNpcAnimation ( .Npc:Self 00200B03 )
-        Wait 15`
+        Call SetNpcAnimation ( .Npc:Self 00EB0001 )
+        Wait 8`
         % Call SpeakToPlayer ( .Npc:Partner 00200B09 00200B01 00000000 002F0042 )
         Set *MF_btf_10_DeliveredLetter .True
     EndIf
+
+    Call FindKeyItem ( .Item:Screwdriver *Var[1] )
+    Set *Debug[0] *Var[1]
+    If *Var[1] != FFFFFFFF
+          Call InterpNpcYaw ( .Npc:Self -207` 15` )
+          Wait 10`
+          Call SpeakToPlayer ( .NpcID:NPC 00EB0002 00EB0001 00000000 $String_TradeScrewdriver_Init )
+          Set *Var[0] $Data_MakeItemStuffWork
+          Set *Var[1] 0
+          ExecWait $Script_ItemThingSetup_Key
+          Switch *Var[0]
+                Case  <=  00000000
+                      Call SpeakToPlayer ( .NpcID:NPC 00EB0002 00EB0001 00000000 $String_TradeScrewdriver_NO )
+                Default
+                      Call RemoveKeyItemAt( *Debug[0] )
+                Call SpeakToPlayer ( .NpcID:NPC 00EB0002 00EB0001 00000000 $String_TradeScrewdriver_YES )
+                Call ShowGotItem ( .Item:ForestPass .True 00000000 )
+                Call AddKeyItem ( .Item:ForestPass )
+          EndSwitch
+          Call InterpNpcYaw ( .Npc:Self -207` 15` )
+          Wait 6`
+    EndIf
+
     Call EnablePartnerAI ()
     Call DisablePlayerInput ( .False )
     Return
     End
+}
+
+#new:String $String_TradeScrewdriver_Init {
+[Style Right]
+[Voice Star]
+Hold on, is that a Screwdriver[BR]
+you've got there? It's not much..[Pause:10][BR]
+but I've got this Pokémon Card[BR]
+here if you're willing to trade.[BR]
+[Wait][End]
+}
+
+#new:String $String_TradeScrewdriver_YES {
+[Style Right]
+[Voice Star]
+Thank you so much![BR]
+This thing is sure to[BR]
+come in handy![BR]
+[Wait][End] 
+}
+
+
+#new:String $String_TradeScrewdriver_NO {
+[Style Right]
+[Voice Star]
+I see...[Pause:5] Well, if you change[BR]
+your mind please let me know.[BR]
+I don't think I'm going anywhere[BR]
+soon, so you know where to find me.[BR]
+[Wait][End]
+}
+
+#new:Data $Data_MakeItemStuffWork {
+    .Item:Screwdriver 00000000
 }
 
 #new:Unknown $LetterList_Mechanic
@@ -270,8 +328,8 @@
 #new:Script $Script_LetterDelivery_Mechanic
 {
 	Set *Var2 .NpcID:NPC
-	Set *Var3 00200B09 % Talk Animation - same format as SpeakToPlayer
-	Set *Var4 00200B01 % Idle Animation - same format as SpeakToPlayer
+	Set *Var3 00EB0002 % Talk Animation - same format as SpeakToPlayer
+	Set *Var4 00EB0001 % Idle Animation - same format as SpeakToPlayer
 	Set *Var5 .Item:Letter02 % same as LetterList
 	Set *Var6 00000000 % same as LetterList
 	Set *Var7 002F005B % string by parakarry
