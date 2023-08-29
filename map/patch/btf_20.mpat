@@ -494,9 +494,8 @@ End
 	
 	Wait 10`
 	
-	Call GotoMap ( "btf_13" 00000002 )
+	Call GotoMap ( "btf_13" 4` )
 	Call StopSound ( 0000032A )
-	Call ResetCam ( .Cam:Default *Fixed[4.0] )
 	
 	Wait 300`
 	
