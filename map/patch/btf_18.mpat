@@ -46,17 +46,19 @@
     Call PlaySound ( 0000032A )
     Call TranslateGroup ( ~Model:SpaceTruckGroup -440` 143` 0` )
     ExecWait $Script_PanCamera_CamPan
-    Set *Var3 -451`
-    Call  MakeLerp  ( 143` 0` 40` .Easing:Linear )
+    
+    Set *Var3 160`
+    Call  MakeLerp  ( -451` 0` 40` .Easing:QuadraticOut )
     Loop 
-        Add *Var3 11`
+        Sub *Var3 4`
         Call UpdateLerp ( )
-        Call TranslateGroup ( ~Model:SpaceTruckGroup *Var3 *Var0 0` )
+        Call TranslateGroup ( ~Model:SpaceTruckGroup *Var0 *Var3 0` )
             If *Var1 == 0
                 BreakLoop
             EndIf
         Wait 1`
     EndLoop
+    
     Call StopSound ( 0000032A )
     Call SetPlayerPos ( ~Vec3D:MarioCarJumpTo )
     Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryCarFlyTo2 )
@@ -121,11 +123,19 @@
                 Wait 1`
             EndLoop
             Call PlaySound ( 0000032A )
-            Loop 20`
-                Add *Var0 30`
-                Call TranslateGroup ( ~Model:SpaceTruckGroup *Var0 0` 0` )
+            
+            Set *Var2 0`
+            Call MakeLerp ( 0` 600` 40` .Easing:QuadraticIn )
+            Loop
+                Call UpdateLerp ( )
+                Call TranslateGroup ( ~Model:SpaceTruckGroup *Var0 *Var2 0` )
+                Sub *Var2 3`
                 Wait 1`
+                If *Var1 == 00000000
+                    BreakLoop
+                EndIf
             EndLoop
+            
             Wait 10`
             Call GotoMap ( "btf_13" 00000005 )
             Call StopSound ( 0000032A )
@@ -138,6 +148,19 @@
     EndIf
     Call EnablePartnerAI ()
     Call DisablePlayerInput ( .False )
+    Return
+    End
+}
+
+@ $Script_PanCamera_CamPan {
+    Call  UseSettingsFrom   ( .Cam:Default 0` 0` 0` )
+    Call  SetCamPitch       ( .Cam:Default *Fixed[18.000000] *Fixed[-5.000000] )
+    Call  SetCamDistance    ( .Cam:Default 450` )
+    Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan )
+    Call  SetCamSpeed       ( .Cam:Default *Fixed[4.000000] )
+    Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+    Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+    Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
     Return
     End
 }

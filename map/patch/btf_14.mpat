@@ -125,11 +125,19 @@
                 Wait 1`
             EndLoop
             Call PlaySound ( 0000032A )
-            Loop 20`
-                Add *Var0 30`
-                Call TranslateGroup ( ~Model:SpaceTruckGroup *Var0 0` 0` )
+            
+            Set *Var2 0`
+            Call MakeLerp ( 0` 600` 40` .Easing:QuadraticIn )
+            Loop
+                Call UpdateLerp ( )
+                Call TranslateGroup ( ~Model:SpaceTruckGroup *Var0 *Var2 0` )
+                Add *Var2 3`
                 Wait 1`
+                If *Var1 == 00000000
+                    BreakLoop
+                EndIf
             EndLoop
+            
             Wait 10`
             Call GotoMap ( "btf_13" 00000002 )
             Call StopSound ( 0000032A )
