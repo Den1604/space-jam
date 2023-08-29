@@ -68,6 +68,7 @@
 #new:Script $Script_Init_80249FA4
 {
     Call BindNpcIdle ( .Npc:Self $Script_MerleeIdle )
+    Call BindNpcDefeat ( .Npc:Self $Script_MerleeDefeat )
     Call SetNpcYaw ( .Npc:Self -207` )
     Return
     End
@@ -76,12 +77,15 @@
 #new:Script $Script_MerleeIdle
 {
     Call SetNpcAnimation ( .Npc:Self 00BA0004 )
-    Call AwaitPlayerApproach ( ~Vec2D:MerleeWalkToPos4 225` )
-    Call DisablePlayerInput ( .True )
-    Call SpeakToNpc ( .NpcID:Merlee 00BA0007 00BA0004 00000000 .NpcID:Merlee 002F0089 )
-    Call SetNpcYaw ( .Npc:Self -207` )
-    Call SetNpcAnimation ( .Npc:Self 00BA0004 )
-    Call DisablePlayerInput ( .False )
+    If *MF_btf_24_MerleeFirstText == .False
+        Call AwaitPlayerApproach ( ~Vec2D:MerleeWalkToPos4 225` )
+        Call DisablePlayerInput ( .True )
+        Call SpeakToNpc ( .NpcID:Merlee 00BA0007 00BA0004 00000000 .NpcID:Merlee 002F0089 )
+        Call SetNpcYaw ( .Npc:Self -207` )
+        Call SetNpcAnimation ( .Npc:Self 00BA0004 )
+        Call DisablePlayerInput ( .False )
+        Set *MF_btf_24_MerleeFirstText .True
+    EndIf
     Call AwaitPlayerApproach ( ~Vec2D:MerleeWalkToPos4 100` )
     Call DisablePlayerInput ( .True )
     Call SpeakToNpc ( .NpcID:Merlee 00BA0007 00BA0004 00000000 .NpcID:Merlee 002F008A )
@@ -121,6 +125,12 @@
     Wait 10`
     Call SpeakToNpc ( .NpcID:Merlee 00BA0007 00BA0004 00000000 .NpcID:Merlee 002F008D )
     Call StartBossBattle ( .Song:CulexBattleTheme )
+    Return
+    End
+}
+
+#new:Script $Script_MerleeDefeat
+{
     Return
     End
 }

@@ -53,3 +53,4 @@
 04A = MF_btf_06_HitCoinBlock
 04B = MF_btf_20_CanLeave
 04C = MF_btf_21_PutTapeInPlace
+04D = MF_btf_24_MerleeFirstText
