@@ -1037,6 +1037,9 @@ End
     Set *MapFlag[0] .False % 1-4
     Set *MapFlag[6] .False % Big_2
 
+    If *MF_btf_17_TalkedToMuskular == .True
+        Call SetEntityHideMode0 ()
+    EndIf
     Return
     End
 }
@@ -1102,6 +1105,10 @@ End
 
     Set *MapFlag[4] .True % 13-16
     Set *MapFlag[3] .False % Big_1
+
+    If *MF_btf_17_TalkedToMuskular == .True
+        Call SetEntityHideMode2 ()
+    EndIf
 
     Return
     End
