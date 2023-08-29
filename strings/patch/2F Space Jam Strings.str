@@ -1321,3 +1321,49 @@ a tree of some sort.[BR]
 Rufus gave you this in exchange[BR]
 for a Screwdriver.[BR][End]
 }
+
+#message:2F:086
+{
+	[Style Right]
+	We have arrived at "Galaxy[br]
+	Gas Station"![br]
+	[Wait][Next]
+	While our (INSERT NAME HERE)[br]
+	is fueling itself up, let's go look[br]
+	around here.[br]
+	[Wait][Next]
+	It's nice to get moving again[br]
+	after such a drive, wow.[br]
+	Maybe, we may even find[br]
+	something cool.[br]
+	[Wait][END]
+}
+
+#message:2F:087
+{
+	[Style Right]
+	The (INSERT NAME HERE)[br]
+	is not quite done yet, we have[br]
+	to be a bit more patient.[br]
+	[Wait][Next]
+	Why don't we have a look around[br]
+	this place in the meantime?[br]
+	[Wait][END]
+}
+
+#message:2F:088
+{
+	[Style Right]
+	We have finished everything we[br]
+	needed here.[br]
+	[Wait][Next]
+	I was honestly not expecting[br]
+	to deliver a letter here[Pause:2].[Pause:2].[Pause:2].[Pause:2][br]
+	what are the odds?[br]
+	[Wait][Next]
+	Anyway, one more letter to go![br]
+	[Wait][Next]
+	Should we get going, Mario?[br]
+	[Wait][END]
+}
+

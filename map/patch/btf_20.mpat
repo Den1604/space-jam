@@ -34,7 +34,10 @@
 	Exec  $Script_SetupMusic
       Exec  $Script_SetupTexturePan
 	Exec  $Script_EnterMap
+	
 	Bind  $Script_Dumpster .Trigger:WallPressA ~Collider:DumpsterScriptCol 00000001 00000000
+    Bind $Script_MarioAndParakarryLeave .Trigger:WallPressA ~Collider:LeaveCollider 00000001 00000000
+	
 	Set *MapFlag[0] .False
 	Set *Debug[0] 0`
 	Set *Debug[1] 0`
@@ -299,12 +302,209 @@ End
 
 #new:Script $Script_ArrivalCutscene % Here you go Darxoon
 {
-
-
-Return
-End
+	Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+	
+	Call SetPlayerPos ( ~Vec3D:AboveMap )
+	Call SetNpcPos ( .Npc:Partner ~Vec3D:AboveMap )
+	
+    Call PlaySound ( 0000032A )
+    Call TranslateGroup ( ~Model:SpaceTruckGroup 1000` 0` 0` )
+	
+	ExecWait $Script_PanCamera_Cam1
+	
+	ExecWait $Script_PanCamera_Cam2
+	
+	Call MakeLerp ( -1000` -300` 90` .Easing:Linear )
+	Loop
+		Call UpdateLerp ( )
+		Call TranslateGroup ( ~Model:SpaceTruckGroup *Var0 0` -100` )
+		Wait 1`
+		If *Var1 == 00000000
+			BreakLoop
+		EndIf
+	EndLoop
+	
+	Exec $Script_PanCamera_Cam3
+	
+	Set *Var2 -100`
+	
+	Call MakeLerp ( -300` 0` 45` .Easing:Linear )
+	Loop
+		Call UpdateLerp ( )
+		Call TranslateGroup ( ~Model:SpaceTruckGroup *Var0 0` *Var2 )
+		Add *Var2 10`
+		If *Var2 > 0`
+			Set *Var2 0`
+		EndIf
+		Wait 1`
+		If *Var1 == 00000000
+			BreakLoop
+		EndIf
+	EndLoop
+	
+	Call SetPlayerPos ( ~Vec3D:MarioPos )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:ParakarryPos )
+    Call StopSound ( 0000032A )
+	
+    Set *Var0 0`
+    Loop 9`
+        Add *Var0 15`
+        Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
+        Wait 1`
+    EndLoop
+	
+    Call SetPlayerJumpscale ( *Fixed[2.0] )
+    Call PlayerJump ( ~Vec3D:MarioJumpTo 20` )
+    Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryFlyTo1 15` 1` .Easing:Linear )
+    Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryFlyTo2 25` 1` .Easing:Linear )
+	
+	Wait 10`
+	
+    Loop 9`
+        Sub *Var0 15`
+        Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
+        Wait 1`
+    EndLoop
+	
+    Wait 10`
+	
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0086 )
+	
+	Call ResetCam ( .Cam:Default *Fixed[4.0] )
+    Call EnablePartnerAI ()
+    Call DisablePlayerInput ( .False )
+	
+	Return
+	End
 }
 
+#new:Script $Script_PanCamera_Cam1
+{
+	Call  UseSettingsFrom   ( .Cam:Default 632` 68` 180` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:Cam1 )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[100.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+#new:Script $Script_PanCamera_Cam2
+{
+	Call  UseSettingsFrom   ( .Cam:Default 360` 0` 188` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:Cam2 )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+#new:Script $Script_PanCamera_Cam3
+{
+	Call  UseSettingsFrom   ( .Cam:Default -18` 0` 190` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:Cam3 )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+#new:Script $Script_MarioAndParakarryLeave
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+	
+    If *MF_btf_20_CanLeave == .True
+        Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0088 )
+        
+		% Imagine a ShowChoice call here.
+		Set *Var0 .True
+		
+		If *Var0 == .True
+			ExecWait $Script_ShowLeavingCutscene
+		Else
+			Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0024 )
+		EndIf
+    Else
+        Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0087 )
+		
+		% TODO: DEBUG: FIXME:
+		% blook, when you get pieface scripted, please remove this
+		Set *MF_btf_20_CanLeave .True
+    EndIf
+	
+    Call EnablePartnerAI ()
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
+
+#new:Script $Script_ShowLeavingCutscene {
+	Exec $Script_PanCamera_Cam3
+	
+	Set *Var0 0`
+	Loop 9`
+		Add *Var0 15`
+		Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
+		Wait 1`
+	EndLoop
+	
+	Call EnablePartnerAI ()
+	Call SetPlayerJumpscale ( *Fixed[2.0] )
+	Call PlayerJump ( ~Vec3D:MarioPos 20` )
+	
+	Wait 10`
+	
+	Call DisablePartnerAI ( 00000000 )
+	Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryFlyTo1 25` 1` .Easing:Linear )
+	Call NpcFlyTo ( .Npc:Partner ~Vec3D:ParakarryPos 15` 1` .Easing:Linear )
+	
+	Call SetPlayerPos ( ~Vec3D:MarioPos )
+	Call SetNpcPos ( .Npc:Partner ~Vec3D:MarioPos )
+	
+	Loop 9`
+		Sub *Var0 15`
+		Call RotateModel ( ~Model:SpaceTruck_Roof *Var0 0` 0` 1` )
+		Wait 1`
+	EndLoop
+	
+	Call SetPlayerPos ( ~Vec3D:AboveMap )
+	Call SetNpcPos ( .Npc:Partner ~Vec3D:AboveMap )
+	
+	Call PlaySound ( 0000032A )
+	
+	Call MakeLerp ( 0` 400` 60` .Easing:QuadraticIn )
+	Loop
+		Call UpdateLerp ( )
+		
+		Set *Var2 *Var0
+		Div *Var2 2`
+		Mul *Var2 -1`
+		Call TranslateGroup ( ~Model:SpaceTruckGroup *Var0 0` *Var2 )
+		Wait 1`
+		If *Var1 == 00000000
+			BreakLoop
+		EndIf
+	EndLoop
+	
+	Wait 10`
+	
+	Call GotoMap ( "btf_13" 00000002 )
+	Call StopSound ( 0000032A )
+	Call ResetCam ( .Cam:Default *Fixed[4.0] )
+	
+	Wait 300`
+	
+	Return
+	End
+}
+
+% NPCs
 #new:NpcGroupList $NpcGroupList_Pieface
 {
 	00000001 $NpcGroup_Pieface 00000000
@@ -351,7 +551,7 @@ End
 	Call SetNpcAnimation ( .NpcID:Pieface 00EA0001 )
 
 
-   Call FindKeyItem ( .Item:ForestPass *Var[1] )
+    Call FindKeyItem ( .Item:ForestPass *Var[1] )
     Set *Debug[0] *Var[1]
     If *Var[1] != FFFFFFFF
         Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_GimmeCard )
