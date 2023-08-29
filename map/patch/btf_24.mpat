@@ -1,3 +1,5 @@
+#import LetterDelivery.mpat
+
 #define .NpcID:Merlee 00
 
 @ $Script_Main {
@@ -17,6 +19,12 @@
 }
 
 @ $Script_EnterMap {
+    Call  GetLoadType   ( *Var[0] )
+	If  *Var[0]  ==  1
+		Exec  EnterSavePoint
+		Exec $Script_CreateExitTriggers
+		Return
+	EndIf
     Call  GetEntryID    ( *Var[0] )
     Switch  *Var[0]
         Case  ==  ~Entry:Entry0
@@ -131,6 +139,73 @@
 
 #new:Script $Script_MerleeDefeat
 {
+    Call SpeakToNpc ( .NpcID:Merlee 00BA0007 00BA0004 00000000 .NpcID:Merlee 002F008E )
+    Wait 10`
+    Call DisablePartnerAI ( 00000000 )
+    Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Merlee 002F008F )
+    Wait 15`
+    Call SpeakToNpc ( .NpcID:Merlee 00BA0007 00BA0004 00000000 .NpcID:Merlee 002F0090 )
+    Call SetNpcAnimation ( .Npc:Self 00BA0005 )
+    Call NpcMoveTo ( .NpcID:Merlee ~Vec2D:MerleeWalkToPos3 45` )
+    Call SetNpcAnimation ( .Npc:Self 00BA0004 )
+    Wait 5`
+    Call SpeakToNpc ( .NpcID:Merlee 00BA0007 00BA0004 00000000 .NpcID:Merlee 002F0091 )
+    Wait 5`
+    Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Merlee 002F0092 )
+    Wait 10`
+    Label A
+    ExecWait $Script_LetterDelivery_Merlee
+    If *VarC == 00000001
+        Call InterpPlayerYaw ( -107` 10` )
+        Wait 10`
+        Call SetPlayerAnimation ( 00010029 )
+        Wait 15`
+        Call SetPlayerAnimation ( 00010002 )
+        Call InterpPlayerYaw ( -207` 10` )
+        Goto A
+    EndIf
+    Call DisablePartnerAI ( 00000000 )
+    Call SpeakToNpc ( .Npc:Partner 00040006 00040001 00000000 .NpcID:Merlee 002F0096 )
+    Wait 5`
+    Call SpeakToPlayer ( .NpcID:Merlee 00BA0007 00BA0004 00000000 002F0097 )
+    Call SetNpcAnimation ( .Npc:Self 00BA0006 )
+    Call NpcMoveTo ( .NpcID:Merlee ~Vec2D:MarioMoveTo1 40` )
+    Call NpcMoveTo ( .NpcID:Merlee 800` 50` 20` )
+    Wait 5`
+    Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0098 )
+    Wait 10`
+    Call SetPlayerAnimation ( 00010029 )
+    Wait 15`
+    Call SetPlayerAnimation ( 00010002 )
+    Call EnablePartnerAI ()
+    Call PlayerMoveTo ( ~Vec2D:MarioMoveTo1 15` )
+    Call PlayerMoveTo ( 800` 50` 15` )
+    Wait 10`
+    Call ShowMessageAtScreenPos ( 002F0099 000000A0 00000028 )
+    Call GotoMap ( "kmr_30" 00000000 )
+    Wait 300`
     Return
     End
+}
+
+#new:Unknown $LetterList_Merlee
+{
+	.Item:Letter05 00000000
+}
+
+#new:Script $Script_LetterDelivery_Merlee
+{
+	Set *Var2 .NpcID:Merlee
+	Set *Var3 00BA0007 % Talk Animation - same format as SpeakToPlayer
+	Set *Var4 00BA0004 % Idle Animation - same format as SpeakToPlayer
+	Set *Var5 .Item:Letter05 % same as LetterList
+	Set *Var6 00000000 % same as LetterList
+	Set *Var7 002F0094 % string by parakarry
+	Set *Var8 002F0093 % string by parakarry when canceling the letter select box
+	Set *Var9 002F0041 % "another letter duly delivered"
+	Set *VarA 002F0095 % string by other npc
+	Set *VarB $LetterList_Merlee
+	ExecWait  $Script_DoLetterDelivery
+	Return
+	End
 }

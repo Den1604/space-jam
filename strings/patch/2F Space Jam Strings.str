@@ -1407,3 +1407,115 @@ for a Screwdriver.[BR][End]
 	Why don't I take it from you?![br]
 	[Wait][End]
 }
+
+#message:2F:08E
+{
+	[Style Right]
+	How could you defeat me...[Pause:15][br]
+	I had the power of the[br]
+	Ultra Stone on my side...[br]
+	[Wait][End]
+}
+
+#message:2F:08F
+{
+	[Style Right]
+	...we can just give you[br]
+	the letter, yknow?[br]
+	[Wait][End]
+}
+
+#message:2F:090
+{
+	[Style Right]
+	Oh.[br]
+	[Wait][End]
+}
+
+#message:2F:091
+{
+	[Style Right]
+	In that case, feel free to[br]
+	hand it over now.[br]
+	[Wait][End]
+}
+
+#message:2F:092
+{
+	[Style Right]
+	Well uhm...[br]
+	[Wait][End]
+}
+
+#message:2F:093
+{
+	[Style Right]
+	Mario.[Pause:15] C'mon.[Pause:10][br]
+	Let's just get this over[br]
+	with.[br]
+	[Wait][End]
+}
+
+#message:2F:094
+{
+	[Style Right]
+	You're Merlee, correct?[BR]
+	[Wait][Next]
+	The name's Parakarry. I deliver[BR]
+	letters.[BR]
+	[Wait][Next]
+	I believe I have one for you.[BR]
+	[Pause 10]Hang on a moment.[Wait][End]
+}
+
+#message:2F:095
+{
+	[Style Right]
+	I finally have them...[Pause:30][br]
+	My new deck of tarot cards![br]
+	[Wait][End]
+}
+
+#message:2F:096
+{
+	[Style Right]
+	...that's what you wanted so[br]
+	badly you fought us for?[br]
+	[Wait][Next]
+	...I'll never understand some[br]
+	people.[br]
+	[Wait][End]
+}
+
+#message:2F:097
+{
+	[Style Right]
+	Thanks you two! [HEART][Pause:10][br]
+	Back to my tent I go.[br]
+	You two should leave this[br]
+	lair aswell.[Pause:10] It's haunted.[br]
+	[Wait][End]
+}
+
+
+#message:2F:098
+{
+	[Style Right]
+	You don't have to tell me[br]
+	that again![Pause:10][br]
+	Let's ditch this place, Mario.[br]
+	[Wait][End]
+}
+
+#message:2F:099
+{
+	[Style Inspect]
+	And thus, Mario and Parakarry[br]
+	left to Mario's house to say[br]
+	eachother goodbye.[br]
+	[Wait][Next]
+	Little did they know, Muskular[br]
+	set up a little surprise for[br]
+	them finishing their adventure.[br]
+	[Wait][End]
+}
