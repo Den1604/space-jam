@@ -223,6 +223,7 @@
 % Custom entities
 #new:Script $Script_MakeMainEntities {
 	Call MakeItemEntity ( .Item:YellowBerry ~Vec3d:Item1 .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_CollectedItem1 )
+	Call MakeItemEntity ( .Item:SlowGo ~Vec3d:StairSecret .ItemSpawnMode:Fixed_NeverVanish *MF_btf_06_FinalSendoffFromB )
 	
 	Call MakeEntity     ( .Entity:Signpost ~Vec4d:Signpost1 80000000 )
 	Call AssignScript   ( $Script_ReadSign_Signpost1 )

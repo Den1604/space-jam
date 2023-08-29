@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Map name="btf_10" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="-127.139351,176.793213,131.160172" pitch="19.680048" yaw="357.759674"/>
+		<Camera pos="464.817810,32.840260,-16.611938" pitch="1.920051" yaw="34.719700"/>
 		<Camera pos="-159.603760,65536.000000,-281.505310"/>
 		<Camera pos="65536.000000,-41.218796,131.606781"/>
-		<Camera pos="-98.363968,-332.509491,65536.000000"/>
+		<Camera pos="578.547485,40.664909,65536.000000"/>
 	</Editor>
 	<ModelTree>
 		<Node name="Root" id="32">
@@ -4756,10 +4756,10 @@
 		<Marker ver="4" type="Root">
 			<MapObject name="Root" id="C"/>
 		</Marker>
-		<Marker ver="4" type="NPC" pos="508,13,-50" yaw="135.000000">
+		<Marker ver="4" type="NPC" pos="508,0,-50" yaw="135.000000">
 			<MapObject name="NPC" id="B"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
-			<Sprite sprite="20" palette="B" animations="1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+			<Sprite sprite="EB" palette="0" animations="1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="412,0,0" yaw="450.000000">
 			<MapObject name="ResetPos2" id="A"/>

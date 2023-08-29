@@ -235,6 +235,7 @@
 		<Sprite id="E8" src="E8" name="Parade Twink"/>
 		<Sprite id="E9" src="E9" name="Leaf"/>
 		<Sprite id="EA" src="EA" name="Pieface"/>
+		<Sprite id="EB" src="EB" name="Rufus"/>
 	</NpcSprites>
 	<PlayerSprites>
 		<Sprite id="1" src="01" name="Mario 1"/>
