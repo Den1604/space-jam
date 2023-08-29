@@ -95,12 +95,12 @@
         Case  ==  00000002
             Call  AddBadge  ( *VarA *Var0 )
     EndSwitch
-    
+    Call DisablePartnerAI ( 00000000 )
     Wait  30`
     
 	Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0059 )
+    Call EnablePartnerAI ()
     Call  DisablePlayerInput    ( .False )
-    
 	Return
 	End
 }

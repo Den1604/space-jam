@@ -663,7 +663,7 @@
 		% If mode is true, the flag will be added to the npc
 		% rather than removed, which is the case when it is false
 		Call SetNpcFlagBits ( .NpcID:NpcGuard 00000100 .True )
-		
+		Call SetNpcAnimation ( .NpcID:NpcGuard 00390204 )
 		Call NpcMoveTo ( .NpcID:NpcGuard ~Vec2D:NpcGuard_Flee_Pos1 30` )
 		Call NpcMoveTo ( .NpcID:NpcGuard ~Vec2D:NpcGuard_Flee_Pos2 30` )
 		Call SetNpcPos ( .NpcID:NpcGuard 0 -100` 0 )
