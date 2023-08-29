@@ -11,8 +11,12 @@
     Exec  $Script_SetupMusic
     Exec  $Script_EnterMap
     Exec  $Script_MakeEntities
+	Exec  $Script_SetupTexturePan
     Exec $Script_SpinStars_Init
     Call MakeNpcs ( .False $NpcGroupList_Enemies )
+    Call EnableModel ( ~Model:DoorGBlocker1 .False )
+    Call EnableModel ( ~Model:DoorGBlocker2 .False )
+    Call  ModifyColliderFlags     ( 00000000 ~Collider:DoorBlockerCollider 7FFFFE00 )
     Return
     End
 }
@@ -170,6 +174,24 @@
     Exec $Script_TopStarFlyAway
     Wait 15`
     ExecWait $Script_BottomStarFlyAway
+    Wait 10`
+    Thread
+        Call PlaySound ( 00000262 )
+    EndThread
+    Call ShowEmote ( 00000000 .Emote:Exclamation -45` 15` .False *VarA *VarB *VarC 0` )
+    Call SetPlayerAnimation ( 00080016 )
+    ExecWait $Script_PanCamera_DoorCamPan
+    Call PlaySound ( 0000024A )
+    Call  PlayEffect    ( ~FX:GatherEnergyPink ~Vec3D:DoorFXMarker 5` 60` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )  
+    Wait 40` 
+    Call PlaySound ( 000000B2 )
+    Call  PlayEffect    ( ~FX:LensFlare:Rotating ~Vec3D:DoorFXMarker 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+    Wait 5`
+    Call EnableModel ( ~Model:DoorGBlocker1 .False )
+    Call EnableModel ( ~Model:DoorGBlocker2 .False )
+    Call  ModifyColliderFlags     ( 00000000 ~Collider:DoorBlockerCollider 7FFFFE00 )
+    Call ResetCam ( .Cam:Default *Fixed[2.0] )
+    Call SetPlayerAnimation ( 00010002 )
     Call DisablePlayerInput ( .False )
     Return
     End
@@ -256,6 +278,21 @@
     Else
         Call AwaitPlayerApproach ( ~Vec2D:NPC1 90` )
         Call DisablePlayerInput ( .True )
+        Wait 10`
+        Thread
+            Call PlaySound ( 00000262 )
+        EndThread
+        Call ShowEmote ( 00000000 .Emote:Exclamation -45` 15` .False *VarA *VarB *VarC 0` )
+        Call SetPlayerAnimation ( 00080016 )
+        ExecWait $Script_PanCamera_DoorCamPan
+        Call PlaySound ( 000000B2 )
+        Call  PlayEffect    ( ~FX:LensFlare:Rotating ~Vec3D:DoorFXMarker 20` 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+        Wait 5`
+        Call EnableModel ( ~Model:DoorGBlocker1 .True )
+        Call EnableModel ( ~Model:DoorGBlocker2 .True )
+        Call  ModifyColliderFlags     ( 00000001 ~Collider:DoorBlockerCollider 7FFFFE00 )
+        Call ResetCam ( .Cam:Default *Fixed[2.0] )
+        Call SetPlayerAnimation ( 00010002 )
         Thread
             Call PlaySound ( 00000262 )
         EndThread

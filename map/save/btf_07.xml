@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="btf_07" author="unnamed" textures="hos_tex">
 	<Editor>
-		<Camera pos="-61.339859,81.319389,273.567749" pitch="10.000000" yaw="0.000000"/>
-		<Camera pos="-481.087189,65536.000000,-5.418351"/>
-		<Camera pos="65536.000000,37.397324,-95.014809"/>
+		<Camera pos="399.846008,92.340538,239.779205" pitch="13.840000" yaw="353.999969"/>
+		<Camera pos="451.184753,65536.000000,-106.852753"/>
+		<Camera pos="65536.000000,40.127155,-8.974560"/>
 		<Camera pos="231.409836,28.853306,65536.000000"/>
 	</Editor>
 	<ModelTree>
-		<Node name="Root" id="2C">
+		<Node name="Root" id="2E">
 			<Node name="Stage" id="0"/>
 			<Node name="Exit_North" id="1"/>
 			<Node name="Exit_East" id="2"/>
@@ -58,10 +58,12 @@
 			<Node name="o111" id="29"/>
 			<Node name="o137" id="2A"/>
 			<Node name="Split Model" id="2B"/>
+			<Node name="DoorGBlocker1" id="2C"/>
+			<Node name="DoorGBlocker2" id="2D"/>
 		</Node>
 	</ModelTree>
 	<ColliderTree>
-		<Node name="Root" id="D">
+		<Node name="Root" id="E">
 			<Node name="Stage" id="0"/>
 			<Node name="exit_trigger_e" id="1"/>
 			<Node name="MeshCollider" id="2"/>
@@ -75,15 +77,17 @@
 			<Node name="CubeCollider" id="A"/>
 			<Node name="CubeCollider" id="B"/>
 			<Node name="CubeCollider" id="C"/>
+			<Node name="DoorBlockerCollider" id="D"/>
 		</Node>
 	</ColliderTree>
 	<ZoneTree>
-		<Node name="Root" id="1">
+		<Node name="Root" id="2">
 			<Node name="Planar GridZone" id="0"/>
+			<Node name="CutsceneCam" id="1"/>
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="6">
+		<Node name="Root" id="8">
 			<Node name="Entrances" id="0">
 				<Node name="Entry0" id="FFFFFFFF"/>
 			</Node>
@@ -92,6 +96,8 @@
 			<Node name="NPC3" id="3"/>
 			<Node name="Switch" id="4"/>
 			<Node name="EffectMarker" id="5"/>
+			<Node name="DoorFXMarker" id="6"/>
+			<Node name="DoorCamPan" id="7"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -100,9 +106,97 @@
 	</LightSets>
 	<Models>
 		<Model ver="2" type="ROOT" lightset="0">
-			<MapObject name="Root" id="2C"/>
-			<BoundingBox empty="false" min="-490,0,-100" max="700,200,100"/>
+			<MapObject name="Root" id="2E"/>
+			<BoundingBox empty="false" min="-490,-2,-100" max="700,200,100"/>
 			<PropertyList>
+			</PropertyList>
+		</Model>
+		<Model ver="2" type="MODEL" lightset="0" panUnit="1">
+			<MapObject name="DoorGBlocker2" id="2D"/>
+			<ShapeMesh ver="3" texture="hos_sterlighttif">
+				<DisplayList>
+					<F3DEX2 cmd="E7000000,0"/>
+					<F3DEX2 cmd="D9FDFFFF,0"/>
+					<F3DEX2 cmd="D9FFFFFF,200400"/>
+					<TriangleBatch ver="0">
+						<VertexTable>
+							<Vertex xyz="502,81,-17" uv="320,1296" rgba="255,255,255,125"/>
+							<Vertex xyz="502,67,-31" uv="96,1072" rgba="255,255,255,125"/>
+							<Vertex xyz="502,85,0" uv="560,1360" rgba="255,255,255,125"/>
+							<Vertex xyz="502,-2,-31" uv="96,0" rgba="255,255,255,125"/>
+							<Vertex xyz="502,-2,31" uv="1024,0" rgba="255,255,255,125"/>
+							<Vertex xyz="502,67,-31" uv="96,1072" rgba="255,255,255,125"/>
+							<Vertex xyz="502,67,31" uv="1024,1072" rgba="255,255,255,125"/>
+							<Vertex xyz="502,81,17" uv="800,1296" rgba="255,255,255,125"/>
+							<Vertex xyz="502,-2,31" uv="1024,0" rgba="255,255,255,125"/>
+							<Vertex xyz="502,67,-31" uv="96,1072" rgba="255,255,255,125"/>
+							<Vertex xyz="502,-2,31" uv="1024,0" rgba="255,255,255,125"/>
+							<Vertex xyz="502,85,0" uv="560,1360" rgba="255,255,255,125"/>
+							<Vertex xyz="502,81,17" uv="800,1296" rgba="255,255,255,125"/>
+							<Vertex xyz="502,85,0" uv="560,1360" rgba="255,255,255,125"/>
+							<Vertex xyz="502,-2,31" uv="1024,0" rgba="255,255,255,125"/>
+							<Vertex xyz="502,85,0" uv="560,1360" rgba="255,255,255,125"/>
+							<Vertex xyz="502,-2,31" uv="1024,0" rgba="255,255,255,125"/>
+							<Vertex xyz="502,85,0" uv="560,1360" rgba="255,255,255,125"/>
+						</VertexTable>
+						<TriangleList>
+							<Triangle ijk="0,1,2"/>
+							<Triangle ijk="3,4,5"/>
+							<Triangle ijk="6,7,8"/>
+							<Triangle ijk="9,10,11"/>
+							<Triangle ijk="12,13,14"/>
+							<Triangle ijk="15,16,17"/>
+						</TriangleList>
+					</TriangleBatch>
+				</DisplayList>
+			</ShapeMesh>
+			<PropertyList>
+				<Property v="5C,0,11"/>
+				<Property v="5F,0,0"/>
+			</PropertyList>
+		</Model>
+		<Model ver="2" type="MODEL" lightset="0" panUnit="0">
+			<MapObject name="DoorGBlocker1" id="2C"/>
+			<ShapeMesh ver="3" texture="hos_sterlighttif">
+				<DisplayList>
+					<F3DEX2 cmd="E7000000,0"/>
+					<F3DEX2 cmd="D9FDFFFF,0"/>
+					<F3DEX2 cmd="D9FFFFFF,200400"/>
+					<TriangleBatch ver="0">
+						<VertexTable>
+							<Vertex xyz="501,81,-17" uv="-704,-64" rgba="255,255,255,125"/>
+							<Vertex xyz="501,67,-31" uv="-928,-288" rgba="255,255,255,125"/>
+							<Vertex xyz="501,85,0" uv="-464,0" rgba="255,255,255,125"/>
+							<Vertex xyz="501,-2,-31" uv="-928,-1360" rgba="255,255,255,125"/>
+							<Vertex xyz="501,-2,31" uv="0,-1360" rgba="255,255,255,125"/>
+							<Vertex xyz="501,67,-31" uv="-928,-288" rgba="255,255,255,125"/>
+							<Vertex xyz="501,67,31" uv="0,-288" rgba="255,255,255,125"/>
+							<Vertex xyz="501,81,17" uv="-224,-64" rgba="255,255,255,125"/>
+							<Vertex xyz="501,-2,31" uv="0,-1360" rgba="255,255,255,125"/>
+							<Vertex xyz="501,67,-31" uv="-928,-288" rgba="255,255,255,125"/>
+							<Vertex xyz="501,-2,31" uv="0,-1360" rgba="255,255,255,125"/>
+							<Vertex xyz="501,85,0" uv="-464,0" rgba="255,255,255,125"/>
+							<Vertex xyz="501,81,17" uv="-224,-64" rgba="255,255,255,125"/>
+							<Vertex xyz="501,85,0" uv="-464,0" rgba="255,255,255,125"/>
+							<Vertex xyz="501,-2,31" uv="0,-1360" rgba="255,255,255,125"/>
+							<Vertex xyz="501,85,0" uv="-464,0" rgba="255,255,255,125"/>
+							<Vertex xyz="501,-2,31" uv="0,-1360" rgba="255,255,255,125"/>
+							<Vertex xyz="501,85,0" uv="-464,0" rgba="255,255,255,125"/>
+						</VertexTable>
+						<TriangleList>
+							<Triangle ijk="0,1,2"/>
+							<Triangle ijk="3,4,5"/>
+							<Triangle ijk="6,7,8"/>
+							<Triangle ijk="9,10,11"/>
+							<Triangle ijk="12,13,14"/>
+							<Triangle ijk="15,16,17"/>
+						</TriangleList>
+					</TriangleBatch>
+				</DisplayList>
+			</ShapeMesh>
+			<PropertyList>
+				<Property v="5C,0,16"/>
+				<Property v="5F,0,0"/>
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
@@ -4063,8 +4157,44 @@
 	</Models>
 	<Colliders>
 		<Collider ver="0" flags="0">
-			<MapObject name="Root" id="D"/>
+			<MapObject name="Root" id="E"/>
 			<HitObject type="ROOT"/>
+		</Collider>
+		<Collider ver="0" flags="0">
+			<MapObject name="DoorBlockerCollider" id="D" hidden="true"/>
+			<HitObject type="HIT"/>
+			<HitMesh ver="0">
+				<TriangleBatch ver="0">
+					<VertexTable>
+						<Vertex xyz="501,81,-17" uv="-704,-64" rgba="255,255,255,125"/>
+						<Vertex xyz="501,67,-31" uv="-928,-288" rgba="255,255,255,125"/>
+						<Vertex xyz="501,85,0" uv="-464,0" rgba="255,255,255,125"/>
+						<Vertex xyz="501,-2,-31" uv="-928,-1360" rgba="255,255,255,125"/>
+						<Vertex xyz="501,-2,31" uv="0,-1360" rgba="255,255,255,125"/>
+						<Vertex xyz="501,67,-31" uv="-928,-288" rgba="255,255,255,125"/>
+						<Vertex xyz="501,67,31" uv="0,-288" rgba="255,255,255,125"/>
+						<Vertex xyz="501,81,17" uv="-224,-64" rgba="255,255,255,125"/>
+						<Vertex xyz="501,-2,31" uv="0,-1360" rgba="255,255,255,125"/>
+						<Vertex xyz="501,67,-31" uv="-928,-288" rgba="255,255,255,125"/>
+						<Vertex xyz="501,-2,31" uv="0,-1360" rgba="255,255,255,125"/>
+						<Vertex xyz="501,85,0" uv="-464,0" rgba="255,255,255,125"/>
+						<Vertex xyz="501,81,17" uv="-224,-64" rgba="255,255,255,125"/>
+						<Vertex xyz="501,85,0" uv="-464,0" rgba="255,255,255,125"/>
+						<Vertex xyz="501,-2,31" uv="0,-1360" rgba="255,255,255,125"/>
+						<Vertex xyz="501,85,0" uv="-464,0" rgba="255,255,255,125"/>
+						<Vertex xyz="501,-2,31" uv="0,-1360" rgba="255,255,255,125"/>
+						<Vertex xyz="501,85,0" uv="-464,0" rgba="255,255,255,125"/>
+					</VertexTable>
+					<TriangleList>
+						<Triangle ijk="0,1,2"/>
+						<Triangle ijk="3,4,5"/>
+						<Triangle ijk="6,7,8"/>
+						<Triangle ijk="9,10,11"/>
+						<Triangle ijk="12,13,14"/>
+						<Triangle ijk="15,16,17"/>
+					</TriangleList>
+				</TriangleBatch>
+			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
 			<MapObject name="CubeCollider" id="C" hidden="true"/>
@@ -4559,8 +4689,27 @@
 	</Colliders>
 	<Zones>
 		<Zone ver="0">
-			<MapObject name="Root" id="1"/>
+			<MapObject name="Root" id="2"/>
 			<HitObject type="ROOT"/>
+		</Zone>
+		<Zone ver="0">
+			<MapObject name="CutsceneCam" id="1"/>
+			<HitObject type="HIT"/>
+			<HitMesh ver="0">
+				<TriangleBatch ver="0">
+					<VertexTable>
+						<Vertex xyz="400,0,-200" uv="-512,512"/>
+						<Vertex xyz="600,0,-400" uv="512,-512"/>
+						<Vertex xyz="400,0,-400" uv="-512,-512"/>
+						<Vertex xyz="600,0,-200" uv="512,512"/>
+					</VertexTable>
+					<TriangleList>
+						<Triangle ijk="0,1,2"/>
+						<Triangle ijk="1,0,3"/>
+					</TriangleList>
+				</TriangleBatch>
+			</HitMesh>
+			<Camera type="TYPE_6" flag="true" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="600,10,-50" posB="600,10,50" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
 			<MapObject name="Planar GridZone" id="0" hidden="true"/>
@@ -4586,7 +4735,14 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="6"/>
+			<MapObject name="Root" id="8"/>
+		</Marker>
+		<Marker ver="4" type="CamTarget" pos="500,0,0" yaw="0.000000">
+			<MapObject name="DoorCamPan" id="7"/>
+			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" samplePos="500,0,-300" overrideLength="450.000000" overrideAngles="10.000000,-4.000000"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="500,34,0" yaw="270.000000">
+			<MapObject name="DoorFXMarker" id="6"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="-429,133,0" yaw="0.000000">
 			<MapObject name="EffectMarker" id="5"/>
@@ -4619,8 +4775,8 @@
 	</Markers>
 	<ScriptData>
 		<TexPanners>
-			<TexPanner id="0" generate="false"/>
-			<TexPanner id="1" generate="false"/>
+			<TexPanner id="0" generate="false" mainStep="150,150"/>
+			<TexPanner id="1" generate="false" mainStep="-150,-150"/>
 			<TexPanner id="2" generate="false"/>
 			<TexPanner id="3" generate="false"/>
 			<TexPanner id="4" generate="false"/>
