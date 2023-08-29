@@ -598,6 +598,7 @@
 		<Stage name="btf_bt02" nickname="CI Battle Map"/>
 		<Stage name="btf_bt03" nickname="btf_06 Fuzzy Battle Map"/>
 		<Stage name="btf_bt04" nickname="btf_06 Bobomb BattleMap"/>
+		<Stage name="btf_bt05" nickname="Merlee Battle Map"/>
 	</Area>
 	<Resource name="mac_tex" compressed="false"/>
 	<Resource name="tik_tex" compressed="false"/>

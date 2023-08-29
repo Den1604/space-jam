@@ -1,0 +1,126 @@
+#define .NpcID:Merlee 00
+
+@ $Script_Main {
+    Set   *GB_WorldLocation  .Location:GoombaRoad
+    Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+    Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+    Call  SetCamEnabled      ( .Cam:Default .True
+    Call  SetCamLeadPlayer   ( .Cam:Default .False )
+    Exec  $Script_SetupMusic
+    Exec  $Script_EnterMap
+	Call MakeItemEntity ( .Item:UltraStone ~Vec3D:UltraStone .ItemSpawnMode:Decoration 0 )
+    Call MakeNpcs ( .False $NpcGroupList_Merlee )
+    Call  MakeEntity    ( .Entity:SavePoint ~Vec4d:SaveBlock 80000000 )
+	Call  MakeEntity    ( .Entity:HealingBlock ~Vec4d:HeartBlock 80000000 )
+    Return
+    End
+}
+
+@ $Script_EnterMap {
+    Call  GetEntryID    ( *Var[0] )
+    Switch  *Var[0]
+        Case  ==  ~Entry:Entry0
+            Set   *Var[0] $Script_CreateExitTriggers
+            Exec $Script_MarioEnters
+        Default
+            Exec  $Script_CreateExitTriggers
+    EndSwitch
+    Return
+    End
+}
+
+#new:Script $Script_MarioEnters
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    ExecWait $Script_PanCamera_EntryPan
+    Call SetPlayerPos ( ~Vec3D:EntryPos )
+    Call SetNpcPos ( .Npc:Partner ~Vec3D:EntryPos2 )
+    Call EnablePartnerAI ()
+    Wait 60`
+    Call ResetCam ( .Cam:Default *Fixed[2.0] )
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
+
+#new:NpcGroupList $NpcGroupList_Merlee {
+	00000001 $NpcGroup_Merlee 09080000
+	00000000 00000000 00000000
+}
+
+#new:NpcGroup $NpcGroup_Merlee
+{
+    .NpcID:Merlee $NpcSettings_80244320 ~Vec3f:Merlee % 120 100 -210
+    00400D09 $Script_Init_80249FA4 00000000 00000000 00000000
+    ~NoDrops
+    ~Movement:Merlee
+    ~AnimationTable:Merlee % .Sprite:Merlee
+    00000000 00000000 00000000 001A0104 % This Star Kid thinks he's made himself invisible.  ...
+}
+
+#new:NpcSettings $NpcSettings_80244320
+{
+	00000000 00200020 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
+}
+
+#new:Script $Script_Init_80249FA4
+{
+    Call BindNpcIdle ( .Npc:Self $Script_MerleeIdle )
+    Call SetNpcYaw ( .Npc:Self -207` )
+    Return
+    End
+}
+
+#new:Script $Script_MerleeIdle
+{
+    Call SetNpcAnimation ( .Npc:Self 00BA0004 )
+    Call AwaitPlayerApproach ( ~Vec2D:MerleeWalkToPos4 225` )
+    Call DisablePlayerInput ( .True )
+    Call SpeakToNpc ( .NpcID:Merlee 00BA0007 00BA0004 00000000 .NpcID:Merlee 002F0089 )
+    Call SetNpcYaw ( .Npc:Self -207` )
+    Call SetNpcAnimation ( .Npc:Self 00BA0004 )
+    Call DisablePlayerInput ( .False )
+    Call AwaitPlayerApproach ( ~Vec2D:MerleeWalkToPos4 100` )
+    Call DisablePlayerInput ( .True )
+    Call SpeakToNpc ( .NpcID:Merlee 00BA0007 00BA0004 00000000 .NpcID:Merlee 002F008A )
+    ExecWait $Script_PanCamera_MerleeCamPan
+    Call SpeakToNpc ( .NpcID:Merlee 00BA0007 00BA0004 00000000 .NpcID:Merlee 002F008B )
+    Call SetNpcAnimation ( .Npc:Self 00BA0008 )
+    Call NpcMoveTo ( .NpcID:Merlee ~Vec2D:MerleeWalkToPos1 22` )
+    Wait 30`
+    Call NpcMoveTo ( .NpcID:Merlee ~Vec2D:MerleeWalkToPos2 22` )
+    Wait 30`
+    Call NpcMoveTo ( .NpcID:Merlee ~Vec2D:MerleeWalkToPos3 22` )
+    Wait 30`
+    Call NpcMoveTo ( .NpcID:Merlee ~Vec2D:MerleeWalkToPos4 22` )
+    Wait 30`
+    Call NpcMoveTo ( .NpcID:Merlee ~Vec2D:MerleeWalkToPos1 22` )
+    Wait 30`
+    Call NpcMoveTo ( .NpcID:Merlee ~Vec2D:MerleeWalkToPos2 22` )
+    Wait 30`
+    Call InterpNpcYaw ( .NpcID:Merlee -107` 5` )
+    Call SetNpcAnimation ( .Npc:Self 00BA0002 )
+    Call PlayerMoveTo ( ~Vec2D:MarioMoveTo1 10` )
+    Call SetPlayerJumpscale ( *Fixed[1.5] )
+    Call PlayerJump ( ~Vec3D:MarioJumpTo1 10` )
+    Call PlayerMoveTo ( ~Vec2D:MerleeWalkToPos4 15` )
+    Call GetNpcPos ( 00000000 *VarA *VarB *VarC )
+    Thread
+        Call PlaySound ( 00000262 )
+    EndThread
+    Call ShowEmote ( 00000000 .Emote:Exclamation -45` 15` .True *VarA *VarB *VarC 0` )
+    Call SetNpcAnimation ( .Npc:Self 00BA0004 )
+    Wait 15`
+    Call SpeakToNpc ( .NpcID:Merlee 00BA0007 00BA0004 00000000 .NpcID:Merlee 002F008C )
+    Wait 10`
+    Call SetPlayerAnimation ( 00010029 )
+    Wait 15`
+    Call SetPlayerAnimation ( 00010002 )
+    Wait 10`
+    Call SpeakToNpc ( .NpcID:Merlee 00BA0007 00BA0004 00000000 .NpcID:Merlee 002F008D )
+    Call StartBossBattle ( .Song:CulexBattleTheme )
+    Return
+    End
+}

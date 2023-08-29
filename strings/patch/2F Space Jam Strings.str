@@ -1367,3 +1367,43 @@ for a Screwdriver.[BR][End]
 	[Wait][END]
 }
 
+#message:2F:089
+{
+	[Style Right]
+	If they can't bring me my mail[br]
+	on time...[Pause:15][br]
+	[PrintRising][Shake]I'LL MAKE IT APPEAR ON TIME[BR]
+	ONE WAY OR ANOTHER![/fx][/fx][br]
+	[Wait][End]
+}
+
+#message:2F:08A
+{
+	[Style Right]
+	Soon...[Pause:15][br]
+	[Wait][End]
+}
+
+#message:2F:08B
+{
+	[Style Right]
+	[PrintRising]The mail will be here![/fx][br]
+	[Wait][End]
+}
+
+#message:2F:08C
+{
+	[Style Right]
+	Mail has arrived![Pause:10][br]
+	Are you here to deliver...[Pause:15][br]
+	[Color:07]the letter[Color:0A] [Pause:5]to me?[br]
+	[Wait][End]
+}
+
+#message:2F:08D
+{
+	[Style Right]
+	Great...[Pause:15][br]
+	Why don't I take it from you?![br]
+	[Wait][End]
+}

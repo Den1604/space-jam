@@ -26,7 +26,7 @@
 			</Component>
 		</Animation>
 		<Animation name="Reading">
-			<Component xyz="0,0,0">
+			<Component xyz="-5,0,0">
 				<Command val="3000"/>
 				<Command val="0"/>
 				<Command val="FFFB"/>
@@ -60,16 +60,16 @@
 			</Component>
 		</Animation>
 		<Animation name="For me">
-			<Component xyz="0,0,0">
+			<Component xyz="-4,-4,0">
 				<Command val="3000"/>
 				<Command val="0"/>
-				<Command val="FFFB"/>
+				<Command val="0"/>
 				<Command val="0"/>
 				<Command val="1005"/>
 			</Component>
 		</Animation>
 		<Animation name="Thinking">
-			<Component xyz="0,0,0">
+			<Component xyz="-1,-5,0">
 				<Command val="3000"/>
 				<Command val="0"/>
 				<Command val="FFFB"/>
@@ -78,7 +78,7 @@
 			</Component>
 		</Animation>
 		<Animation name="For you">
-			<Component xyz="0,0,0">
+			<Component xyz="3,-4,0">
 				<Command val="3000"/>
 				<Command val="0"/>
 				<Command val="FFFB"/>
