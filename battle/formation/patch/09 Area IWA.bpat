@@ -146,13 +146,13 @@
 
 #new:PartsTable $PartsTable_80229BD4
 {
-	00800000 01000000 F42000FF $IdleAnimations_80229AC0 $DefenseTable_80229B0C 00000008 00000000 08FD0000 00000000
+	00800000 01000000 D42000FF $IdleAnimations_80229AC0 $DefenseTable_80229B0C 00000008 00000000 08FD0000 00000000
 }
 
 #new:Actor $Merlee
 {
 	% stats
-	[Index]        38b
+	[Index]        83b
 	[Level]        24`b
 	[MaxHP]        60`b
 	[Coins]         0`b
@@ -171,7 +171,7 @@
 	[PowerBounce]  80`b
 	[SpinSmash]     0`b % weight (0-4)
 	% ui positions
-	[Size]         42`b  42`b % width height
+	[Size]         18`b  18`b % width height
 	[HealthBar]     0`b   0`b % dx dy
 	[StatusTurn]  -10`b  20`b % dx dy
 	[StatusIcon]   10`b  35`b % dx dy
