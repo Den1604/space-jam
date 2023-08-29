@@ -10,7 +10,7 @@
 	LI t0, 8010F290
 	LI t1, 0A
 	LI t2, 09
-	LI t3, 03
+	LI t3, 04
 	SB t1, 05(t0)
 	SB t1, 06(t0)
 	SB t1, 07(t0)
@@ -170,7 +170,7 @@
     EndIf
     Call  $Function_80241030    ( 00000000 00000004 )
     Call  $LoadParakarryImage ( )
-    Call  SetMusicTrack ( 00000000 .Song:NewPartner 00000000 00000008 )
+    Call  SetMusicTrack ( 00000000 .Song:NewPartnerJP 00000000 00000008 )
     Call  ShowMessageAtScreenPos    ( 001D018C  160`  40` ) % Parakarry joined your party!! Press to have him ca ...
     Call  EnableGroup   ( ~Model:g100 .False )
     Call  ResetCam  ( .Cam:Default *Fixed[4.0] )

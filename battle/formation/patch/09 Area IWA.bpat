@@ -86,7 +86,7 @@
     [PowerBounce] 100`b
     [SpinSmash]     4`b % weight (0-4)
     % ui positions
-    [Size]         34`b  18`b % width height
+    [Size]         18`b  18`b % width height
     [HealthBar]     0`b   0`b % dx dy
     [StatusTurn]  -10`b  20`b % dx dy
     [StatusIcon]   10`b  20`b % dx dy
@@ -122,20 +122,20 @@
 {
 	.Status:Normal      0`
 	.Status:Default     0`
-	.Status:Sleep      80`
-	.Status:Poison     50`
+	.Status:Sleep      0`
+	.Status:Poison     0`
 	.Status:Frozen      0`
-	.Status:Dizzy      75`
-	.Status:Fear      100`
-	.Status:Static     50`
-	.Status:Paralyze   75`
-	.Status:Shrink     75`
-	.Status:Stop       80`
+	.Status:Dizzy      50`
+	.Status:Fear      0`
+	.Status:Static     0`
+	.Status:Paralyze   0`
+	.Status:Shrink     0`
+	.Status:Stop       0`
 	.Status:DefaultTurnMod    0`
 	.Status:SleepTurnMod      1`
 	.Status:PoisonTurnMod     0`
 	.Status:FrozenTurnMod     0`
-	.Status:DizzyTurnMod      0`
+	.Status:DizzyTurnMod      -1`
 	.Status:FearTurnMod       0`
 	.Status:StaticTurnMod     0`
 	.Status:ParalyzeTurnMod   1`

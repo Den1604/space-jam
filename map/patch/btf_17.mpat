@@ -1815,7 +1815,6 @@ End
         Unbind 
         BindLock  $Script_Potato .Trigger:WallPressA ~Collider:MusHome_Col $ItemList_PotatoQuest 00000000 00000001
     EndIf
-    Call SetEntityHideMode0 ()
     Call EnablePartnerAI ()
     Call DisablePlayerInput ( .False )
     Return

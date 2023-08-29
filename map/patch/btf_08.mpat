@@ -12,11 +12,6 @@
 {
     Call DisablePlayerInput ( .True )
     Call ShowMessageAtScreenPos ( 002F0006 000000A0 00000028 )
-    Call ShowChoice ( 001E0050 )
-    Call CloseMessage ()
-    If *Var0 == 0` %Console
-        Set *MF_PlayerIsOnConsoleOrUsesAres .True
-    EndIf
     Set *Intro .True
     Call GotoMap ( "kmr_20" 0 )
     Return

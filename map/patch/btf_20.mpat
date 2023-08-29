@@ -422,16 +422,15 @@ End
     Call DisablePartnerAI ( 00000000 )
 	
     If *MF_btf_20_CanLeave == .True
-        Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0088 )
-        
-		% Imagine a ShowChoice call here.
-		Set *Var0 .True
-		
-		If *Var0 == .True
-			ExecWait $Script_ShowLeavingCutscene
-		Else
-			Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0024 )
-		EndIf
+      Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0088 )
+      Call  ShowChoice    ( 001E000D ) % Yes No
+      Call  CloseMessage ( )
+      If *Var0 == .True
+            Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0039 )
+            ExecWait $Script_ShowLeavingCutscene
+      Else
+            Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0024 )
+      EndIf
     Else
         Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0087 )
 		

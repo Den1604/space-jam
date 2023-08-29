@@ -89,14 +89,7 @@
 	[Color:16]DarkSB24[Color:00][BR]
 	[BR]
 	- Midi used from vgmusic.com[BR]
-	[Wait][Next]
-	[Pause:30]
-	[Next]
-	One more thing.[br]
-	[Wait][Next]
-	What are you playing this[br]
-	romhack on?[br]
-	[Wait][Yield][End]
+	[Wait][End]
 }
 
 #message:2F:007
@@ -1473,7 +1466,7 @@ for a Screwdriver.[BR][End]
 	Anyway, one more letter to go![br]
 	[Wait][Next]
 	Should we get going, Mario?[br]
-	[Wait][END]
+	[Wait][Yield][End]
 }
 
 #message:2F:089
