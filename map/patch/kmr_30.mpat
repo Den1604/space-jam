@@ -14,7 +14,7 @@
     Call  SetCamSpeed   ( .Cam:Default *Fixed[90.0] )
     Call  PanToTarget   ( .Cam:Default 00000000 00000001 )
     Thread
-        Call SetNpcSpeed ( .Npc:Partner *Fixed[2.0] )
+        Call SetNpcSpeed ( .Npc:Partner *Fixed[1.75] )
         Call  SetNpcAnimation   ( .Npc:Partner 00040001 )
         Call NpcFlyTo ( .Npc:Partner 450` 15` -60` 0` 0` .Easing:Linear )
         Call  SetNpcAnimation   ( .Npc:Partner 00040001 )
@@ -22,7 +22,7 @@
         Call NpcFlyTo ( .Npc:Partner 330` 45` -130` 0` 0` .Easing:Linear )
         Call  SetNpcAnimation   ( .Npc:Partner 00040001 )
     EndThread
-    Call  SetPlayerSpeed        ( *Fixed[1.75] )
+    Call  SetPlayerSpeed        ( *Fixed[2.0] )
     Call  PlayerMoveTo  (  450`  -60`  0` )
     Call  PlayerMoveTo  (  320`  -80`  0` )
     Call  PlayerMoveTo  (  300`  -120`  0` )
