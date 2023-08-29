@@ -1,5 +1,6 @@
 
 #import PotatoUtility.mpat
+#import LetterDelivery.mpat
 
 #define .NpcID:Pieface         00
 #define .ItemID_Temp 0
@@ -36,9 +37,10 @@
 	Exec  $Script_EnterMap
 	
 	Bind  $Script_Dumpster .Trigger:WallPressA ~Collider:DumpsterScriptCol 00000001 00000000
-    Bind $Script_MarioAndParakarryLeave .Trigger:WallPressA ~Collider:LeaveCollider 00000001 00000000
+      Bind $Script_MarioAndParakarryLeave .Trigger:WallPressA ~Collider:LeaveCollider 00000001 00000000
 	
 	Set *MapFlag[0] .False
+      Set *MapFlag[4] .False
 	Set *Debug[0] 0`
 	Set *Debug[1] 0`
 	Set *Debug[2] 0`
@@ -433,9 +435,6 @@ End
     Else
         Call SpeakToPlayer ( .Npc:Partner 00040006 00040001 00000000 002F0087 )
 		
-		% TODO: DEBUG: FIXME:
-		% blook, when you get pieface scripted, please remove this
-		Set *MF_btf_20_CanLeave .True
     EndIf
 	
     Call EnablePartnerAI ()
@@ -537,63 +536,178 @@ End
 
 #new:Script $Script_Interact_Pieface
 {
-	Call DisablePlayerInput ( .True )
+      Call DisablePlayerInput ( .True )
+      If *MF_btf_20_CanLeave == .False
+            Call DisablePartnerAI ( 00000000 )
+            Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_PiefaceLetter1 )
+            Call  ModifyColliderFlags ( 00000000 ~Collider:CounterCol 7FFFFE00 )
+            Wait 5`
+            ExecWait $Script_LetterDelivery_Pieface
+            Call  ModifyColliderFlags ( 00000001 ~Collider:CounterCol 7FFFFE00 )
+            If *VarC == 00000001
+                  Call EnablePartnerAI ()
+                  Call DisablePlayerInput ( .False )
+            Return
+            EndIf
+            Set *MF_btf_20_CanLeave .True
+      Else
+            If *MapFlag[4] == .False
+                  Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_PiefacePostLetterGeneric )
+                  Set *MapFlag[4] .True
+            Else
+                  Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_PiefacePostLetterGeneric2 )
+                  Set *MapFlag[4] .False
+            EndIf 
+      EndIf
 
-	Call SetNpcAnimation ( .NpcID:Pieface 00EA0002 )
-	Wait 5`
-	Call SetNpcAnimation ( .NpcID:Pieface 00EA0003 )
-	Wait 5`
-	Call SetNpcAnimation ( .NpcID:Pieface 00EA0004 )
-	Wait 5`
-	Call SetNpcAnimation ( .NpcID:Pieface 00EA0005 )
-	Wait 5`
-	Call SetNpcAnimation ( .NpcID:Pieface 00EA0001 )
-
-
-    Call FindKeyItem ( .Item:ForestPass *Var[1] )
-    Set *Debug[0] *Var[1]
-    If *Var[1] != FFFFFFFF
-        Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_GimmeCard )
-        Set *Var[0] $Data_MakeItemStuffWork
-        Set *Var[1] 0
-        ExecWait $Script_ItemThingSetup_Key
-        Switch *Var[0]
-            Case  <=  00000000
-                Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_GimmeCard_NO )
-            Default
-                Call RemoveKeyItemAt( *Debug[0] )
-                Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_GimmeCard_YES )
-                Call ShowGotItem ( .Item:KootTheTape .True 00000000 )
-                Call AddKeyItem ( .Item:KootTheTape )
-        EndSwitch
-    EndIf
-
+      Call FindKeyItem ( .Item:ForestPass *Var[1] )
+      Set *Debug[0] *Var[1]
+      If *Var[1] != FFFFFFFF
+            Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_GimmeCard )
+            Set *Var[0] $Data_MakeItemStuffWork
+            Set *Var[1] 0
+            ExecWait $Script_ItemThingSetup_Key
+            Switch *Var[0]
+                  Case  <=  00000000
+                        Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_GimmeCard_NO )
+                  Default
+                        Call RemoveKeyItemAt( *Debug[0] )
+                  Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_GimmeCard_YES )
+                  Call ShowGotItem ( .Item:KootTheTape .True 00000000 )
+                  Call AddKeyItem ( .Item:KootTheTape )
+            EndSwitch
+      EndIf
+      Call SetNpcAnimation ( .NpcID:Pieface 00EA0001 )
 	Call DisablePlayerInput ( .False )
     Return
 End
 }
 
+% 0 Idle | 1 Read | 2 Talk | 3 Me | 4 Think | 5 For you
+
+#new:Script $Script_LetterDelivery_Pieface
+{
+	Set *Var2 .NpcID:Pieface
+	Set *Var3 00EA0002 % Talk Animation - same format as SpeakToPlayer
+	Set *Var4 00EA0001 % Idle Animation - same format as SpeakToPlayer
+	Set *Var5 .Item:Letter03 % same as LetterList
+	Set *Var6 00000000 % same as LetterList
+	Set *Var7 $String_PK_TalkToPastry % string by parakarry
+	Set *Var8 002F0056 % string by parakarry when canceling the letter select box
+	Set *Var9 $String_PK_Done % "another letter duly delivered"
+	Set *VarA $String_PiefaceLetter2 % string by other npc
+	Set *VarB $LetterList_Pieface
+	ExecWait  $Script_DoLetterDelivery
+	Return
+	End
+}
+
+#new:Unknown $LetterList_Pieface
+{
+	.Item:Letter03 00000000
+}
+
+#new:String $String_PiefacePostLetterGeneric
+{
+[Style Right]
+[DropShadow]
+How come my face looks so[BR]
+punchable?[Pause:10] Well you see,[Pause:4][BR]
+that's years of hard training[BR]
+bearing fruit right there![BR]
+[/fx]
+[Wait][End]
+}
+
+#new:String $String_PiefacePostLetterGeneric2
+{
+[Style Right]
+[DropShadow]
+Why is this gas station's interior[BR]
+completely empty?[Pause:10] Honestly?[Pause:4][BR]
+No clue! It was already like this[BR]
+when I started working here![BR]
+[Wait][Next]
+I would do something about it[BR]
+but despite there not ever[BR]
+actually anything going on here,[Pause:4][BR]
+I'm still not paid enough to bother![BR]
+[/fx]
+[Wait][End]
+}
+
+#new:String $String_PK_Done
+{
+[Style Right]
+I've delivered many letters[BR]
+in my time but never to a living[BR]
+Cake Mix offspring. I suppose[BR]
+there's a first time for everything.[BR]
+[Wait][End]
+}
+
+#new:String $String_PK_TalkToPastry
+{
+[Style Right]
+Oh,[Pause:2] so you're Pieface,[Pause:2] huh?[BR]
+Well,[Pause:4] I've got a letter for[BR]
+you good...[Pause:10] pastry?[BR]
+Anyway,[Pause:4] one moment please...[BR]
+[Wait][End]
+}
+
+#new:String $String_PiefaceLetter2 {
+[Style Right]
+[DropShadow]
+Oh,[Pause:4] a letter?[Pause:10] For me?[BR]
+Well, let's see here...[BR]
+[Wait][Next]
+Oh! It's my invitation to Smash![BR]
+I always knew the day would come[BR]
+that they would see the potential[BR]
+of my flawless items only style![BR]
+[/fx]
+[Wait][End]
+}
+
+#new:String $String_PiefaceLetter1 % Literally so close to completion I'm once more not gonna care about organizing strings neatly. The data exists that's all I care about
+{
+[Style Right]
+[DropShadow]
+Oh, hey guys. It's me! Pieface! [Wave][NOTE][/fx][BR]
+[Pause:10]...Oh you've never heard of me?[BR]
+Huh,[Pause:4] fair enough.[BR]
+Can I do something for you?[BR]
+[/fx]
+[Wait][End]
+}
+
 #new:String $String_GimmeCard {
 [Style Right]
+[DropShadow]
 Hold on a second...[Pause:10][BR]
 Is that a limited Edition[BR]
 Sudowoodo card?[Pause:10][BR][Wait][Next]
 I'll give you my fire mixtape[BR]
 if you're willing to part with it![BR]
+[/fx]
 [Wait][End]
 }
 
 #new:String $String_GimmeCard_YES {
 [Style Right]
+[DropShadow]
 Ayyyy, thanks guys![BR]
 I'll make sure to take good care[BR]
 of it.[Pause:10] Here's the promised[BR]
 tape,[Pause:4] I hope you like it![BR]
+[/fx]
 [Wait][End]
 }
 
 #new:String $String_GimmeCard_NO {
 [Style Right]
+[DropShadow]
 Aww, that's rough but[BR]
 I understand.[Pause:10] I wouldn't[BR]
 wanna part with such an[BR]
@@ -601,6 +715,7 @@ awesome card either.[BR][Wait][Next]
 Well, you know where to find me[BR]
 if you happen to change your[BR]
 mind though![BR]
+[/fx]
 [Wait][End]
 }
 
