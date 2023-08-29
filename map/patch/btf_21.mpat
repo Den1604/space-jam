@@ -3,7 +3,12 @@
 #define .NpcID:Thamz         00
 
 @ $Script_SetupMusic {
-    Call  SetMusicTrack ( 00000000 .Song:IcedLand 00000000 00000004 )
+    If *MF_btf_21_PutTapeInPlace == .True
+        Call  SetMusicTrack ( 00000000 .Song:IntoThePipe 00000000 00000006 )
+    Else
+        Call  SetMusicTrack ( 00000000 .Song:IcedLand 00000000 00000004 )
+    EndIf
+
 	Call  PlayAmbientSounds  ( .AmbientSounds:Wind )
     Call HidePlayerShadow ( .True )
     Call EnableNpcShadow ( .Npc:Partner .False )
@@ -25,10 +30,85 @@
     Exec $Script_CreateHouse
     Set *MapFlag[003] .False
     Bind $Script_MQNotes .Trigger:WallPressA ~Collider:MQCollider 00000001 00000000
+    BindLock $Script_Quest_InsertTape .Trigger:WallPressA ~Collider:Trigger_Radio $ItemList_Mixtape 00000000 00000001
 	Call MakeItemEntity ( .Item:Pebble ~Vec3d:Pebble .ItemSpawnMode:Fixed_NeverVanish *MF_btf_21_Pebble )
 	Call MakeItemEntity ( .Item:AttackFXB ~Vec3d:AttackFXB .ItemSpawnMode:Fixed_NeverVanish *MF_btf_21_AttackFXB )
     Return
     End
+}
+
+#new:ItemList $ItemList_Mixtape
+{
+	.Item:KootTheTape
+	00000000
+}
+
+#new:Script $Script_Quest_InsertTape {
+
+    Call  DisablePlayerInput    ( .True )
+    Call  ShowKeyChoicePopup ()
+    Call  CloseChoicePopup ( )
+
+    Set   *Var8  *Var0
+   Switch  *Var8
+     	Case  <=  FFFFFFFF
+     	Case  <=  00000000
+            If *MF_btf_21_PutTapeInPlace == .True
+                Call  SpeakToPlayer ( .NpcID:Thamz 00320004 00320001 00000000 $String_ThamzStillHappy )
+            Else
+                Call  ShowMessageAtScreenPos    ( $String_CheckRadio  160`  40` )
+            EndIf
+    	Case  ==  0000005C % Tape
+            Call RemoveKeyItemAt ( *Var[1] )
+            Call  FadeOutMusic  ( 00000000 000001F4 )
+            Call  SetMusicTrack ( 00000000 .Song:IntoThePipe 00000000 00000006 )
+            Call  SpeakToPlayer ( .NpcID:Thamz 00320004 00320001 00000000 $String_ThamzTapeReaction )
+             Set *MF_btf_21_PutTapeInPlace .True
+        Default
+            If *MF_btf_21_PutTapeInPlace == .True
+               Call  SpeakToPlayer ( .NpcID:Thamz 00320004 00320001 00000000 $String_ThamzStillHappy )
+            Else
+                %Call  ShowMessageAtScreenPos    ( $String_YouHaveAJobToDo  160`  40` )
+            EndIf
+    EndSwitch
+    Call  DisablePlayerInput    ( .False )
+Return
+End
+}
+
+#new:String $String_ThamzTapeReaction {
+[Style Right]
+What are you up to now?[BR]
+First you gotta get on my[BR]
+nerves and now you're trying[BR]
+to get on my ears,[Pause:2] too?[BR]
+[Wait][Next]
+[Pause:4]...Wait I know this song.[Pause:4][BR]
+That's my favorite track from[BR]
+Mario Party 2![Pause:10] Heck,[Pause:4] probably one[BR]
+of my favorite N64 tracks period![BR]
+[Wait][Next]
+Y'know, maybe you aren't[BR]
+so bad after all.[BR][Pause:10]
+Thank You.[BR]
+[Wait][End]
+}
+
+#new:String $String_ThamzStillHappy {
+[Style Right]
+Awww yeah, even after all[BR]
+these years this track still[BR]
+has me jamming! [Note][BR]
+[Wait][End]
+}
+
+#new:String $String_CheckRadio {
+[Style Inspect]
+A dusty old Radio with integrated[BR]
+tape player.[BR]
+It looks like it hasn't seen[BR]
+much use in recent years.[BR]
+[Wait][End]
 }
 
 #new:Script $Script_CreateHouse {
