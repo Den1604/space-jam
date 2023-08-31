@@ -40,7 +40,7 @@
       Bind $Script_MarioAndParakarryLeave .Trigger:WallPressA ~Collider:LeaveCollider 00000001 00000000
 	
 	Set *MapFlag[0] .False
-      Set *MapFlag[4] .False
+      Set *MapVar[4] 0`
 	Set *Debug[0] 0`
 	Set *Debug[1] 0`
 	Set *Debug[2] 0`
@@ -550,13 +550,20 @@ End
             EndIf
             Set *MF_btf_20_CanLeave .True
       Else
-            If *MapFlag[4] == .False
-                  Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_PiefacePostLetterGeneric )
-                  Set *MapFlag[4] .True
-            Else
-                  Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_PiefacePostLetterGeneric2 )
-                  Set *MapFlag[4] .False
-            EndIf 
+            Switch *MapVar[4]
+                  Case == 0
+                        Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_PiefacePostLetterGeneric )
+                        Set *MapVar[4] 1
+                  Case == 1
+                        Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_PiefacePostLetterGeneric2 )
+                        Set *MapVar[4] 2
+                  Case == 2
+                        Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_PiefacePostLetterGeneric3 )
+                        Set *MapVar[4] 0
+                  Default
+                        Call SpeakToPlayer ( .NpcID:Pieface 00EA0002 00EA0000 00000000 $String_PiefacePostLetterGenericDefault )
+                        Set *MapVar[4] 0
+            EndSwitch 
       EndIf
 
       Call FindKeyItem ( .Item:ForestPass *Var[1] )
@@ -618,6 +625,18 @@ bearing fruit right there![BR]
 [Wait][End]
 }
 
+#new:String $String_PiefacePostLetterGenericDefault % This should never actually show up but /shrug
+{
+[Style Right]
+[DropShadow]
+Y'know,[Pause:4] I wanted to say something[BR]
+just now, but I can't remember.[BR]
+Maybe ask me again in a second..[Pause:10][BR]
+I can be a real scatterbrain![BR]
+[/fx]
+[Wait][End]
+}
+
 #new:String $String_PiefacePostLetterGeneric2
 {
 [Style Right]
@@ -631,6 +650,22 @@ I would do something about it[BR]
 but despite there not ever[BR]
 anything going on here,[Pause:4] I'm still[BR]
 not paid enough to bother![BR]
+[/fx]
+[Wait][End]
+}
+
+#new:String $String_PiefacePostLetterGeneric3
+{
+[Style Right]
+[DropShadow]
+Ever think about how we all[BR]
+are just tiny in comparison[BR]
+to the cosmos?[Pause:5] I sure do![BR]
+[Wait][Next]
+And let me tell you...[Pause:10][BR]
+If the cosmos ever wants to throw[BR]
+hands because it thinks it's just[BR]
+[Wave]soooo[/fx] much bigger,[Pause:3] I'll be ready![BR]
 [/fx]
 [Wait][End]
 }

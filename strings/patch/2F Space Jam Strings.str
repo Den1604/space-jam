@@ -294,7 +294,7 @@
 	This letter is addressed to[br]
 	someone by the name of...[Pause:15][br]
 	"[Color:07]Pieface[Color:0A]".[Pause:10][br]
-	Let's find em![br]
+	Let's find 'em![br]
 	[Wait][End]
 }
 
@@ -1278,7 +1278,7 @@ that I always saw it as.[BR]
 [Wait][Next]
 Heck, [Pause:4]maybe I'll even nerf[BR]
 Dual Smash further just to[BR]
-prove a point and mess with em'.[BR]
+prove a point and mess with 'em.[BR]
 [Wait][End]
 }
 
@@ -1523,7 +1523,7 @@ for a Screwdriver.[BR][End]
 {
 	[Style Right]
 	...we can just give you[br]
-	the letter, yknow?[br]
+	the letter, y'know?[br]
 	[Wait][End]
 }
 

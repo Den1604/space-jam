@@ -55,3 +55,4 @@
 04C = MF_btf_21_PutTapeInPlace
 04D = MF_btf_24_MerleeFirstText
 04E = MF_btf_06_FinalSendoffFromB
+04F = MF_btf_02_PotentiallyTempPeekaboo
