@@ -2337,12 +2337,6 @@
 						<Vertex xyz="330,0,-580"/>
 						<Vertex xyz="610,100,-580"/>
 						<Vertex xyz="610,0,-580"/>
-						<Vertex xyz="160,0,-700"/>
-						<Vertex xyz="160,100,-580"/>
-						<Vertex xyz="160,0,-580"/>
-						<Vertex xyz="160,0,-700"/>
-						<Vertex xyz="160,100,-700"/>
-						<Vertex xyz="160,100,-580"/>
 					</VertexTable>
 					<TriangleList>
 						<Triangle ijk="0,1,2"/>
@@ -2355,8 +2349,6 @@
 						<Triangle ijk="10,12,13"/>
 						<Triangle ijk="12,14,15"/>
 						<Triangle ijk="12,15,13"/>
-						<Triangle ijk="16,17,18"/>
-						<Triangle ijk="19,20,21"/>
 					</TriangleList>
 				</TriangleBatch>
 			</HitMesh>
