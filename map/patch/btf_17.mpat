@@ -900,10 +900,17 @@ Call SetZoneEnabled ( ~Zone:CamZone_Lookout .True )
 Call ModifyColliderFlags ( 00000000 ~Collider:GogglesCol 7FFFFE00 )
 Call GetPlayerPos ( *Debug[0] *Debug[1] *Debug[2] )
 Call PlayerMoveTo ( 45 90 30` ) % Idk how else to trick the game into updating cam zones and I'm not spending what time we have left debugging this
-Wait 100`
+Wait 15`
+If *MF_btf_17_TalkedToMuskular == .True
+    Call SetEntityHideMode2 ()
+EndIf
+Wait 85`
 Call SetZoneEnabled ( ~Zone:CamZone_Lookout .False )
 Call PlayerMoveTo ( 15 A5 30` ) % And Update once more to shift back
 Wait 20`
+If *MF_btf_17_TalkedToMuskular == .True
+    Call SetEntityHideMode0 ()
+EndIf
 Call ModifyColliderFlags ( 00000001 ~Collider:GogglesCol 7FFFFE00 )
 Call DisablePlayerInput ( .False )
 Return

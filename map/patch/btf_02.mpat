@@ -451,6 +451,8 @@ EndLoop
     Call  MakeEntity    ( .Entity:SimpleSpring ~Vec4d:Trampolol 60` 80000000 )
     Call  MakeEntity    ( .Entity:HiddenRedBlock ~Vec4d:HiddenBlock_2 .Item:AttackFXD 80000000 )
     Call  AssignBlockFlag   ( *MF_btf_02_BlooksLittleSecret )
+    Call  MakeEntity    ( .Entity:RedBlock ~Vec4d:BadgeBlock_1 .Item:Peekaboo 80000000 )
+    Call  AssignBlockFlag   ( *MF_btf_02_PotentiallyTempPeekaboo )
 	Return
 	End
 }

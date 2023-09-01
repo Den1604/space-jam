@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Map name="btf_02" author="unnamed" background="hos_bg" textures="hos_tex">
 	<Editor>
-		<Camera pos="500.000000,156.468567,834.530151" pitch="10.000000" yaw="0.000000"/>
-		<Camera pos="601.199158,65536.000000,314.592834"/>
+		<Camera pos="-6.756812,255.968079,358.978210" pitch="6.959996" yaw="17.440002"/>
+		<Camera pos="311.364868,65536.000000,126.326195"/>
 		<Camera pos="65536.000000,-21.085659,-353.107666"/>
 		<Camera pos="380.274414,-60.151882,65536.000000"/>
 	</Editor>
@@ -107,7 +107,7 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="B">
+		<Node name="Root" id="C">
 			<Node name="Entrances" id="1">
 				<Node name="Entry_0" id="FFFFFFFF"/>
 				<Node name="Entry_1" id="0"/>
@@ -121,6 +121,7 @@
 			<Node name="CamPan" id="8"/>
 			<Node name="ParakarryPos2" id="9"/>
 			<Node name="MarioPos2" id="A"/>
+			<Node name="BadgeBlock_1" id="B"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -8413,7 +8414,7 @@
 			<HitObject type="ROOT"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="boundary_s" id="7"/>
+			<MapObject name="boundary_s" id="7" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8432,7 +8433,7 @@
 			<Camera type="TYPE_2" flag="false" boomLength="450.000000" boomPitch="15.000000" viewPitch="-5.000000" posA="500,325,550" posB="500,402,583" posC="500,0,623"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="boundary_e_cam" id="6"/>
+			<MapObject name="boundary_e_cam" id="6" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8449,7 +8450,7 @@
 			<Camera type="TYPE_2" flag="false" boomLength="450.000000" boomPitch="15.000000" viewPitch="-5.000000" posA="430,430,210" posB="430,283,243" posC="430,0,283"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="boundary_w_cam" id="5"/>
+			<MapObject name="boundary_w_cam" id="5" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8468,7 +8469,7 @@
 			<Camera type="TYPE_2" flag="false" boomLength="450.000000" boomPitch="15.000000" viewPitch="-5.000000" posA="-330,-325,580" posB="-330,402,446" posC="-330,0,353"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="Camera_Main" id="4"/>
+			<MapObject name="Camera_Main" id="4" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8507,7 +8508,7 @@
 			<Camera type="TYPE_0" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="0,10,50" posB="0,10,-50" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="CameraShift_4" id="3"/>
+			<MapObject name="CameraShift_4" id="3" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8528,7 +8529,7 @@
 			<Camera type="TYPE_5" flag="false" boomLength="380.000000" boomPitch="8.000000" viewPitch="-10.000000" posA="932,-900,-425" posB="1229,-800,-440" posC="-377,0,-419"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="CameraShift_3" id="2"/>
+			<MapObject name="CameraShift_3" id="2" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8549,7 +8550,7 @@
 			<Camera type="TYPE_5" flag="false" boomLength="400.000000" boomPitch="12.000000" viewPitch="-10.000000" posA="885,-412,-401" posB="-272,-500,-420" posC="-377,0,-419"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="CameraShift_2" id="1"/>
+			<MapObject name="CameraShift_2" id="1" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8570,7 +8571,7 @@
 			<Camera type="TYPE_5" flag="false" boomLength="550.000000" boomPitch="22.000000" viewPitch="-6.000000" posA="371,-412,-423" posB="110,-500,-424" posC="-412,0,-420"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="CameraShift_1" id="0"/>
+			<MapObject name="CameraShift_1" id="0" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8591,7 +8592,10 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="B"/>
+			<MapObject name="Root" id="C"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="305,190,121" yaw="45.000000">
+			<MapObject name="BadgeBlock_1" id="B"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="519,90,241" yaw="0.000000">
 			<MapObject name="MarioPos2" id="A"/>
