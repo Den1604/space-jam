@@ -2992,8 +2992,13 @@ and start to deliver the letters.
 
 #new:String $String_YouHaveAJobToDo {
 [Style Inspect]
-Maybe you should just get to[BR]
-delivering those letters now.
+You think to yourself how stupidly[BR]
+easy it would be to drop[BR]
+something in there.[BR]
+[Wait][Next]
+Luckily,[Pause:4] the current lack of any[BR]
+drop-worthy items in your pockets[BR]
+puts a stop to those thoughts.[BR]
 [WAIT][END]
 }
 
